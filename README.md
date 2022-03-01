@@ -37,7 +37,7 @@ mountains (Nordic style) and desert/savanna area.
  - Miguel Tamaño Garon: UI, Artist, Coder.
    Github Account: migon25
  - Hang Xue: Music Artist, UI.
-   Github Account: 
+   Github Account: Patronum129
 
 
 ## License
