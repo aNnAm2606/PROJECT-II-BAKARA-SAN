@@ -1,37 +1,50 @@
 ## Welcome to GitHub Pages
 
-You can use the [editor on GitHub](https://github.com/aNnAm2606/PROJECT-II-BAKARA-SAN/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+# ExorQuest:
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Welcome to our 2D Role-playing video game. This game is about 4 characters: Exorcist, Chaman, Priest, Paladin. The fallen angel destroyed the world and underworld balance, opened portals from the underworld, in order to coquer the human world. You will either lose everything including you own life and have to live in constant danger and fear, or clear out this world to live safely. Gathering other demon destoyers and evict underworld creatures from human relarm. Start and travel 4 regions to find the fallen angel and clear the world, but be careful to not lose your head on the way!
 
-### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-```markdown
-Syntax highlighted code block
+![](https://lh3.googleusercontent.com/dr7dFv4rVDi_EIp49WDwyDWJgOWmgGpCsRYSCcEMAVOTecA6mZusKGiDjBwsdcg3BUpVMA=s1500)
 
-# Header 1
-## Header 2
-### Header 3
 
-- Bulleted
-- List
 
-1. Numbered
-2. List
 
-**Bold** and _Italic_ and `Code` text
+# About us:
+"Bakara~san" is a group of 7 students in Video Game Design and Development degree. Here are our roles and GitHub links:
 
-[Link](url) and ![Image](src)
-```
+![](https://lh3.googleusercontent.com/lF8qJxxcNTivmiEHc15zFkiTu-xrdcoEsCCOhaY22BUMo0E-5MEGfvOt901crCo-7R29xA=s5000)
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+- Jose Antonio Atencia Ordóñez. Github Account: [JedTyde](https://github.com/JedTyde)  
 
-### Jekyll Themes
+              - Game Designer, Q&A.   
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/aNnAm2606/PROJECT-II-BAKARA-SAN/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+- Fernando Freixinet Garcia. Github Account: [rastabrandy02](https://github.com/rastabrandy02)
+   
 
-### Support or Contact
+              - Game Designer, Coder.  
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+- Pau García Quiroga. Github Account: [PaGaQi](https://github.com/PaGaQi)
+
+              - Game Designer.  
+
+
+- Pablo Llorente del Castillo. Github Account: [Xymaru](https://github.com/Xymaru)
+
+              - Lead Coder.   
+
+- Anna Metreveli. Github Account: [aNnAm26](https://github.com/aNnAm26)
+
+              - Team Leader, Lead Artist, Managment.   
+
+
+- Miguel Tamaño Garon. Github Account: [migon25](https://github.com/migon25)
+
+              - UI, Artist, Coder.   
+
+- Hang Xue. Github Account:  [Patronum129](https://github.com/Patronum129) 
+
+              - Music Artist, UI.
+
+
