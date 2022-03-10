@@ -28,7 +28,7 @@ mountains (Nordic style) and desert/savanna area.
    Github Account: JedTyde
  - Fernando Freixinet Garcia: Game Designer, Coder.
    Github Account: rastabrandy02
- - Pau García Quiroga: Game Designer.
+ - Pau García Quiroga: Game Designer, Writer.
    Github Account: PaGaQi
  - Pablo Llorente del Castillo: Lead Coder.
    Github Account: Xymaru
