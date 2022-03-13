@@ -1,0 +1,41 @@
+Session 1.
+
+Date: 28/02/2022
+
+Start time: 13:00 pm.
+
+End time: 13:30 pm
+
+Topics discussed:
+	- Game style decided. Core game pillars and the basic structure of the game (linear map, puzzles, etc)
+discussed and decided.
+	- Github Project II set up with template and wiki.
+
+Session 2.
+
+Date: 06/03/2022
+
+Start time: 20:00 pm.
+
+End time: 21:00 pm.
+
+Topics discussed:
+	- Characters. 
+	- Items assets decided.
+	- Enemies desided.
+	- Character assets decided.
+	- Main plot started.
+
+Session 3.
+
+Date: 01/03/2021
+
+Start time: 13:00 pm.
+
+End time: 14:00 pm.
+
+Topics discussed:
+	- Game designers explained the story line and plot.
+	- Main assets decided. 
+	- Weapons decided.
+	- Key features decided.
