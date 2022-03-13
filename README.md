@@ -2,21 +2,18 @@
 
 ## Description
 
-2D Role-playing video game. Our game will include 4 playble characters: Exorcist, Chaman, Priest, Paladin.
-The boss demon, who destroyed the world and underworld balance, opened portals from the underworld, 
-in order to coquer the human world, protagonist will either lose everything including his own life and have
-to live in constant danger and fear, or clear out his world to live safely, by gathering other demon destoyers and
-evicting underworld creatures from human relarm. Start region (European medieval style village) and 4 travel 
-regions, which include Castle on top of the mountains, temple surrounded by sakura blossoms, lake near the 
-mountains (Nordic style) and desert/savanna area. 
+ExorQuest is a 2D Turn-based RPG with strategy elements.
 
+The world of ExorQuest is one of religion and mysticism, where demons and spirits are an objective fact. In this world, there are 4 Kingdoms: Primus Mundis, The Land of Faith; Nikoku, The Land of Tradition; Mintredje, The Land of Brotherhood; and Isiné, The Land of Creation. These four Kingdoms lived in peace, each venerating their own Gods, and fighting evil in their unique ways. One day, the arrival of a strange merchant and his powerful inventions put this peace in danger. These fateful inventions, named "Soul Relics", ended up letting the creatures of the underworld free, giving demons, spirits and ghouls complete acces to our world, and raging a war which noone was prepared for. It's up to the 4 brave exorcists to clean up this mess, and to destroy the four Demonic Kings that have taken control of the regions.
+
+Gameplay-wise, ExorQuest isn't your standard RPG. The turn-based combat takes position into account, using a 4x2 grid. When attacking and taking defense in this grid, you'll need to take your position into account, as well as the position of your party members and enemies. Beating enemies with this combat system is so satisfying!
 
 ## Key Features
 
- - {Feature01}
- - {Feature02}
- - {Feature03}
- - {Feature04}
+ - Positional Movement in Combat! 
+ - Soul Relics - a way to spice up combat encounters with a bit of personalization.
+ - Boss Relics - these powerful relics will do massive damage in combat
+ - Possessed State - be careful! Some corrupted relics might give you a lot of power, but you'll lose control if you use them too often!
  
 ## Controls
 
