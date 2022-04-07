@@ -6,6 +6,7 @@
 #include "Audio.h"
 #include "Scene.h"
 
+#include "PerfTimer.h"
 #include "Defs.h"
 #include "Log.h"
 
@@ -34,6 +35,9 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 
 	// Render last to swap buffer
 	AddModule(render);
+
+	frameDuration = new PerfTimer();
+	maxFrameRate = 60;
 }
 
 // Destructor
@@ -150,12 +154,40 @@ bool App::LoadConfig()
 // ---------------------------------------------
 void App::PrepareUpdate()
 {
+	frameCount++;
+	lastSecFrameCount++;
+
+	// Calculate the dt: differential time since last frame
+	dt = frameDuration->ReadMs();
+	frameDuration->Start();
 }
 
 // ---------------------------------------------
 void App::FinishUpdate()
 {
 	// This is a good place to call Load / Save functions
+	float secondsSinceStartup = startupTime.ReadSec();
+
+	if (lastSecFrameTime.Read() > 1000) {
+		lastSecFrameTime.Start();
+		framesPerSecond = lastSecFrameCount;
+		lastSecFrameCount = 0;
+		averageFps = (averageFps + framesPerSecond) / 2;
+	}
+
+	static char title[256];
+	sprintf_s(title, 256, "BAKARA-SAN PROJECT - Av.FPS: %.2f Last sec frames: %i Last dt: %.3f Time since startup: %.3f Frame Count: %I64u ",
+		averageFps, framesPerSecond, dt, secondsSinceStartup, frameCount);
+	dtSeconds = dt / 1000;
+
+	float delay = float(1000 / maxFrameRate) - frameDuration->ReadMs();
+	
+	PerfTimer* delayt = new PerfTimer();
+	delayt->Start();
+	if (maxFrameRate > 0 && delay > 0) SDL_Delay(delay);
+	LOG("Expected %f milliseconds and the real delay is % f", delay, delayt->ReadMs());
+
+	app->win->SetTitle(title);
 }
 
 // Call modules before each loop iteration
