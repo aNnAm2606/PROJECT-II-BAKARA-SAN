@@ -3,7 +3,6 @@
   <ItemGroup>
     <ClCompile Include="Source\Window.cpp" />
     <ClCompile Include="Source\Textures.cpp" />
-    <ClCompile Include="Source\Scene.cpp" />
     <ClCompile Include="Source\Render.cpp" />
     <ClCompile Include="Source\Main.cpp" />
     <ClCompile Include="Source\Input.cpp" />
@@ -17,11 +16,42 @@
     </ClCompile>
     <ClCompile Include="Source\PerfTimer.cpp" />
     <ClCompile Include="Source\Timer.cpp" />
+    <ClCompile Include="Source\PlayerModule.cpp" />
+    <ClCompile Include="Source\BattleModule.cpp" />
+    <ClCompile Include="Source\Chaman.cpp">
+      <Filter>Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Character.cpp">
+      <Filter>Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Paladin.cpp">
+      <Filter>Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Ability.cpp">
+      <Filter>Abilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Gargoyle.cpp">
+      <Filter>Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FallenAngel.cpp">
+      <Filter>Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\BasicFrontRowHit.cpp">
+      <Filter>Abilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\BasicBackRowHit.cpp">
+      <Filter>Abilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Enemy.cpp">
+      <Filter>Characters</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Window.h" />
     <ClInclude Include="Source\Textures.h" />
-    <ClInclude Include="Source\Scene.h" />
     <ClInclude Include="Source\Render.h" />
     <ClInclude Include="Source\Module.h" />
     <ClInclude Include="Source\Input.h" />
@@ -56,6 +86,41 @@
     </ClInclude>
     <ClInclude Include="Source\PerfTimer.h" />
     <ClInclude Include="Source\Timer.h" />
+    <ClInclude Include="Source\PlayerModule.h" />
+    <ClInclude Include="Source\BattleModule.h" />
+    <ClInclude Include="Source\Character.h">
+      <Filter>Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Chaman.h">
+      <Filter>Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Paladin.h">
+      <Filter>Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Ability.h">
+      <Filter>Abilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Gargoyle.h">
+      <Filter>Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\FallenAngel.h">
+      <Filter>Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\BasicFrontRowHit.h">
+      <Filter>Abilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\BasicBackRowHit.h">
+      <Filter>Abilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Enemy.h">
+      <Filter>Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\PQueue.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">
@@ -66,6 +131,15 @@
     </Filter>
     <Filter Include="External\PugiXml">
       <UniqueIdentifier>{2855ff7f-53a1-413d-a75b-18b4ade921dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Characters">
+      <UniqueIdentifier>{0200e0a6-e7cd-4ce5-92aa-21ade0d3f497}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scenes">
+      <UniqueIdentifier>{f7d43be4-7377-4ccc-a118-71fe89ff169c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Abilities">
+      <UniqueIdentifier>{52b2a0b4-b5b6-449e-a85e-4da5e75469a0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

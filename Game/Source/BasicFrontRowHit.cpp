@@ -1,0 +1,34 @@
+#include "BasicFrontRowHit.h"
+#include "App.h"
+#include "Textures.h"
+#include "Render.h"
+#include "BattleModule.h"
+
+BasicFrontRowHit::BasicFrontRowHit(Character* character) : Ability(character)
+{
+	
+}
+
+BasicFrontRowHit::~BasicFrontRowHit()
+{
+}
+
+void BasicFrontRowHit::Execute()
+{
+	iPoint position;
+	
+	if (p_Character->IsPlayer()) {
+		position.x = 0;
+		for (int y = 0; y < GRID_HEIGHT; y++) {
+			position.y = y;
+			app->battleModule->DamageEnemyAt(position, p_Character->GetDamage());
+		}
+	}
+	else {
+		position.x = 1;
+		for (int y = 0; y < GRID_HEIGHT; y++) {
+			position.y = y;
+			app->battleModule->DamagePlayerAt(position, p_Character->GetDamage());
+		}
+	}
+}
