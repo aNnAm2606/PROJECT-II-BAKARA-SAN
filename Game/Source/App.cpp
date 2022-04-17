@@ -1,9 +1,16 @@
 #include "App.h"
+
+// Main modules
 #include "Window.h"
 #include "Input.h"
 #include "Render.h"
 #include "Textures.h"
 #include "Audio.h"
+
+// Battle modules
+#include "BattleModule.h"
+
+// Scenes
 #include "Scene.h"
 
 #include "PerfTimer.h"
@@ -18,19 +25,32 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 {
 	frames = 0;
 
+	// Main modules
 	win = new Window();
 	input = new Input();
 	render = new Render();
 	tex = new Textures();
 	audio = new Audio();
+
+	// Game modules
+	battleModule = new BattleModule();
+
+	// Scenes
 	scene = new Scene();
 
 	// Ordered for awake / Start / Update
 	// Reverse order of CleanUp
+
+	// Main modules
 	AddModule(win);
 	AddModule(input);
 	AddModule(tex);
 	AddModule(audio);
+
+	// Game modules
+	AddModule(battleModule);
+
+	// Scenes
 	AddModule(scene);
 
 	// Render last to swap buffer

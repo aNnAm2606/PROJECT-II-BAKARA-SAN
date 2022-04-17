@@ -1,21 +1,19 @@
-#ifndef __SCENE_H__
-#define __SCENE_H__
+#ifndef __PLAYER_MODULE_H__
+#define __PLAYER_MODULE_H__
 
 #include "Module.h"
+#include "SDL/include/SDL.h"
 
-struct SDL_Texture;
-
-class Scene : public Module
+class PlayerModule : public Module
 {
 public:
-
-	Scene();
+	PlayerModule();
 
 	// Destructor
-	virtual ~Scene();
+	virtual ~PlayerModule();
 
 	// Called before render is available
-	bool Awake(pugi::xml_node& config);
+	bool Awake();
 
 	// Called before the first frame
 	bool Start();
@@ -33,7 +31,8 @@ public:
 	bool CleanUp();
 
 private:
-	SDL_Texture* img;
+	SDL_Texture* playerSheet;
+	SDL_Rect playerRect;
 };
 
 #endif // __SCENE_H__
