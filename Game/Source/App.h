@@ -15,7 +15,10 @@ class Render;
 class Textures;
 class Audio;
 class BattleModule;
-class Scene;
+class LogoScreen;
+class TitleScreen;
+class FadeToBlack;
+class GuiManager;
 
 class App
 {
@@ -77,7 +80,10 @@ public:
 	Textures* tex;
 	Audio* audio;
 	BattleModule* battleModule;
-	Scene* scene;
+	LogoScreen* logoScreen;
+	TitleScreen* titleScreen;
+	FadeToBlack* fade;
+	GuiManager* guiManager;
 
 private:
 

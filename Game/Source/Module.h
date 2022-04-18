@@ -6,6 +6,7 @@
 #include "PugiXml/src/pugixml.hpp"
 
 class App;
+class GuiControl;
 
 class Module
 {
@@ -54,6 +55,29 @@ public:
 	virtual bool CleanUp()
 	{
 		return true;
+	}
+
+	virtual bool OnGuiMouseClickEvent(GuiControl* control)
+	{
+		return true;
+	}
+
+	void Module::Enable()
+	{
+		if (!active)
+		{
+			active = true;
+			Start();
+		}
+	}
+
+	void Module::Disable()
+	{
+		if (active)
+		{
+			active = false;
+			CleanUp();
+		}
 	}
 
 public:
