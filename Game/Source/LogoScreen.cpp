@@ -4,22 +4,23 @@
 #include "Audio.h"
 #include "Render.h"
 #include "Window.h"
-#include "Scene.h"
+#include "LogoScreen.h"
+#include "FadeToBlack.h"
 
 #include "Defs.h"
 #include "Log.h"
 
-Scene::Scene() : Module()
+LogoScreen::LogoScreen() : Module()
 {
-	name.Create("scene");
+	name.Create("LogoScreen");
 }
 
 // Destructor
-Scene::~Scene()
+LogoScreen::~LogoScreen()
 {}
 
 // Called before render is available
-bool Scene::Awake(pugi::xml_node& config)
+bool LogoScreen::Awake(pugi::xml_node& config)
 {
 	LOG("Loading Scene");
 	bool ret = true;
@@ -28,21 +29,22 @@ bool Scene::Awake(pugi::xml_node& config)
 }
 
 // Called before the first frame
-bool Scene::Start()
+bool LogoScreen::Start()
 {
 	/*img = app->tex->Load("Assets/Textures/test.png");
 	app->audio->PlayMusic("Assets/Audio/Music/music_spy.ogg");*/
+	logoScreen = app->tex->Load("Assets/Art/GUI/logo.png");
 	return true;
 }
 
 // Called each loop iteration
-bool Scene::PreUpdate()
+bool LogoScreen::PreUpdate()
 {
 	return true;
 }
 
 // Called each loop iteration
-bool Scene::Update(float dt)
+bool LogoScreen::Update(float dt)
 {
 	if(app->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
 		app->render->camera.y -= 1;
@@ -63,20 +65,24 @@ bool Scene::Update(float dt)
 }
 
 // Called each loop iteration
-bool Scene::PostUpdate()
+bool LogoScreen::PostUpdate()
 {
 	bool ret = true;
 
+	app->render->DrawTexture(logoScreen, 0, 0, NULL);
+
 	if(app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
 		ret = false;
+
+	if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN) app->fade->Fade(this, (Module*)app->titleScreen);
 
 	return ret;
 }
 
 // Called before quitting
-bool Scene::CleanUp()
+bool LogoScreen::CleanUp()
 {
 	LOG("Freeing scene");
-
+	app->tex->UnLoad(logoScreen);
 	return true;
 }

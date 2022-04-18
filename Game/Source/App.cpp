@@ -6,12 +6,15 @@
 #include "Render.h"
 #include "Textures.h"
 #include "Audio.h"
+#include "FadeToBlack.h"
+#include "GuiManager.h"
 
 // Battle modules
 #include "BattleModule.h"
 
 // Scenes
-#include "Scene.h"
+#include "LogoScreen.h"
+#include "TitleScreen.h"
 
 #include "PerfTimer.h"
 #include "Defs.h"
@@ -31,12 +34,15 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	render = new Render();
 	tex = new Textures();
 	audio = new Audio();
+	fade = new FadeToBlack();
+	guiManager = new GuiManager();
 
 	// Game modules
 	battleModule = new BattleModule();
 
 	// Scenes
-	scene = new Scene();
+	logoScreen = new LogoScreen();
+	titleScreen = new TitleScreen();
 
 	// Ordered for awake / Start / Update
 	// Reverse order of CleanUp
@@ -46,12 +52,17 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(input);
 	AddModule(tex);
 	AddModule(audio);
+	AddModule(guiManager);
 
 	// Game modules
-	AddModule(battleModule);
+	//AddModule(battleModule);
 
 	// Scenes
-	AddModule(scene);
+	AddModule(titleScreen);
+	//AddModule(logoScreen);
+
+	// FadeToBlack
+	AddModule(fade);
 
 	// Render last to swap buffer
 	AddModule(render);

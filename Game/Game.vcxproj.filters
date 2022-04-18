@@ -24,9 +24,6 @@
     <ClCompile Include="Source\Character.cpp">
       <Filter>Characters</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Scene.cpp">
-      <Filter>Scenes</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Paladin.cpp">
       <Filter>Characters</Filter>
     </ClCompile>
@@ -47,6 +44,31 @@
     </ClCompile>
     <ClCompile Include="Source\Enemy.cpp">
       <Filter>Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FadeToBlack.cpp" />
+    <ClCompile Include="Source\TitleScreen.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\LogoScreen.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GuiButton.cpp">
+      <Filter>GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GuiManager.cpp">
+      <Filter>GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GuiPanel.cpp">
+      <Filter>GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GuiSlider.cpp">
+      <Filter>GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GuiToggle.cpp">
+      <Filter>GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\TitlePanel.cpp">
+      <Filter>GUI\Panels</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -94,9 +116,6 @@
     <ClInclude Include="Source\Chaman.h">
       <Filter>Characters</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Scene.h">
-      <Filter>Scenes</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Paladin.h">
       <Filter>Characters</Filter>
     </ClInclude>
@@ -121,6 +140,40 @@
     <ClInclude Include="Source\PQueue.h">
       <Filter>Utils</Filter>
     </ClInclude>
+    <ClInclude Include="Source\FadeToBlack.h" />
+    <ClInclude Include="Source\TitleScreen.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Animation.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\p2List.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\LogoScreen.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GuiButton.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GuiControl.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GuiManager.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GuiPanel.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GuiSlider.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GuiToggle.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\TitlePanel.h">
+      <Filter>GUI\Panels</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">
@@ -140,6 +193,12 @@
     </Filter>
     <Filter Include="Abilities">
       <UniqueIdentifier>{52b2a0b4-b5b6-449e-a85e-4da5e75469a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GUI">
+      <UniqueIdentifier>{8eafa809-0cbe-40d3-8e02-74261e975ebf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GUI\Panels">
+      <UniqueIdentifier>{402f6da4-10ca-482c-b176-0cc054949086}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

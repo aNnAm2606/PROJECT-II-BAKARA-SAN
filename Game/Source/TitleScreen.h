@@ -1,18 +1,18 @@
-#ifndef __SCENE_H__
-#define __SCENE_H__
+#ifndef __TITLESCREEN_H__
+#define __TITLESCREEN_H__
 
 #include "Module.h"
 
 struct SDL_Texture;
 
-class Scene : public Module
+class TitleScreen : public Module
 {
 public:
 
-	Scene();
+	TitleScreen();
 
 	// Destructor
-	virtual ~Scene();
+	virtual ~TitleScreen();
 
 	// Called before render is available
 	bool Awake(pugi::xml_node& config);
@@ -33,7 +33,10 @@ public:
 	bool CleanUp();
 
 private:
-	SDL_Texture* img;
+	SDL_Texture* bg;
+
+public:
+	bool startGame = false;
 };
 
-#endif // __SCENE_H__
+#endif // __TITLESCREEN_H__
