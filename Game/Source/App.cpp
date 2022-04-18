@@ -59,7 +59,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 
 	// Scenes
 	AddModule(titleScreen);
-	//AddModule(logoScreen);
+	AddModule(logoScreen);
 
 	// FadeToBlack
 	AddModule(fade);
