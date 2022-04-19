@@ -52,7 +52,7 @@ public:
 	//Gui textures Used
 	SDL_Texture* titleButtons = nullptr;
 	SDL_Texture* settingsBox = nullptr;
-	SDL_Texture* exitBox = nullptr;
+	SDL_Texture* quitBox = nullptr;
 
 	int mainFont;
 	int numberFont;
@@ -62,7 +62,7 @@ public:
 	//gui panels used in the game
 	GuiPanel* titlePanel;
 	GuiPanel* settingsPanel;
-	GuiPanel* exitPanel;
+	GuiPanel* quitPanel;
 
 	GuiState lastPanel;
 

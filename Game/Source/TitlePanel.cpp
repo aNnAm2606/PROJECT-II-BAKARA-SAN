@@ -12,35 +12,40 @@ TitlePanel::TitlePanel(bool active) : GuiPanel(active)
 
 TitlePanel::~TitlePanel()
 {
+
 }
 
 bool TitlePanel::Start()
 {
-
     startBtn = (GuiButton*)CreateGuiButton(0, app->guiManager, this, { 950 ,400,81,31 }, "Start New Game");
     startBtn->texture = app->guiManager->titleButtons;
     startBtn->normalRec = { 15,15,81,31 };
     startBtn->focusedRec = { 15,50,81,31 };
     startBtn->pressedRec = { 15,15,81,31 };
 
-    continueBtn = (GuiButton*)CreateGuiButton(1, app->guiManager, this, { 950, 460, 170,60 }, "Continue Game");
+    continueBtn = (GuiButton*)CreateGuiButton(1, app->guiManager, this, { 950, 450, 126, 31 }, "Continue Game");
     continueBtn->texture = app->guiManager->titleButtons;
     continueBtn->normalRec = { 130,15,126,32 };
     continueBtn->focusedRec = { 130,50,126,32 };
     continueBtn->pressedRec = { 130,15,126,32 };
 
+    settingsBtn = (GuiButton*)CreateGuiButton(2, app->guiManager, this, { 950, 500, 120, 34 }, "Settings");
+    settingsBtn->texture = app->guiManager->titleButtons;
+    settingsBtn->normalRec = { 285,17,120,34 };
+    settingsBtn->focusedRec = { 285,50,120,34 };
+    settingsBtn->pressedRec = { 285,17,120,34 };
 
-    //settingsBtn = (GuiButton*)CreateGuiButton(2, app->guiManager, this, { this->position.x + 555, this->position.y + 370, 170,60 }, "Settings");
-    //settingsBtn->texture = app->guiManager->settingsBox;
-    //settingsBtn->normalRec = { 0,0,170,60 };
-    //settingsBtn->focusedRec = { 0,120,170,60 };
-    //settingsBtn->pressedRec = { 0,59,170,60 };
+    creditsBtn = (GuiButton*)CreateGuiButton(3, app->guiManager, this, { 950, 550, 106, 28 }, "Credits");
+    creditsBtn->texture = app->guiManager->titleButtons;
+    creditsBtn->normalRec = { 521,21,106,28 };
+    creditsBtn->focusedRec = { 521,52,106,28 };
+    creditsBtn->pressedRec = { 521,21,106,28 };
 
-    //quitBtn = (GuiButton*)CreateGuiButton(3, app->guiManager, this, { this->position.x + 555, this->position.y + 460, 170,60 }, "Quit Game");
-    //quitBtn->texture = app->guiManager->exitBox;
-    //quitBtn->normalRec = { 0,0,170,60 };
-    //quitBtn->focusedRec = { 0,120,170,60 };
-    //quitBtn->pressedRec = { 0,59,170,60 };
+    quitBtn = (GuiButton*)CreateGuiButton(4, app->guiManager, this, { 950, 600, 66, 32 }, "Quit Game");
+    quitBtn->texture = app->guiManager->titleButtons;
+    quitBtn->normalRec = { 432,19,66,32 };
+    quitBtn->focusedRec = { 432,52,66,32 };
+    quitBtn->pressedRec = { 432,19,66,32 };
 
     return true;
 }
@@ -67,19 +72,22 @@ bool TitlePanel::OnGuiMouseClickEvent(GuiControl* control)
 {
     if(control->id == startBtn->id)
     {
-       /* app->levelManagement->gameState = GameState::THE_FALL;*/
-      /*  app->fade->Fade((Module*)app->titleScreen, (Module*)app->logoScreen);*/
         app->titleScreen->startGame = true;
     }
-    //else if (control->id == bt_loadGame->id)
-    //{
-    //    //load Game
-    //}
-    //else if (control->id == bt_settings->id)
-    //{
-    //    app->guiManager->pn_settings->Enable();
-    //    app->guiManager->pn_start->Disable();
-    //}
+    else if (control->id == continueBtn->id)
+    {
+        //load Game
+    }
+    else if (control->id == settingsBtn->id)
+    {
+        app->guiManager->settingsPanel->Enable();
+        app->guiManager->titlePanel->Disable();
+    }
+    else if (control->id == quitBtn->id)
+    {
+        app->guiManager->quitPanel->Enable();
+        app->guiManager->titlePanel->Disable();
+    }
     //else if (control->id == bt_quit->id)
     //{
     //    //close game

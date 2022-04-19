@@ -14,10 +14,11 @@ public:
 
 	bool OnGuiMouseClickEvent(GuiControl* control) override;
 
-
+	// Buttons
 	GuiButton* startBtn;
 	GuiButton* continueBtn;
 	GuiButton* settingsBtn;
+	GuiButton* creditsBtn;
 	GuiButton* quitBtn;
 
 };
