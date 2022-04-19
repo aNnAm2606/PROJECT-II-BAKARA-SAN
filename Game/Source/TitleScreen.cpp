@@ -32,8 +32,7 @@ bool TitleScreen::Awake(pugi::xml_node& config)
 // Called before the first frame
 bool TitleScreen::Start()
 {
-	/*img = app->tex->Load("Assets/Textures/test.png");
-	app->audio->PlayMusic("Assets/Audio/Music/music_spy.ogg");*/
+	//app->audio->PlayMusic("Assets/Audio/Music/world_map.ogg");
 	bg = app->tex->Load("Assets/Art/GUI/TitlescreenBg.png");
 	app->guiManager->titlePanel->Enable();
 
@@ -78,6 +77,11 @@ bool TitleScreen::PostUpdate()
 	if (startGame == true) 
 		app->fade->Fade(this, (Module*)app->logoScreen);
 
+	if(app->guiManager->settingsPanel->GetActive() == false && app->guiManager->quitPanel->GetActive() == false)
+		app->guiManager->titlePanel->Enable();
+	else
+		app->guiManager->titlePanel->Disable();
+
 	return ret;
 }
 
@@ -87,5 +91,7 @@ bool TitleScreen::CleanUp()
 	LOG("Freeing scene");
 	app->tex->UnLoad(bg);
 	app->guiManager->titlePanel->Disable();
+	app->guiManager->settingsPanel->Disable();
+	app->guiManager->quitPanel->Disable();
 	return true;
 }
