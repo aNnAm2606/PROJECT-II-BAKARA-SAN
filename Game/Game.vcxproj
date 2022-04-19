@@ -101,6 +101,7 @@
     <ClCompile Include="Source\BattleModule.cpp" />
     <ClCompile Include="Source\Chaman.cpp" />
     <ClCompile Include="Source\Character.cpp" />
+    <ClCompile Include="Source\Credits.cpp" />
     <ClCompile Include="Source\Enemy.cpp" />
     <ClCompile Include="Source\FadeToBlack.cpp" />
     <ClCompile Include="Source\FallenAngel.cpp" />
@@ -133,6 +134,7 @@
     <ClInclude Include="Source\BattleModule.h" />
     <ClInclude Include="Source\Chaman.h" />
     <ClInclude Include="Source\Character.h" />
+    <ClInclude Include="Source\Credits.h" />
     <ClInclude Include="Source\Enemy.h" />
     <ClInclude Include="Source\FadeToBlack.h" />
     <ClInclude Include="Source\FallenAngel.h" />

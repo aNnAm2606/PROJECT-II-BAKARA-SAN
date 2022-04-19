@@ -53,6 +53,8 @@ public:
 	SDL_Texture* titleButtons = nullptr;
 	SDL_Texture* settingsBox = nullptr;
 	SDL_Texture* quitBox = nullptr;
+	SDL_Texture* credits = nullptr;
+	SDL_Texture* pauseBox = nullptr;
 
 	int mainFont;
 	int numberFont;
@@ -63,6 +65,8 @@ public:
 	GuiPanel* titlePanel;
 	GuiPanel* settingsPanel;
 	GuiPanel* quitPanel;
+	GuiPanel* creditsPanel;
+	GuiPanel* pausePanel;
 
 	GuiState lastPanel;
 

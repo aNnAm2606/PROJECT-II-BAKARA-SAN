@@ -77,7 +77,7 @@ bool TitleScreen::PostUpdate()
 	if (startGame == true) 
 		app->fade->Fade(this, (Module*)app->logoScreen);
 
-	if(app->guiManager->settingsPanel->GetActive() == false && app->guiManager->quitPanel->GetActive() == false)
+	if(app->guiManager->settingsPanel->GetActive() == false && app->guiManager->quitPanel->GetActive() == false && app->guiManager->creditsPanel->GetActive() == false)
 		app->guiManager->titlePanel->Enable();
 	else
 		app->guiManager->titlePanel->Disable();

@@ -76,6 +76,9 @@
     <ClCompile Include="Source\QuitPanel.cpp">
       <Filter>GUI\Panels</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Credits.cpp">
+      <Filter>GUI\Panels</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Window.h" />
@@ -184,6 +187,9 @@
       <Filter>GUI\Panels</Filter>
     </ClInclude>
     <ClInclude Include="Source\QuitPanel.h">
+      <Filter>GUI\Panels</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Credits.h">
       <Filter>GUI\Panels</Filter>
     </ClInclude>
   </ItemGroup>

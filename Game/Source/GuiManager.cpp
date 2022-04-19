@@ -5,11 +5,11 @@
 #include "Render.h"
 #include "Audio.h"
 
-//add all panels here
+// Panels.h
 #include "TitlePanel.h"
 #include "SettingsPanel.h"
 #include "QuitPanel.h"
-
+#include "Credits.h"
 
 GuiManager::GuiManager() :Module()
 {
@@ -25,12 +25,11 @@ bool GuiManager::Awake(pugi::xml_node&)
 
 bool GuiManager::Start()
 {
-	// Textures
+	// Panel Images
 	titleButtons = app->tex->Load("Assets/Art/GUI/titleButtons.png");
-
-	// Texture Panels
 	settingsBox = app->tex->Load("Assets/Art/GUI/settingsBox.png");
 	quitBox = app->tex->Load("Assets/Art/GUI/exitBox.png");
+	credits = app->tex->Load("Assets/Art/GUI/credits.png");
 
 	// Audio for buttons
 	//app->audio->LoadFx("Assets/audio/fx/buttonFocus.wav");
@@ -41,10 +40,12 @@ bool GuiManager::Start()
 	titlePanel = new TitlePanel(false);
 	settingsPanel = new SettingsPanel(false);
 	quitPanel = new QuitPanel(false);
+	creditsPanel = new Credits(false);
 
 	panels.add(titlePanel);
 	panels.add(settingsPanel);
 	panels.add(quitPanel);
+	panels.add(creditsPanel);
 
 	//init panels
 	p2ListItem<GuiPanel*>* panel = panels.start;
@@ -133,6 +134,7 @@ bool GuiManager::CleanUp()
 	titleButtons = nullptr;
 	settingsBox = nullptr;
 	quitBox = nullptr;
+	credits = nullptr;
 
 	return true;
 }
