@@ -88,11 +88,11 @@ bool TitlePanel::OnGuiMouseClickEvent(GuiControl* control)
         app->guiManager->quitPanel->Enable();
         app->guiManager->titlePanel->Disable();
     }
-    //else if (control->id == bt_quit->id)
-    //{
-    //    //close game
-
-    //}
+    else if (control->id == creditsBtn->id)
+    {
+        app->guiManager->creditsPanel->Enable();
+        app->guiManager->titlePanel->Disable();
+    }
 
     return true;
 }
