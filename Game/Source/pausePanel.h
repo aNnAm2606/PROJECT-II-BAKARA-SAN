@@ -1,11 +1,11 @@
 #pragma once
 #include "GuiPanel.h"
-class Credits : public GuiPanel
+class pausePanel : public GuiPanel
 {
 
 public:
-	Credits(bool active);
-	~Credits();
+	pausePanel(bool active);
+	~pausePanel();
 
 	bool Start() override;
 	bool Update(float dt, bool doLogic) override;
