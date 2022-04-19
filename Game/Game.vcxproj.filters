@@ -70,6 +70,12 @@
     <ClCompile Include="Source\TitlePanel.cpp">
       <Filter>GUI\Panels</Filter>
     </ClCompile>
+    <ClCompile Include="Source\SettingsPanel.cpp">
+      <Filter>GUI\Panels</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\QuitPanel.cpp">
+      <Filter>GUI\Panels</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Window.h" />
@@ -172,6 +178,12 @@
       <Filter>GUI</Filter>
     </ClInclude>
     <ClInclude Include="Source\TitlePanel.h">
+      <Filter>GUI\Panels</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SettingsPanel.h">
+      <Filter>GUI\Panels</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\QuitPanel.h">
       <Filter>GUI\Panels</Filter>
     </ClInclude>
   </ItemGroup>

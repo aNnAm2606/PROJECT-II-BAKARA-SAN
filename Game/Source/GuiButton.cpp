@@ -114,7 +114,6 @@ bool GuiButton::Draw(Render* render)
 	} break;
 	case GuiControlState::PRESSED:
 	{
-	
 		if (app->guiManager->Debug)
 			render->DrawRectangle(bounds, 255, 255, 255, 255);
 
