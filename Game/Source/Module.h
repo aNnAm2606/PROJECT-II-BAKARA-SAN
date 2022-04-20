@@ -79,7 +79,7 @@ public:
 			CleanUp();
 		}
 	}
-
+	
 	bool IsEnabled() const
 	{
 		return isEnabled;

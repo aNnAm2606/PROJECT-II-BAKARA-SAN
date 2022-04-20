@@ -122,12 +122,15 @@
     <ClCompile Include="Source\PlayerModule.cpp" />
     <ClCompile Include="Source\QuitPanel.cpp" />
     <ClCompile Include="Source\SettingsPanel.cpp" />
+    <ClCompile Include="Source\StartForestScene.cpp" />
     <ClCompile Include="Source\TitlePanel.cpp" />
     <ClCompile Include="Source\TitleScreen.cpp" />
     <ClCompile Include="Source\LogoScreen.cpp" />
     <ClCompile Include="Source\Render.cpp" />
     <ClCompile Include="Source\Textures.cpp" />
     <ClCompile Include="Source\Timer.cpp" />
+    <ClCompile Include="Source\TownScene.cpp" />
+    <ClCompile Include="Source\TutorialForestScene.cpp" />
     <ClCompile Include="Source\Window.cpp" />
     <ClInclude Include="Source\Ability.h" />
     <ClInclude Include="Source\Animation.h" />
@@ -157,6 +160,7 @@
     <ClInclude Include="Source\Queue.h" />
     <ClInclude Include="Source\QuitPanel.h" />
     <ClInclude Include="Source\SettingsPanel.h" />
+    <ClInclude Include="Source\StartForestScene.h" />
     <ClInclude Include="Source\TitlePanel.h" />
     <ClInclude Include="Source\TitleScreen.h" />
     <ClInclude Include="Source\LogoScreen.h" />
@@ -167,6 +171,8 @@
     <ClInclude Include="Source\Render.h" />
     <ClInclude Include="Source\Textures.h" />
     <ClInclude Include="Source\Timer.h" />
+    <ClInclude Include="Source\TownScene.h" />
+    <ClInclude Include="Source\TutorialForestScene.h" />
     <ClInclude Include="Source\Window.h" />
     <ClInclude Include="Source\Defs.h" />
     <ClInclude Include="Source\List.h" />

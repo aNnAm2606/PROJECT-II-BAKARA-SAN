@@ -9,6 +9,13 @@
 #include "FadeToBlack.h"
 #include "GuiManager.h"
 
+#include "PerfTimer.h"
+#include "Defs.h"
+#include "Log.h"
+
+#include <iostream>
+#include <sstream>
+
 // Battle modules
 #include "BattleModule.h"
 
@@ -16,13 +23,11 @@
 #include "LogoScreen.h"
 #include "TitleScreen.h"
 #include "GameplaySceen.h"
+#include "StartForestScene.h"
+#include "TownScene.h"
+#include"TutorialForestScene.h"
 
-#include "PerfTimer.h"
-#include "Defs.h"
-#include "Log.h"
 
-#include <iostream>
-#include <sstream>
 
 // Constructor
 App::App(int argc, char* args[]) : argc(argc), args(args)
@@ -46,6 +51,12 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	titleScreen = new TitleScreen(false);
 	gameplayScreen = new GameplayScreen(true);
 
+	logoScreen = new LogoScreen(true);
+	titleScreen = new TitleScreen(false);
+	startForestScene = new StartForestScene(false);
+	townScene = new TownScene(false);
+	tutorialForestScene = new TutorialForestScene(false);
+
 	// Ordered for awake / Start / Update
 	// Reverse order of CleanUp
 
@@ -60,9 +71,13 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	//AddModule(battleModule);
 
 	// Scenes
+	AddModule(tutorialForestScene);
+	AddModule(townScene);
+	AddModule(startForestScene);
 	AddModule(titleScreen);
 	AddModule(logoScreen);
 	AddModule(gameplayScreen);
+	
 
 	// FadeToBlack
 	AddModule(fade);
@@ -94,7 +109,14 @@ void App::AddModule(Module* module)
 	module->Init();
 	modules.Add(module);
 }
-
+void App::AddScene(Module* scene)
+{
+	scenes.Add(scene);
+}
+void App::InitScenes()
+{
+	
+}
 // Called before render is available
 bool App::Awake()
 {
@@ -120,7 +142,7 @@ bool App::Awake()
 			item = item->next;
 		}
 	}
-
+	InitScenes();
 	return ret;
 }
 

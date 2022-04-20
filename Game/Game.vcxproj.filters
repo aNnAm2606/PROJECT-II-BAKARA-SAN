@@ -55,6 +55,9 @@
     <ClCompile Include="Source\GuiButton.cpp">
       <Filter>GUI</Filter>
     </ClCompile>
+    <ClCompile Include="Source\GuiManager.cpp">
+      <Filter>GUI</Filter>
+    </ClCompile>
     <ClCompile Include="Source\GuiPanel.cpp">
       <Filter>GUI</Filter>
     </ClCompile>
@@ -81,6 +84,13 @@
     </ClCompile>
     <ClCompile Include="Source\GuiManager.cpp" />
     <ClCompile Include="Source\GameplayScreen.cpp">
+    <ClCompile Include="Source\TownScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\StartForestScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\TutorialForestScene.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
   </ItemGroup>
@@ -172,6 +182,9 @@
     <ClInclude Include="Source\GuiControl.h">
       <Filter>GUI</Filter>
     </ClInclude>
+    <ClInclude Include="Source\GuiManager.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
     <ClInclude Include="Source\GuiPanel.h">
       <Filter>GUI</Filter>
     </ClInclude>
@@ -198,6 +211,13 @@
     </ClInclude>
     <ClInclude Include="Source\GuiManager.h" />
     <ClInclude Include="Source\GameplaySceen.h">
+    <ClInclude Include="Source\TownScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\StartForestScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\TutorialForestScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
   </ItemGroup>

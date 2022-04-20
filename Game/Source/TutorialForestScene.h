@@ -1,18 +1,18 @@
-#ifndef __LOGOSCREEN_H__
-#define __LOGOSCREEN_H__
+#ifndef __TUTORIALFORESTSCENE_H__
+#define __TUTORIALFORESTSCENE_H__
 
 #include "Module.h"
 
 struct SDL_Texture;
 
-class LogoScreen : public Module
+class TutorialForestScene : public Module
 {
 public:
 
-	LogoScreen(bool startEnabled);
+	TutorialForestScene(bool startEnabled);
 
 	// Destructor
-	virtual ~LogoScreen();
+	virtual ~TutorialForestScene();
 
 	// Called before render is available
 	bool Awake(pugi::xml_node& config);
@@ -33,7 +33,7 @@ public:
 	bool CleanUp();
 
 private:
-	SDL_Texture* logoScreen;
+	SDL_Texture* tutorialForestScene;
 };
 
-#endif // __LOGOSCREEN_H__
+#endif // __TUTORIALFORESTSCENE_H__
