@@ -40,6 +40,7 @@ private:
 	SDL_Rect playerRect;
 	
 	
+	
 };
 
 #endif // __PLAYER_MODULE_H__
