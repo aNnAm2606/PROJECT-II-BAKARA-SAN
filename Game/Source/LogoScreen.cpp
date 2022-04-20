@@ -38,12 +38,20 @@ bool LogoScreen::Start()
 	/*img = app->tex->Load("Assets/Textures/test.png");
 	app->audio->PlayMusic("Assets/Audio/Music/music_spy.ogg");*/
 
+	Logo_FX = app->audio->LoadFx("Assets/Audio/Fx/logo.wav");
+	app->audio->PlayFx(Logo_FX);
+
 	return true;
 }
 
 // Called each loop iteration
 bool LogoScreen::PreUpdate()
 {
+	/*if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
+	{
+		count = 400;
+	}*/
+
 	return true;
 }
 
@@ -63,6 +71,9 @@ bool LogoScreen::Update(float dt)
 		app->render->camera.x += 1;
 
 	app->render->DrawTexture(logoScreen, 0, 0, NULL);
+
+	if (count > 399) app->fade->Fade(this, (Module*)app->titleScreen);
+	else count++;
 
 	return true;
 }
@@ -91,5 +102,6 @@ bool LogoScreen::CleanUp()
 {
 	LOG("Freeing scene");
 	app->tex->UnLoad(logoScreen);
+
 	return true;
 }
