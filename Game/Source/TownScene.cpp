@@ -31,8 +31,8 @@ bool TownScene::Awake(pugi::xml_node& config)
 // Called before the first frame
 bool TownScene::Start()
 {
-	app->render->camera.x = 0;
-	app->render->camera.y = 0;
+	app->render->camera.x = -250;
+	app->render->camera.y = -350;
 
 	townScene = app->tex->Load("Assets/Art/Maps/town_map.png");
 	return true;

@@ -31,8 +31,8 @@ bool TutorialForestScene::Awake(pugi::xml_node& config)
 // Called before the first frame
 bool TutorialForestScene::Start()
 {
-	app->render->camera.x = 0;
-	app->render->camera.y = 0;
+	app->render->camera.x = -600;
+	app->render->camera.y = -150;
 
 	tutorialForestScene = app->tex->Load("Assets/Art/Maps/out_of_tutorial_map.png");
 	return true;

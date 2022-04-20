@@ -32,7 +32,7 @@ bool StartForestScene::Awake(pugi::xml_node& config)
 bool StartForestScene::Start()
 {
 	app->render->camera.x = 0;
-	app->render->camera.y = 0;
+	app->render->camera.y = -200;
 
 	startForestScene = app->tex->Load("Assets/Art/Maps/forest_map.png");
 	return true;
