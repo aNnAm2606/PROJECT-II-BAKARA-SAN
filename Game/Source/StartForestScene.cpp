@@ -38,7 +38,7 @@ bool StartForestScene::Start()
 	app->render->camera.y = -200;
 
 	startForestScene = app->tex->Load("Assets/Art/Maps/forest_map.png");
-	app->audio->PlayMusic("Assets/Audio/Music/Town.ogg");
+	app->audio->PlayMusic("Assets/Audio/Music/world_map.ogg");
 
 	app->playerModule->Enable();
 	app->playerModule->SetPosition(500, 550);

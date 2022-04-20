@@ -38,12 +38,6 @@ bool GuiButton::Update(float dt)
 			(mouseY > bounds.y ) && (mouseY < (bounds.y + bounds.h )))
 		{
 			state = GuiControlState::FOCUSED;
-			
-			if (playfx)
-			{
-				app->audio->PlayFx(1);
-				playfx = false;
-			}
 
 			if (app->input->GetMouseButtonDown(SDL_BUTTON_LEFT) == KeyState::KEY_REPEAT)
 			{
@@ -59,7 +53,6 @@ bool GuiButton::Update(float dt)
 		else 
 		{ 
 			state = GuiControlState::NORMAL; 
-			playfx = true;
 		}
 
 	}
