@@ -15,6 +15,7 @@
 // Scenes
 #include "LogoScreen.h"
 #include "TitleScreen.h"
+#include "GameplaySceen.h"
 
 #include "PerfTimer.h"
 #include "Defs.h"
@@ -42,7 +43,8 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 
 	// Scenes
 	logoScreen = new LogoScreen(false);
-	titleScreen = new TitleScreen(true);
+	titleScreen = new TitleScreen(false);
+	gameplayScreen = new GameplayScreen(true);
 
 	// Ordered for awake / Start / Update
 	// Reverse order of CleanUp
@@ -60,6 +62,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	// Scenes
 	AddModule(titleScreen);
 	AddModule(logoScreen);
+	AddModule(gameplayScreen);
 
 	// FadeToBlack
 	AddModule(fade);

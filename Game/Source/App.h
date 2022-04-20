@@ -19,6 +19,7 @@ class LogoScreen;
 class TitleScreen;
 class FadeToBlack;
 class GuiManager;
+class GameplayScreen;
 
 class App
 {
@@ -82,6 +83,7 @@ public:
 	BattleModule* battleModule;
 	LogoScreen* logoScreen;
 	TitleScreen* titleScreen;
+	GameplayScreen* gameplayScreen;
 	FadeToBlack* fade;
 	GuiManager* guiManager;
 

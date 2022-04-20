@@ -71,9 +71,6 @@ bool LogoScreen::PostUpdate()
 
 	app->render->DrawTexture(logoScreen, 0, 0, NULL);
 
-	if(app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
-		ret = false;
-
 	if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN) app->fade->Fade(this, (Module*)app->titleScreen);
 
 	return ret;

@@ -59,7 +59,7 @@ bool PausePanel::Update(float dt, bool doLogic)
 
 bool PausePanel::Draw()
 {
-    app->render->DrawTexture(app->guiManager->pauseBox, 436, 88, &box);
+    app->render->DrawTexture(app->guiManager->pauseBox, -app->render->camera.x + 436, -app->render->camera.y + 88, &box);
     GuiPanel::Draw();
     return true;
 }

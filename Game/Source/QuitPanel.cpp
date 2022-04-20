@@ -20,13 +20,13 @@ bool QuitPanel::Start()
 
     closeGame = false;
 
-    yesBtn = (GuiButton*)CreateGuiButton(0, app->guiManager, this, { 280+268,180+212,55,30}, "Quit Game");
+    yesBtn = (GuiButton*)CreateGuiButton(0, app->guiManager, this, { app->render->camera.x + 280+268,app->render->camera.y + 180+212,55,30}, "Quit Game");
     yesBtn->texture = app->guiManager->quitBox;
     yesBtn->normalRec = { 20,325,55,30 };
     yesBtn->focusedRec = { 155,325,55,30 };
     yesBtn->pressedRec = { 288,325,55,30 };
 
-    noBtn = (GuiButton*)CreateGuiButton(1, app->guiManager, this, { 420+268,180+212,41,30 }, "Continue Game");
+    noBtn = (GuiButton*)CreateGuiButton(1, app->guiManager, this, { app->render->camera.x + 420+268,app->render->camera.y + 180+212,41,30 }, "Continue Game");
     noBtn->texture = app->guiManager->quitBox;
     noBtn->normalRec = { 80,325,41,30 };
     noBtn->focusedRec = { 215,325,41,30 };
@@ -43,7 +43,7 @@ bool QuitPanel::Update(float dt, bool doLogic)
 
 bool QuitPanel::Draw()
 {
-    app->render->DrawTexture(app->guiManager->quitBox, 268, 212, &box);
+    app->render->DrawTexture(app->guiManager->quitBox, -app->render->camera.x + 268, -app->render->camera.y + 212, &box);
     GuiPanel::Draw();
     return true;
 }

@@ -80,6 +80,9 @@
       <Filter>GUI\Panels</Filter>
     </ClCompile>
     <ClCompile Include="Source\GuiManager.cpp" />
+    <ClCompile Include="Source\GameplayScreen.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Window.h" />
@@ -194,6 +197,9 @@
       <Filter>GUI\Panels</Filter>
     </ClInclude>
     <ClInclude Include="Source\GuiManager.h" />
+    <ClInclude Include="Source\GameplaySceen.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">
