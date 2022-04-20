@@ -48,6 +48,7 @@ public:
 	SDL_Rect camera;
 	SDL_Rect viewport;
 	SDL_Color background;
+	int cameraSpeed = 4;
 };
 
 #endif // __RENDER_H__

@@ -35,6 +35,7 @@ public:
 
 private:
 	SDL_Texture* startForestScene;
+	Point<int>playerPos;
 };
 
 #endif // __STARTFORESTSCENE_H__

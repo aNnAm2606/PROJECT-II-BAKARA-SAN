@@ -1,7 +1,20 @@
+#include "App.h"
+#include "Input.h"
+#include "Textures.h"
+#include "Audio.h"
+#include "Render.h"
+#include "Window.h"
+#include "FadeToBlack.h"
 #include "PlayerModule.h"
+
+
+#include "Defs.h"
+#include "Log.h"
+
 
 PlayerModule::PlayerModule(bool startEnabled) : Module(startEnabled)
 {
+
 }
 
 PlayerModule::~PlayerModule()
@@ -12,30 +25,64 @@ bool PlayerModule::Awake()
 {
 	
 
-	return false;
+	return true;
 }
 
 bool PlayerModule::Start()
 {
-	return false;
+	playerSheet = app->tex->Load("Assets/Art/Characters/Chaman.png");
+	playerRect.w = 40;
+	playerRect.h = 20;
+	playerSpeed = 10;
+	return true;
 }
-
+void PlayerModule::SetPosition(int x, int y)
+{
+	playerPos.x = x;
+	playerPos.y = y;
+}
 bool PlayerModule::PreUpdate()
 {
-	return false;
+	playerRect.x = playerPos.x - playerRect.w;
+	playerRect.y = playerPos.y - playerRect.h;
+	return true;
 }
 
 bool PlayerModule::Update(float dt)
 {
-	return false;
+	if (app->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT)
+	{
+		playerPos.x += playerSpeed;
+	}
+	if (app->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT)
+	{
+		playerPos.x -= playerSpeed;
+	}
+	if (app->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT)
+	{
+		playerPos.y -= playerSpeed;
+	}
+	if (app->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT)
+	{
+		playerPos.y += playerSpeed;
+	}
+	app->render->DrawTexture(playerSheet, playerRect.x, playerRect.y, NULL);
+	
+	return true;
 }
-
+void PlayerModule::GetPosition(int &x, int &y)
+{
+	x = playerPos.x;
+	y = playerPos.y;
+}
 bool PlayerModule::PostUpdate()
 {
-	return false;
+	
+	return true;
 }
 
 bool PlayerModule::CleanUp()
 {
-	return false;
+	app->tex->UnLoad(playerSheet);
+	return true;
 }

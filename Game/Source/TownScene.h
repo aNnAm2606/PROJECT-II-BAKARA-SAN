@@ -34,6 +34,7 @@ public:
 
 private:
 	SDL_Texture* townScene;
+	Point<int>playerPos;
 };
 
 #endif // __TOWNSCENE_H__

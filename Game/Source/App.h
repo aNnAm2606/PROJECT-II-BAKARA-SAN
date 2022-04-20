@@ -18,6 +18,7 @@ class BattleModule;
 class FadeToBlack;
 class GuiManager;
 class GameplayScreen;
+class PlayerModule;
 
 //Scenes
 class LogoScreen;
@@ -53,9 +54,6 @@ public:
 
 	//Add a new scene to the scene list
 	void AddScene(Module* scene);
-
-	//Disables all scene modules except the first one the player will see
-	void InitScenes();
 
 	// Exposing some properties for reading
 	int GetArgc() const;
@@ -94,6 +92,7 @@ public:
 	BattleModule* battleModule;
 	FadeToBlack* fade;
 	GuiManager* guiManager;
+	PlayerModule* playerModule;
 
 	//Scenes
 	LogoScreen* logoScreen;

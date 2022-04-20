@@ -7,6 +7,8 @@
 #include "FadeToBlack.h"
 #include "StartForestScene.h"
 #include "GuiManager.h"
+#include "PlayerModule.h"
+#include "Point.h"
 
 #include "Defs.h"
 #include "Log.h"
@@ -36,12 +38,16 @@ bool StartForestScene::Start()
 	app->render->camera.y = -200;
 
 	startForestScene = app->tex->Load("Assets/Art/Maps/forest_map.png");
+
+	app->playerModule->Enable();
+	app->playerModule->SetPosition(0, -200);
 	return true;
 }
 
 // Called each loop iteration
 bool StartForestScene::PreUpdate()
 {
+	
 	return true;
 }
 
@@ -49,18 +55,22 @@ bool StartForestScene::PreUpdate()
 bool StartForestScene::Update(float dt)
 {
 	if (app->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
-		app->render->camera.y -= 1;
+		app->render->camera.y -= app->render->cameraSpeed;
 
 	if (app->input->GetKey(SDL_SCANCODE_DOWN) == KEY_REPEAT)
-		app->render->camera.y += 1;
+		app->render->camera.y += app->render->cameraSpeed;
+
 
 	if (app->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT)
-		app->render->camera.x -= 1;
+		app->render->camera.x -= app->render->cameraSpeed;
+
 
 	if (app->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
-		app->render->camera.x += 1;
+		app->render->camera.x += app->render->cameraSpeed;
+
 
 	app->render->DrawTexture(startForestScene, 0, 0, NULL);
+	
 
 	return true;
 }
@@ -69,11 +79,11 @@ bool StartForestScene::Update(float dt)
 bool StartForestScene::PostUpdate()
 {
 	bool ret = true;
-
+	app->playerModule->GetPosition(playerPos.x, playerPos.y);
 	if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
 		app->guiManager->pausePanel->Enable();
-
-	if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN) app->fade->Fade(this, (Module*)app->townScene);
+	if(playerPos.y < -200)app->fade->Fade(this, (Module*)app->townScene);
+	 
 
 	return ret;
 }
