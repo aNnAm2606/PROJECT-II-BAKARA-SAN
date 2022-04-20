@@ -2,29 +2,11 @@
 #define __AUDIO_H__
 
 #include "Module.h"
-#include "External/SDL_mixer\include\SDL_mixer.h"
 
 #define DEFAULT_MUSIC_FADE_TIME 2.0f
 
 struct _Mix_Music;
 struct Mix_Chunk;
-
-enum SFX
-{
-	PLAYER_WALK,
-	LEVEL_UP,
-	TAKE_POTION,
-	ENEMY_DIE,
-	ENEMY_HIT,
-	PLAYER_DIE,
-	QUEST_FINISHED,
-	GET_ITEM,
-	BUTTONDOWN,
-	BUTTONFEEDBACK,
-	MENU_OPEN,
-	MENU_BACK,
-	MENU_CLOSED
-};
 
 class Audio : public Module
 {
@@ -50,13 +32,6 @@ public:
 	// Play a previously loaded WAV
 	bool PlayFx(unsigned int fx, int repeat = 0);
 
-	void SetMusicVolume(int vol);
-
-	void SetSFXVolume(int vol);
-
-	float musicVol = 0;
-
-	float fxVol = 0;
 private:
 
 	_Mix_Music* music;

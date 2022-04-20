@@ -38,8 +38,6 @@ bool TitleScreen::Start()
 	bg = app->tex->Load("Assets/Art/GUI/TitlescreenBg.png");
 	app->guiManager->titlePanel->Enable();
 
-	app->audio->PlayMusic("Assets/Audio/Music/title_screen.ogg");
-
 	startGame = false;
 	return true;
 }

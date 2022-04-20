@@ -34,6 +34,7 @@ bool GameplayScreen::Start()
 {
 	//app->audio->PlayMusic("Assets/Audio/Music/world_map.ogg")
 	bg = app->tex->Load("Assets/Art/Maps/tutorial_map_part1.png");
+
 	return true;
 }
 
