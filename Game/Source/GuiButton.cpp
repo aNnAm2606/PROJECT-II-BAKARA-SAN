@@ -25,7 +25,6 @@ GuiButton::GuiButton(uint32 id, SDL_Rect bounds) : GuiControl(GuiControlType::BU
 
 GuiButton::~GuiButton()
 {
-
 }
 
 bool GuiButton::Update(float dt)
@@ -57,12 +56,12 @@ bool GuiButton::Update(float dt)
 				NotifyObserver();
 			}
 		}
-		else { 
+		else 
+		{ 
 			state = GuiControlState::NORMAL; 
 			playfx = true;
 		}
 
-		
 	}
 
 	return false;
@@ -81,10 +80,10 @@ bool GuiButton::Draw(Render* render)
 			render->DrawRectangle(bounds, 125, 200, 0, 0);
 
 		if(texture != nullptr)
-			render->DrawTexture(texture, bounds.x, bounds.y, &disabledRec);
+			render->DrawTexture(texture,-app->render->camera.x + bounds.x, -app->render->camera.y + bounds.y, &disabledRec);
 
 		if (textTex != nullptr)
-			render->DrawTexture(textTex, textPosition.x, textPosition.y, &textRect);
+			render->DrawTexture(textTex, -app->render->camera.x + textPosition.x, -app->render->camera.y +textPosition.y, &textRect);
 
 	} break;
 
@@ -94,10 +93,10 @@ bool GuiButton::Draw(Render* render)
 			render->DrawRectangle(bounds, 125, 125, 0,125);
 
 		if (texture != NULL)
-			render->DrawTexture(texture, bounds.x, bounds.y, &normalRec);
+			render->DrawTexture(texture, -app->render->camera.x + bounds.x, -app->render->camera.y + bounds.y, &normalRec);
 
 		if (textTex != nullptr)
-			render->DrawTexture(textTex, textPosition.x, textPosition.y, &textRect);
+			render->DrawTexture(textTex, -app->render->camera.x + textPosition.x, -app->render->camera.y + textPosition.y, &textRect);
 
 	} break;
 	case GuiControlState::FOCUSED:
@@ -106,10 +105,10 @@ bool GuiButton::Draw(Render* render)
 			render->DrawRectangle(bounds, 255, 255, 255, 160);
 
 		if (texture != NULL)
-			render->DrawTexture(texture, bounds.x, bounds.y, &focusedRec);
+			render->DrawTexture(texture, -app->render->camera.x + bounds.x, -app->render->camera.y + bounds.y, &focusedRec);
 
 		if (textTex != nullptr)
-			render->DrawTexture(textTex, textPosition.x, textPosition.y, &textRect);
+			render->DrawTexture(textTex, -app->render->camera.x + textPosition.x, -app->render->camera.y + textPosition.y, &textRect);
 
 	} break;
 	case GuiControlState::PRESSED:
@@ -120,10 +119,10 @@ bool GuiButton::Draw(Render* render)
 		app->audio->PlayFx(2);
 
 		if (texture != NULL)
-			render->DrawTexture(texture, bounds.x, bounds.y, &pressedRec);
+			render->DrawTexture(texture, -app->render->camera.x + bounds.x, -app->render->camera.y + bounds.y, &pressedRec);
 
 		if (textTex != nullptr)
-			render->DrawTexture(textTex, textPosition.x, textPosition.y, &textRect);
+			render->DrawTexture(textTex, -app->render->camera.x + textPosition.x, -app->render->camera.y + textPosition.y, &textRect);
 
 	} break;
 
@@ -136,7 +135,7 @@ bool GuiButton::Draw(Render* render)
 			render->DrawTexture(texture, bounds.x, bounds.y, &selectedRec);
 
 		if (textTex != nullptr)
-			render->DrawTexture(textTex, textPosition.x, textPosition.y, &textRect);
+			render->DrawTexture(textTex, -app->render->camera.x + textPosition.x, -app->render->camera.y + textPosition.y, &textRect);
 	}break;
 
 	default:

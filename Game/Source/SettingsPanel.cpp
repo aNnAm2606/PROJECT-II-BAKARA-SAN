@@ -21,20 +21,14 @@ bool SettingsPanel::Start()
 
     volumeSldr = (GuiSlider*)CreateGuiSlider(0, app->guiManager, this, { 350 + 76,133 + 73, 620 ,30 }, { 355, 130, 36 * 2 ,36 });
     volumeSldr->texture = app->guiManager->settingsBox;
-    volumeSldr->textPosition.x = volumeSldr->position.x;
-    volumeSldr->textPosition.y = volumeSldr->position.y + 10;
     volumeSldr->thumbRect = { 205,582,36,36 };
 
     musicSldr = (GuiSlider*)CreateGuiSlider(1, app->guiManager, this, { 350 + 76,173 + 73, 620 ,30 }, { 355, 130, 36 * 2 ,36 });
     musicSldr->texture = app->guiManager->settingsBox;
-    musicSldr->textPosition.x = volumeSldr->position.x;
-    musicSldr->textPosition.y = volumeSldr->position.y + 10;
     musicSldr->thumbRect = { 205,582,36,36 };
 
     fxSlrd = (GuiSlider*)CreateGuiSlider(2, app->guiManager, this, { 350 + 76,210 + 73, 620 ,30 }, { 355, 130, 36 * 2 ,36 });
     fxSlrd->texture = app->guiManager->settingsBox;
-    fxSlrd->textPosition.x = volumeSldr->position.x;
-    fxSlrd->textPosition.y = volumeSldr->position.y + 10;
     fxSlrd->thumbRect = { 205,582,36,36 };
 
     fullSrnON = (GuiToggle*)CreateGuiCheckBox(3, app->guiManager, this, { 350 + 76,285 + 73,50,30 });
@@ -90,7 +84,7 @@ bool SettingsPanel::Update(float dt, bool doLogic)
 
 bool SettingsPanel::Draw()
 {
-    app->render->DrawTexture(app->guiManager->settingsBox, 76, 73, &box);
+    app->render->DrawTexture(app->guiManager->settingsBox, -app->render->camera.x + 76, -app->render->camera.y + 73, &box);
     GuiPanel::Draw();
     return true;
 }

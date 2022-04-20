@@ -99,8 +99,8 @@ bool GuiSlider::Draw(Render* render)
 
 		if (texture != NULL)
 		{
-			render->DrawTexture(texture, bounds.x, bounds.y, &backgroundRect);
-			render->DrawTexture(texture, thumbBounds.x, thumbBounds.y, &thumbRect);
+			render->DrawTexture(texture, -app->render->camera.x + bounds.x, -app->render->camera.y + bounds.y, &backgroundRect);
+			render->DrawTexture(texture, -app->render->camera.x + thumbBounds.x, -app->render->camera.y + thumbBounds.y, &thumbRect);
 		}
 
 	} break;
@@ -114,8 +114,8 @@ bool GuiSlider::Draw(Render* render)
 		}
 		if (texture != NULL)
 		{
-			render->DrawTexture(texture, bounds.x, bounds.y, &backgroundRect);
-			render->DrawTexture(texture, thumbBounds.x, thumbBounds.y, &thumbRect);
+			render->DrawTexture(texture, -app->render->camera.x + bounds.x, bounds.y, &backgroundRect);
+			render->DrawTexture(texture, -app->render->camera.x + thumbBounds.x, -app->render->camera.y + thumbBounds.y, &thumbRect);
 		}
 	} break;
 	case GuiControlState::FOCUSED:
@@ -127,8 +127,8 @@ bool GuiSlider::Draw(Render* render)
 		}
 		if (texture != NULL)
 		{
-			render->DrawTexture(texture, bounds.x, bounds.y, &backgroundRect);
-			render->DrawTexture(texture, thumbBounds.x, thumbBounds.y, &thumbRect);
+			render->DrawTexture(texture, -app->render->camera.x + bounds.x, -app->render->camera.y + bounds.y, &backgroundRect);
+			render->DrawTexture(texture, -app->render->camera.x + thumbBounds.x, -app->render->camera.y + thumbBounds.y, &thumbRect);
 		}
 	} break;
 	case GuiControlState::PRESSED:
@@ -141,8 +141,8 @@ bool GuiSlider::Draw(Render* render)
 		}
 		if (texture != NULL)
 		{
-			render->DrawTexture(texture, bounds.x, bounds.y, &backgroundRect);
-			render->DrawTexture(texture, thumbBounds.x, thumbBounds.y, &thumbRect);
+			render->DrawTexture(texture, -app->render->camera.x + bounds.x, -app->render->camera.y + bounds.y, &backgroundRect);
+			render->DrawTexture(texture, -app->render->camera.x + thumbBounds.x, -app->render->camera.y + thumbBounds.y, &thumbRect);
 		}
 
 	} break;
@@ -156,8 +156,8 @@ bool GuiSlider::Draw(Render* render)
 		}
 		if (texture != NULL)
 		{
-			render->DrawTexture(texture, bounds.x, bounds.y, &backgroundRect);
-			render->DrawTexture(texture, thumbBounds.x, thumbBounds.y, &thumbRect);
+			render->DrawTexture(texture, -app->render->camera.x + bounds.x, -app->render->camera.y + bounds.y, &backgroundRect);
+			render->DrawTexture(texture, -app->render->camera.x + thumbBounds.x, -app->render->camera.y + thumbBounds.y, &thumbRect);
 		}
 	}break;
 

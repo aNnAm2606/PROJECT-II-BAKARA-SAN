@@ -67,7 +67,7 @@ bool GuiToggle::Draw(Render* render)
 		render->DrawRectangle(bounds, 125, 125, 0, 125);
 
 		if (texture != NULL)
-			render->DrawTexture(texture, bounds.x, bounds.y, &normalRec);
+			render->DrawTexture(texture, -app->render->camera.x + bounds.x, -app->render->camera.y + bounds.y, &normalRec);
 	} break;
 	case GuiControlState::PRESSED:
 	{
@@ -75,12 +75,12 @@ bool GuiToggle::Draw(Render* render)
 		render->DrawRectangle(bounds, 255, 255, 255, 255);
 
 		if (texture != NULL)
-			render->DrawTexture(texture, bounds.x, bounds.y, &selectedRec);
+			render->DrawTexture(texture, -app->render->camera.x + bounds.x, -app->render->camera.y + bounds.y, &selectedRec);
 
 	} break;
 	case GuiControlState::SELECTED:
 		if (texture != NULL)
-			render->DrawTexture(texture, bounds.x, bounds.y, &selectedRec);
+			render->DrawTexture(texture, -app->render->camera.x + bounds.x, -app->render->camera.y + bounds.y, &selectedRec);
 		break;
 	default:
 		break;

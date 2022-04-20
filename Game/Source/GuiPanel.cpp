@@ -44,7 +44,7 @@ bool GuiPanel::Draw()
 		return false;
 
 
-	app->render->DrawTexture(texture,position.x, position.y,&bounds);
+	app->render->DrawTexture(texture, -app->render->camera.x + position.x, -app->render->camera.y + position.y,&bounds);
 
 	p2ListItem<GuiControl*>* control = controls.start;
 

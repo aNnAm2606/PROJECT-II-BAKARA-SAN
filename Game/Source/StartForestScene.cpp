@@ -83,5 +83,7 @@ bool StartForestScene::CleanUp()
 {
 	LOG("Freeing scene");
 	app->tex->UnLoad(startForestScene);
+	app->guiManager->pausePanel->Disable();
+
 	return true;
 }
