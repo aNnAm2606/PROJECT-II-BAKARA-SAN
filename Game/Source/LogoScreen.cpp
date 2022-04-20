@@ -85,6 +85,12 @@ bool LogoScreen::PostUpdate()
 
 	if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN) app->fade->Fade(this, (Module*)app->titleScreen);
 
+	if (app->input->GetKey(SDL_SCANCODE_X) == KEY_DOWN) {
+		if (!m_Triana.Interacting()) {
+			m_Triana.Interact();
+		}
+	}
+
 	if(app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
 		ret = false;
 

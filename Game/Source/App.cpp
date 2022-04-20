@@ -14,6 +14,9 @@
 // Battle modules
 #include "BattleModule.h"
 
+// Scenes
+#include "Scene.h"
+
 #include "PerfTimer.h"
 #include "Defs.h"
 #include "Log.h"
@@ -49,12 +52,12 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	audio = new Audio(true);
 	fade = new FadeToBlack(true);
 	guiManager = new GuiManager(true);
-	win = new Window(true);
-	input = new Input(true);
-	render = new Render(true);
-	tex = new Textures(true);
-	audio = new Audio(true);
-	fonts = new Fonts(true);
+	win = new Window();
+	input = new Input();
+	render = new Render();
+	tex = new Textures();
+	audio = new Audio();
+	fonts = new Fonts();
 
 	// Game modules
 	battleModule = new BattleModule(false);
@@ -68,6 +71,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	townScene = new TownScene(false);
 	tutorialForestScene = new TutorialForestScene(false);
 	tutorialScene_4 = new TutorialScene_4(false);
+ 	scene = new Scene();
 
 	// Ordered for awake / Start / Update
 	// Reverse order of CleanUp

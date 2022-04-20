@@ -29,7 +29,7 @@ class Fonts : public Module
 public:
 
 	// Constructor
-	Fonts(bool start_enabled);
+	Fonts();
 
 	// Destructor
 	~Fonts();

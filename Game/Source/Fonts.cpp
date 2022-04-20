@@ -6,7 +6,7 @@
 
 #include<string.h>
 
-Fonts::Fonts(bool start_enabled) : Module(start_enabled)
+Fonts::Fonts() : Module()
 {
 
 }
