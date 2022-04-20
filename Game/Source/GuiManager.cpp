@@ -11,6 +11,7 @@
 #include "QuitPanel.h"
 #include "Credits.h"
 #include "PausePanel.h"
+#include "BattlePanel.h"
 
 GuiManager::GuiManager(bool startEnabled) : Module(startEnabled)
 {
@@ -32,6 +33,7 @@ bool GuiManager::Start()
 	quitBox = app->tex->Load("Assets/Art/GUI/exitBox.png");
 	credits = app->tex->Load("Assets/Art/GUI/credits.png");
 	pauseBox = app->tex->Load("Assets/Art/GUI/pauseBox.png");
+	battleBox = app->tex->Load("Assets/Art/GUI/battleUI.png");
 
 	// Audio for buttons
 	//app->audio->LoadFx("Assets/audio/fx/buttonFocus.wav");
@@ -44,12 +46,14 @@ bool GuiManager::Start()
 	quitPanel = new QuitPanel(false);
 	creditsPanel = new Credits(false);
 	pausePanel = new PausePanel(false);
+	battlePanel = new BattlePanel(false);
 
 	panels.add(titlePanel);
 	panels.add(settingsPanel);
 	panels.add(quitPanel);
 	panels.add(creditsPanel);
 	panels.add(pausePanel);
+	panels.add(battlePanel);
 
 	//init panels
 	p2ListItem<GuiPanel*>* panel = panels.start;
@@ -69,6 +73,9 @@ bool GuiManager::Update(float dt)
 {
 	if (app->input->GetKey(SDL_SCANCODE_F1) == KEY_DOWN)
 		debug = !debug;
+
+	if (app->input->GetKey(SDL_SCANCODE_B) == KEY_DOWN)
+		battlePanel->Enable();
 
 	accumulatedTime += dt;
 	if (accumulatedTime >= updateMsCycle) doLogic = true;

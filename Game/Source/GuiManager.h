@@ -50,6 +50,7 @@ public:
 	SDL_Texture* quitBox = nullptr;
 	SDL_Texture* credits = nullptr;
 	SDL_Texture* pauseBox = nullptr;
+	SDL_Texture* battleBox = nullptr;
 
 	int mainFont;
 	int numberFont;
@@ -61,6 +62,7 @@ public:
 	GuiPanel* quitPanel;
 	GuiPanel* creditsPanel;
 	GuiPanel* pausePanel;
+	GuiPanel* battlePanel;
 
 	GuiState lastPanel;
 

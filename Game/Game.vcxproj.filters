@@ -120,6 +120,8 @@
     </ClCompile>
     <ClCompile Include="Source\TutorialScene_4.cpp">
       <Filter>scenes</Filter>
+    <ClCompile Include="Source\BattlePanel.cpp">
+      <Filter>GUI\panels</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -275,6 +277,8 @@
     </ClInclude>
     <ClInclude Include="Source\TutorialScene_4.h">
       <Filter>scenes</Filter>
+    <ClInclude Include="Source\BattlePanel.h">
+      <Filter>GUI\panels</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
