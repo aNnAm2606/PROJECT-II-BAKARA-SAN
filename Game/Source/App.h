@@ -92,15 +92,13 @@ public:
 	Textures* tex;
 	Audio* audio;
 	BattleModule* battleModule;
-	LogoScreen* logoScreen;
-	TitleScreen* titleScreen;
-	GameplayScreen* gameplayScreen;
 	FadeToBlack* fade;
 	GuiManager* guiManager;
 
 	//Scenes
 	LogoScreen* logoScreen;
 	TitleScreen* titleScreen;
+	GameplayScreen* gameplayScreen;
 	StartForestScene* startForestScene;
 	TownScene* townScene;
 	TutorialForestScene* tutorialForestScene;

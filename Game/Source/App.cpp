@@ -47,12 +47,9 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	battleModule = new BattleModule(false);
 
 	// Scenes
-	logoScreen = new LogoScreen(false);
-	titleScreen = new TitleScreen(false);
-	gameplayScreen = new GameplayScreen(true);
-
 	logoScreen = new LogoScreen(true);
 	titleScreen = new TitleScreen(false);
+	gameplayScreen = new GameplayScreen(false);
 	startForestScene = new StartForestScene(false);
 	townScene = new TownScene(false);
 	tutorialForestScene = new TutorialForestScene(false);
