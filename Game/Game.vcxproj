@@ -131,6 +131,7 @@
     <ClCompile Include="Source\Timer.cpp" />
     <ClCompile Include="Source\TownScene.cpp" />
     <ClCompile Include="Source\TutorialForestScene.cpp" />
+    <ClCompile Include="Source\TutorialScene_4.cpp" />
     <ClCompile Include="Source\Window.cpp" />
     <ClInclude Include="Source\Ability.h" />
     <ClInclude Include="Source\Animation.h" />
@@ -173,6 +174,7 @@
     <ClInclude Include="Source\Timer.h" />
     <ClInclude Include="Source\TownScene.h" />
     <ClInclude Include="Source\TutorialForestScene.h" />
+    <ClInclude Include="Source\TutorialScene_4.h" />
     <ClInclude Include="Source\Window.h" />
     <ClInclude Include="Source\Defs.h" />
     <ClInclude Include="Source\List.h" />

@@ -118,6 +118,9 @@
     <ClCompile Include="Source\BasicFrontRowHit.cpp">
       <Filter>Battle</Filter>
     </ClCompile>
+    <ClCompile Include="Source\TutorialScene_4.cpp">
+      <Filter>scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\App.h">
@@ -269,6 +272,9 @@
     </ClInclude>
     <ClInclude Include="Source\BasicBackRowHit.h">
       <Filter>Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\TutorialScene_4.h">
+      <Filter>scenes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

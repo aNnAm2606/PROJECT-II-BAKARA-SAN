@@ -8,6 +8,7 @@
 #include "Audio.h"
 #include "FadeToBlack.h"
 #include "GuiManager.h"
+#include "PlayerModule.h"
 
 #include "PerfTimer.h"
 #include "Defs.h"
@@ -26,7 +27,8 @@
 #include "StartForestScene.h"
 #include "TownScene.h"
 #include"TutorialForestScene.h"
-#include "PlayerModule.h"
+#include "TutorialScene_4.h"
+
 
 
 
@@ -55,6 +57,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	startForestScene = new StartForestScene(false);
 	townScene = new TownScene(false);
 	tutorialForestScene = new TutorialForestScene(false);
+	tutorialScene_4 = new TutorialScene_4(false);
 
 	// Ordered for awake / Start / Update
 	// Reverse order of CleanUp
@@ -69,6 +72,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	
 
 	// Scenes
+	AddModule(tutorialScene_4);
 	AddModule(tutorialForestScene);
 	AddModule(townScene);
 	AddModule(startForestScene);

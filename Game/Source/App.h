@@ -26,6 +26,7 @@ class TitleScreen;
 class StartForestScene;
 class TownScene;
 class TutorialForestScene;
+class TutorialScene_4;
 
 class App
 {
@@ -101,6 +102,7 @@ public:
 	StartForestScene* startForestScene;
 	TownScene* townScene;
 	TutorialForestScene* tutorialForestScene;
+	TutorialScene_4* tutorialScene_4;
 
 private:
 
