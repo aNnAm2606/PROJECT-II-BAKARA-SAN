@@ -34,6 +34,7 @@ public:
 
 private:
 	SDL_Texture* logoScreen;
+	SDL_Texture* img;
 };
 
 #endif // __LOGOSCREEN_H__

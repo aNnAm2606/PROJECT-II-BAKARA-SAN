@@ -103,10 +103,16 @@
     <ClCompile Include="Source\Chaman.cpp" />
     <ClCompile Include="Source\Character.cpp" />
     <ClCompile Include="Source\Credits.cpp" />
+    <ClCompile Include="Source\Button.cpp" />
+    <ClCompile Include="Source\Chaman.cpp" />
+    <ClCompile Include="Source\Character.cpp" />
+    <ClCompile Include="Source\Dialog.cpp" />
+    <ClCompile Include="Source\DialogNode.cpp" />
     <ClCompile Include="Source\Enemy.cpp" />
     <ClCompile Include="Source\FadeToBlack.cpp" />
     <ClCompile Include="Source\FallenAngel.cpp" />
     <ClCompile Include="Source\GameplayScreen.cpp" />
+    <ClCompile Include="Source\Fonts.cpp" />
     <ClCompile Include="Source\Gargoyle.cpp" />
     <ClCompile Include="Source\GuiButton.cpp" />
     <ClCompile Include="Source\GuiManager.cpp" />
@@ -117,6 +123,7 @@
     <ClCompile Include="Source\App.cpp" />
     <ClCompile Include="Source\Audio.cpp" />
     <ClCompile Include="Source\Input.cpp" />
+    <ClCompile Include="Source\NPC.cpp" />
     <ClCompile Include="Source\Paladin.cpp" />
     <ClCompile Include="Source\PausePanel.cpp" />
     <ClCompile Include="Source\PerfTimer.cpp" />
@@ -133,6 +140,7 @@
     <ClCompile Include="Source\TownScene.cpp" />
     <ClCompile Include="Source\TutorialForestScene.cpp" />
     <ClCompile Include="Source\TutorialScene_4.cpp" />
+    <ClCompile Include="Source\Triana.cpp" />
     <ClCompile Include="Source\Window.cpp" />
     <ClInclude Include="Source\Ability.h" />
     <ClInclude Include="Source\Animation.h" />
@@ -143,6 +151,11 @@
     <ClInclude Include="Source\Chaman.h" />
     <ClInclude Include="Source\Character.h" />
     <ClInclude Include="Source\Credits.h" />
+    <ClInclude Include="Source\Button.h" />
+    <ClInclude Include="Source\Chaman.h" />
+    <ClInclude Include="Source\Character.h" />
+    <ClInclude Include="Source\Dialog.h" />
+    <ClInclude Include="Source\DialogNode.h" />
     <ClInclude Include="Source\Enemy.h" />
     <ClInclude Include="Source\FadeToBlack.h" />
     <ClInclude Include="Source\FallenAngel.h" />
@@ -155,6 +168,9 @@
     <ClInclude Include="Source\GuiSlider.h" />
     <ClInclude Include="Source\GuiToggle.h" />
     <ClInclude Include="Source\p2List.h" />
+    <ClInclude Include="Source\Fonts.h" />
+    <ClInclude Include="Source\Gargoyle.h" />
+    <ClInclude Include="Source\NPC.h" />
     <ClInclude Include="Source\Paladin.h" />
     <ClInclude Include="Source\PausePanel.h" />
     <ClInclude Include="Source\PerfTimer.h" />
@@ -177,6 +193,7 @@
     <ClInclude Include="Source\TownScene.h" />
     <ClInclude Include="Source\TutorialForestScene.h" />
     <ClInclude Include="Source\TutorialScene_4.h" />
+    <ClInclude Include="Source\Triana.h" />
     <ClInclude Include="Source\Window.h" />
     <ClInclude Include="Source\Defs.h" />
     <ClInclude Include="Source\List.h" />

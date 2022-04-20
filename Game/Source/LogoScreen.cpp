@@ -35,6 +35,9 @@ bool LogoScreen::Start()
 	app->render->camera.y = 0;
 
 	logoScreen = app->tex->Load("Assets/Art/GUI/logo.png");
+	/*img = app->tex->Load("Assets/Textures/test.png");
+	app->audio->PlayMusic("Assets/Audio/Music/music_spy.ogg");*/
+
 	return true;
 }
 
@@ -70,6 +73,15 @@ bool LogoScreen::PostUpdate()
 	bool ret = true;
 
 	if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN) app->fade->Fade(this, (Module*)app->titleScreen);
+
+	if (app->input->GetKey(SDL_SCANCODE_X) == KEY_DOWN) {
+		if (!m_Triana.Interacting()) {
+			m_Triana.Interact();
+		}
+	}
+
+	if(app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
+		ret = false;
 
 	return ret;
 }
