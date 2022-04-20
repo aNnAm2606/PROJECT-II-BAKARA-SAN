@@ -33,7 +33,11 @@ public:
 	bool CleanUp();
 
 private:
+	int count = 0;
+
 	SDL_Texture* logoScreen;
+
+	uint Logo_FX = NULL;
 };
 
 #endif // __LOGOSCREEN_H__
