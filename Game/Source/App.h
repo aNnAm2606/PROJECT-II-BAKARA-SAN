@@ -15,10 +15,15 @@ class Render;
 class Textures;
 class Audio;
 class BattleModule;
-class LogoScreen;
-class TitleScreen;
 class FadeToBlack;
 class GuiManager;
+
+//Scenes
+class LogoScreen;
+class TitleScreen;
+class StartForestScene;
+class TownScene;
+class TutorialForestScene;
 
 class App
 {
@@ -44,6 +49,12 @@ public:
 
 	// Add a new module to handle
 	void AddModule(Module* module);
+
+	//Add a new scene to the scene list
+	void AddScene(Module* scene);
+
+	//Disables all scene modules except the first one the player will see
+	void InitScenes();
 
 	// Exposing some properties for reading
 	int GetArgc() const;
@@ -80,10 +91,14 @@ public:
 	Textures* tex;
 	Audio* audio;
 	BattleModule* battleModule;
-	LogoScreen* logoScreen;
-	TitleScreen* titleScreen;
 	FadeToBlack* fade;
 	GuiManager* guiManager;
+	//Scenes
+	LogoScreen* logoScreen;
+	TitleScreen* titleScreen;
+	StartForestScene* startForestScene;
+	TownScene* townScene;
+	TutorialForestScene* tutorialForestScene;
 
 private:
 
@@ -93,6 +108,7 @@ private:
 	SString organization;
 
 	List<Module *> modules;
+	List<Module *> scenes;
 
 	//Config
 	pugi::xml_document configFile;

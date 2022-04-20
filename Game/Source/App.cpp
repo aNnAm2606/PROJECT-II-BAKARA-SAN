@@ -9,19 +9,24 @@
 #include "FadeToBlack.h"
 #include "GuiManager.h"
 
-// Battle modules
-#include "BattleModule.h"
-
-// Scenes
-#include "LogoScreen.h"
-#include "TitleScreen.h"
-
 #include "PerfTimer.h"
 #include "Defs.h"
 #include "Log.h"
 
 #include <iostream>
 #include <sstream>
+
+// Battle modules
+#include "BattleModule.h"
+
+// Scenes
+#include "LogoScreen.h"
+#include "TitleScreen.h"
+#include "StartForestScene.h"
+#include "TownScene.h"
+#include"TutorialForestScene.h"
+
+
 
 // Constructor
 App::App(int argc, char* args[]) : argc(argc), args(args)
@@ -43,6 +48,9 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	// Scenes
 	logoScreen = new LogoScreen();
 	titleScreen = new TitleScreen();
+	startForestScene = new StartForestScene();
+	townScene = new TownScene();
+	tutorialForestScene = new TutorialForestScene();
 
 	// Ordered for awake / Start / Update
 	// Reverse order of CleanUp
@@ -58,14 +66,26 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	//AddModule(battleModule);
 
 	// Scenes
+	AddModule(tutorialForestScene);
+	AddModule(townScene);
+	AddModule(startForestScene);
 	AddModule(titleScreen);
 	AddModule(logoScreen);
+	
 
 	// FadeToBlack
 	AddModule(fade);
 
 	// Render last to swap buffer
 	AddModule(render);
+
+	//Scene list
+	AddScene(logoScreen);
+	AddScene(titleScreen);
+	AddScene(startForestScene);
+	AddScene(townScene);
+	AddScene(tutorialForestScene);
+
 
 	frameDuration = new PerfTimer();
 	maxFrameRate = 60;
@@ -91,7 +111,24 @@ void App::AddModule(Module* module)
 	module->Init();
 	modules.Add(module);
 }
+void App::AddScene(Module* scene)
+{
+	scenes.Add(scene);
+}
+void App::InitScenes()
+{
+	//Module* item;
+	/*ListItem<Module*>* item = scenes.start;
+	item = item->next;
+	for (int i = 1; i < scenes.Count(); i++)
+	{
 
+	}*/
+	for (ListItem<Module*>* item = scenes.start->next; item != NULL; item = item->next)
+	{
+		item->data->DisableWithoutCleanUp();
+	}
+}
 // Called before render is available
 bool App::Awake()
 {
@@ -117,7 +154,7 @@ bool App::Awake()
 			item = item->next;
 		}
 	}
-
+	InitScenes();
 	return ret;
 }
 

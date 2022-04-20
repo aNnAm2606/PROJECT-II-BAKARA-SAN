@@ -31,8 +31,9 @@ bool LogoScreen::Awake(pugi::xml_node& config)
 // Called before the first frame
 bool LogoScreen::Start()
 {
-	/*img = app->tex->Load("Assets/Textures/test.png");
-	app->audio->PlayMusic("Assets/Audio/Music/music_spy.ogg");*/
+	app->render->camera.x = 0;
+	app->render->camera.y = 0;
+
 	logoScreen = app->tex->Load("Assets/Art/GUI/logo.png");
 	return true;
 }
@@ -58,7 +59,7 @@ bool LogoScreen::Update(float dt)
 	if(app->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
 		app->render->camera.x += 1;
 
-	app->render->DrawTexture(img, 380, 100);
+	
 
 
 	return true;

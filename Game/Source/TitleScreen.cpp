@@ -32,7 +32,9 @@ bool TitleScreen::Awake(pugi::xml_node& config)
 // Called before the first frame
 bool TitleScreen::Start()
 {
-	//app->audio->PlayMusic("Assets/Audio/Music/world_map.ogg");
+	app->render->camera.x = 0;
+	app->render->camera.y = 0;
+
 	bg = app->tex->Load("Assets/Art/GUI/TitlescreenBg.png");
 	app->guiManager->titlePanel->Enable();
 
@@ -75,7 +77,7 @@ bool TitleScreen::PostUpdate()
 		ret = false;
 
 	if (startGame == true) 
-		app->fade->Fade(this, (Module*)app->logoScreen);
+		app->fade->Fade(this, (Module*)app->startForestScene);
 
 	if(app->guiManager->settingsPanel->GetActive() == false
 		&& app->guiManager->quitPanel->GetActive() == false
@@ -85,6 +87,7 @@ bool TitleScreen::PostUpdate()
 	else
 		app->guiManager->titlePanel->Disable();
 
+	
 	return ret;
 }
 

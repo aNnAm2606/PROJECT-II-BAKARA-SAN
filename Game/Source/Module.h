@@ -79,6 +79,13 @@ public:
 			CleanUp();
 		}
 	}
+	void Module::DisableWithoutCleanUp()
+	{
+		if (active)
+		{
+			active = false;
+		}
+	}
 
 public:
 
