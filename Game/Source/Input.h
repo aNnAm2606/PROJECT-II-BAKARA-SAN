@@ -93,16 +93,20 @@ public:
 	void UpdateGamepadsInput();
 	bool ShakeController(int id, int duration, float strength);
 	const char* GetControllerName(int id) const;
+	bool GamepadConnected() { return isGamepadConnected; }
+	GamePad pads[MAX_PADS];
 
 private:
 	bool windowEvents[WE_COUNT];
 	KeyState*	keyboard;
 	KeyState mouseButtons[NUM_MOUSE_BUTTONS];
-	GamePad pads[MAX_PADS];
+	
 	int	mouseMotionX;
 	int mouseMotionY;
 	int mouseX;
 	int mouseY;
+
+	bool isGamepadConnected = false;
 };
 
 #endif // __INPUT_H__

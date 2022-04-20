@@ -33,6 +33,7 @@ public:
 	bool CleanUp();
 
 private:
+	Point<int> playerPos;
 	SDL_Texture* tutorialForestScene;
 };
 

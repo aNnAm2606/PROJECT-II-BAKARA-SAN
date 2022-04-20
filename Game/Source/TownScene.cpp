@@ -6,6 +6,8 @@
 #include "Window.h"
 #include "FadeToBlack.h"
 #include "TownScene.h"
+#include "GuiManager.h"
+#include "PlayerModule.h"
 
 #include "Defs.h"
 #include "Log.h"
@@ -33,6 +35,7 @@ bool TownScene::Start()
 {
 	app->render->camera.x = -250;
 	app->render->camera.y = -350;
+	app->playerModule->SetPosition(100, -200);
 
 	townScene = app->tex->Load("Assets/Art/Maps/town_map.png");
 	return true;
@@ -48,16 +51,18 @@ bool TownScene::PreUpdate()
 bool TownScene::Update(float dt)
 {
 	if (app->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
-		app->render->camera.y -= 1;
+		app->render->camera.y -= app->render->cameraSpeed;
 
 	if (app->input->GetKey(SDL_SCANCODE_DOWN) == KEY_REPEAT)
-		app->render->camera.y += 1;
+		app->render->camera.y += app->render->cameraSpeed;
+
 
 	if (app->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT)
-		app->render->camera.x -= 1;
+		app->render->camera.x -= app->render->cameraSpeed;
+
 
 	if (app->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
-		app->render->camera.x += 1;
+		app->render->camera.x += app->render->cameraSpeed;
 
 	app->render->DrawTexture(townScene, 0, 0, NULL);
 
@@ -68,11 +73,11 @@ bool TownScene::Update(float dt)
 bool TownScene::PostUpdate()
 {
 	bool ret = true;
-
+	app->playerModule->GetPosition(playerPos.x, playerPos.y);
 	if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
-		ret = false;
-
-	if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN) app->fade->Fade(this, (Module*)app->tutorialForestScene);
+		app->guiManager->pausePanel->Enable();
+	if (playerPos.x < 0)app->fade->Fade(this, (Module*)app->tutorialForestScene);
+	if (playerPos.y > 100)app->fade->Fade(this, (Module*)app->startForestScene);
 
 	return ret;
 }

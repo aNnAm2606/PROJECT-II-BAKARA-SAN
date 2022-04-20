@@ -3,6 +3,7 @@
 
 #include "Module.h"
 #include "SDL/include/SDL.h"
+#include "Point.h"
 
 class PlayerModule : public Module
 {
@@ -29,10 +30,17 @@ public:
 
 	// Called before quitting
 	bool CleanUp();
-
+	void SetPosition(int x, int y);
+	void GetPosition(int &x, int &y);
+	
 private:
+	Point<int> playerPos;
+	int playerSpeed;
 	SDL_Texture* playerSheet;
 	SDL_Rect playerRect;
+	
+	
+	
 };
 
-#endif // __SCENE_H__
+#endif // __PLAYER_MODULE_H__

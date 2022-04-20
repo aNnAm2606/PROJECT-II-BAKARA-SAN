@@ -209,6 +209,7 @@ void Input::HandleDeviceConnection(int index)
 					pad.haptic = SDL_HapticOpen(index);
 					if (pad.haptic != nullptr) LOG("... gamepad has force feedback capabilities");
 					pad.index = SDL_JoystickInstanceID(SDL_GameControllerGetJoystick(pad.controller));
+					isGamepadConnected = true;
 				}
 			}
 		}
@@ -225,6 +226,7 @@ void Input::HandleDeviceRemoval(int index)
 			SDL_HapticClose(pad.haptic);
 			SDL_GameControllerClose(pad.controller);
 			memset(&pad, 0, sizeof(GamePad));
+			isGamepadConnected = false;
 		}
 	}
 }

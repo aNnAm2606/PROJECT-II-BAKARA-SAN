@@ -26,6 +26,7 @@
 #include "StartForestScene.h"
 #include "TownScene.h"
 #include"TutorialForestScene.h"
+#include "PlayerModule.h"
 
 
 
@@ -45,6 +46,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 
 	// Game modules
 	battleModule = new BattleModule(false);
+	playerModule = new PlayerModule(false);
 
 	// Scenes
 	logoScreen = new LogoScreen(true);
@@ -64,8 +66,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(audio);
 	AddModule(guiManager);
 
-	// Game modules
-	//AddModule(battleModule);
+	
 
 	// Scenes
 	AddModule(tutorialForestScene);
@@ -75,6 +76,9 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(logoScreen);
 	AddModule(gameplayScreen);
 	
+	// Game modules
+	//AddModule(battleModule);
+	AddModule(playerModule);
 
 	// FadeToBlack
 	AddModule(fade);
@@ -97,7 +101,7 @@ App::~App()
 		RELEASE(item->data);
 		item = item->prev;
 	}
-
+	scenes.Clear();
 	modules.Clear();
 }
 
@@ -110,10 +114,7 @@ void App::AddScene(Module* scene)
 {
 	scenes.Add(scene);
 }
-void App::InitScenes()
-{
-	
-}
+
 // Called before render is available
 bool App::Awake()
 {
@@ -139,7 +140,7 @@ bool App::Awake()
 			item = item->next;
 		}
 	}
-	InitScenes();
+	
 	return ret;
 }
 
