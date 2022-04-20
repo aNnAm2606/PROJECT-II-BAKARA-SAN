@@ -15,7 +15,7 @@
 class BattleModule : public Module
 {
 public:
-	BattleModule();
+	BattleModule(bool startEnabled);
 
 	// Destructor
 	virtual ~BattleModule();

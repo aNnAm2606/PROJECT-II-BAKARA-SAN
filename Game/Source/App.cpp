@@ -29,20 +29,20 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	frames = 0;
 
 	// Main modules
-	win = new Window();
-	input = new Input();
-	render = new Render();
-	tex = new Textures();
-	audio = new Audio();
-	fade = new FadeToBlack();
-	guiManager = new GuiManager();
+	win = new Window(true);
+	input = new Input(true);
+	render = new Render(true);
+	tex = new Textures(true);
+	audio = new Audio(true);
+	fade = new FadeToBlack(true);
+	guiManager = new GuiManager(true);
 
 	// Game modules
-	battleModule = new BattleModule();
+	battleModule = new BattleModule(false);
 
 	// Scenes
-	logoScreen = new LogoScreen();
-	titleScreen = new TitleScreen();
+	logoScreen = new LogoScreen(false);
+	titleScreen = new TitleScreen(true);
 
 	// Ordered for awake / Start / Update
 	// Reverse order of CleanUp
@@ -130,7 +130,8 @@ bool App::Start()
 
 	while(item != NULL && ret == true)
 	{
-		ret = item->data->Start();
+		if (item->data->IsEnabled())
+			ret = item->data->Start();
 		item = item->next;
 	}
 
@@ -236,8 +237,8 @@ bool App::PreUpdate()
 		if(pModule->active == false) {
 			continue;
 		}
-
-		ret = item->data->PreUpdate();
+		if (item->data->IsEnabled())
+			ret = item->data->PreUpdate();
 	}
 
 	return ret;
@@ -258,8 +259,8 @@ bool App::DoUpdate()
 		if(pModule->active == false) {
 			continue;
 		}
-
-		ret = item->data->Update(dt);
+		if (item->data->IsEnabled())
+			ret = item->data->Update(dt);
 	}
 
 	return ret;
@@ -279,8 +280,8 @@ bool App::PostUpdate()
 		if(pModule->active == false) {
 			continue;
 		}
-
-		ret = item->data->PostUpdate();
+		if (item->data->IsEnabled())
+			ret = item->data->PostUpdate();
 	}
 
 	return ret;
@@ -295,7 +296,8 @@ bool App::CleanUp()
 
 	while(item != NULL && ret == true)
 	{
-		ret = item->data->CleanUp();
+		if (item->data->IsEnabled())
+			ret = item->data->CleanUp();
 		item = item->prev;
 	}
 

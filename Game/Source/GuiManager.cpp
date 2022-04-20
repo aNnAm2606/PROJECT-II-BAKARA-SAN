@@ -12,7 +12,7 @@
 #include "Credits.h"
 #include "PausePanel.h"
 
-GuiManager::GuiManager() :Module()
+GuiManager::GuiManager(bool startEnabled) : Module(startEnabled)
 {
 	name.Create("gui manager");
 }

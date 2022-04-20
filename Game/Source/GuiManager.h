@@ -20,23 +20,18 @@ class GuiManager : public Module
 {
 public:
 
-	// Constructor
-	GuiManager();
+	GuiManager(bool startEnabled);
 
-	// Destructor
 	virtual ~GuiManager();
 
-	// Called before the first frame
 	bool Awake(pugi::xml_node&) override;
 	bool Start() override;
 	bool Update(float dt) override;
 	bool UpdateAll(float dt,bool logic);
 	bool PostUpdate();
-	// Called before quitting
 	bool CleanUp();
 
 	void OpenPanel(int panel_id);
-	//void OpenPanel(GuiState panel);
 
 	bool OnGuiMouseClickEvent(GuiControl* control);
 
@@ -49,7 +44,7 @@ public:
 	float updateMsCycle = 0.0f;
 	bool doLogic = false;
 
-	//Gui textures Used
+	// Gui textures
 	SDL_Texture* titleButtons = nullptr;
 	SDL_Texture* settingsBox = nullptr;
 	SDL_Texture* quitBox = nullptr;
@@ -60,7 +55,7 @@ public:
 	int numberFont;
 	bool debug = false;
 
-	//gui panels used in the game
+	// Gui panels used
 	GuiPanel* titlePanel;
 	GuiPanel* settingsPanel;
 	GuiPanel* quitPanel;

@@ -55,9 +55,6 @@
     <ClCompile Include="Source\GuiButton.cpp">
       <Filter>GUI</Filter>
     </ClCompile>
-    <ClCompile Include="Source\GuiManager.cpp">
-      <Filter>GUI</Filter>
-    </ClCompile>
     <ClCompile Include="Source\GuiPanel.cpp">
       <Filter>GUI</Filter>
     </ClCompile>
@@ -82,6 +79,7 @@
     <ClCompile Include="Source\PausePanel.cpp">
       <Filter>GUI\Panels</Filter>
     </ClCompile>
+    <ClCompile Include="Source\GuiManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Window.h" />
@@ -171,9 +169,6 @@
     <ClInclude Include="Source\GuiControl.h">
       <Filter>GUI</Filter>
     </ClInclude>
-    <ClInclude Include="Source\GuiManager.h">
-      <Filter>GUI</Filter>
-    </ClInclude>
     <ClInclude Include="Source\GuiPanel.h">
       <Filter>GUI</Filter>
     </ClInclude>
@@ -198,6 +193,7 @@
     <ClInclude Include="Source\PausePanel.h">
       <Filter>GUI\Panels</Filter>
     </ClInclude>
+    <ClInclude Include="Source\GuiManager.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">

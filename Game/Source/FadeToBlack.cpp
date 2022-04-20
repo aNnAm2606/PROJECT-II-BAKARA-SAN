@@ -8,7 +8,7 @@
 
 #include "SDL/include/SDL_render.h"
 
-FadeToBlack::FadeToBlack()
+FadeToBlack::FadeToBlack(bool startEnabled) : Module(startEnabled)
 {
 	screenRect = { 0, 0, 1280 * 1, 720 * 1 };
 	name.Create("Fade");
