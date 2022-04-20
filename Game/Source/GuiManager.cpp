@@ -76,7 +76,9 @@ bool GuiManager::Update(float dt)
 
 	if (app->input->GetKey(SDL_SCANCODE_B) == KEY_DOWN)
 		battlePanel->Enable();
-
+	if (app->input->GetKey(SDL_SCANCODE_V) == KEY_DOWN)
+		battlePanel->Disable();
+	
 	accumulatedTime += dt;
 	if (accumulatedTime >= updateMsCycle) doLogic = true;
 
