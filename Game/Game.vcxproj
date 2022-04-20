@@ -104,6 +104,8 @@
     <ClCompile Include="Source\Character.cpp" />
     <ClCompile Include="Source\Credits.cpp" />
     <ClCompile Include="Source\Button.cpp" />
+    <ClCompile Include="Source\Chaman.cpp" />
+    <ClCompile Include="Source\Character.cpp" />
     <ClCompile Include="Source\Dialog.cpp" />
     <ClCompile Include="Source\DialogNode.cpp" />
     <ClCompile Include="Source\Enemy.cpp" />
@@ -144,6 +146,19 @@
     <ClInclude Include="Source\Animation.h" />
     <ClInclude Include="Source\BasicBackRowHit.h" />
     <ClInclude Include="Source\BasicFrontRowHit.h" />
+    <ClInclude Include="Source\BattleModule.h" />
+    <ClInclude Include="Source\BattlePanel.h" />
+    <ClInclude Include="Source\Chaman.h" />
+    <ClInclude Include="Source\Character.h" />
+    <ClInclude Include="Source\Credits.h" />
+    <ClInclude Include="Source\Button.h" />
+    <ClInclude Include="Source\Chaman.h" />
+    <ClInclude Include="Source\Character.h" />
+    <ClInclude Include="Source\Dialog.h" />
+    <ClInclude Include="Source\DialogNode.h" />
+    <ClInclude Include="Source\Enemy.h" />
+    <ClInclude Include="Source\FadeToBlack.h" />
+    <ClInclude Include="Source\FallenAngel.h" />
     <ClInclude Include="Source\GameplaySceen.h" />
     <ClInclude Include="Source\Gargoyle.h" />
     <ClInclude Include="Source\GuiButton.h" />
@@ -154,6 +169,7 @@
     <ClInclude Include="Source\GuiToggle.h" />
     <ClInclude Include="Source\p2List.h" />
     <ClInclude Include="Source\Fonts.h" />
+    <ClInclude Include="Source\Gargoyle.h" />
     <ClInclude Include="Source\NPC.h" />
     <ClInclude Include="Source\Paladin.h" />
     <ClInclude Include="Source\PausePanel.h" />
