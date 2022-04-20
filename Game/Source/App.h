@@ -14,7 +14,6 @@ class Input;
 class Render;
 class Textures;
 class Audio;
-class Fonts;
 class BattleModule;
 class FadeToBlack;
 class GuiManager;
@@ -91,7 +90,6 @@ public:
 	Render* render;
 	Textures* tex;
 	Audio* audio;
-	Fonts* fonts;
 	BattleModule* battleModule;
 	FadeToBlack* fade;
 	GuiManager* guiManager;
