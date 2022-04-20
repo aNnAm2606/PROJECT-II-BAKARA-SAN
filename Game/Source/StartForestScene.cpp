@@ -40,7 +40,7 @@ bool StartForestScene::Start()
 	startForestScene = app->tex->Load("Assets/Art/Maps/forest_map.png");
 
 	app->playerModule->Enable();
-	app->playerModule->SetPosition(0, -200);
+	app->playerModule->SetPosition(500, 550);
 	return true;
 }
 

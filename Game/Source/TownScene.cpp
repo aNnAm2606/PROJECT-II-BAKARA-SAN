@@ -35,7 +35,7 @@ bool TownScene::Start()
 {
 	app->render->camera.x = -250;
 	app->render->camera.y = -350;
-	app->playerModule->SetPosition(100, -200);
+	app->playerModule->SetPosition(900, 900);
 
 	townScene = app->tex->Load("Assets/Art/Maps/town_map.png");
 	return true;
@@ -77,7 +77,7 @@ bool TownScene::PostUpdate()
 	if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
 		app->guiManager->pausePanel->Enable();
 	if (playerPos.x < 0)app->fade->Fade(this, (Module*)app->tutorialForestScene);
-	if (playerPos.y > 100)app->fade->Fade(this, (Module*)app->startForestScene);
+	if (playerPos.y > 1000)app->fade->Fade(this, (Module*)app->startForestScene);
 
 	return ret;
 }

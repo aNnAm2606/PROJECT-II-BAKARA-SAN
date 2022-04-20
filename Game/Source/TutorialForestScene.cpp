@@ -36,7 +36,7 @@ bool TutorialForestScene::Start()
 {
 	app->render->camera.x = -600;
 	app->render->camera.y = -150;
-	app->playerModule->SetPosition(200, -200);
+	app->playerModule->SetPosition(1700, 600);
 	tutorialForestScene = app->tex->Load("Assets/Art/Maps/out_of_tutorial_map.png");
 	return true;
 }
@@ -76,7 +76,7 @@ bool TutorialForestScene::PostUpdate()
 	app->playerModule->GetPosition(playerPos.x, playerPos.y);
 	if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
 		app->guiManager->pausePanel->Enable();
-	if (playerPos.x > 300)app->fade->Fade(this, (Module*)app->townScene);
+	if (playerPos.x > 1800)app->fade->Fade(this, (Module*)app->townScene);
 
 	return ret;
 }
