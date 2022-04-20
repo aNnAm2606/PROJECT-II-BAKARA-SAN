@@ -91,7 +91,7 @@ bool GuiSlider::Draw(Render* render)
 
 	case GuiControlState::DISABLED:
 	{
-		if (app->guiManager->Debug)
+		if (app->guiManager->debug)
 		{
 			render->DrawRectangle(bounds, 125, 200, 0, 0);
 			render->DrawRectangle(thumbBounds, 125, 200, 0, 0);
@@ -107,7 +107,7 @@ bool GuiSlider::Draw(Render* render)
 
 	case GuiControlState::NORMAL:
 	{
-		if (app->guiManager->Debug)
+		if (app->guiManager->debug)
 		{
 			render->DrawRectangle(bounds, 125, 125, 0, 125);
 			render->DrawRectangle(thumbBounds, 0, 200, 0, 255);
@@ -120,7 +120,7 @@ bool GuiSlider::Draw(Render* render)
 	} break;
 	case GuiControlState::FOCUSED:
 	{
-		if (app->guiManager->Debug)
+		if (app->guiManager->debug)
 		{
 			render->DrawRectangle(bounds, 255, 255, 255, 160);
 			render->DrawRectangle(thumbBounds, 0, 255, 255, 255);
@@ -134,7 +134,7 @@ bool GuiSlider::Draw(Render* render)
 	case GuiControlState::PRESSED:
 	{
 
-		if (app->guiManager->Debug)
+		if (app->guiManager->debug)
 		{
 			render->DrawRectangle(bounds, 255, 255, 255, 255);
 			render->DrawRectangle(thumbBounds, 0, 255, 255, 255);
@@ -149,7 +149,7 @@ bool GuiSlider::Draw(Render* render)
 
 	case GuiControlState::SELECTED:
 	{
-		if (app->guiManager->Debug)
+		if (app->guiManager->debug)
 		{
 			render->DrawRectangle(bounds, 0, 255, 0, 255);
 			render->DrawRectangle(thumbBounds, 0, 255, 255, 255);

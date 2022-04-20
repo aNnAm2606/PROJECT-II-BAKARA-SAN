@@ -77,7 +77,7 @@ bool GuiButton::Draw(Render* render)
 
 	case GuiControlState::DISABLED: 
 	{
-		if (app->guiManager->Debug)
+		if (app->guiManager->debug)
 			render->DrawRectangle(bounds, 125, 200, 0, 0);
 
 		if(texture != nullptr)
@@ -90,7 +90,7 @@ bool GuiButton::Draw(Render* render)
 
 	case GuiControlState::NORMAL:
 	{
-		if (app->guiManager->Debug)
+		if (app->guiManager->debug)
 			render->DrawRectangle(bounds, 125, 125, 0,125);
 
 		if (texture != NULL)
@@ -102,7 +102,7 @@ bool GuiButton::Draw(Render* render)
 	} break;
 	case GuiControlState::FOCUSED:
 	{
-		if (app->guiManager->Debug)
+		if (app->guiManager->debug)
 			render->DrawRectangle(bounds, 255, 255, 255, 160);
 
 		if (texture != NULL)
@@ -114,7 +114,7 @@ bool GuiButton::Draw(Render* render)
 	} break;
 	case GuiControlState::PRESSED:
 	{
-		if (app->guiManager->Debug)
+		if (app->guiManager->debug)
 			render->DrawRectangle(bounds, 255, 255, 255, 255);
 
 		app->audio->PlayFx(2);
@@ -129,7 +129,7 @@ bool GuiButton::Draw(Render* render)
 
 	case GuiControlState::SELECTED:
 	{
-		if (app->guiManager->Debug)
+		if (app->guiManager->debug)
 			render->DrawRectangle(bounds, 0, 255, 0, 255);
 
 		if (texture != NULL)

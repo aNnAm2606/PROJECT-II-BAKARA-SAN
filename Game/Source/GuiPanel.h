@@ -44,6 +44,7 @@ public:
 	iPoint position;
 	SDL_Texture* texture;
 	bool Active;
+	bool gamePaused;
 	int id;
 
 };

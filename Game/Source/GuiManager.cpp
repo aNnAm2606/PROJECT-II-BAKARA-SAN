@@ -10,6 +10,7 @@
 #include "SettingsPanel.h"
 #include "QuitPanel.h"
 #include "Credits.h"
+#include "PausePanel.h"
 
 GuiManager::GuiManager() :Module()
 {
@@ -30,22 +31,25 @@ bool GuiManager::Start()
 	settingsBox = app->tex->Load("Assets/Art/GUI/settingsBox.png");
 	quitBox = app->tex->Load("Assets/Art/GUI/exitBox.png");
 	credits = app->tex->Load("Assets/Art/GUI/credits.png");
+	pauseBox = app->tex->Load("Assets/Art/GUI/pauseBox.png");
 
 	// Audio for buttons
 	//app->audio->LoadFx("Assets/audio/fx/buttonFocus.wav");
 	//app->audio->LoadFx("Assets/audio/fx/buttonPressed.wav");
 
-	Debug = false;
+	debug = false;
 
 	titlePanel = new TitlePanel(false);
 	settingsPanel = new SettingsPanel(false);
 	quitPanel = new QuitPanel(false);
 	creditsPanel = new Credits(false);
+	pausePanel = new PausePanel(false);
 
 	panels.add(titlePanel);
 	panels.add(settingsPanel);
 	panels.add(quitPanel);
 	panels.add(creditsPanel);
+	panels.add(pausePanel);
 
 	//init panels
 	p2ListItem<GuiPanel*>* panel = panels.start;
@@ -62,15 +66,9 @@ bool GuiManager::Start()
 
 
 bool GuiManager::Update(float dt)
-{	
-
-	//if (app->input->GetKey(SDL_SCANCODE_O) == KEY_DOWN)
-	//	pausePanel->Active = !pausePanel->GetActive();
-	//if (app->input->GetKey(SDL_SCANCODE_P) == KEY_DOWN)
-	//	exitPanel->Active = !exitPanel->GetActive();
-
+{
 	if (app->input->GetKey(SDL_SCANCODE_F1) == KEY_DOWN)
-		Debug = !Debug;
+		debug = !debug;
 
 	accumulatedTime += dt;
 	if (accumulatedTime >= updateMsCycle) doLogic = true;
@@ -135,6 +133,7 @@ bool GuiManager::CleanUp()
 	settingsBox = nullptr;
 	quitBox = nullptr;
 	credits = nullptr;
+	pauseBox = nullptr;
 
 	return true;
 }

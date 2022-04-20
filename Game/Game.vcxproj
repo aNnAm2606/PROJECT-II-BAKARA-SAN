@@ -116,7 +116,7 @@
     <ClCompile Include="Source\Audio.cpp" />
     <ClCompile Include="Source\Input.cpp" />
     <ClCompile Include="Source\Paladin.cpp" />
-    <ClCompile Include="Source\pausePanel.cpp" />
+    <ClCompile Include="Source\PausePanel.cpp" />
     <ClCompile Include="Source\PerfTimer.cpp" />
     <ClCompile Include="Source\PlayerModule.cpp" />
     <ClCompile Include="Source\QuitPanel.cpp" />
@@ -148,7 +148,7 @@
     <ClInclude Include="Source\GuiToggle.h" />
     <ClInclude Include="Source\p2List.h" />
     <ClInclude Include="Source\Paladin.h" />
-    <ClInclude Include="Source\pausePanel.h" />
+    <ClInclude Include="Source\PausePanel.h" />
     <ClInclude Include="Source\PerfTimer.h" />
     <ClInclude Include="Source\PlayerModule.h" />
     <ClInclude Include="Source\PQueue.h" />

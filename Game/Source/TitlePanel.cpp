@@ -76,7 +76,9 @@ bool TitlePanel::OnGuiMouseClickEvent(GuiControl* control)
     }
     else if (control->id == continueBtn->id)
     {
-        //load Game
+        app->guiManager->pausePanel->Enable();
+        app->guiManager->titlePanel->Disable();
+        app->guiManager->pausePanel->gamePaused = true;
     }
     else if (control->id == settingsBtn->id)
     {

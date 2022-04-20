@@ -58,8 +58,7 @@ public:
 
 	int mainFont;
 	int numberFont;
-	bool Debug = false;
-
+	bool debug = false;
 
 	//gui panels used in the game
 	GuiPanel* titlePanel;

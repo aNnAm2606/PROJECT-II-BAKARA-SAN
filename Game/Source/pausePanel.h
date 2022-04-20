@@ -1,11 +1,11 @@
 #pragma once
 #include "GuiPanel.h"
-class pausePanel : public GuiPanel
+class PausePanel : public GuiPanel
 {
 
 public:
-	pausePanel(bool active);
-	~pausePanel();
+	PausePanel(bool active);
+	~PausePanel();
 
 	bool Start() override;
 	bool Update(float dt, bool doLogic) override;
@@ -15,6 +15,12 @@ public:
 	bool OnGuiMouseClickEvent(GuiControl* control) override;
 
 	// Buttons
-	GuiButton* closeBtn;
+	GuiButton* resumeBtn;
+	GuiButton* settingsBtn;
+	GuiButton* saveBtn;
+	GuiButton* loadBtn;
+	GuiButton* exitGameBtn;
+
+	SDL_Rect box;
 };
 

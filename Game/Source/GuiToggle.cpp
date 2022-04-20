@@ -63,7 +63,7 @@ bool GuiToggle::Draw(Render* render)
 	{
 	case GuiControlState::NORMAL:
 	{
-		if (app->guiManager->Debug)
+		if (app->guiManager->debug)
 		render->DrawRectangle(bounds, 125, 125, 0, 125);
 
 		if (texture != NULL)
@@ -71,7 +71,7 @@ bool GuiToggle::Draw(Render* render)
 	} break;
 	case GuiControlState::PRESSED:
 	{
-		if (app->guiManager->Debug)
+		if (app->guiManager->debug)
 		render->DrawRectangle(bounds, 255, 255, 255, 255);
 
 		if (texture != NULL)

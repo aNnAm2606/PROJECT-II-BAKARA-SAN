@@ -3,7 +3,7 @@
 #include "App.h"
 #include "GuiManager.h"
 #include "FadeToBlack.h"
-#include "TitleScreen.h"
+#include "PausePanel.h"
 
 SettingsPanel::SettingsPanel(bool active) : GuiPanel(active)
 {
@@ -103,12 +103,16 @@ bool SettingsPanel::CleanUp()
 
 bool SettingsPanel::OnGuiMouseClickEvent(GuiControl* control)
 {
-    if (control->id == quitBtn->id || control->id == returnbtn->id)
+    if (app->guiManager->pausePanel->gamePaused == true && (control->id == quitBtn->id || control->id == returnbtn->id))
+    {
+        app->guiManager->settingsPanel->Disable();
+        app->guiManager->pausePanel->Enable();
+    }
+    else if (app->guiManager->pausePanel->gamePaused == false && (control->id == quitBtn->id || control->id == returnbtn->id))
     {
         app->guiManager->settingsPanel->Disable();
     }
-
-    if(control->id == fullSrnON->id)
+    else if(control->id == fullSrnON->id)
     {
         if (fullSrnON->State == true)
             fullSrnOff->State = false;

@@ -79,7 +79,7 @@
     <ClCompile Include="Source\Credits.cpp">
       <Filter>GUI\Panels</Filter>
     </ClCompile>
-    <ClCompile Include="Source\pausePanel.cpp">
+    <ClCompile Include="Source\PausePanel.cpp">
       <Filter>GUI\Panels</Filter>
     </ClCompile>
   </ItemGroup>
@@ -195,7 +195,7 @@
     <ClInclude Include="Source\Credits.h">
       <Filter>GUI\Panels</Filter>
     </ClInclude>
-    <ClInclude Include="Source\pausePanel.h">
+    <ClInclude Include="Source\PausePanel.h">
       <Filter>GUI\Panels</Filter>
     </ClInclude>
   </ItemGroup>
