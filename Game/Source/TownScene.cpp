@@ -59,7 +59,7 @@ bool TownScene::Update(float dt)
 	if (app->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
 		app->render->camera.x += 1;
 
-	
+	app->render->DrawTexture(townScene, 0, 0, NULL);
 
 	return true;
 }
@@ -68,8 +68,6 @@ bool TownScene::Update(float dt)
 bool TownScene::PostUpdate()
 {
 	bool ret = true;
-
-	app->render->DrawTexture(townScene, 0, 0, NULL);
 
 	if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
 		ret = false;

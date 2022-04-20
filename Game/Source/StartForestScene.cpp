@@ -6,6 +6,7 @@
 #include "Window.h"
 #include "FadeToBlack.h"
 #include "StartForestScene.h"
+#include "GuiManager.h"
 
 #include "Defs.h"
 #include "Log.h"
@@ -59,8 +60,7 @@ bool StartForestScene::Update(float dt)
 	if (app->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
 		app->render->camera.x += 1;
 
-	
-
+	app->render->DrawTexture(startForestScene, 0, 0, NULL);
 
 	return true;
 }
@@ -70,10 +70,8 @@ bool StartForestScene::PostUpdate()
 {
 	bool ret = true;
 
-	app->render->DrawTexture(startForestScene, 0, 0, NULL);
-
 	if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
-		ret = false;
+		app->guiManager->pausePanel->Enable();
 
 	if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN) app->fade->Fade(this, (Module*)app->townScene);
 

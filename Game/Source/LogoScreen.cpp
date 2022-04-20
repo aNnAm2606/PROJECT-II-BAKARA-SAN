@@ -59,8 +59,7 @@ bool LogoScreen::Update(float dt)
 	if(app->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
 		app->render->camera.x += 1;
 
-	
-
+	app->render->DrawTexture(logoScreen, 0, 0, NULL);
 
 	return true;
 }
@@ -69,8 +68,6 @@ bool LogoScreen::Update(float dt)
 bool LogoScreen::PostUpdate()
 {
 	bool ret = true;
-
-	app->render->DrawTexture(logoScreen, 0, 0, NULL);
 
 	if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN) app->fade->Fade(this, (Module*)app->titleScreen);
 

@@ -59,6 +59,7 @@ bool TutorialForestScene::Update(float dt)
 	if (app->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
 		app->render->camera.x += 1;
 
+	app->render->DrawTexture(tutorialForestScene, 0, 0, NULL);
 	
 	return true;
 }
@@ -67,8 +68,6 @@ bool TutorialForestScene::Update(float dt)
 bool TutorialForestScene::PostUpdate()
 {
 	bool ret = true;
-
-	app->render->DrawTexture(tutorialForestScene, 0, 0, NULL);
 
 	if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
 		ret = false;
