@@ -48,6 +48,22 @@
     <ClCompile Include="Source\Enemy.cpp">
       <Filter>Characters</Filter>
     </ClCompile>
+    <ClCompile Include="Source\NPC.cpp">
+      <Filter>Characters\NPCs</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Triana.cpp">
+      <Filter>Characters\NPCs</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DialogNode.cpp">
+      <Filter>Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Dialog.cpp">
+      <Filter>Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Fonts.cpp" />
+    <ClCompile Include="Source\Button.cpp">
+      <Filter>Dialog</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Window.h" />
@@ -121,6 +137,22 @@
     <ClInclude Include="Source\PQueue.h">
       <Filter>Utils</Filter>
     </ClInclude>
+    <ClInclude Include="Source\NPC.h">
+      <Filter>Characters\NPCs</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Triana.h">
+      <Filter>Characters\NPCs</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Dialog.h">
+      <Filter>Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DialogNode.h">
+      <Filter>Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Fonts.h" />
+    <ClInclude Include="Source\Button.h">
+      <Filter>Dialog</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">
@@ -140,6 +172,12 @@
     </Filter>
     <Filter Include="Abilities">
       <UniqueIdentifier>{52b2a0b4-b5b6-449e-a85e-4da5e75469a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dialog">
+      <UniqueIdentifier>{b28e19e9-d3fa-41a8-a594-5584b2911c4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Characters\NPCs">
+      <UniqueIdentifier>{0c2ce408-9331-4a98-b4db-b72879d07ef0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -6,6 +6,7 @@
 #include "Render.h"
 #include "Textures.h"
 #include "Audio.h"
+#include "Fonts.h"
 
 // Battle modules
 #include "BattleModule.h"
@@ -31,12 +32,13 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	render = new Render();
 	tex = new Textures();
 	audio = new Audio();
+	fonts = new Fonts();
 
 	// Game modules
 	battleModule = new BattleModule();
 
 	// Scenes
-	scene = new Scene();
+ 	scene = new Scene();
 
 	// Ordered for awake / Start / Update
 	// Reverse order of CleanUp
@@ -46,6 +48,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(input);
 	AddModule(tex);
 	AddModule(audio);
+	AddModule(fonts);
 
 	// Game modules
 	AddModule(battleModule);

@@ -2,6 +2,7 @@
 #define __SCENE_H__
 
 #include "Module.h"
+#include "Triana.h"
 
 struct SDL_Texture;
 
@@ -34,6 +35,7 @@ public:
 
 private:
 	SDL_Texture* img;
+	Triana m_Triana;
 };
 
 #endif // __SCENE_H__

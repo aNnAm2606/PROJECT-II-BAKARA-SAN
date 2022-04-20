@@ -32,6 +32,9 @@ bool Scene::Start()
 {
 	/*img = app->tex->Load("Assets/Textures/test.png");
 	app->audio->PlayMusic("Assets/Audio/Music/music_spy.ogg");*/
+
+	m_Triana.Init();
+
 	return true;
 }
 
@@ -65,6 +68,14 @@ bool Scene::Update(float dt)
 bool Scene::PostUpdate()
 {
 	bool ret = true;
+
+	if (app->input->GetKey(SDL_SCANCODE_X) == KEY_DOWN) {
+		if (!m_Triana.Interacting()) {
+			m_Triana.Interact();
+		}
+	}
+
+	m_Triana.Update();
 
 	if(app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
 		ret = false;

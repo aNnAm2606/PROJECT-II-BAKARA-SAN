@@ -14,6 +14,7 @@ class Input;
 class Render;
 class Textures;
 class Audio;
+class Fonts;
 class BattleModule;
 class Scene;
 
@@ -76,6 +77,7 @@ public:
 	Render* render;
 	Textures* tex;
 	Audio* audio;
+	Fonts* fonts;
 	BattleModule* battleModule;
 	Scene* scene;
 
