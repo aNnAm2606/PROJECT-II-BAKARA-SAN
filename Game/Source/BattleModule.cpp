@@ -7,7 +7,7 @@
 #include "App.h"
 #include "Input.h"
 
-BattleModule::BattleModule()
+BattleModule::BattleModule(bool startEnabled) : Module(startEnabled)
 {
 	memset(m_PlayerGrid, NULL, GRID_SIZE * 4);
 	memset(m_EnemyGrid, NULL, GRID_SIZE * 4);

@@ -9,7 +9,8 @@ class StartForestScene : public Module
 {
 public:
 
-	StartForestScene();
+	StartForestScene(bool startEnabled);
+	
 
 	// Destructor
 	virtual ~StartForestScene();

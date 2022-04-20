@@ -10,7 +10,7 @@
 #include "Defs.h"
 #include "Log.h"
 
-StartForestScene::StartForestScene() : Module()
+StartForestScene::StartForestScene(bool startEnabled) : Module(startEnabled)
 {
 	name.Create("StartForestScene");
 }

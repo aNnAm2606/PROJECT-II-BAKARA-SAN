@@ -45,6 +45,7 @@ public:
 	SDL_Texture* texture;
 	bool Active;
 	bool gamePaused;
+	bool closeGame;
 	int id;
 
 };

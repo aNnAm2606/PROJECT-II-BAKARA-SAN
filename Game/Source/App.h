@@ -93,6 +93,7 @@ public:
 	BattleModule* battleModule;
 	FadeToBlack* fade;
 	GuiManager* guiManager;
+
 	//Scenes
 	LogoScreen* logoScreen;
 	TitleScreen* titleScreen;

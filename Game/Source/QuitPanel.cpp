@@ -18,6 +18,8 @@ bool QuitPanel::Start()
 {
     box = {0,0,744,297};
 
+    closeGame = false;
+
     yesBtn = (GuiButton*)CreateGuiButton(0, app->guiManager, this, { 280+268,180+212,55,30}, "Quit Game");
     yesBtn->texture = app->guiManager->quitBox;
     yesBtn->normalRec = { 20,325,55,30 };
@@ -60,7 +62,7 @@ bool QuitPanel::OnGuiMouseClickEvent(GuiControl* control)
     }
     else if (control->id == yesBtn->id)
     {
-        // Close game
+        closeGame = true;
     }
 
     return true;

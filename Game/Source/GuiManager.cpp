@@ -12,7 +12,7 @@
 #include "Credits.h"
 #include "PausePanel.h"
 
-GuiManager::GuiManager() :Module()
+GuiManager::GuiManager(bool startEnabled) : Module(startEnabled)
 {
 	name.Create("gui manager");
 }
@@ -101,7 +101,9 @@ bool GuiManager::UpdateAll(float dt, bool doLogic) {
 
 }
 
-bool GuiManager::PostUpdate() {
+bool GuiManager::PostUpdate() 
+{
+	bool ret = true;
 
 	p2ListItem<GuiPanel*>* panel = panels.start;
 
@@ -113,7 +115,10 @@ bool GuiManager::PostUpdate() {
 		panel = panel->next;
 	}
 
-	return true;
+	if (app->guiManager->quitPanel->closeGame == true)
+		ret = false;
+
+	return ret;
 
 }
 

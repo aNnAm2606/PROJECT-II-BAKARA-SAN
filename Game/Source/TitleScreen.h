@@ -9,7 +9,7 @@ class TitleScreen : public Module
 {
 public:
 
-	TitleScreen();
+	TitleScreen(bool startEnabled);
 
 	// Destructor
 	virtual ~TitleScreen();

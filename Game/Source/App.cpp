@@ -34,23 +34,24 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	frames = 0;
 
 	// Main modules
-	win = new Window();
-	input = new Input();
-	render = new Render();
-	tex = new Textures();
-	audio = new Audio();
-	fade = new FadeToBlack();
-	guiManager = new GuiManager();
+	win = new Window(true);
+	input = new Input(true);
+	render = new Render(true);
+	tex = new Textures(true);
+	audio = new Audio(true);
+	fade = new FadeToBlack(true);
+	guiManager = new GuiManager(true);
 
 	// Game modules
-	battleModule = new BattleModule();
+	battleModule = new BattleModule(false);
 
 	// Scenes
-	logoScreen = new LogoScreen();
-	titleScreen = new TitleScreen();
-	startForestScene = new StartForestScene();
-	townScene = new TownScene();
-	tutorialForestScene = new TutorialForestScene();
+
+	logoScreen = new LogoScreen(true);
+	titleScreen = new TitleScreen(false);
+	startForestScene = new StartForestScene(false);
+	townScene = new TownScene(false);
+	tutorialForestScene = new TutorialForestScene(false);
 
 	// Ordered for awake / Start / Update
 	// Reverse order of CleanUp
@@ -78,14 +79,6 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 
 	// Render last to swap buffer
 	AddModule(render);
-
-	//Scene list
-	AddScene(logoScreen);
-	AddScene(titleScreen);
-	AddScene(startForestScene);
-	AddScene(townScene);
-	AddScene(tutorialForestScene);
-
 
 	frameDuration = new PerfTimer();
 	maxFrameRate = 60;
@@ -117,17 +110,7 @@ void App::AddScene(Module* scene)
 }
 void App::InitScenes()
 {
-	//Module* item;
-	/*ListItem<Module*>* item = scenes.start;
-	item = item->next;
-	for (int i = 1; i < scenes.Count(); i++)
-	{
-
-	}*/
-	for (ListItem<Module*>* item = scenes.start->next; item != NULL; item = item->next)
-	{
-		item->data->DisableWithoutCleanUp();
-	}
+	
 }
 // Called before render is available
 bool App::Awake()
@@ -167,7 +150,8 @@ bool App::Start()
 
 	while(item != NULL && ret == true)
 	{
-		ret = item->data->Start();
+		if (item->data->IsEnabled())
+			ret = item->data->Start();
 		item = item->next;
 	}
 
@@ -273,8 +257,8 @@ bool App::PreUpdate()
 		if(pModule->active == false) {
 			continue;
 		}
-
-		ret = item->data->PreUpdate();
+		if (item->data->IsEnabled())
+			ret = item->data->PreUpdate();
 	}
 
 	return ret;
@@ -295,8 +279,8 @@ bool App::DoUpdate()
 		if(pModule->active == false) {
 			continue;
 		}
-
-		ret = item->data->Update(dt);
+		if (item->data->IsEnabled())
+			ret = item->data->Update(dt);
 	}
 
 	return ret;
@@ -316,8 +300,8 @@ bool App::PostUpdate()
 		if(pModule->active == false) {
 			continue;
 		}
-
-		ret = item->data->PostUpdate();
+		if (item->data->IsEnabled())
+			ret = item->data->PostUpdate();
 	}
 
 	return ret;
@@ -332,7 +316,8 @@ bool App::CleanUp()
 
 	while(item != NULL && ret == true)
 	{
-		ret = item->data->CleanUp();
+		if (item->data->IsEnabled())
+			ret = item->data->CleanUp();
 		item = item->prev;
 	}
 

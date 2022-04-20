@@ -1,6 +1,6 @@
 #include "PlayerModule.h"
 
-PlayerModule::PlayerModule()
+PlayerModule::PlayerModule(bool startEnabled) : Module(startEnabled)
 {
 }
 

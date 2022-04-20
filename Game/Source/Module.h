@@ -12,7 +12,7 @@ class Module
 {
 public:
 
-	Module() : active(false)
+	Module(bool startEnabled) : active(false), isEnabled(startEnabled)
 	{}
 
 	void Init()
@@ -62,35 +62,34 @@ public:
 		return true;
 	}
 
-	void Module::Enable()
+	virtual void Enable()
 	{
-		if (!active)
+		if (!isEnabled)
 		{
-			active = true;
+			isEnabled = true;
 			Start();
 		}
 	}
 
-	void Module::Disable()
+	virtual void Disable()
 	{
-		if (active)
+		if (isEnabled)
 		{
-			active = false;
+			isEnabled = false;
 			CleanUp();
 		}
 	}
-	void Module::DisableWithoutCleanUp()
+	
+	bool IsEnabled() const
 	{
-		if (active)
-		{
-			active = false;
-		}
+		return isEnabled;
 	}
 
 public:
 
 	SString name;
 	bool active;
+	bool isEnabled = true;
 
 };
 

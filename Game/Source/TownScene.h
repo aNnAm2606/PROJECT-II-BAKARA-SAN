@@ -9,7 +9,7 @@ class TownScene : public Module
 {
 public:
 
-	TownScene();
+	TownScene(bool startEnabled);
 
 	// Destructor
 	virtual ~TownScene();

@@ -7,7 +7,7 @@
 class PlayerModule : public Module
 {
 public:
-	PlayerModule();
+	PlayerModule(bool startEnabled);
 
 	// Destructor
 	virtual ~PlayerModule();

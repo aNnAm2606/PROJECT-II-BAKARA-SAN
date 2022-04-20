@@ -10,7 +10,7 @@
 #include "Defs.h"
 #include "Log.h"
 
-TownScene::TownScene() : Module()
+TownScene::TownScene(bool startEnabled) : Module(startEnabled)
 {
 	name.Create("TownScene");
 }

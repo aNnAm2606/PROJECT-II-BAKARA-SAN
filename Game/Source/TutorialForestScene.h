@@ -9,7 +9,7 @@ class TutorialForestScene : public Module
 {
 public:
 
-	TutorialForestScene();
+	TutorialForestScene(bool startEnabled);
 
 	// Destructor
 	virtual ~TutorialForestScene();
