@@ -103,6 +103,7 @@
     <ClCompile Include="Source\Button.cpp" />
     <ClCompile Include="Source\Chaman.cpp" />
     <ClCompile Include="Source\Character.cpp" />
+    <ClCompile Include="Source\Collider.cpp" />
     <ClCompile Include="Source\Credits.cpp" />
     <ClCompile Include="Source\Dialog.cpp" />
     <ClCompile Include="Source\DialogNode.cpp" />
@@ -121,6 +122,7 @@
     <ClCompile Include="Source\App.cpp" />
     <ClCompile Include="Source\Audio.cpp" />
     <ClCompile Include="Source\Input.cpp" />
+    <ClCompile Include="Source\ModuleCollisions.cpp" />
     <ClCompile Include="Source\NPC.cpp" />
     <ClCompile Include="Source\Paladin.cpp" />
     <ClCompile Include="Source\PausePanel.cpp" />
@@ -149,6 +151,7 @@
     <ClInclude Include="Source\Button.h" />
     <ClInclude Include="Source\Chaman.h" />
     <ClInclude Include="Source\Character.h" />
+    <ClInclude Include="Source\Collider.h" />
     <ClInclude Include="Source\Credits.h" />
     <ClInclude Include="Source\Dialog.h" />
     <ClInclude Include="Source\DialogNode.h" />
@@ -164,6 +167,7 @@
     <ClInclude Include="Source\GuiPanel.h" />
     <ClInclude Include="Source\GuiSlider.h" />
     <ClInclude Include="Source\GuiToggle.h" />
+    <ClInclude Include="Source\ModuleCollisions.h" />
     <ClInclude Include="Source\NPC.h" />
     <ClInclude Include="Source\p2List.h" />
     <ClInclude Include="Source\Paladin.h" />
