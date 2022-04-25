@@ -108,6 +108,7 @@
     <ClCompile Include="Source\Enemy.cpp" />
     <ClCompile Include="Source\FadeToBlack.cpp" />
     <ClCompile Include="Source\FallenAngel.cpp" />
+    <ClCompile Include="Source\Fonts.cpp" />
     <ClCompile Include="Source\GameplayScreen.cpp" />
     <ClCompile Include="Source\Gargoyle.cpp" />
     <ClCompile Include="Source\GuiButton.cpp" />
@@ -152,6 +153,7 @@
     <ClInclude Include="Source\Enemy.h" />
     <ClInclude Include="Source\FadeToBlack.h" />
     <ClInclude Include="Source\FallenAngel.h" />
+    <ClInclude Include="Source\Fonts.h" />
     <ClInclude Include="Source\GameplaySceen.h" />
     <ClInclude Include="Source\Gargoyle.h" />
     <ClInclude Include="Source\GuiButton.h" />

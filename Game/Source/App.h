@@ -19,6 +19,7 @@ class FadeToBlack;
 class GuiManager;
 class GameplayScreen;
 class PlayerModule;
+class Fonts;
 
 //Scenes
 class LogoScreen;
@@ -89,6 +90,7 @@ public:
 	Input* input;
 	Render* render;
 	Textures* tex;
+	Fonts* fonts;
 	Audio* audio;
 	BattleModule* battleModule;
 	FadeToBlack* fade;

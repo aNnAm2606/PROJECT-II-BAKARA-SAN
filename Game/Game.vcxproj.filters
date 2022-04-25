@@ -134,6 +134,9 @@
     <ClCompile Include="Source\App.cpp">
       <Filter>Core</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Fonts.cpp">
+      <Filter>Core\Modules</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Animation.h" />
@@ -301,6 +304,9 @@
     </ClInclude>
     <ClInclude Include="Source\App.h">
       <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Fonts.h">
+      <Filter>Core\Modules</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

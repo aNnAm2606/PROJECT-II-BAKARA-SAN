@@ -5,6 +5,7 @@
 #include "Input.h"
 #include "Render.h"
 #include "Textures.h"
+#include "Fonts.h"
 #include "Audio.h"
 #include "FadeToBlack.h"
 #include "GuiManager.h"
@@ -42,6 +43,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	input = new Input(true);
 	render = new Render(true);
 	tex = new Textures(true);
+	fonts = new Fonts(true);
 	audio = new Audio(true);
 	fade = new FadeToBlack(true);
 	guiManager = new GuiManager(true);
@@ -66,6 +68,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(win);
 	AddModule(input);
 	AddModule(tex);
+	AddModule(fonts);
 	AddModule(audio);
 	AddModule(guiManager);
 
