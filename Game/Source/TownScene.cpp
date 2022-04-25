@@ -38,12 +38,12 @@ bool TownScene::Start()
 	app->playerModule->SetPosition(900, 800);
 
 	townScene = app->tex->Load("Assets/Art/Maps/town_map.png");
-	NPCs = app->tex->Load("Assets/Art/NPCs/NPCs.png");
 
 	app->render->followPlayerX = true;
 	app->render->followPlayerY = false;
 
 	m_Triana.Init();
+	m_SisterMadonna.Init();
 
 	return true;
 }
@@ -58,10 +58,10 @@ bool TownScene::PreUpdate()
 bool TownScene::Update(float dt)
 {
 	m_Triana.Update();
+	m_SisterMadonna.Update();
 	
-	SDL_Rect madonnaSection = {160,25, 60, 80};
 	app->render->DrawTexture(townScene, 0, 0, NULL);
-	app->render->DrawTexture(NPCs, 805, 320, &madonnaSection);
+	m_SisterMadonna.Render();
 	m_Triana.Render();
 
 	app->playerModule->GetPosition(playerPos.x, playerPos.y);
@@ -94,6 +94,5 @@ bool TownScene::CleanUp()
 {
 	LOG("Freeing scene");
 	app->tex->UnLoad(townScene);
-	app->tex->UnLoad(NPCs);
 	return true;
 }

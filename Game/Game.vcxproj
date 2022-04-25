@@ -96,6 +96,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Source\Ability.cpp" />
+    <ClCompile Include="Source\AlanParsons.cpp" />
     <ClCompile Include="Source\BasicBackRowHit.cpp" />
     <ClCompile Include="Source\BasicFrontRowHit.cpp" />
     <ClCompile Include="Source\BattleModule.cpp" />
@@ -131,6 +132,7 @@
     <ClCompile Include="Source\PlayerModule.cpp" />
     <ClCompile Include="Source\QuitPanel.cpp" />
     <ClCompile Include="Source\SettingsPanel.cpp" />
+    <ClCompile Include="Source\SisterMadonna.cpp" />
     <ClCompile Include="Source\StartForestScene.cpp" />
     <ClCompile Include="Source\TitlePanel.cpp" />
     <ClCompile Include="Source\TitleScreen.cpp" />
@@ -144,6 +146,7 @@
     <ClCompile Include="Source\TutorialScene_4.cpp" />
     <ClCompile Include="Source\Window.cpp" />
     <ClInclude Include="Source\Ability.h" />
+    <ClInclude Include="Source\AlanParsons.h" />
     <ClInclude Include="Source\Animation.h" />
     <ClInclude Include="Source\BasicBackRowHit.h" />
     <ClInclude Include="Source\BasicFrontRowHit.h" />
@@ -180,6 +183,7 @@
     <ClInclude Include="Source\Queue.h" />
     <ClInclude Include="Source\QuitPanel.h" />
     <ClInclude Include="Source\SettingsPanel.h" />
+    <ClInclude Include="Source\SisterMadonna.h" />
     <ClInclude Include="Source\StartForestScene.h" />
     <ClInclude Include="Source\TitlePanel.h" />
     <ClInclude Include="Source\TitleScreen.h" />

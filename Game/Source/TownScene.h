@@ -3,6 +3,7 @@
 
 #include "Module.h"
 #include "Triana.h"
+#include "SisterMadonna.h"
 
 struct SDL_Texture;
 
@@ -35,10 +36,10 @@ public:
 
 private:
 	SDL_Texture* townScene;
-	SDL_Texture* NPCs;
 	Point<int>playerPos;
 
 	Triana m_Triana;
+	SisterMadonna m_SisterMadonna;
 };
 
 #endif // __TOWNSCENE_H__

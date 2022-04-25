@@ -38,10 +38,12 @@ bool TutorialForestScene::Start()
 	app->render->camera.y = -150;
 	app->playerModule->SetPosition(1700, 600);
 	tutorialForestScene = app->tex->Load("Assets/Art/Maps/out_of_tutorial_map.png");
-	NPCs = app->tex->Load("Assets/Art/NPCs/NPCs.png");
 
 	app->render->followPlayerX = false;
 	app->render->followPlayerY = false;
+
+	m_AlanParsons.Init();
+
 	return true;
 }
 
@@ -54,21 +56,10 @@ bool TutorialForestScene::PreUpdate()
 // Called each loop iteration
 bool TutorialForestScene::Update(float dt)
 {
-	if (app->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
-		app->render->camera.y -= app->render->cameraSpeed;
+	m_AlanParsons.Update();
 
-	if (app->input->GetKey(SDL_SCANCODE_DOWN) == KEY_REPEAT)
-		app->render->camera.y += app->render->cameraSpeed;
-
-	if (app->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT)
-		app->render->camera.x -= app->render->cameraSpeed;
-
-	if (app->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
-		app->render->camera.x += app->render->cameraSpeed;
-
-	SDL_Rect allanSection = { 280,25, 75,85 };
 	app->render->DrawTexture(tutorialForestScene, 0, 0, NULL);
-	app->render->DrawTexture(NPCs, 140, 540, &allanSection);
+	m_AlanParsons.Render();
 
 	app->playerModule->GetPosition(playerPos.x, playerPos.y);
 	if (playerPos.x < 650 || playerPos.x > 1250) app->render->followPlayerX = false;
@@ -87,7 +78,7 @@ bool TutorialForestScene::PostUpdate()
 	if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
 		app->guiManager->pausePanel->Enable();
 	if (playerPos.x > 1800)app->fade->Fade(this, (Module*)app->townScene);
-	if (playerPos.x < 200) app->fade->Fade(this, (Module*)app->tutorialScene_4);
+	if (playerPos.x < 100) app->fade->Fade(this, (Module*)app->tutorialScene_4);
 
 	return ret;
 }
@@ -97,6 +88,5 @@ bool TutorialForestScene::CleanUp()
 {
 	LOG("Freeing scene");
 	app->tex->UnLoad(tutorialForestScene);
-	app->tex->UnLoad(NPCs);
 	return true;
 }

@@ -2,6 +2,7 @@
 #define __TUTORIALFORESTSCENE_H__
 
 #include "Module.h"
+#include "AlanParsons.h"
 
 struct SDL_Texture;
 
@@ -35,7 +36,7 @@ public:
 private:
 	Point<int> playerPos;
 	SDL_Texture* tutorialForestScene;
-	SDL_Texture* NPCs;
+	AlanParsons m_AlanParsons;
 };
 
 #endif // __TUTORIALFORESTSCENE_H__

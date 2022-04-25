@@ -149,6 +149,12 @@
     <ClCompile Include="Source\NPC.cpp">
       <Filter>Entities</Filter>
     </ClCompile>
+    <ClCompile Include="Source\AlanParsons.cpp">
+      <Filter>Entities\NPCs</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SisterMadonna.cpp">
+      <Filter>Entities\NPCs</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\StartForestScene.h">
@@ -333,6 +339,12 @@
     </ClInclude>
     <ClInclude Include="Source\NPC.h">
       <Filter>Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\AlanParsons.h">
+      <Filter>Entities\NPCs</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SisterMadonna.h">
+      <Filter>Entities\NPCs</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
