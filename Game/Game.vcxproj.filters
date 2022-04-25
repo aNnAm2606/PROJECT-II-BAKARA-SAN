@@ -1,80 +1,60 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="Source\Main.cpp">
-      <Filter>Core</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\App.cpp">
-      <Filter>Core</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\GuiButton.cpp">
-      <Filter>GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\GuiPanel.cpp">
-      <Filter>GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\GuiSlider.cpp">
-      <Filter>GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\GuiToggle.cpp">
-      <Filter>GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\SettingsPanel.cpp">
-      <Filter>GUI\panels</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\TitlePanel.cpp">
-      <Filter>GUI\panels</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\QuitPanel.cpp">
-      <Filter>GUI\panels</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\PausePanel.cpp">
-      <Filter>GUI\panels</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\TitleScreen.cpp">
-      <Filter>scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\TownScene.cpp">
-      <Filter>scenes</Filter>
+    <ClCompile Include="Source\Main.cpp" />
+    <ClCompile Include="Source\StartForestScene.cpp">
+      <Filter>Scenes</Filter>
     </ClCompile>
     <ClCompile Include="Source\TutorialForestScene.cpp">
-      <Filter>scenes</Filter>
+      <Filter>Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="Source\StartForestScene.cpp">
-      <Filter>scenes</Filter>
+    <ClCompile Include="Source\TutorialScene_4.cpp">
+      <Filter>Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="Source\LogoScreen.cpp">
-      <Filter>scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\GameplayScreen.cpp">
-      <Filter>scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Timer.cpp">
-      <Filter>Core\utils</Filter>
+    <ClCompile Include="Source\TownScene.cpp">
+      <Filter>Scenes</Filter>
     </ClCompile>
     <ClCompile Include="Source\PerfTimer.cpp">
-      <Filter>Core\utils</Filter>
+      <Filter>Core\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Timer.cpp">
+      <Filter>Core\Utils</Filter>
     </ClCompile>
     <ClCompile Include="Source\Credits.cpp">
-      <Filter>scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\External\PugiXml\src\pugixml.cpp">
-      <Filter>Core\pugixml</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Paladin.cpp">
-      <Filter>entities\characters</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Character.cpp">
-      <Filter>entities\characters</Filter>
+      <Filter>Scenes</Filter>
     </ClCompile>
     <ClCompile Include="Source\Chaman.cpp">
-      <Filter>entities\characters</Filter>
+      <Filter>Entities\Characters</Filter>
     </ClCompile>
-    <ClCompile Include="Source\FallenAngel.cpp">
-      <Filter>entities\enemies</Filter>
+    <ClCompile Include="Source\Paladin.cpp">
+      <Filter>Entities\Characters</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Gargoyle.cpp">
-      <Filter>entities\enemies</Filter>
+    <ClCompile Include="Source\Character.cpp">
+      <Filter>Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\NPC.cpp">
+      <Filter>Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Triana.cpp">
+      <Filter>Entities\NPCs</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameplayScreen.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\LogoScreen.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Ability.cpp">
+      <Filter>Abilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\BasicBackRowHit.cpp">
+      <Filter>Abilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\BasicFrontRowHit.cpp">
+      <Filter>Abilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\TitleScreen.cpp">
+      <Filter>Scenes</Filter>
     </ClCompile>
     <ClCompile Include="Source\Audio.cpp">
       <Filter>Core\Modules</Filter>
@@ -82,11 +62,59 @@
     <ClCompile Include="Source\BattleModule.cpp">
       <Filter>Core\Modules</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Enemy.cpp">
+    <ClCompile Include="Source\Render.cpp">
       <Filter>Core\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Window.cpp">
+      <Filter>Core\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Textures.cpp">
+      <Filter>Core\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Log.cpp">
+      <Filter>Core\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\QuitPanel.cpp">
+      <Filter>GUI\Panels</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\BattlePanel.cpp">
+      <Filter>GUI\Panels</Filter>
     </ClCompile>
     <ClCompile Include="Source\FadeToBlack.cpp">
       <Filter>Core\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Enemy.cpp">
+      <Filter>Entities\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FallenAngel.cpp">
+      <Filter>Entities\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Gargoyle.cpp">
+      <Filter>Entities\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Dialog.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DialogNode.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GuiSlider.cpp">
+      <Filter>GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GuiToggle.cpp">
+      <Filter>GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\PausePanel.cpp">
+      <Filter>GUI\Panels</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SettingsPanel.cpp">
+      <Filter>GUI\Panels</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\TitlePanel.cpp">
+      <Filter>GUI\Panels</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GuiPanel.cpp">
+      <Filter>GUI</Filter>
     </ClCompile>
     <ClCompile Include="Source\GuiManager.cpp">
       <Filter>Core\Modules</Filter>
@@ -94,144 +122,80 @@
     <ClCompile Include="Source\Input.cpp">
       <Filter>Core\Modules</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Log.cpp">
-      <Filter>Core\Modules</Filter>
-    </ClCompile>
     <ClCompile Include="Source\PlayerModule.cpp">
       <Filter>Core\Modules</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Render.cpp">
-      <Filter>Core\Modules</Filter>
+    <ClCompile Include="Source\GuiButton.cpp">
+      <Filter>GUI</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Textures.cpp">
-      <Filter>Core\Modules</Filter>
+    <ClCompile Include="Source\External\PugiXml\src\pugixml.cpp">
+      <Filter>Core\pugixml</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Window.cpp">
-      <Filter>Core\Modules</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Ability.cpp">
-      <Filter>Battle</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\BasicBackRowHit.cpp">
-      <Filter>Battle</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\BasicFrontRowHit.cpp">
-      <Filter>Battle</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\TutorialScene_4.cpp">
-      <Filter>scenes</Filter>
-    <ClCompile Include="Source\BattlePanel.cpp">
-      <Filter>GUI\panels</Filter>
+    <ClCompile Include="Source\App.cpp">
+      <Filter>Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\App.h">
-      <Filter>Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\GuiButton.h">
-      <Filter>GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\GuiControl.h">
-      <Filter>GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\GuiPanel.h">
-      <Filter>GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\GuiSlider.h">
-      <Filter>GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\GuiToggle.h">
-      <Filter>GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\SettingsPanel.h">
-      <Filter>GUI\panels</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\TitlePanel.h">
-      <Filter>GUI\panels</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\QuitPanel.h">
-      <Filter>GUI\panels</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\PausePanel.h">
-      <Filter>GUI\panels</Filter>
+    <ClInclude Include="Source\Animation.h" />
+    <ClInclude Include="Source\StartForestScene.h">
+      <Filter>Scenes</Filter>
     </ClInclude>
     <ClInclude Include="Source\TutorialForestScene.h">
-      <Filter>scenes</Filter>
+      <Filter>Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="Source\TitleScreen.h">
-      <Filter>scenes</Filter>
+    <ClInclude Include="Source\TutorialScene_4.h">
+      <Filter>Scenes</Filter>
     </ClInclude>
     <ClInclude Include="Source\TownScene.h">
-      <Filter>scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\StartForestScene.h">
-      <Filter>scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\LogoScreen.h">
-      <Filter>scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\GameplaySceen.h">
-      <Filter>scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Timer.h">
-      <Filter>Core\utils</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Queue.h">
-      <Filter>Core\utils</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\SString.h">
-      <Filter>Core\utils</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\PQueue.h">
-      <Filter>Core\utils</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Point.h">
-      <Filter>Core\utils</Filter>
+      <Filter>Scenes</Filter>
     </ClInclude>
     <ClInclude Include="Source\PerfTimer.h">
-      <Filter>Core\utils</Filter>
+      <Filter>Core\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="Source\p2List.h">
-      <Filter>Core\utils</Filter>
+    <ClInclude Include="Source\PQueue.h">
+      <Filter>Core\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="Source\List.h">
-      <Filter>Core\utils</Filter>
+    <ClInclude Include="Source\Point.h">
+      <Filter>Core\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="Source\DynArray.h">
-      <Filter>Core\utils</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Defs.h">
-      <Filter>Core\utils</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Animation.h">
-      <Filter>Core\utils</Filter>
+    <ClInclude Include="Source\Timer.h">
+      <Filter>Core\Utils</Filter>
     </ClInclude>
     <ClInclude Include="Source\Credits.h">
-      <Filter>scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\External\PugiXml\src\pugiconfig.hpp">
-      <Filter>Core\pugixml</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\External\PugiXml\src\pugixml.hpp">
-      <Filter>Core\pugixml</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Paladin.h">
-      <Filter>entities\characters</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Character.h">
-      <Filter>entities\characters</Filter>
+      <Filter>Scenes</Filter>
     </ClInclude>
     <ClInclude Include="Source\Chaman.h">
-      <Filter>entities\characters</Filter>
+      <Filter>Entities\Characters</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Gargoyle.h">
-      <Filter>entities\enemies</Filter>
+    <ClInclude Include="Source\Paladin.h">
+      <Filter>Entities\Characters</Filter>
     </ClInclude>
-    <ClInclude Include="Source\FallenAngel.h">
-      <Filter>entities\enemies</Filter>
+    <ClInclude Include="Source\Character.h">
+      <Filter>Entities</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Window.h">
-      <Filter>Core\Modules</Filter>
+    <ClInclude Include="Source\NPC.h">
+      <Filter>Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Triana.h">
+      <Filter>Entities\NPCs</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\LogoScreen.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GameplaySceen.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Ability.h">
+      <Filter>Abilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\BasicFrontRowHit.h">
+      <Filter>Abilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\BasicBackRowHit.h">
+      <Filter>Abilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\TitleScreen.h">
+      <Filter>Scenes</Filter>
     </ClInclude>
     <ClInclude Include="Source\Audio.h">
       <Filter>Core\Modules</Filter>
@@ -239,19 +203,76 @@
     <ClInclude Include="Source\BattleModule.h">
       <Filter>Core\Modules</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Enemy.h">
+    <ClInclude Include="Source\Render.h">
       <Filter>Core\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Window.h">
+      <Filter>Core\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Textures.h">
+      <Filter>Core\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\p2List.h">
+      <Filter>Core\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Log.h">
+      <Filter>Core\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\List.h">
+      <Filter>Core\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SString.h">
+      <Filter>Core\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Defs.h">
+      <Filter>Core\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\QuitPanel.h">
+      <Filter>GUI\Panels</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\BattlePanel.h">
+      <Filter>GUI\Panels</Filter>
     </ClInclude>
     <ClInclude Include="Source\FadeToBlack.h">
       <Filter>Core\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Enemy.h">
+      <Filter>Entities\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\FallenAngel.h">
+      <Filter>Entities\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Gargoyle.h">
+      <Filter>Entities\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Dialog.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DialogNode.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GuiToggle.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GuiSlider.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\PausePanel.h">
+      <Filter>GUI\Panels</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SettingsPanel.h">
+      <Filter>GUI\Panels</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\TitlePanel.h">
+      <Filter>GUI\Panels</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GuiPanel.h">
+      <Filter>GUI</Filter>
     </ClInclude>
     <ClInclude Include="Source\GuiManager.h">
       <Filter>Core\Modules</Filter>
     </ClInclude>
     <ClInclude Include="Source\Input.h">
-      <Filter>Core\Modules</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Log.h">
       <Filter>Core\Modules</Filter>
     </ClInclude>
     <ClInclude Include="Source\Module.h">
@@ -260,60 +281,67 @@
     <ClInclude Include="Source\PlayerModule.h">
       <Filter>Core\Modules</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Render.h">
-      <Filter>Core\Modules</Filter>
+    <ClInclude Include="Source\Queue.h">
+      <Filter>Core\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Textures.h">
-      <Filter>Core\Modules</Filter>
+    <ClInclude Include="Source\DynArray.h">
+      <Filter>Core\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="Source\BasicFrontRowHit.h">
-      <Filter>Battle</Filter>
+    <ClInclude Include="Source\GuiButton.h">
+      <Filter>GUI</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Ability.h">
-      <Filter>Battle</Filter>
+    <ClInclude Include="Source\GuiControl.h">
+      <Filter>GUI</Filter>
     </ClInclude>
-    <ClInclude Include="Source\BasicBackRowHit.h">
-      <Filter>Battle</Filter>
+    <ClInclude Include="Source\External\PugiXml\src\pugiconfig.hpp">
+      <Filter>Core\pugixml</Filter>
     </ClInclude>
-    <ClInclude Include="Source\TutorialScene_4.h">
-      <Filter>scenes</Filter>
-    <ClInclude Include="Source\BattlePanel.h">
-      <Filter>GUI\panels</Filter>
+    <ClInclude Include="Source\External\PugiXml\src\pugixml.hpp">
+      <Filter>Core\pugixml</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\App.h">
+      <Filter>Core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="scenes">
-      <UniqueIdentifier>{b5a216f5-6278-44d6-afa6-ffdbb8a3b216}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="entities">
-      <UniqueIdentifier>{3e2f72c7-521c-4c7c-9a6c-08c174d17cf0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="entities\enemies">
-      <UniqueIdentifier>{924e91e7-f5b4-41b5-a910-f61295db5018}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="entities\characters">
-      <UniqueIdentifier>{0294c4a8-d8ff-4828-a60b-98714b3f546f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GUI">
-      <UniqueIdentifier>{74c6a5d4-01fe-4290-b05b-471dc3a91461}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GUI\panels">
-      <UniqueIdentifier>{bb3f3119-f90c-41a8-86f5-7719bd6429a2}</UniqueIdentifier>
+    <Filter Include="Scenes">
+      <UniqueIdentifier>{c3e1b887-886a-45bc-9233-e359b3487bc2}</UniqueIdentifier>
     </Filter>
     <Filter Include="Core">
-      <UniqueIdentifier>{cba72be9-dd73-432f-b26b-4c52b144623f}</UniqueIdentifier>
+      <UniqueIdentifier>{66ca7e07-807d-4e4c-905f-6a6561b3cacc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\pugixml">
-      <UniqueIdentifier>{873dc129-7c0c-435d-8d45-0d1fe806c76a}</UniqueIdentifier>
+    <Filter Include="Core\Utils">
+      <UniqueIdentifier>{5c4ae244-adc3-441b-bbb0-ef62e24888d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entities">
+      <UniqueIdentifier>{eae208cc-7f04-4d1b-aeba-c96499ec0102}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entities\Characters">
+      <UniqueIdentifier>{9c00a7b0-8c6c-4b82-bfca-b03d36c91755}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entities\NPCs">
+      <UniqueIdentifier>{332a8fab-32e3-4289-aa78-67b7b6c90e43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Abilities">
+      <UniqueIdentifier>{1d55569d-9294-4525-9b47-771e113d4e7d}</UniqueIdentifier>
     </Filter>
     <Filter Include="Core\Modules">
-      <UniqueIdentifier>{5d20c7e5-efd6-48e9-9e29-7f5764396cec}</UniqueIdentifier>
+      <UniqueIdentifier>{747f70ba-fa9c-46b6-972f-43fe2b76b32e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Battle">
-      <UniqueIdentifier>{232538ed-d87f-4958-9dbe-8a7c8df50d21}</UniqueIdentifier>
+    <Filter Include="Entities\Enemies">
+      <UniqueIdentifier>{5a6ea445-24c1-4d26-ba5d-341ccd951bc8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Core\utils">
-      <UniqueIdentifier>{09471cd8-051e-4c1e-94e9-0ead39446021}</UniqueIdentifier>
+    <Filter Include="GUI">
+      <UniqueIdentifier>{47b3da88-58ce-4874-9bd9-9a7d862ff3e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GUI\Panels">
+      <UniqueIdentifier>{186f15bc-4b44-49fd-8c2a-3de425b2372b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dialogs">
+      <UniqueIdentifier>{a219e556-c12f-49d0-8cf0-88ae7896bb7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\pugixml">
+      <UniqueIdentifier>{8a8ed1d9-4c2d-4d62-8acd-741f17f79ae7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
