@@ -1,6 +1,7 @@
 #include "App.h"
 #include "Window.h"
 #include "Render.h"
+#include "PlayerModule.h"
 
 #include "Defs.h"
 #include "Log.h"
@@ -65,6 +66,11 @@ bool Render::Start()
 bool Render::PreUpdate()
 {
 	SDL_RenderClear(renderer);
+	int x, y;
+	app->playerModule->GetPosition(x, y);
+	if (followPlayerX) camera.x = -x + camera.w / 2;
+	if (followPlayerY) camera.y = -y + camera.h / 2;
+	
 	return true;
 }
 

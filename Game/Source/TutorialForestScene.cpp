@@ -39,6 +39,9 @@ bool TutorialForestScene::Start()
 	app->playerModule->SetPosition(1700, 600);
 	tutorialForestScene = app->tex->Load("Assets/Art/Maps/out_of_tutorial_map.png");
 	NPCs = app->tex->Load("Assets/Art/NPCs/NPCs.png");
+
+	app->render->followPlayerX = false;
+	app->render->followPlayerY = false;
 	return true;
 }
 
@@ -66,6 +69,12 @@ bool TutorialForestScene::Update(float dt)
 	SDL_Rect allanSection = { 280,25, 75,85 };
 	app->render->DrawTexture(tutorialForestScene, 0, 0, NULL);
 	app->render->DrawTexture(NPCs, 140, 540, &allanSection);
+
+	app->playerModule->GetPosition(playerPos.x, playerPos.y);
+	if (playerPos.x < 650 || playerPos.x > 1250) app->render->followPlayerX = false;
+	else app->render->followPlayerX = true;
+
+	
 	
 	return true;
 }

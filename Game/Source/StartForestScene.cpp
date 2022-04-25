@@ -34,14 +34,16 @@ bool StartForestScene::Awake(pugi::xml_node& config)
 // Called before the first frame
 bool StartForestScene::Start()
 {
-	app->render->camera.x = 0;
+	app->render->camera.x = 100;
 	app->render->camera.y = -200;
 
 	startForestScene = app->tex->Load("Assets/Art/Maps/forest_map.png");
 	app->audio->PlayMusic("Assets/Audio/Music/world_map.ogg");
 
 	app->playerModule->Enable();
-	app->playerModule->SetPosition(500, 550);
+	app->playerModule->SetPosition(700, 550);
+	app->render->followPlayerX = true;
+	app->render->followPlayerY = true;
 	return true;
 }
 
@@ -71,7 +73,12 @@ bool StartForestScene::Update(float dt)
 
 
 	app->render->DrawTexture(startForestScene, 0, 0, NULL);
+	app->playerModule->GetPosition(playerPos.x, playerPos.y);
+	if (playerPos.x < 700 || playerPos.x > 1250) app->render->followPlayerX = false;
 	
+	else app->render->followPlayerX = true;
+	if (playerPos.y < 375 || playerPos.y > 700) app->render->followPlayerY = false;
+	else app->render->followPlayerY = true;
 
 	return true;
 }
@@ -80,7 +87,7 @@ bool StartForestScene::Update(float dt)
 bool StartForestScene::PostUpdate()
 {
 	bool ret = true;
-	app->playerModule->GetPosition(playerPos.x, playerPos.y);
+	
 	if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
 		app->guiManager->pausePanel->Enable();
 	if(playerPos.y < -200)app->fade->Fade(this, (Module*)app->townScene);

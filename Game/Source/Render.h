@@ -50,6 +50,8 @@ public:
 	SDL_Rect viewport;
 	SDL_Color background;
 	int cameraSpeed = 8;
+	bool followPlayerX = false;
+	bool followPlayerY = false;
 };
 
 #endif // __RENDER_H__

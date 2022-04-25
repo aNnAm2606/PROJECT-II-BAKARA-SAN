@@ -33,12 +33,15 @@ bool TownScene::Awake(pugi::xml_node& config)
 // Called before the first frame
 bool TownScene::Start()
 {
-	app->render->camera.x = -250;
-	app->render->camera.y = -350;
-	app->playerModule->SetPosition(900, 900);
+	app->render->camera.x = -150;
+	app->render->camera.y = -360;
+	app->playerModule->SetPosition(900, 800);
 
 	townScene = app->tex->Load("Assets/Art/Maps/town_map.png");
 	NPCs = app->tex->Load("Assets/Art/NPCs/NPCs.png");
+
+	app->render->followPlayerX = true;
+	app->render->followPlayerY = false;
 	return true;
 }
 
@@ -72,6 +75,14 @@ bool TownScene::Update(float dt)
 	app->render->DrawTexture(NPCs, 1185, 650, &trianaSection);
 
 
+	app->playerModule->GetPosition(playerPos.x, playerPos.y);
+	if (playerPos.x < 650 || playerPos.x > 1275) app->render->followPlayerX = false;
+	else app->render->followPlayerX = true;
+
+	if (playerPos.y < 375 || playerPos.y > 710) app->render->followPlayerY = false;
+	else app->render->followPlayerY = true;
+
+
 
 	return true;
 }
@@ -80,7 +91,7 @@ bool TownScene::Update(float dt)
 bool TownScene::PostUpdate()
 {
 	bool ret = true;
-	app->playerModule->GetPosition(playerPos.x, playerPos.y);
+	
 	if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
 		app->guiManager->pausePanel->Enable();
 	if (playerPos.x < 0)app->fade->Fade(this, (Module*)app->tutorialForestScene);
