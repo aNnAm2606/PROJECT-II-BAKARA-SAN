@@ -14,18 +14,19 @@ class Input;
 class Render;
 class Textures;
 class Audio;
-class BattleModule;
-class FadeToBlack;
+class ModuleCollisions;
 class GuiManager;
-class GameplayScreen;
-class PlayerModule;
 class Fonts;
+class FadeToBlack;
+class PlayerModule;
+class BattleModule;
 
 //Scenes
 class LogoScreen;
 class TitleScreen;
 class StartForestScene;
 class TownScene;
+class GameplayScreen;
 class TutorialForestScene;
 class TutorialScene_4;
 
@@ -92,9 +93,10 @@ public:
 	Textures* tex;
 	Fonts* fonts;
 	Audio* audio;
-	BattleModule* battleModule;
-	FadeToBlack* fade;
 	GuiManager* guiManager;
+	FadeToBlack* fade;
+	ModuleCollisions* collisions;
+	BattleModule* battleModule;
 	PlayerModule* playerModule;
 
 	//Scenes

@@ -7,6 +7,7 @@
 
 class App;
 class GuiControl;
+class Collider;
 
 class Module
 {
@@ -61,6 +62,8 @@ public:
 	{
 		return true;
 	}
+
+	virtual void OnCollision(Collider* c1, Collider* c2){}
 
 	virtual void Enable()
 	{

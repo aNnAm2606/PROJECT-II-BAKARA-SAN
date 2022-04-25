@@ -9,6 +9,7 @@
 #include "Audio.h"
 #include "FadeToBlack.h"
 #include "GuiManager.h"
+#include "ModuleCollisions.h"
 #include "PlayerModule.h"
 
 #include "PerfTimer.h"
@@ -47,6 +48,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	audio = new Audio(true);
 	fade = new FadeToBlack(true);
 	guiManager = new GuiManager(true);
+	collisions = new ModuleCollisions(true);
 
 	// Game modules
 	battleModule = new BattleModule(false);
@@ -71,7 +73,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(fonts);
 	AddModule(audio);
 	AddModule(guiManager);
-
+	AddModule(collisions);
 	
 
 	// Scenes

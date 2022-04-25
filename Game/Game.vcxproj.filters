@@ -140,9 +140,14 @@
     <ClCompile Include="Source\Button.cpp">
       <Filter>Dialogs</Filter>
     </ClCompile>
+    <ClCompile Include="Source\ModuleCollisions.cpp">
+      <Filter>Core\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Collider.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\Animation.h" />
     <ClInclude Include="Source\StartForestScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
@@ -313,6 +318,15 @@
     </ClInclude>
     <ClInclude Include="Source\Button.h">
       <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ModuleCollisions.h">
+      <Filter>Core\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Collider.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Animation.h">
+      <Filter>Core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
