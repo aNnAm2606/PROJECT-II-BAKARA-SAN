@@ -3,6 +3,7 @@
 #include "App.h"
 #include "Audio.h"
 #include "Input.h"
+#include "Fonts.h"
 
 Button::Button()
 {

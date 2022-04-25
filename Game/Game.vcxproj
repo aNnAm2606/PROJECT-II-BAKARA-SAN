@@ -100,6 +100,7 @@
     <ClCompile Include="Source\BasicFrontRowHit.cpp" />
     <ClCompile Include="Source\BattleModule.cpp" />
     <ClCompile Include="Source\BattlePanel.cpp" />
+    <ClCompile Include="Source\Button.cpp" />
     <ClCompile Include="Source\Chaman.cpp" />
     <ClCompile Include="Source\Character.cpp" />
     <ClCompile Include="Source\Credits.cpp" />
@@ -145,6 +146,7 @@
     <ClInclude Include="Source\BasicFrontRowHit.h" />
     <ClInclude Include="Source\BattleModule.h" />
     <ClInclude Include="Source\BattlePanel.h" />
+    <ClInclude Include="Source\Button.h" />
     <ClInclude Include="Source\Chaman.h" />
     <ClInclude Include="Source\Character.h" />
     <ClInclude Include="Source\Credits.h" />
