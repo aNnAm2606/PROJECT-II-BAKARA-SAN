@@ -19,6 +19,47 @@ Gameplay-wise, ExorQuest isn't your standard RPG. The turn-based combat takes po
 
  - {ControlsScheme}
 
+## General
+
+Game resolution: 1280x720px@60fps, support for windowed mode and fullscreen
+❏ Maximum memory usage must be under 256 MB (RAM)
+❏ Turn-based battle system (`Research: RPG Turn-based Combat`)
+❏ Team logo: custom art, avoid plain text
+❏ AUDIO: Sound FX characteristic for the logo
+❏ AUDIO: Sound FX characteristic for the title appearing
+❏ AUDIO: Music track specific for the screen
+❏ UI: Main game menu (custom font): START - CONTINUE - OPTIONS - EXIT
+❏ UI: AUDIO: Buttons/controls fx feedback sounds
+
+## SCREEN: GAMEPLAY
+
+❏ Implemented TOWN map with 3 locations to visit ( House, Shop,
+Sanctuary.)
+❏ Implemented 2 Playable Characters, available as the base Team Party
+❏ Implemented 3 NPC Characters (town person, shopkeeper, nun)
+❏ Implemented 4 Dialogs with branching with NPC characters 
+❏ INPUTS: Keyboard/Gamepad inputs supported
+❏ UI: PAUSE menu available on pause
+❏ AUDIO: Music track specific for the screen
+❏ AUDIO: Music effects fade-in/fade-out, lower volume on PAUSE
+❏ Implemented 3 Types of Enemies with different stats
+❏ Implemented turn-based combat system, players and enemies alternate attacks
+❏ UI: Implement a minimal menu to choose the next player's actions.
+
+## SPECIAL FEATURES
+
+We even have each character using a priority queue. It is a list that adds elements, but if you add an element
+with a priority, it will check the priority of all the other elements and put it in its place, that way each turn
+the fastest characters attack first (the enemies attack automatically)and for now, the characters only have
+one ability, so you can only select one.
+
+In the battle system, we have two base abilities: melee and range, two characters for the player, and two enemies,
+one being melee and another being range. The melees and ranged have a similar ability, they change a bit by 
+being player or enemy. Before attacking it will show you the active character abilities
+The enemies will instantly attack one after another because they are faster. If two characters are at the same speed,
+they will attack in order. Then you select the melee's attack and then it will show the ranged, after the next 
+turn will begin, the enemies will attack, and then its ur turn again.
+
 ## Developers
 
  - Jose Antonio Atencia Ordóñez: Game Designer, Q&A.
