@@ -153,4 +153,12 @@ Triana::~Triana()
 void Triana::Init()
 {
 	FillShopDialog();
+
+	m_NPCTex = app->tex->Load("Assets/Art/NPCs/NPCs.png");
+	m_NPCRect = {
+		25, 25,
+		75, 85
+	};
+
+	m_Position = { 1185, 650 };
 }

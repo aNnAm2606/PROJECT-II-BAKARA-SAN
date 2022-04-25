@@ -36,6 +36,9 @@
 #define MAX( a, b ) ( ((a) > (b)) ? (a) : (b) )
 #define TO_BOOL( a )  ( (a != 0) ? true : false )
 
+#define LENGTH_F(x, y) sqrtf((x)*(x) + (y)*(y))
+#define DISTANCE_F(x_1, y_1, x_2, y_2) LENGTH_F(x_2-x_1,y_2-y_1)
+
 typedef unsigned int uint;
 typedef unsigned char uchar;
 typedef unsigned __int32 uint32;

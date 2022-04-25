@@ -5,14 +5,18 @@
 
 class NPC {
 private:
-	bool m_Interacted;
+	bool m_Interacting;
 protected:
+	float m_InteractDistance;
+
 	std::vector<Dialog> m_Dialogs;
 	std::vector<size_t> m_StartingNodes;
 	int m_ActiveDialog;
 
 	SDL_Texture* m_NPCTex;
 	SDL_Rect m_NPCRect;
+
+	iPoint m_Position;
 
 	void AddDialog(Dialog& dialog, size_t resetNode);
 public:
@@ -24,8 +28,9 @@ public:
 	void Interact();
 
 	void Update();
+	void Render();
 
-	bool Interacting() { return m_Interacted; }
+	bool Interacting() { return m_Interacting; }
 };
 
 #endif  // __LOG_H__

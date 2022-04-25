@@ -8,6 +8,7 @@
 #include "Fonts.h"
 #include "Audio.h"
 #include "FadeToBlack.h"
+#include "DialogModule.h"
 #include "GuiManager.h"
 #include "ModuleCollisions.h"
 #include "PlayerModule.h"
@@ -51,6 +52,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	collisions = new ModuleCollisions(true);
 
 	// Game modules
+	dialog = new DialogModule(true);
 	battleModule = new BattleModule(false);
 	playerModule = new PlayerModule(false);
 
@@ -88,6 +90,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	// Game modules
 	//AddModule(battleModule);
 	AddModule(playerModule);
+	AddModule(dialog);
 
 	// FadeToBlack
 	AddModule(fade);

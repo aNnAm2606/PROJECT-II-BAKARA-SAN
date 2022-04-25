@@ -17,6 +17,7 @@ class Audio;
 class ModuleCollisions;
 class GuiManager;
 class Fonts;
+class DialogModule;
 class FadeToBlack;
 class PlayerModule;
 class BattleModule;
@@ -94,6 +95,7 @@ public:
 	Fonts* fonts;
 	Audio* audio;
 	GuiManager* guiManager;
+	DialogModule* dialog;
 	FadeToBlack* fade;
 	ModuleCollisions* collisions;
 	BattleModule* battleModule;

@@ -1,19 +1,18 @@
-#ifndef __TOWNSCENE_H__
-#define __TOWNSCENE_H__
+#ifndef __DIALOG_MODULE_H__
+#define __DIALOG_MODULE_H__
 
 #include "Module.h"
-#include "Triana.h"
 
-struct SDL_Texture;
+class Dialog;
 
-class TownScene : public Module
+class DialogModule : public Module
 {
 public:
 
-	TownScene(bool startEnabled);
+	DialogModule(bool startEnabled);
 
 	// Destructor
-	virtual ~TownScene();
+	virtual ~DialogModule();
 
 	// Called before render is available
 	bool Awake(pugi::xml_node& config);
@@ -33,12 +32,13 @@ public:
 	// Called before quitting
 	bool CleanUp();
 
-private:
-	SDL_Texture* townScene;
-	SDL_Texture* NPCs;
-	Point<int>playerPos;
+	bool IsDialogActive() { return m_IsDialogActive; }
 
-	Triana m_Triana;
+	void StartDialog(Dialog* dialog);
+private:
+	Dialog* m_ActiveDialog;
+
+	bool m_IsDialogActive;
 };
 
-#endif // __TOWNSCENE_H__
+#endif // __LOGOSCREEN_H__

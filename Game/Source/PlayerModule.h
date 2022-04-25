@@ -7,6 +7,11 @@
 
 class PlayerModule : public Module
 {
+private:
+	Point<int> playerPos;
+	int playerSpeed;
+	SDL_Texture* playerSheet;
+	SDL_Rect playerRect;
 public:
 	PlayerModule(bool startEnabled);
 
@@ -32,15 +37,6 @@ public:
 	bool CleanUp();
 	void SetPosition(int x, int y);
 	void GetPosition(int &x, int &y);
-	
-private:
-	Point<int> playerPos;
-	int playerSpeed;
-	SDL_Texture* playerSheet;
-	SDL_Rect playerRect;
-	
-	
-	
 };
 
 #endif // __PLAYER_MODULE_H__

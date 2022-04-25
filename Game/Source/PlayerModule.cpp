@@ -6,6 +6,7 @@
 #include "Window.h"
 #include "FadeToBlack.h"
 #include "PlayerModule.h"
+#include "DialogModule.h"
 
 
 #include "Defs.h"
@@ -51,6 +52,10 @@ bool PlayerModule::PreUpdate()
 
 bool PlayerModule::Update(float dt)
 {
+	// Skip cases
+	if (app->dialog->IsDialogActive()) return true;
+
+	// Update
 	GamePad& gamePad = app->input->pads[0];
 	
 	if (app->input->GamepadConnected() == false)

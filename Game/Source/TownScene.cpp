@@ -42,6 +42,9 @@ bool TownScene::Start()
 
 	app->render->followPlayerX = true;
 	app->render->followPlayerY = false;
+
+	m_Triana.Init();
+
 	return true;
 }
 
@@ -54,25 +57,12 @@ bool TownScene::PreUpdate()
 // Called each loop iteration
 bool TownScene::Update(float dt)
 {
-	if (app->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
-		app->render->camera.y -= app->render->cameraSpeed;
+	m_Triana.Update();
+	m_Triana.Render();
 
-	if (app->input->GetKey(SDL_SCANCODE_DOWN) == KEY_REPEAT)
-		app->render->camera.y += app->render->cameraSpeed;
-
-
-	if (app->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT)
-		app->render->camera.x -= app->render->cameraSpeed;
-
-
-	if (app->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
-		app->render->camera.x += app->render->cameraSpeed;
-
-	SDL_Rect trianaSection = { 25,25, 75, 85 };
 	SDL_Rect madonnaSection = {160,25, 60, 80};
 	app->render->DrawTexture(townScene, 0, 0, NULL);
 	app->render->DrawTexture(NPCs, 805, 320, &madonnaSection);
-	app->render->DrawTexture(NPCs, 1185, 650, &trianaSection);
 
 
 	app->playerModule->GetPosition(playerPos.x, playerPos.y);
