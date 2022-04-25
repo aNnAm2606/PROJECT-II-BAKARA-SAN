@@ -58,12 +58,11 @@ bool TownScene::PreUpdate()
 bool TownScene::Update(float dt)
 {
 	m_Triana.Update();
-	m_Triana.Render();
-
+	
 	SDL_Rect madonnaSection = {160,25, 60, 80};
 	app->render->DrawTexture(townScene, 0, 0, NULL);
 	app->render->DrawTexture(NPCs, 805, 320, &madonnaSection);
-
+	m_Triana.Render();
 
 	app->playerModule->GetPosition(playerPos.x, playerPos.y);
 	if (playerPos.x < 650 || playerPos.x > 1275) app->render->followPlayerX = false;

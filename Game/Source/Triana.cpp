@@ -5,7 +5,7 @@
 
 void Triana::FillShopDialog()
 {
-	SDL_Texture* dialogImg = app->tex->Load("Assets/Textures/dialog_box.png");
+	SDL_Texture* dialogImg = app->tex->Load("Assets/Art/Dialogs/dialog_box.png");
 
 	char lookupTable[] = { "! @,_./0123456789$;< ?abcdefghijklmnopqrstuvwxyz" };
 	int font = app->fonts->Load("Assets/Fonts/rtype_font3.png", lookupTable, 2);

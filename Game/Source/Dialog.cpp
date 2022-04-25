@@ -123,11 +123,11 @@ void Dialog::SetActiveNode(size_t id)
 void Dialog::Update()
 {
 	if (activeNode) {
-		app->render->DrawTextureScaled(dialogImg, posX, posY, dialogWidth, dialogHeight);
+		app->render->DrawTextureScaled(dialogImg, posX, posY, dialogWidth, dialogHeight, NULL, false);
 
 		size_t lines = texts.size();
 		for (size_t i = 0; i < lines; i++) {
-			app->fonts->BlitText(posX + textXOffset, posY + textYOffset + char_height * i * 2, dialogFont, texts[i].c_str());
+			app->fonts->BlitText(posX + textXOffset, posY + textYOffset + char_height * i * 2, dialogFont, texts[i].c_str(), false);
 		}
 
 		size_t optionSize = activeNode->options.size();

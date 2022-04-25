@@ -110,14 +110,19 @@ void Render::ResetViewPort()
 }
 
 // Blit to screen
-bool Render::DrawTexture(SDL_Texture* texture, int x, int y, const SDL_Rect* section, float speed, double angle, int pivotX, int pivotY) const
+bool Render::DrawTexture(SDL_Texture* texture, int x, int y, const SDL_Rect* section, bool useCamera, float speed, double angle, int pivotX, int pivotY) const
 {
 	bool ret = true;
 	uint scale = app->win->GetScale();
 
 	SDL_Rect rect;
-	rect.x = (int)(camera.x * speed) + x * scale;
-	rect.y = (int)(camera.y * speed) + y * scale;
+	rect.x = x * scale;
+	rect.y = y * scale;
+
+	if (useCamera) {
+		rect.x += (int)(camera.x * speed);
+		rect.y += (int)(camera.y * speed);
+	}
 
 	if(section != NULL)
 	{
@@ -151,14 +156,19 @@ bool Render::DrawTexture(SDL_Texture* texture, int x, int y, const SDL_Rect* sec
 	return ret;
 }
 
-bool Render::DrawTextureScaled(SDL_Texture* texture, int x, int y, int width, int height, const SDL_Rect* section, float speed, double angle, int pivotX, int pivotY) const
+bool Render::DrawTextureScaled(SDL_Texture* texture, int x, int y, int width, int height, const SDL_Rect* section, bool useCamera, float speed, double angle, int pivotX, int pivotY) const
 {
 	bool ret = true;
 	uint scale = app->win->GetScale();
 
 	SDL_Rect rect;
-	rect.x = (int)(camera.x * speed) + x * scale;
-	rect.y = (int)(camera.y * speed) + y * scale;
+	rect.x = x * scale;
+	rect.y = y * scale;
+
+	if (useCamera) {
+		rect.x += (int)(camera.x * speed);
+		rect.y += (int)(camera.y * speed);
+	}
 
 	SDL_QueryTexture(texture, NULL, NULL, &rect.w, &rect.h);
 

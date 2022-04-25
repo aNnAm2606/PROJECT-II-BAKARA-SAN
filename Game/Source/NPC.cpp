@@ -16,7 +16,7 @@ NPC::NPC()
 {
 	m_ActiveDialog = -1;
 	m_Interacting = false;
-	m_InteractDistance = 5.0f;
+	m_InteractDistance = 90.0f;
 }
 
 NPC::~NPC()
@@ -44,7 +44,10 @@ void NPC::Update()
 		if (app->input->GetKey(SDL_SCANCODE_E) == KEY_DOWN) {
 			int x, y;
 			app->playerModule->GetPosition(x, y);
-			if (DISTANCE_F(m_Position.x, m_Position.y, x, y) < m_InteractDistance) {
+
+			float distance = DISTANCE_F(m_Position.x, m_Position.y, x, y);
+
+			if (distance < m_InteractDistance) {
 				Interact();
 			}
 		}
