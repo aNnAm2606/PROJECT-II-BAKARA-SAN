@@ -58,8 +58,35 @@ void SisterMadonna::FillBaseDialog()
 	size_t talk_b2 = dialog.AddNode(dnode);
 
 	// TALK_B3
+	dnode.text = "not really... i mostly just sit down and stare at that wall... it is pretty relaxing actually...";
+	dnode.nodes.push_back(-1);
+
+	size_t talk_b3_back = dialog.AddNode(dnode);
+
+	dnode.text = "they are probably dead.";
+	dnode.options.push_back("oh.");
+	dnode.nodes.push_back(-1);
+
+	size_t talk_b3_b2_b1_back = dialog.AddNode(dnode);
+
+	dnode.text = "there needed to be someone here to perform the purifications. since i am the youngest sister i had to stay here.";
+	dnode.nodes.push_back(-1);
+
+	size_t talk_b3_b2_b2_back = dialog.AddNode(dnode);
+
+	dnode.text = "they went to exorcise some demons, and meanwhile they have left me here.";
+	dnode.options.push_back("do you think they are alright?");
+	dnode.nodes.push_back(talk_b3_b2_b1_back);
+	dnode.options.push_back("why would they leave you here alone?");
+	dnode.nodes.push_back(talk_b3_b2_b2_back);
+
+	size_t talk_b3_b1_b2 = dialog.AddNode(dnode);
+
 	dnode.text = "i guess...";
-	//dnode.options.push_back("is it a hard job?");
+	dnode.options.push_back("is it a hard job?");
+	dnode.nodes.push_back(talk_b3_back);
+	dnode.options.push_back("where are the other nuns?");
+	dnode.nodes.push_back(talk_b3_b1_b2);
 
 	size_t talk_b3_b1 = dialog.AddNode(dnode);
 
@@ -96,6 +123,9 @@ void SisterMadonna::FillBaseDialog()
 	dialog.SetFollowNode(talk_b1, 1, b_talk);
 	dialog.SetFollowNode(talk_b2_back, 0, b_talk);
 	dialog.SetFollowNode(talk_b2_back2, 0, b_talk);
+	dialog.SetFollowNode(talk_b3_back, 0, b_talk);
+	dialog.SetFollowNode(talk_b3_b2_b1_back, 0, b_talk);
+	dialog.SetFollowNode(talk_b3_b2_b2_back, 0, b_talk);
 
 	// PURIFY
 	dnode.text = "that is it... try not to die... i guess...";
