@@ -35,6 +35,7 @@ public:
 private:
 	Point<int> playerPos;
 	SDL_Texture* tutorialForestScene;
+	SDL_Texture* NPCs;
 };
 
 #endif // __TUTORIALFORESTSCENE_H__

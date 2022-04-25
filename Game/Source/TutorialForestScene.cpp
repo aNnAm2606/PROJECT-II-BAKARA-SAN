@@ -38,6 +38,7 @@ bool TutorialForestScene::Start()
 	app->render->camera.y = -150;
 	app->playerModule->SetPosition(1700, 600);
 	tutorialForestScene = app->tex->Load("Assets/Art/Maps/out_of_tutorial_map.png");
+	NPCs = app->tex->Load("Assets/Art/NPCs/NPCs.png");
 	return true;
 }
 
@@ -62,7 +63,9 @@ bool TutorialForestScene::Update(float dt)
 	if (app->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
 		app->render->camera.x += app->render->cameraSpeed;
 
+	SDL_Rect allanSection = { 280,25, 75,85 };
 	app->render->DrawTexture(tutorialForestScene, 0, 0, NULL);
+	app->render->DrawTexture(NPCs, 140, 540, &allanSection);
 	
 	return true;
 }
@@ -85,5 +88,6 @@ bool TutorialForestScene::CleanUp()
 {
 	LOG("Freeing scene");
 	app->tex->UnLoad(tutorialForestScene);
+	app->tex->UnLoad(NPCs);
 	return true;
 }

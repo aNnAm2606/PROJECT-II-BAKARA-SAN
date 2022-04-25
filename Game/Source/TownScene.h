@@ -34,6 +34,7 @@ public:
 
 private:
 	SDL_Texture* townScene;
+	SDL_Texture* NPCs;
 	Point<int>playerPos;
 };
 
