@@ -86,11 +86,14 @@ bool PausePanel::OnGuiMouseClickEvent(GuiControl* control)
     }
     else if (control->id == saveBtn->id)
     {
+        app->SaveGameRequest();
         app->guiManager->pausePanel->Disable();
     }
     else if (control->id == loadBtn->id)
     {
+        app->LoadGameRequest();
         app->guiManager->pausePanel->Disable();
+
     }
     else if (control->id == exitGameBtn->id)
     {

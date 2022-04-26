@@ -65,6 +65,9 @@ public:
 	const char* GetTitle() const;
 	const char* GetOrganization() const;
 
+	void LoadGameRequest();
+	void SaveGameRequest() const;
+
 private:
 
 	// Load config file
@@ -84,6 +87,10 @@ private:
 
 	// Call modules after each loop iteration
 	bool PostUpdate();
+
+	
+	bool LoadFromFile();
+	bool SaveToFile() const;
 
 public:
 
@@ -122,8 +129,10 @@ private:
 
 	//Config
 	pugi::xml_document configFile;
+	pugi::xml_document gameStateFile;
 	pugi::xml_node config;
 	pugi::xml_node configApp;
+
 
 
 	//FPS control
@@ -145,6 +154,10 @@ private:
 	uint32 maxFrameRate;
 
 	float averageFps = 0.0f;
+
+	//Save-Load
+	mutable bool saveRequest;
+	bool loadRequest;
 	
 };
 

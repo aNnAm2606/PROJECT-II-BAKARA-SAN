@@ -88,6 +88,15 @@ public:
 		return isEnabled;
 	}
 
+	virtual bool SaveState(pugi::xml_node&)
+	{
+		return true;
+	}
+	virtual bool LoadState(pugi::xml_node&)
+	{
+		return true;
+	}
+
 public:
 
 	SString name;

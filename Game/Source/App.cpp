@@ -233,6 +233,17 @@ void App::PrepareUpdate()
 void App::FinishUpdate()
 {
 	// This is a good place to call Load / Save functions
+
+	if (loadRequest)
+	{
+		LoadFromFile();
+		loadRequest = false;
+	}
+	if (saveRequest)
+	{
+		SaveToFile();
+		saveRequest = false;
+	}
 	float secondsSinceStartup = startupTime.ReadSec();
 
 	if (lastSecFrameTime.Read() > 1000) {
@@ -256,6 +267,8 @@ void App::FinishUpdate()
 
 	app->win->SetTitle(title);
 }
+
+
 
 // Call modules before each loop iteration
 bool App::PreUpdate()
@@ -366,4 +379,64 @@ const char* App::GetOrganization() const
 	return organization.GetString();
 }
 
+void App::LoadGameRequest()
+{
+	loadRequest = true;
+}
+void App::SaveGameRequest() const
+{
+	saveRequest = true;
+}
 
+
+// L02: TODO 5: Implement the method LoadFromFile() to actually load an xml file
+// then call all the modules to load themselves
+bool App::LoadFromFile()
+{
+	bool ret = true;
+	pugi::xml_parse_result result = gameStateFile.load_file("save_game.xml");
+	//pugi::xml_node saveStateNode = gameStateFile.child("game_state");
+
+	if (result == NULL)
+	{
+		LOG("Could not load map xml file config.xml. pugi error: %s", result.description());
+		ret = false;
+	}
+
+	ListItem<Module*>* item;
+	item = modules.start;
+
+	while (item != NULL && ret == true)
+	{
+		//pugi::xml_node moduleNode = saveStateNode.child(item->data->name.GetString());
+		ret = item->data->LoadState(gameStateFile.child("game_state").child(item->data->name.GetString()));
+		//ret = item->data->LoadState(moduleNode);
+		item = item->next;
+	}
+
+	loadRequest = false;
+	return ret;
+
+
+}
+
+bool App::SaveToFile() const
+{
+	bool ret = false;
+	pugi::xml_document* saveDoc = new pugi::xml_document();
+	pugi::xml_node saveStateNode = saveDoc->append_child("game_state");
+
+	ListItem<Module*>* item;
+	item = modules.start;
+
+	while (item != NULL)
+	{
+		//pugi::xml_node moduleNode = saveStateNode.child(item->data->name.GetString());
+		ret = item->data->SaveState(saveStateNode.append_child(item->data->name.GetString()));
+		item = item->next;
+	}
+	ret = saveDoc->save_file("save_game.xml");
+	saveRequest = false;
+	return ret;
+
+}

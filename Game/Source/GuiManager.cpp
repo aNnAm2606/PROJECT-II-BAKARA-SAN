@@ -15,7 +15,7 @@
 
 GuiManager::GuiManager(bool startEnabled) : Module(startEnabled)
 {
-	name.Create("gui manager");
+	name.Create("guiManager");
 }
 
 GuiManager::~GuiManager() {}

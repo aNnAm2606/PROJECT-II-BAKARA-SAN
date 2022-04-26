@@ -37,6 +37,9 @@ public:
 	bool CleanUp();
 	void SetPosition(int x, int y);
 	void GetPosition(int &x, int &y);
+
+	bool LoadState(pugi::xml_node&) override;
+	bool SaveState(pugi::xml_node&) override;
 };
 
 #endif // __PLAYER_MODULE_H__

@@ -15,7 +15,7 @@
 
 PlayerModule::PlayerModule(bool startEnabled) : Module(startEnabled)
 {
-	
+	name.Create("PlayerModule");
 }
 
 PlayerModule::~PlayerModule()
@@ -103,5 +103,23 @@ bool PlayerModule::PostUpdate()
 bool PlayerModule::CleanUp()
 {
 	app->tex->UnLoad(playerSheet);
+	return true;
+}
+
+bool PlayerModule::LoadState(pugi::xml_node& node)
+{
+
+	playerPos.x = node.child("position").attribute("x").as_int();
+	playerPos.y = node.child("position").attribute("y").as_int();
+
+	return true;
+}
+bool PlayerModule::SaveState(pugi::xml_node& node)
+{
+	pugi::xml_node pos = node.append_child("position");
+
+	pos.append_attribute("x").set_value(playerPos.x);
+	pos.append_attribute("y").set_value(playerPos.y);
+
 	return true;
 }
