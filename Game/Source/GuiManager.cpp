@@ -78,6 +78,20 @@ bool GuiManager::Update(float dt)
 		battlePanel->Enable();
 	if (app->input->GetKey(SDL_SCANCODE_V) == KEY_DOWN)
 		battlePanel->Disable();
+
+	if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
+		app->guiManager->pausePanel->gamePaused = !app->guiManager->pausePanel->gamePaused;
+	if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN && app->guiManager->settingsPanel->GetActive() == true)
+		app->guiManager->settingsPanel->Disable();
+
+	if (app->guiManager->pausePanel->gamePaused == true
+		&& app->guiManager->settingsPanel->GetActive() == false
+		&& app->guiManager->quitPanel->GetActive() == false)
+		app->guiManager->pausePanel->Enable();
+	else if (app->guiManager->pausePanel->gamePaused == false
+		&& app->guiManager->settingsPanel->GetActive() == false 
+		&& app->guiManager->quitPanel->GetActive() == false)
+		app->guiManager->pausePanel->Disable();
 	
 	accumulatedTime += dt;
 	if (accumulatedTime >= updateMsCycle) doLogic = true;

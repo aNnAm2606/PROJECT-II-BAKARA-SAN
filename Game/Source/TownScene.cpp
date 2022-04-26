@@ -81,8 +81,6 @@ bool TownScene::PostUpdate()
 {
 	bool ret = true;
 	
-	if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
-		app->guiManager->pausePanel->Enable();
 	if (playerPos.x < 0)app->fade->Fade(this, (Module*)app->tutorialForestScene);
 	if (playerPos.y > 1000)app->fade->Fade(this, (Module*)app->startForestScene);
 

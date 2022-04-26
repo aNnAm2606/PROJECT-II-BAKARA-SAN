@@ -79,8 +79,7 @@ bool TutorialScene_4::PostUpdate()
 {
 	bool ret = true;
 	app->playerModule->GetPosition(playerPos.x, playerPos.y);
-	if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
-		app->guiManager->pausePanel->Enable();
+
 	if (playerPos.x > 1700)app->fade->Fade(this, (Module*)app->tutorialForestScene);
 
 

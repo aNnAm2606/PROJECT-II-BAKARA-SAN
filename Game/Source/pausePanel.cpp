@@ -54,6 +54,7 @@ bool PausePanel::Start()
 bool PausePanel::Update(float dt, bool doLogic)
 {
     GuiPanel::Update(dt, doLogic);
+
     return true;
 }
 

@@ -75,9 +75,6 @@ bool TitleScreen::PostUpdate()
 {
 	bool ret = true;
 
-	if(app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
-		ret = false;
-
 	if (startGame == true)
 		app->fade->Fade(this, (Module*)app->startForestScene);
 
