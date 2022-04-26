@@ -27,10 +27,14 @@ void NPC::Interact()
 {
 	if (m_Interacting) return;
 
-	m_Interacting = true;
-	m_Dialogs[m_ActiveDialog].ResetDialog(m_StartingNodes[m_ActiveDialog]);
+	if (m_ActiveDialog >= 0 && m_ActiveDialog < m_Dialogs.size()) {
+		m_Interacting = true;
+		m_Dialogs[m_ActiveDialog].ResetDialog(m_StartingNodes[m_ActiveDialog]);
 
-	app->dialog->StartDialog(&m_Dialogs[m_ActiveDialog]);
+		app->dialog->StartDialog(&m_Dialogs[m_ActiveDialog]);
+	}
+
+	OnInteract();
 }
 
 void NPC::Update()

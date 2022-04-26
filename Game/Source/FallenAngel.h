@@ -9,8 +9,6 @@ private:
 public:
 	FallenAngel();
 	~FallenAngel();
-
-	void ExecuteAttack();
 };
 
 #endif  // __LOG_H__

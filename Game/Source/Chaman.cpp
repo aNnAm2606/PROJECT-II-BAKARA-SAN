@@ -6,7 +6,7 @@
 
 Chaman::Chaman()
 {
-	p_CharacterId = ECharacter::ECHARACTER_CHAMAN;
+	p_CharacterId = ECharacterType::ECHARACTER_CHAMAN;
 	p_Stats.health = 20;
 	p_Stats.damage = 1;
 	p_Stats.speed = 2;
@@ -18,16 +18,17 @@ Chaman::Chaman()
 	};
 
 	p_Abilities[0] = new BasicBackRowHit(this);
+
+	p_AttackAnimations[0].PushBack({ 0, 512, 128, 128});
+	p_AttackAnimations[0].PushBack({ 128, 512, 128, 128 });
+	p_AttackAnimations[0].PushBack({ 256, 512, 128, 128 });
+	p_AttackAnimations[0].PushBack({ 128, 512, 128, 128 });
+	p_AttackAnimations[0].PushBack({ 0, 256, 128, 128 });
+	p_AttackAnimations[0].speed = 0.2f;
+	p_AttackAnimations[0].loop = false;
 }
 
 Chaman::~Chaman()
 {
 	
-}
-
-void Chaman::ExecuteAttack()
-{
-	p_Attacking = true;
-	p_Abilities[0]->Execute();
-	p_Attacking = false;
 }

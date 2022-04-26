@@ -3,6 +3,7 @@
 
 #include "SDL/include/SDL.h"
 #include "Point.h"
+#include "Animation.h"
 
 #define MAX_ABILITIES 1
 
@@ -16,7 +17,7 @@ class Ability;
 
 class Character {
 public:
-	enum class ECharacter {
+	enum class ECharacterType {
 		// Player characters
 		ECHARACTER_CHAMAN,
 		ECHARACTER_PALADIN,
@@ -30,16 +31,20 @@ public:
 	};
 protected:
 	Stats p_Stats;
-	ECharacter p_CharacterId;
+	ECharacterType p_CharacterId;
 
 	SDL_Texture* p_CharacterSpriteSheet;
 	SDL_Rect p_CharacterRect;
 
 	Ability* p_Abilities[MAX_ABILITIES];
 
+	Animation p_AttackAnimations[MAX_ABILITIES];
+	Animation p_IdleAnimation;
+
 	bool p_IsPlayer;
 
 	bool p_Attacking;
+	int p_SelectedAttack;
 public:
 	Character();
 	virtual ~Character();
@@ -49,11 +54,14 @@ public:
 
 	int GetSpeed() { return p_Stats.speed; }
 	int GetHealth() { return p_Stats.health; }
-
-	void Render(iPoint position);
+	
 	bool IsPlayer() { return p_IsPlayer; }
 
-	virtual void ExecuteAttack() = 0;
+	void StartAttack(int selectedAttack = -1);
+	virtual void Update();
+
+	void Render(iPoint position);
+
 	bool IsAttacking() { return p_Attacking; }
 };
 

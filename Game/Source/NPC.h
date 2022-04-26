@@ -27,6 +27,8 @@ public:
 
 	void Interact();
 
+	virtual void OnInteract(){}
+
 	void Update();
 	void Render();
 

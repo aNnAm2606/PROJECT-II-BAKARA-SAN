@@ -24,13 +24,10 @@
       <Filter>Scenes</Filter>
     </ClCompile>
     <ClCompile Include="Source\Chaman.cpp">
-      <Filter>Entities\Characters</Filter>
+      <Filter>Battle\Characters</Filter>
     </ClCompile>
     <ClCompile Include="Source\Paladin.cpp">
-      <Filter>Entities\Characters</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Character.cpp">
-      <Filter>Entities</Filter>
+      <Filter>Battle\Characters</Filter>
     </ClCompile>
     <ClCompile Include="Source\Triana.cpp">
       <Filter>Entities\NPCs</Filter>
@@ -56,9 +53,6 @@
     <ClCompile Include="Source\Audio.cpp">
       <Filter>Core\Modules</Filter>
     </ClCompile>
-    <ClCompile Include="Source\BattleModule.cpp">
-      <Filter>Core\Modules</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Render.cpp">
       <Filter>Core\Modules</Filter>
     </ClCompile>
@@ -81,13 +75,13 @@
       <Filter>Core\Modules</Filter>
     </ClCompile>
     <ClCompile Include="Source\Enemy.cpp">
-      <Filter>Entities\Enemies</Filter>
+      <Filter>Battle\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="Source\FallenAngel.cpp">
-      <Filter>Entities\Enemies</Filter>
+      <Filter>Battle\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="Source\Gargoyle.cpp">
-      <Filter>Entities\Enemies</Filter>
+      <Filter>Battle\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="Source\Dialog.cpp">
       <Filter>Dialogs</Filter>
@@ -155,6 +149,15 @@
     <ClCompile Include="Source\SisterMadonna.cpp">
       <Filter>Entities\NPCs</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Character.cpp">
+      <Filter>Battle</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GargoyleTest.cpp">
+      <Filter>Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\BattleScene.cpp">
+      <Filter>Core\Modules</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\StartForestScene.h">
@@ -185,13 +188,10 @@
       <Filter>Scenes</Filter>
     </ClInclude>
     <ClInclude Include="Source\Chaman.h">
-      <Filter>Entities\Characters</Filter>
+      <Filter>Battle\Characters</Filter>
     </ClInclude>
     <ClInclude Include="Source\Paladin.h">
-      <Filter>Entities\Characters</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Character.h">
-      <Filter>Entities</Filter>
+      <Filter>Battle\Characters</Filter>
     </ClInclude>
     <ClInclude Include="Source\Triana.h">
       <Filter>Entities\NPCs</Filter>
@@ -215,9 +215,6 @@
       <Filter>Scenes</Filter>
     </ClInclude>
     <ClInclude Include="Source\Audio.h">
-      <Filter>Core\Modules</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\BattleModule.h">
       <Filter>Core\Modules</Filter>
     </ClInclude>
     <ClInclude Include="Source\Render.h">
@@ -254,13 +251,13 @@
       <Filter>Core\Modules</Filter>
     </ClInclude>
     <ClInclude Include="Source\Enemy.h">
-      <Filter>Entities\Enemies</Filter>
+      <Filter>Battle\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="Source\FallenAngel.h">
-      <Filter>Entities\Enemies</Filter>
+      <Filter>Battle\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="Source\Gargoyle.h">
-      <Filter>Entities\Enemies</Filter>
+      <Filter>Battle\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="Source\Dialog.h">
       <Filter>Dialogs</Filter>
@@ -346,6 +343,15 @@
     <ClInclude Include="Source\SisterMadonna.h">
       <Filter>Entities\NPCs</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Character.h">
+      <Filter>Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GargoyleTest.h">
+      <Filter>Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\BattleScene.h">
+      <Filter>Core\Modules</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Scenes">
@@ -360,9 +366,6 @@
     <Filter Include="Entities">
       <UniqueIdentifier>{eae208cc-7f04-4d1b-aeba-c96499ec0102}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Entities\Characters">
-      <UniqueIdentifier>{9c00a7b0-8c6c-4b82-bfca-b03d36c91755}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Entities\NPCs">
       <UniqueIdentifier>{332a8fab-32e3-4289-aa78-67b7b6c90e43}</UniqueIdentifier>
     </Filter>
@@ -371,9 +374,6 @@
     </Filter>
     <Filter Include="Core\Modules">
       <UniqueIdentifier>{747f70ba-fa9c-46b6-972f-43fe2b76b32e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Entities\Enemies">
-      <UniqueIdentifier>{5a6ea445-24c1-4d26-ba5d-341ccd951bc8}</UniqueIdentifier>
     </Filter>
     <Filter Include="GUI">
       <UniqueIdentifier>{47b3da88-58ce-4874-9bd9-9a7d862ff3e9}</UniqueIdentifier>
@@ -386,6 +386,15 @@
     </Filter>
     <Filter Include="Core\pugixml">
       <UniqueIdentifier>{8a8ed1d9-4c2d-4d62-8acd-741f17f79ae7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Battle">
+      <UniqueIdentifier>{1559c83f-c88f-439e-86e0-8e490c68f3f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Battle\Enemies">
+      <UniqueIdentifier>{5a6ea445-24c1-4d26-ba5d-341ccd951bc8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Battle\Characters">
+      <UniqueIdentifier>{9c00a7b0-8c6c-4b82-bfca-b03d36c91755}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -9,8 +9,6 @@ private:
 public:
 	Gargoyle();
 	~Gargoyle();
-
-	void ExecuteAttack();
 };
 
 #endif  // __LOG_H__

@@ -1,6 +1,7 @@
 #ifndef __TUTORIAL_SCENE_4_H__
 #define __TUTORIAL_SCENE_4_H__
 #include "Module.h"
+#include "GargoyleTest.h"
 
 struct SDL_Texture;
 
@@ -35,6 +36,8 @@ public:
 private:
 	SDL_Texture* tutorialScene_4;
 	Point<int>playerPos;
+
+	GargoyleTest m_GargoyleTest;
 };
 
 #endif // __TUTORIAL_SCENE_4_H__

@@ -21,7 +21,7 @@
 #include <sstream>
 
 // Battle modules
-#include "BattleModule.h"
+#include "BattleScene.h"
 
 // Scenes
 #include "LogoScreen.h"
@@ -53,17 +53,17 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 
 	// Game modules
 	dialog = new DialogModule(true);
-	battleModule = new BattleModule(false);
 	playerModule = new PlayerModule(false);
 
 	// Scenes
-	logoScreen = new LogoScreen(true);
+	logoScreen = new LogoScreen(false);
 	titleScreen = new TitleScreen(false);
 	gameplayScreen = new GameplayScreen(false);
 	startForestScene = new StartForestScene(false);
 	townScene = new TownScene(false);
 	tutorialForestScene = new TutorialForestScene(false);
 	tutorialScene_4 = new TutorialScene_4(false);
+	battleScene = new BattleScene(true);
 
 	// Ordered for awake / Start / Update
 	// Reverse order of CleanUp
@@ -86,6 +86,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(titleScreen);
 	AddModule(logoScreen);
 	AddModule(gameplayScreen);
+	AddModule(battleScene);
 	
 	// Game modules
 	//AddModule(battleModule);

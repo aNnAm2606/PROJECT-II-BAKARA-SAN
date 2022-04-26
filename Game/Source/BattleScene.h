@@ -12,13 +12,35 @@
 
 #define GRID_PIXEL_SIZE 128
 
-class BattleModule : public Module
+class BattleScene : public Module
 {
+private:
+	enum EBattleState {
+		EBATTLESTATE_WAITING,
+		EBATTLESTATE_ATTACKING,
+		EBATTLESTATE_NONE
+	};
+
+	SDL_Texture* m_Background;
+
+	iPoint m_BattleOffset;
+	Character* m_PlayerGrid[GRID_HEIGHT][GRID_WIDTH];
+	Character* m_EnemyGrid[GRID_HEIGHT][GRID_WIDTH];
+
+	int m_Rounds;
+
+	PQueue<Character*> m_BattleQueue;
+	Character* m_ActiveCharacter;
+
+	EBattleState m_BattleState;
+
+	void Waiting();
+	void Attacking();
 public:
-	BattleModule(bool startEnabled);
+	BattleScene(bool startEnabled);
 
 	// Destructor
-	virtual ~BattleModule();
+	virtual ~BattleScene();
 
 	// Called before render is available
 	bool Awake(pugi::xml_node& config);
@@ -43,19 +65,6 @@ public:
 
 	// Damage enemy at position
 	void DamageEnemyAt(iPoint position, int damage);
-private:
-	SDL_Texture* m_Background;
-
-	iPoint m_BattleOffset;
-	Character* m_PlayerGrid[GRID_HEIGHT][GRID_WIDTH];
-	Character* m_EnemyGrid[GRID_HEIGHT][GRID_WIDTH];
-
-	int m_Rounds;
-
-	PQueue<Character*> m_BattleQueue;
-	Character* m_ActiveCharacter;
-
-	bool m_ExecuteAttack;
 };
 
 #endif // __SCENE_H__

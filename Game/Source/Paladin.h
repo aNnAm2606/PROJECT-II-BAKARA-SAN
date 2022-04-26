@@ -9,8 +9,6 @@ private:
 public:
 	Paladin();
 	~Paladin();
-
-	void ExecuteAttack();
 };
 
 #endif  // __LOG_H__

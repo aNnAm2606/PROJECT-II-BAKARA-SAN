@@ -40,6 +40,9 @@ bool TutorialScene_4::Start()
 	tutorialScene_4 = app->tex->Load("Assets/Art/Maps/tutorial_map_4.png");
 
 	app->playerModule->SetPosition(1600, 450);
+
+	m_GargoyleTest.Init();
+
 	return true;
 }
 
@@ -53,23 +56,10 @@ bool TutorialScene_4::PreUpdate()
 // Called each loop iteration
 bool TutorialScene_4::Update(float dt)
 {
-	if (app->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
-		app->render->camera.y -= app->render->cameraSpeed;
-
-	if (app->input->GetKey(SDL_SCANCODE_DOWN) == KEY_REPEAT)
-		app->render->camera.y += app->render->cameraSpeed;
-
-
-	if (app->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT)
-		app->render->camera.x -= app->render->cameraSpeed;
-
-
-	if (app->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
-		app->render->camera.x += app->render->cameraSpeed;
-
+	m_GargoyleTest.Update();
 
 	app->render->DrawTexture(tutorialScene_4, 0, 0, NULL);
-
+	m_GargoyleTest.Render();
 
 	return true;
 }

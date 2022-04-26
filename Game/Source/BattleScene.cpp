@@ -1,46 +1,46 @@
-#include "BattleModule.h"
+#include "BattleScene.h"
 #include "Chaman.h"
 #include "Paladin.h"
 #include "FallenAngel.h"
 #include "Gargoyle.h"
+#include "Render.h"
+#include "PlayerModule.h"
+#include "GuiManager.h"
 
 #include "App.h"
 #include "Input.h"
 
-BattleModule::BattleModule(bool startEnabled) : Module(startEnabled)
+BattleScene::BattleScene(bool startEnabled) : Module(startEnabled)
 {
-	memset(m_PlayerGrid, NULL, GRID_SIZE * 4);
-	memset(m_EnemyGrid, NULL, GRID_SIZE * 4);
+	name.Create("BattleScene");
 
 	m_BattleOffset = { 200, 200 };
-	m_ActiveCharacter = NULL;
-	m_ExecuteAttack = false;
 }
 
-BattleModule::~BattleModule()
+BattleScene::~BattleScene()
 {
-	for (int y = 0; y < GRID_HEIGHT; y++) {
-		for (int x = 0; x < GRID_WIDTH; x++) {
-			if (m_PlayerGrid[y][x]) {
-				delete m_PlayerGrid[y][x];
-			}
-
-			if (m_EnemyGrid[y][x]) {
-				delete m_EnemyGrid[y][x];
-			}
-		}
-	}
+	
 }
 
-bool BattleModule::Awake(pugi::xml_node& config)
+bool BattleScene::Awake(pugi::xml_node& config)
 {
 	
 
 	return true;
 }
 
-bool BattleModule::Start()
+bool BattleScene::Start()
 {
+	memset(m_PlayerGrid, NULL, GRID_SIZE * 4);
+	memset(m_EnemyGrid, NULL, GRID_SIZE * 4);
+
+	m_ActiveCharacter = NULL;
+
+	app->playerModule->Disable();
+
+	app->render->camera.x = 0;
+	app->render->camera.y = 0;
+
 	m_PlayerGrid[1][0] = new Chaman();
 	m_PlayerGrid[1][1] = new Paladin();
 
@@ -49,10 +49,12 @@ bool BattleModule::Start()
 
 	m_Rounds = 0;
 
+	m_BattleState = EBattleState::EBATTLESTATE_WAITING;
+
 	return true;
 }
 
-bool BattleModule::PreUpdate()
+bool BattleScene::PreUpdate()
 {
 	if (m_ActiveCharacter == NULL) {
 		Character* c;
@@ -77,7 +79,7 @@ bool BattleModule::PreUpdate()
 	return true;
 }
 #include <iostream>
-bool BattleModule::Update(float dt)
+bool BattleScene::Update(float dt)
 {
 	//
 	system("cls");
@@ -103,36 +105,23 @@ bool BattleModule::Update(float dt)
 	}
 	//
 
-	if (m_ActiveCharacter->IsPlayer()) {
-		// TODO: SWAP WITH USER INTERFACE
-		if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN) {
-			m_ExecuteAttack = true;
-		}
-	}
-	else {
-		m_ExecuteAttack = true;
-	}
-
-	if (m_ExecuteAttack) {
-		m_ActiveCharacter->ExecuteAttack();
-
-		if (!m_ActiveCharacter->IsAttacking()) {
-			if (!m_BattleQueue.Pop(m_ActiveCharacter)) {
-				m_ActiveCharacter = NULL;
-			}
-
-			m_ExecuteAttack = false;
-		}
+	switch (m_BattleState) {
+		case EBattleState::EBATTLESTATE_WAITING:
+			Waiting();
+			break;
+		case EBattleState::EBATTLESTATE_ATTACKING:
+			Attacking();
+			break;
 	}
 
 	return true;
 }
 
-bool BattleModule::PostUpdate()
+bool BattleScene::PostUpdate()
 {
 	iPoint position;
 
-	// Player grid
+	// Battle grid
 	for (int y = 0; y < GRID_HEIGHT; y++) {
 		for (int x = 0; x < GRID_WIDTH; x++) {
 			if (m_PlayerGrid[y][x]) {
@@ -141,14 +130,9 @@ bool BattleModule::PostUpdate()
 
 				m_PlayerGrid[y][x]->Render(position);
 			}
-		}
-	}
 
-	// Enemy grid
-	for (int y = 0; y < GRID_HEIGHT; y++) {
-		for (int x = 0; x < GRID_WIDTH; x++) {
 			if (m_EnemyGrid[y][x]) {
-				position.x = x * GRID_PIXEL_SIZE + m_BattleOffset.x + 3*GRID_PIXEL_SIZE;
+				position.x = x * GRID_PIXEL_SIZE + m_BattleOffset.x + 3 * GRID_PIXEL_SIZE;
 				position.y = y * GRID_PIXEL_SIZE + m_BattleOffset.y;
 
 				m_EnemyGrid[y][x]->Render(position);
@@ -159,21 +143,62 @@ bool BattleModule::PostUpdate()
 	return true;
 }
 
-bool BattleModule::CleanUp()
+bool BattleScene::CleanUp()
 {
+	for (int y = 0; y < GRID_HEIGHT; y++) {
+		for (int x = 0; x < GRID_WIDTH; x++) {
+			if (m_PlayerGrid[y][x]) {
+				delete m_PlayerGrid[y][x];
+			}
+
+			if (m_EnemyGrid[y][x]) {
+				delete m_EnemyGrid[y][x];
+			}
+		}
+	}
+
 	return true;
 }
 
-void BattleModule::DamagePlayerAt(iPoint position, int damage)
+void BattleScene::DamagePlayerAt(iPoint position, int damage)
 {
 	if (!m_PlayerGrid[position.y][position.x]) return;
 
 	m_PlayerGrid[position.y][position.x]->DealDamage(damage);
 }
 
-void BattleModule::DamageEnemyAt(iPoint position, int damage)
+void BattleScene::DamageEnemyAt(iPoint position, int damage)
 {
 	if (!m_EnemyGrid[position.y][position.x]) return;
 
 	m_EnemyGrid[position.y][position.x]->DealDamage(damage);
+}
+
+
+void BattleScene::Waiting()
+{
+	if (m_ActiveCharacter->IsPlayer()) {
+		// TODO: SWAP WITH USER INTERFACE
+		if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN) {
+			m_BattleState = EBATTLESTATE_ATTACKING;
+			m_ActiveCharacter->StartAttack();
+		}
+	}
+	else {
+		m_BattleState = EBATTLESTATE_ATTACKING;
+		m_ActiveCharacter->StartAttack();
+	}
+}
+
+void BattleScene::Attacking()
+{
+	m_ActiveCharacter->Update();
+
+	if (!m_ActiveCharacter->IsAttacking()) {
+		if (!m_BattleQueue.Pop(m_ActiveCharacter)) {
+			m_ActiveCharacter = NULL;
+		}
+
+		m_BattleState = EBATTLESTATE_WAITING;
+	}
 }

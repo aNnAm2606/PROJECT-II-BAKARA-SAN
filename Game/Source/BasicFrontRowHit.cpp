@@ -2,7 +2,7 @@
 #include "App.h"
 #include "Textures.h"
 #include "Render.h"
-#include "BattleModule.h"
+#include "BattleScene.h"
 
 BasicFrontRowHit::BasicFrontRowHit(Character* character) : Ability(character)
 {
@@ -21,14 +21,14 @@ void BasicFrontRowHit::Execute()
 		position.x = 0;
 		for (int y = 0; y < GRID_HEIGHT; y++) {
 			position.y = y;
-			app->battleModule->DamageEnemyAt(position, p_Character->GetDamage());
+			app->battleScene->DamageEnemyAt(position, p_Character->GetDamage());
 		}
 	}
 	else {
 		position.x = 1;
 		for (int y = 0; y < GRID_HEIGHT; y++) {
 			position.y = y;
-			app->battleModule->DamagePlayerAt(position, p_Character->GetDamage());
+			app->battleScene->DamagePlayerAt(position, p_Character->GetDamage());
 		}
 	}
 }

@@ -9,8 +9,6 @@ private:
 public:
 	Chaman();
 	~Chaman();
-
-	void ExecuteAttack();
 };
 
 #endif  // __LOG_H__

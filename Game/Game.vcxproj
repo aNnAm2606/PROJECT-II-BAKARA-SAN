@@ -99,7 +99,7 @@
     <ClCompile Include="Source\AlanParsons.cpp" />
     <ClCompile Include="Source\BasicBackRowHit.cpp" />
     <ClCompile Include="Source\BasicFrontRowHit.cpp" />
-    <ClCompile Include="Source\BattleModule.cpp" />
+    <ClCompile Include="Source\BattleScene.cpp" />
     <ClCompile Include="Source\BattlePanel.cpp" />
     <ClCompile Include="Source\Button.cpp" />
     <ClCompile Include="Source\Chaman.cpp" />
@@ -115,6 +115,7 @@
     <ClCompile Include="Source\Fonts.cpp" />
     <ClCompile Include="Source\GameplayScreen.cpp" />
     <ClCompile Include="Source\Gargoyle.cpp" />
+    <ClCompile Include="Source\GargoyleTest.cpp" />
     <ClCompile Include="Source\GuiButton.cpp" />
     <ClCompile Include="Source\GuiManager.cpp" />
     <ClCompile Include="Source\GuiPanel.cpp" />
@@ -150,7 +151,7 @@
     <ClInclude Include="Source\Animation.h" />
     <ClInclude Include="Source\BasicBackRowHit.h" />
     <ClInclude Include="Source\BasicFrontRowHit.h" />
-    <ClInclude Include="Source\BattleModule.h" />
+    <ClInclude Include="Source\BattleScene.h" />
     <ClInclude Include="Source\BattlePanel.h" />
     <ClInclude Include="Source\Button.h" />
     <ClInclude Include="Source\Chaman.h" />
@@ -166,6 +167,7 @@
     <ClInclude Include="Source\Fonts.h" />
     <ClInclude Include="Source\GameplaySceen.h" />
     <ClInclude Include="Source\Gargoyle.h" />
+    <ClInclude Include="Source\GargoyleTest.h" />
     <ClInclude Include="Source\GuiButton.h" />
     <ClInclude Include="Source\GuiControl.h" />
     <ClInclude Include="Source\GuiManager.h" />

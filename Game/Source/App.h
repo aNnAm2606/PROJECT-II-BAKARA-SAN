@@ -20,7 +20,7 @@ class Fonts;
 class DialogModule;
 class FadeToBlack;
 class PlayerModule;
-class BattleModule;
+class BattleScene;
 
 //Scenes
 class LogoScreen;
@@ -105,7 +105,6 @@ public:
 	DialogModule* dialog;
 	FadeToBlack* fade;
 	ModuleCollisions* collisions;
-	BattleModule* battleModule;
 	PlayerModule* playerModule;
 
 	//Scenes
@@ -116,6 +115,7 @@ public:
 	TownScene* townScene;
 	TutorialForestScene* tutorialForestScene;
 	TutorialScene_4* tutorialScene_4;
+	BattleScene* battleScene;
 
 private:
 
