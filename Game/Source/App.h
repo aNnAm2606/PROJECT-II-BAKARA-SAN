@@ -105,7 +105,7 @@ private:
 
 	bool SaveToFile() const;
 
-	bool SaveCurrentScene();
+	bool SaveCurrentScene(pugi::xml_node&);
 
 	bool LoadSavedScene();
 

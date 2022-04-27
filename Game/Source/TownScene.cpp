@@ -35,7 +35,9 @@ bool TownScene::Start()
 {
 	app->render->camera.x = -150;
 	app->render->camera.y = -360;
+	app->playerModule->Enable();
 	app->playerModule->SetPosition(900, 800);
+	
 
 	townScene = app->tex->Load("Assets/Art/Maps/town_map.png");
 

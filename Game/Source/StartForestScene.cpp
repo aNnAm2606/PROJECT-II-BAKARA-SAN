@@ -46,7 +46,7 @@ bool StartForestScene::Start()
 	app->render->followPlayerY = true;
 
 	app->currentScene = sceneID::START_FOREST;
-	app->SceneLoadFinish();
+	
 	return true;
 }
 

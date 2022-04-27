@@ -238,13 +238,10 @@ void App::FinishUpdate()
 
 	if (loadRequest)
 	{
-		 int transitionIndex = fade->GetFadeStep();
-		if (!sceneLoaded)
-		{
+		
+		if (!sceneLoaded || app->titleScreen->continueGame) 
 			LoadSavedScene();
-			
-			
-		}
+		
 		if (sceneLoaded)
 		{
 			LoadFromFile();
@@ -257,8 +254,9 @@ void App::FinishUpdate()
 	}
 	if (saveRequest)
 	{
-		SaveCurrentScene();
+		//SaveCurrentScene();
 		SaveToFile();
+		savedScene = currentScene;
 		saveRequest = false;
 	}
 	float secondsSinceStartup = startupTime.ReadSec();
@@ -412,7 +410,8 @@ bool App::LoadFromFile()
 {
 	bool ret = true;
 	pugi::xml_parse_result result = gameStateFile.load_file("save_game.xml");
-	//pugi::xml_node saveStateNode = gameStateFile.child("game_state");
+	
+	currentScene = (sceneID) gameStateFile.child("game_state").child("Scene").attribute("id").as_int();
 
 	if (result == NULL)
 	{
@@ -446,6 +445,9 @@ bool App::SaveToFile() const
 	ListItem<Module*>* item;
 	item = modules.start;
 
+	saveStateNode.append_child("Scene").append_attribute("id").set_value(currentScene);
+	
+	
 	while (item != NULL)
 	{
 		//pugi::xml_node moduleNode = saveStateNode.child(item->data->name.GetString());
@@ -458,10 +460,11 @@ bool App::SaveToFile() const
 
 }
 
-bool App::SaveCurrentScene()
+bool App::SaveCurrentScene(pugi::xml_node& node)
 {
 	bool ret = true;
 	savedScene = currentScene;
+	
 	return ret;
 }
 
@@ -469,7 +472,11 @@ bool App::LoadSavedScene()
 {
 	bool ret = true;
 	Module* current = logoScreen;
-	
+
+	pugi::xml_parse_result result = gameStateFile.load_file("save_game.xml");
+
+	savedScene = (sceneID)gameStateFile.child("game_state").child("Scene").attribute("id").as_int();
+
 	switch (currentScene)
 	{
 	case LOGO: current = logoScreen;
@@ -527,7 +534,3 @@ bool App::LoadSavedScene()
 	return ret;
 }
 
-void App::SceneLoadFinish()
-{
-	if(loadRequest)sceneLoaded = true;
-}

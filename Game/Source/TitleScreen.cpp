@@ -76,8 +76,15 @@ bool TitleScreen::PostUpdate()
 {
 	bool ret = true;
 
-	if (startGame == true) 
-		app->fade->Fade(this, (Module*)app->startForestScene);
+	if (startGame == true)
+	{
+		
+		
+		if (continueGame == true) app->LoadGameRequest();
+		else app->fade->Fade(this, (Module*)app->startForestScene);
+		
+	}
+		
 
 
 	if(app->guiManager->settingsPanel->GetActive() == false

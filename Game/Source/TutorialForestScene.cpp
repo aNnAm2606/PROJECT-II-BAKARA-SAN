@@ -36,6 +36,7 @@ bool TutorialForestScene::Start()
 {
 	app->render->camera.x = -600;
 	app->render->camera.y = -150;
+	app->playerModule->Enable();
 	app->playerModule->SetPosition(1700, 600);
 	tutorialForestScene = app->tex->Load("Assets/Art/Maps/out_of_tutorial_map.png");
 

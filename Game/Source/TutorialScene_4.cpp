@@ -36,6 +36,7 @@ bool TutorialScene_4::Start()
 {
 	app->render->camera.x = -400;
 	app->render->camera.y = -150;
+	app->playerModule->Enable();
 
 	tutorialScene_4 = app->tex->Load("Assets/Art/Maps/tutorial_map_4.png");
 

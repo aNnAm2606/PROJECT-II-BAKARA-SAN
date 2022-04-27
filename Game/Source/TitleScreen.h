@@ -37,6 +37,7 @@ private:
 
 public:
 	bool startGame = false;
+	bool continueGame = false;
 };
 
 #endif // __TITLESCREEN_H__
