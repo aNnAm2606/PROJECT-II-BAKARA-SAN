@@ -56,14 +56,14 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	playerModule = new PlayerModule(false);
 
 	// Scenes
-	logoScreen = new LogoScreen(false);
+	logoScreen = new LogoScreen(true);
 	titleScreen = new TitleScreen(false);
 	gameplayScreen = new GameplayScreen(false);
 	startForestScene = new StartForestScene(false);
 	townScene = new TownScene(false);
 	tutorialForestScene = new TutorialForestScene(false);
 	tutorialScene_4 = new TutorialScene_4(false);
-	battleScene = new BattleScene(true);
+	battleScene = new BattleScene(false);
 
 	// Ordered for awake / Start / Update
 	// Reverse order of CleanUp
@@ -171,6 +171,7 @@ bool App::Start()
 		item = item->next;
 	}
 
+	currentScene = sceneID::LOGO;
 	return ret;
 }
 
@@ -237,11 +238,23 @@ void App::FinishUpdate()
 
 	if (loadRequest)
 	{
-		LoadFromFile();
-		loadRequest = false;
+		
+		if (sceneLoaded)
+		{
+			LoadFromFile();
+			sceneLoaded = false;
+			loadRequest = false;
+		}
+		else
+		{
+			LoadSavedScene();
+			sceneLoaded = true;
+		}
+		
 	}
 	if (saveRequest)
 	{
+		SaveCurrentScene();
 		SaveToFile();
 		saveRequest = false;
 	}
@@ -415,7 +428,7 @@ bool App::LoadFromFile()
 		item = item->next;
 	}
 
-	loadRequest = false;
+	
 	return ret;
 
 
@@ -437,7 +450,68 @@ bool App::SaveToFile() const
 		item = item->next;
 	}
 	ret = saveDoc->save_file("save_game.xml");
-	saveRequest = false;
+	
 	return ret;
 
+}
+
+bool App::SaveCurrentScene()
+{
+	bool ret = true;
+	savedScene = currentScene;
+	return ret;
+}
+
+bool App::LoadSavedScene()
+{
+	bool ret = true;
+	Module* current = logoScreen;
+	
+	switch (currentScene)
+	{
+	case LOGO: current = logoScreen;
+		break;
+	case TITLE: current = titleScreen;
+		break;
+	case GAMEPLAY: current = gameplayScreen;
+		break;
+	case BATTLE: current = battleScene;
+		break;
+	case START_FOREST: current = startForestScene;
+		break;
+	case TOWN: current = townScene;
+		break;
+
+	case TUTORIAL_FOREST: current = tutorialForestScene;
+		break;
+	case TUTORIAL_4: current = tutorialScene_4;
+		break;
+	default: current = logoScreen;
+		break;
+	}
+
+	switch (savedScene)
+	{
+	case LOGO: fade->Fade(current, logoScreen);
+		break;
+	case TITLE:fade->Fade(current, titleScreen);
+		break;
+	case GAMEPLAY: fade->Fade(current, gameplayScreen);
+		break;
+	case BATTLE: fade->Fade(current, battleScene);
+		break;
+	case START_FOREST: fade->Fade(current, startForestScene);
+		break;
+	case TOWN: fade->Fade(current, townScene);
+		break;
+	case TUTORIAL_FOREST: fade->Fade(current, tutorialForestScene);
+		break;
+	case TUTORIAL_4: fade->Fade(current, tutorialScene_4);
+		break;
+	default: ret = false;
+		break;
+	}
+	
+	
+	return ret;
 }

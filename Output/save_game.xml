@@ -14,12 +14,13 @@
 	<TitleScreen />
 	<LogoScreen />
 	<GameplayScreen />
+	<BattleScene />
 	<PlayerModule>
-		<position x="1580" y="550" />
+		<position x="1270" y="390" />
 	</PlayerModule>
 	<DialogModule />
 	<Fade />
 	<renderer>
-		<camera x="-620" y="-190" />
+		<camera x="-630" y="-30" follow_X="true" follow_Y="true" />
 	</renderer>
 </game_state>

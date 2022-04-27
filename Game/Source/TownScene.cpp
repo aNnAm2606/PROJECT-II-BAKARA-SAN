@@ -45,6 +45,8 @@ bool TownScene::Start()
 	m_Triana.Init();
 	m_SisterMadonna.Init();
 
+	app->currentScene = sceneID::TOWN;
+
 	return true;
 }
 
@@ -81,8 +83,8 @@ bool TownScene::PostUpdate()
 {
 	bool ret = true;
 	
-	if (playerPos.x < 0)app->fade->Fade(this, (Module*)app->tutorialForestScene);
-	if (playerPos.y > 1000)app->fade->Fade(this, (Module*)app->startForestScene);
+	if (playerPos.x < 0)app->fade->Fade(this, (Module*) app->tutorialForestScene);
+	if (playerPos.y > 1000)app->fade->Fade(this, (Module*) app->startForestScene);
 
 	return ret;
 }

@@ -41,6 +41,7 @@ bool LogoScreen::Start()
 	Logo_FX = app->audio->LoadFx("Assets/Audio/Fx/logo.wav");
 	app->audio->PlayFx(Logo_FX);
 
+	app->currentScene = sceneID::LOGO;
 	return true;
 }
 
@@ -84,6 +85,8 @@ bool LogoScreen::PostUpdate()
 	bool ret = true;
 
 	if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN) app->fade->Fade(this, (Module*)app->titleScreen);
+		
+	
 
 	return ret;
 }

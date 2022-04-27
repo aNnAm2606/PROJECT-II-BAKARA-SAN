@@ -44,6 +44,7 @@ bool TutorialForestScene::Start()
 
 	m_AlanParsons.Init();
 
+	app->currentScene = sceneID::TUTORIAL_FOREST;
 	return true;
 }
 
@@ -76,7 +77,7 @@ bool TutorialForestScene::PostUpdate()
 	bool ret = true;
 	app->playerModule->GetPosition(playerPos.x, playerPos.y);
 
-	if (playerPos.x > 1800)app->fade->Fade(this, (Module*)app->townScene);
+	if (playerPos.x > 1800) app->fade->Fade(this, (Module*)app->townScene);
 	if (playerPos.x < 100) app->fade->Fade(this, (Module*)app->tutorialScene_4);
 
 	return ret;

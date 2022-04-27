@@ -282,6 +282,8 @@ bool Render::SaveState(pugi::xml_node& node)
 	pugi::xml_node cam = node.append_child("camera");
 	cam.append_attribute("x").set_value(camera.x);
 	cam.append_attribute("y").set_value(camera.y);
+	cam.append_attribute("follow_X").set_value(followPlayerX);
+	cam.append_attribute("follow_Y").set_value(followPlayerY);
 
 	return true;
 }
@@ -290,6 +292,8 @@ bool Render::LoadState(pugi::xml_node& node)
 {
 	camera.x = node.child("camera").attribute("x").as_int();
 	camera.y = node.child("camera").attribute("y").as_int();
+	followPlayerX = node.child("camera").attribute("follow_x").as_bool();
+	followPlayerY = node.child("camera").attribute("follow_y").as_bool();
 
 	return true;
 }

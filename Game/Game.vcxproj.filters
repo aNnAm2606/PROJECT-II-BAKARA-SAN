@@ -156,7 +156,7 @@
       <Filter>Entities</Filter>
     </ClCompile>
     <ClCompile Include="Source\BattleScene.cpp">
-      <Filter>Core\Modules</Filter>
+      <Filter>Scenes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -350,7 +350,7 @@
       <Filter>Entities</Filter>
     </ClInclude>
     <ClInclude Include="Source\BattleScene.h">
-      <Filter>Core\Modules</Filter>
+      <Filter>Scenes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

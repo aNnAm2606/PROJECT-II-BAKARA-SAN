@@ -41,6 +41,7 @@ bool TitleScreen::Start()
 	app->audio->PlayMusic("Assets/Audio/Music/title_screen.ogg");
 
 	startGame = false;
+	app->currentScene = sceneID::TITLE;
 	return true;
 }
 
@@ -75,7 +76,7 @@ bool TitleScreen::PostUpdate()
 {
 	bool ret = true;
 
-	if (startGame == true)
+	if (startGame == true) 
 		app->fade->Fade(this, (Module*)app->startForestScene);
 
 

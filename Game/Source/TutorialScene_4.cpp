@@ -43,6 +43,7 @@ bool TutorialScene_4::Start()
 
 	m_GargoyleTest.Init();
 
+	app->currentScene = sceneID::TUTORIAL_4;
 	return true;
 }
 
@@ -70,7 +71,7 @@ bool TutorialScene_4::PostUpdate()
 	bool ret = true;
 	app->playerModule->GetPosition(playerPos.x, playerPos.y);
 
-	if (playerPos.x > 1700)app->fade->Fade(this, (Module*)app->tutorialForestScene);
+	if (playerPos.x > 1700) app->fade->Fade(this, (Module*)app->tutorialForestScene);
 
 
 	return ret;

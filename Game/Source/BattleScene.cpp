@@ -51,6 +51,8 @@ bool BattleScene::Start()
 
 	m_BattleState = EBattleState::EBATTLESTATE_WAITING;
 
+	app->currentScene = sceneID::BATTLE;
+
 	return true;
 }
 

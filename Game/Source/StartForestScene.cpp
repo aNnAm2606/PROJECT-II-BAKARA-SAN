@@ -44,6 +44,8 @@ bool StartForestScene::Start()
 	app->playerModule->SetPosition(700, 550);
 	app->render->followPlayerX = true;
 	app->render->followPlayerY = true;
+
+	app->currentScene = sceneID::START_FOREST;
 	return true;
 }
 
@@ -88,7 +90,7 @@ bool StartForestScene::PostUpdate()
 {
 	bool ret = true;
 
-	if(playerPos.y < -200)app->fade->Fade(this, (Module*)app->townScene);
+	if(playerPos.y < -200) app->fade->Fade(this, (Module*)app->townScene);
 	 
 
 	return ret;

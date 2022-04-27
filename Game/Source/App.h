@@ -31,6 +31,17 @@ class GameplayScreen;
 class TutorialForestScene;
 class TutorialScene_4;
 
+enum  sceneID
+{
+	LOGO,
+	TITLE,
+	GAMEPLAY,
+	BATTLE,
+	START_FOREST,
+	TOWN,
+	TUTORIAL_FOREST,
+	TUTORIAL_4,
+};
 class App
 {
 public:
@@ -88,9 +99,13 @@ private:
 	// Call modules after each loop iteration
 	bool PostUpdate();
 
-	
 	bool LoadFromFile();
+
 	bool SaveToFile() const;
+
+	bool SaveCurrentScene();
+
+	bool LoadSavedScene();
 
 public:
 
@@ -116,6 +131,9 @@ public:
 	TutorialForestScene* tutorialForestScene;
 	TutorialScene_4* tutorialScene_4;
 	BattleScene* battleScene;
+
+	sceneID currentScene;
+	sceneID savedScene;
 
 private:
 
@@ -158,6 +176,9 @@ private:
 	//Save-Load
 	mutable bool saveRequest;
 	bool loadRequest;
+
+	bool sceneLoaded;
+	
 	
 };
 
