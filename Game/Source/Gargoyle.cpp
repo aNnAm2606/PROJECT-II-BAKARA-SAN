@@ -24,6 +24,15 @@ Gargoyle::Gargoyle()
 	p_AttackAnimations[0].PushBack({ 256, 384, 128, 128 });
 	p_AttackAnimations[0].speed = 0.2f;
 	p_AttackAnimations[0].loop = false;
+
+	SDL_Rect rect = { 0, 640, 128, 128 };
+
+	for (int i = 0; i < 5; i++) {
+		rect.x = i * 128;
+		p_DeadAnimation.PushBack(rect);
+	}
+	p_DeadAnimation.speed = 0.2f;
+	p_DeadAnimation.loop = false;
 }
 
 Gargoyle::~Gargoyle()

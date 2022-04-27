@@ -22,6 +22,15 @@ FallenAngel::FallenAngel()
 	p_AttackAnimations[0].PushBack({ 0, 512, 128, 128 });
 	p_AttackAnimations[0].speed = 0.2f;
 	p_AttackAnimations[0].loop = false;
+
+	SDL_Rect rect = { 0, 768, 128, 128 };
+
+	for (int i = 0; i < 6; i++) {
+		rect.x = i * 128;
+		p_DeadAnimation.PushBack(rect);
+	}
+	p_DeadAnimation.speed = 0.2f;
+	p_DeadAnimation.loop = false;
 }
 
 FallenAngel::~FallenAngel()

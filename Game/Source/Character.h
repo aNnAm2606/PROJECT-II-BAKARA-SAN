@@ -25,6 +25,7 @@ public:
 		// Enemy characters
 		ECHARACTER_FALLEN_ANGEL,
 		ECHARACTER_GARGOYLE,
+		ECHARACTER_GHOST,
 
 		// None
 		ECHARACTERS_NONE
@@ -40,17 +41,20 @@ protected:
 
 	Animation p_AttackAnimations[MAX_ABILITIES];
 	Animation p_IdleAnimation;
+	Animation p_DeadAnimation;
 
 	bool p_IsPlayer;
 
 	bool p_Attacking;
+	bool p_Dead;
+	bool p_Remove;
 	int p_SelectedAttack;
 public:
 	Character();
 	virtual ~Character();
 
 	int GetDamage() { return p_Stats.damage; }
-	void DealDamage(int dmg);
+	bool DealDamage(int dmg);
 
 	int GetSpeed() { return p_Stats.speed; }
 	int GetHealth() { return p_Stats.health; }
@@ -63,6 +67,9 @@ public:
 	void Render(iPoint position);
 
 	bool IsAttacking() { return p_Attacking; }
+
+	bool IsDead() { return p_Dead; }
+	bool Remove() { return p_Remove; }
 };
 
 #endif  // __LOG_H__

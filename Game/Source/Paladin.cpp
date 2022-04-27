@@ -8,7 +8,7 @@ Paladin::Paladin()
 {
 	p_CharacterId = ECharacterType::ECHARACTER_PALADIN;
 	p_Stats.health = 20;
-	p_Stats.damage = 1;
+	p_Stats.damage = 4;
 	p_Stats.speed = 2;
 
 	p_CharacterSpriteSheet = app->tex->Load("Assets/Art/Characters/paladin.png");

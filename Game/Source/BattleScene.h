@@ -28,6 +28,7 @@ private:
 	Character* m_EnemyGrid[GRID_HEIGHT][GRID_WIDTH];
 
 	int m_Rounds;
+	int m_EnemyCount;
 
 	PQueue<Character*> m_BattleQueue;
 	Character* m_ActiveCharacter;

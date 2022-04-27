@@ -39,13 +39,13 @@
       <Filter>Scenes</Filter>
     </ClCompile>
     <ClCompile Include="Source\Ability.cpp">
-      <Filter>Abilities</Filter>
+      <Filter>Battle\Abilities</Filter>
     </ClCompile>
     <ClCompile Include="Source\BasicBackRowHit.cpp">
-      <Filter>Abilities</Filter>
+      <Filter>Battle\Abilities</Filter>
     </ClCompile>
     <ClCompile Include="Source\BasicFrontRowHit.cpp">
-      <Filter>Abilities</Filter>
+      <Filter>Battle\Abilities</Filter>
     </ClCompile>
     <ClCompile Include="Source\TitleScreen.cpp">
       <Filter>Scenes</Filter>
@@ -158,6 +158,9 @@
     <ClCompile Include="Source\BattleScene.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="Source\BGhost.cpp">
+      <Filter>Battle\Enemies</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\StartForestScene.h">
@@ -203,13 +206,13 @@
       <Filter>Scenes</Filter>
     </ClInclude>
     <ClInclude Include="Source\Ability.h">
-      <Filter>Abilities</Filter>
+      <Filter>Battle\Abilities</Filter>
     </ClInclude>
     <ClInclude Include="Source\BasicFrontRowHit.h">
-      <Filter>Abilities</Filter>
+      <Filter>Battle\Abilities</Filter>
     </ClInclude>
     <ClInclude Include="Source\BasicBackRowHit.h">
-      <Filter>Abilities</Filter>
+      <Filter>Battle\Abilities</Filter>
     </ClInclude>
     <ClInclude Include="Source\TitleScreen.h">
       <Filter>Scenes</Filter>
@@ -352,6 +355,9 @@
     <ClInclude Include="Source\BattleScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="Source\BGhost.h">
+      <Filter>Battle\Enemies</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Scenes">
@@ -368,9 +374,6 @@
     </Filter>
     <Filter Include="Entities\NPCs">
       <UniqueIdentifier>{332a8fab-32e3-4289-aa78-67b7b6c90e43}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Abilities">
-      <UniqueIdentifier>{1d55569d-9294-4525-9b47-771e113d4e7d}</UniqueIdentifier>
     </Filter>
     <Filter Include="Core\Modules">
       <UniqueIdentifier>{747f70ba-fa9c-46b6-972f-43fe2b76b32e}</UniqueIdentifier>
@@ -395,6 +398,9 @@
     </Filter>
     <Filter Include="Battle\Characters">
       <UniqueIdentifier>{9c00a7b0-8c6c-4b82-bfca-b03d36c91755}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Battle\Abilities">
+      <UniqueIdentifier>{1d55569d-9294-4525-9b47-771e113d4e7d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
