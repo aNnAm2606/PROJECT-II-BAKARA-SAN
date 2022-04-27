@@ -84,8 +84,6 @@ bool PlayerModule::Update(float dt)
 		if (gamePad.left_y < 0.0f)
 		playerPos.y -= playerSpeed;
 	}
-	SDL_Rect section = { 0,0, 100,120 };
-	app->render->DrawTexture(playerSheet, playerRect.x, playerRect.y, &section);
 	
 	return true;
 }
@@ -96,7 +94,9 @@ void PlayerModule::GetPosition(int &x, int &y)
 }
 bool PlayerModule::PostUpdate()
 {
-	
+	SDL_Rect section = { 0,0, 100,120 };
+	app->render->DrawTexture(playerSheet, playerRect.x, playerRect.y, &section);
+
 	return true;
 }
 

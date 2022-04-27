@@ -38,13 +38,7 @@ bool DialogModule::PreUpdate()
 // Called each loop iteration
 bool DialogModule::Update(float dt)
 {
-	if (m_IsDialogActive) {
-		m_ActiveDialog->Update();
-
-		if (m_ActiveDialog->Finished()) {
-			m_IsDialogActive = false;
-		}
-	}
+	
 
 	return true;
 }
@@ -53,6 +47,14 @@ bool DialogModule::Update(float dt)
 bool DialogModule::PostUpdate()
 {
 	bool ret = true;
+
+	if (m_IsDialogActive) {
+		m_ActiveDialog->Update();
+
+		if (m_ActiveDialog->Finished()) {
+			m_IsDialogActive = false;
+		}
+	}
 
 	return ret;
 }

@@ -199,6 +199,8 @@ bool BattleScene::CleanUp()
 		}
 	}
 
+	app->guiManager->battlePanel->Disable();
+
 	return true;
 }
 
