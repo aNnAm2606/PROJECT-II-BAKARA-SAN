@@ -238,18 +238,21 @@ void App::FinishUpdate()
 
 	if (loadRequest)
 	{
-		
+		 int transitionIndex = fade->GetFadeStep();
+		if (!sceneLoaded)
+		{
+			LoadSavedScene();
+			
+			
+		}
 		if (sceneLoaded)
 		{
 			LoadFromFile();
 			sceneLoaded = false;
 			loadRequest = false;
+			
 		}
-		else
-		{
-			LoadSavedScene();
-			sceneLoaded = true;
-		}
+		
 		
 	}
 	if (saveRequest)
@@ -490,28 +493,41 @@ bool App::LoadSavedScene()
 		break;
 	}
 
-	switch (savedScene)
+	if (currentScene != savedScene)
 	{
-	case LOGO: fade->Fade(current, logoScreen);
-		break;
-	case TITLE:fade->Fade(current, titleScreen);
-		break;
-	case GAMEPLAY: fade->Fade(current, gameplayScreen);
-		break;
-	case BATTLE: fade->Fade(current, battleScene);
-		break;
-	case START_FOREST: fade->Fade(current, startForestScene);
-		break;
-	case TOWN: fade->Fade(current, townScene);
-		break;
-	case TUTORIAL_FOREST: fade->Fade(current, tutorialForestScene);
-		break;
-	case TUTORIAL_4: fade->Fade(current, tutorialScene_4);
-		break;
-	default: ret = false;
-		break;
+		switch (savedScene)
+		{
+		case LOGO: fade->Fade(current, logoScreen);
+			break;
+		case TITLE:fade->Fade(current, titleScreen);
+			break;
+		case GAMEPLAY: fade->Fade(current, gameplayScreen);
+			break;
+		case BATTLE: fade->Fade(current, battleScene);
+			break;
+		case START_FOREST: fade->Fade(current, startForestScene);
+			break;
+		case TOWN: fade->Fade(current, townScene);
+			break;
+		case TUTORIAL_FOREST: fade->Fade(current, tutorialForestScene);
+			break;
+		case TUTORIAL_4: fade->Fade(current, tutorialScene_4);
+			break;
+		default: ret = false;
+			break;
+		}
+	}
+	else
+	{
+		sceneLoaded = true;
 	}
 	
 	
+	
 	return ret;
+}
+
+void App::SceneLoadFinish()
+{
+	if(loadRequest)sceneLoaded = true;
 }

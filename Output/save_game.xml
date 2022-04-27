@@ -16,11 +16,11 @@
 	<GameplayScreen />
 	<BattleScene />
 	<PlayerModule>
-		<position x="1270" y="390" />
+		<position x="200" y="550" />
 	</PlayerModule>
 	<DialogModule />
 	<Fade />
 	<renderer>
-		<camera x="-630" y="-30" follow_X="true" follow_Y="true" />
+		<camera x="-50" y="-190" follow_X="false" follow_Y="true" />
 	</renderer>
 </game_state>

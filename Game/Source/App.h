@@ -79,6 +79,8 @@ public:
 	void LoadGameRequest();
 	void SaveGameRequest() const;
 
+	void SceneLoadFinish();
+
 private:
 
 	// Load config file
@@ -106,6 +108,10 @@ private:
 	bool SaveCurrentScene();
 
 	bool LoadSavedScene();
+
+	
+
+	
 
 public:
 
@@ -174,8 +180,8 @@ private:
 	float averageFps = 0.0f;
 
 	//Save-Load
-	mutable bool saveRequest;
-	bool loadRequest;
+	mutable bool saveRequest = false;
+	bool loadRequest = false;
 
 	bool sceneLoaded;
 	

@@ -90,3 +90,8 @@ bool FadeToBlack::Fade(Module* moduleToDisable, Module* moduleToEnable, float fr
 
 	return ret;
 }
+
+int FadeToBlack::GetFadeStep()
+{
+	return currentStep;
+}
