@@ -40,6 +40,8 @@ bool TutorialForestScene::Start()
 	app->playerModule->SetPosition(1700, 600);
 	tutorialForestScene = app->tex->Load("Assets/Art/Maps/out_of_tutorial_map.png");
 
+	app->audio->ChangeMusic(SANCTUARY_MUSIC, 1.0f, 1.0f);
+
 	app->render->followPlayerX = false;
 	app->render->followPlayerY = false;
 

@@ -44,6 +44,8 @@ bool TownScene::Start()
 	app->render->followPlayerX = true;
 	app->render->followPlayerY = false;
 
+	app->audio->ChangeMusic(TOWN_MUSIC, 1.0f, 1.0f);
+
 	m_Triana.Init();
 	m_SisterMadonna.Init();
 

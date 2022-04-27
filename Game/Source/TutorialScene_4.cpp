@@ -40,6 +40,8 @@ bool TutorialScene_4::Start()
 
 	tutorialScene_4 = app->tex->Load("Assets/Art/Maps/tutorial_map_4.png");
 
+	app->audio->ChangeMusic(DUNGEON_MUSIC, 1.0f, 1.0f);
+
 	app->playerModule->SetPosition(1600, 450);
 
 	m_GargoyleTest.Init();

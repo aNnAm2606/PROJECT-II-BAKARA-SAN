@@ -10,6 +10,7 @@ GuiToggle::GuiToggle(uint32 id, SDL_Rect bounds) : GuiControl(GuiControlType::TO
 	position.x = bounds.x;
 	position.y = bounds.y;
 	texture = app->guiManager->titleButtons;
+	selectedfx = app->audio->LoadFx("Assets/Audio/Fx/UI_click.wav");
 	canClick = true;
 	drawBasic = false;
 	State = false;
@@ -73,6 +74,8 @@ bool GuiToggle::Draw(Render* render)
 	{
 		if (app->guiManager->debug)
 		render->DrawRectangle(bounds, 255, 255, 255, 255);
+
+		app->audio->PlayFx(selectedfx);
 
 		if (texture != NULL)
 			render->DrawTexture(texture, -app->render->camera.x + bounds.x, -app->render->camera.y + bounds.y, &selectedRec);

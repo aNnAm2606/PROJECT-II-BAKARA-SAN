@@ -22,5 +22,7 @@ public:
 
 	int fontPosX, fontPosY;
 
+	uint selectedfx;
+
 	SDL_Rect normalRec,selectedRec;
 };

@@ -12,6 +12,8 @@ GuiButton::GuiButton(uint32 id, SDL_Rect bounds, const char* text, int fontid, S
 	fontPosX = bounds.x;
 	fontPosY = bounds.y;
 	texture = app->guiManager->titleButtons;
+	focusedfx = app->audio->LoadFx("Assets/Audio/Fx/UI_mouse_on_botton.wav");
+	selectedfx = app->audio->LoadFx("Assets/Audio/Fx/UI_click.wav");
 	canClick = true;
 	playfx = true;
 	CenterText(bounds);
@@ -97,6 +99,8 @@ bool GuiButton::Draw(Render* render)
 		if (app->guiManager->debug)
 			render->DrawRectangle(bounds, 255, 255, 255, 160);
 
+		app->audio->PlayFx(focusedfx);
+
 		if (texture != NULL)
 			render->DrawTexture(texture, -app->render->camera.x + bounds.x, -app->render->camera.y + bounds.y, &focusedRec);
 
@@ -109,7 +113,7 @@ bool GuiButton::Draw(Render* render)
 		if (app->guiManager->debug)
 			render->DrawRectangle(bounds, 255, 255, 255, 255);
 
-		app->audio->PlayFx(2);
+		app->audio->PlayFx(selectedfx);
 
 		if (texture != NULL)
 			render->DrawTexture(texture, -app->render->camera.x + bounds.x, -app->render->camera.y + bounds.y, &pressedRec);

@@ -1,6 +1,7 @@
 #include "SettingsPanel.h"
 #include "Log.h"
 #include "App.h"
+#include "Audio.h"
 #include "GuiManager.h"
 #include "FadeToBlack.h"
 #include "PausePanel.h"
@@ -22,14 +23,17 @@ bool SettingsPanel::Start()
     volumeSldr = (GuiSlider*)CreateGuiSlider(0, app->guiManager, this, { 350 + 76,133 + 73, 620 ,30 }, { 355, 130, 36 * 2 ,36 });
     volumeSldr->texture = app->guiManager->settingsBox;
     volumeSldr->thumbRect = { 205,582,36,36 };
+    volumeSldr->SetValue(128);
 
     musicSldr = (GuiSlider*)CreateGuiSlider(1, app->guiManager, this, { 350 + 76,173 + 73, 620 ,30 }, { 355, 130, 36 * 2 ,36 });
     musicSldr->texture = app->guiManager->settingsBox;
     musicSldr->thumbRect = { 205,582,36,36 };
+    musicSldr->SetValue(128);
 
     fxSlrd = (GuiSlider*)CreateGuiSlider(2, app->guiManager, this, { 350 + 76,210 + 73, 620 ,30 }, { 355, 130, 36 * 2 ,36 });
     fxSlrd->texture = app->guiManager->settingsBox;
     fxSlrd->thumbRect = { 205,582,36,36 };
+    fxSlrd->SetValue(128);
 
     fullSrnON = (GuiToggle*)CreateGuiCheckBox(3, app->guiManager, this, { 350 + 76,285 + 73,50,30 });
     fullSrnON->texture = app->guiManager->settingsBox;
@@ -79,6 +83,7 @@ bool SettingsPanel::Start()
 bool SettingsPanel::Update(float dt, bool doLogic)
 {
     GuiPanel::Update(dt, doLogic);
+    app->audio->SetMusicVolume(MUSIC_VOLUME * (musicSldr->value/128));
     return true;
 }
 
