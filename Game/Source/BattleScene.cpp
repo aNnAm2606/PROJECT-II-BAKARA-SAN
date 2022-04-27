@@ -243,6 +243,14 @@ void BattleScene::Attacking()
 
 		while (m_BattleQueue.Pop(m_ActiveCharacter) && m_ActiveCharacter->IsDead());
 
+		if (m_ActiveCharacter) {
+			if (m_ActiveCharacter->IsPlayer()) {
+				app->guiManager->battlePanel->Enable();
+			}else{
+				app->guiManager->battlePanel->Disable();
+			}
+		}
+
 		m_BattleState = EBATTLESTATE_WAITING;
 	}
 }
