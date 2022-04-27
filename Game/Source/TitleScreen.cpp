@@ -38,7 +38,7 @@ bool TitleScreen::Start()
 	bg = app->tex->Load("Assets/Art/GUI/TitlescreenBg.png");
 	app->guiManager->titlePanel->Enable();
 
-	app->audio->PlayMusic("Assets/Audio/Music/title_screen.ogg");
+	app->audio->ChangeMusic(TITLE_MUSIC, 0.0f, 0.0f);
 
 	startGame = false;
 	app->currentScene = sceneID::TITLE;

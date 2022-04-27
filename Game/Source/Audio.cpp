@@ -37,7 +37,7 @@ bool Audio::Awake(pugi::xml_node& config)
 	}
 
 	// Load support for the JPG and PNG image formats
-	int flags = MIX_INIT_OGG;
+	int flags = MIX_INIT_OGG && MIX_INIT_MP3 && MIX_INIT_FLAC;
 	int init = Mix_Init(flags);
 
 	if((init & flags) != flags)
@@ -55,7 +55,19 @@ bool Audio::Awake(pugi::xml_node& config)
 		ret = true;
 	}
 
+	Mix_Volume(-1, FX_VOLUME);
+	Mix_VolumeMusic(MUSIC_VOLUME);
+
 	return ret;
+}
+
+bool Audio::Update(float dt)
+{
+
+	if (playMusicSpatially == false) Mix_VolumeMusic(MUSIC_VOLUME);
+
+
+	return true;
 }
 
 // Called before quitting
@@ -85,7 +97,7 @@ bool Audio::CleanUp()
 }
 
 // Play a music file
-bool Audio::PlayMusic(const char* path, float fadeTime)
+bool Audio::PlayMusic(const char* path, float fadeTime, float fadeOutTime)
 {
 	bool ret = true;
 
@@ -176,6 +188,87 @@ bool Audio::PlayFx(unsigned int id, int repeat)
 
 	return ret;
 }
+
+bool Audio::ChangeMusic(int Id, float fadeInTime, float fadeOutTime)
+{
+	switch (Id)
+	{
+	case OFF:
+	{
+		Mix_HaltMusic();
+		break;
+	}
+	case DUNGEON_MUSIC:
+	{
+		Mix_ResumeMusic();
+
+		app->audio->PlayMusic("Assets/Audio/Music/dungeon.ogg", fadeInTime, fadeOutTime);
+
+		break;
+	}
+	case INHOUSE_MUSIC:
+	{
+		Mix_ResumeMusic();
+
+		app->audio->PlayMusic("Assets/Audio/Music/in_the_house.ogg", fadeInTime, fadeOutTime);
+
+		break;
+	}
+	case SANCTUARY_MUSIC:
+	{
+		Mix_ResumeMusic();
+
+		app->audio->PlayMusic("Assets/Audio/Music/Sanctuary.ogg", fadeInTime, fadeOutTime);
+
+		break;
+	}
+	case SHOP_MUSIC:
+	{
+		Mix_ResumeMusic();
+
+		app->audio->PlayMusic("Assets/Audio/Music/shop.ogg", fadeInTime, fadeOutTime);
+
+		break;
+	}
+	case TITLE_MUSIC:
+	{
+		Mix_ResumeMusic();
+
+		app->audio->PlayMusic("Assets/Audio/Music/title_screen.ogg", fadeInTime, fadeOutTime);
+
+		break;
+	}
+	case TOWN_MUSIC:
+	{
+		Mix_ResumeMusic();
+
+		app->audio->PlayMusic("Assets/Audio/Music/Town.wav", fadeInTime, fadeOutTime);
+
+		break;
+	}
+	case WORLDMAP_MUSIC:
+	{
+		Mix_ResumeMusic();
+
+		app->audio->PlayMusic("Assets/Audio/Music/world_map.ogg", fadeInTime, fadeOutTime);
+
+		break;
+	}
+	}
+
+	return true;
+}
+
+//bool Audio::PlayMusicSpatially(iPoint musicGeneratorPosition)
+//{
+//	int setMusicVolume = MUSIC_VOLUME - (sqrt(pow(app->player->position.x - musicGeneratorPosition.x, 2) + pow(app->player->position.y - musicGeneratorPosition.y, 2)) / 6);
+//
+//	if (setMusicVolume <= 0) setMusicVolume = 0;
+//
+//	Mix_VolumeMusic(setMusicVolume);
+//
+//	return true;
+//}
 
 void Audio::SetMusicVolume(int vol)
 {
