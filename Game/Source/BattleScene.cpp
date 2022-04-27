@@ -100,6 +100,13 @@ bool BattleScene::PreUpdate()
 
 		m_Rounds++;
 		m_BattleQueue.Pop(m_ActiveCharacter);
+
+		if (m_ActiveCharacter->IsPlayer()) {
+			app->guiManager->battlePanel->Enable();
+		}
+		else {
+			app->guiManager->battlePanel->Disable();
+		}
 	}
 
 	return true;
