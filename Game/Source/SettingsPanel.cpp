@@ -5,6 +5,7 @@
 #include "GuiManager.h"
 #include "FadeToBlack.h"
 #include "PausePanel.h"
+#include "Window.h"
 
 SettingsPanel::SettingsPanel(bool active) : GuiPanel(active)
 {
@@ -19,6 +20,7 @@ SettingsPanel::~SettingsPanel()
 bool SettingsPanel::Start()
 {
     box = { 0,0,1129,580 };
+    fullscreen = app->win->fullscreen;
 
     volumeSldr = (GuiSlider*)CreateGuiSlider(0, app->guiManager, this, { 350 + 76,133 + 73, 620 ,30 }, { 355, 130, 36 * 2 ,36 });
     volumeSldr->texture = app->guiManager->settingsBox;
@@ -44,16 +46,7 @@ bool SettingsPanel::Start()
     fullSrnOff->texture = app->guiManager->settingsBox;
     fullSrnOff->normalRec = { 420,285,45,35 };
     fullSrnOff->selectedRec = { 75,580,45,35};
-
-    vsyncOn = (GuiToggle*)CreateGuiCheckBox(3, app->guiManager, this, { 350 + 76,285 + 73,50,30 });
-    vsyncOn->texture = app->guiManager->settingsBox;
-    vsyncOn->normalRec = { 350,285,50,30 };
-    vsyncOn->selectedRec = { 5,580, 50,30 };
-
-    vsyncOn = (GuiToggle*)CreateGuiCheckBox(4, app->guiManager, this, { 420 + 76, 285 + 73, 45, 35 });
-    vsyncOn->texture = app->guiManager->settingsBox;
-    vsyncOn->normalRec = { 420,285,45,35 };
-    vsyncOn->selectedRec = { 75,580,45,35 };
+    fullSrnOff->State = true;
 
     vsyncOff = (GuiToggle*)CreateGuiCheckBox(3, app->guiManager, this, { 350 + 76,327 + 73,50,30 });
     vsyncOff->texture = app->guiManager->settingsBox;
@@ -84,6 +77,18 @@ bool SettingsPanel::Update(float dt, bool doLogic)
 {
     GuiPanel::Update(dt, doLogic);
     app->audio->SetMusicVolume(MUSIC_VOLUME * (musicSldr->value/128));
+
+    if (fullscreen == false)
+    {
+        fullSrnOff->state = GuiControlState::SELECTED;
+        fullSrnON->state = GuiControlState::NORMAL;
+    }
+    else
+    {
+        fullSrnOff->state = GuiControlState::NORMAL;
+        fullSrnON->state = GuiControlState::SELECTED;
+    }
+
     return true;
 }
 
@@ -111,10 +116,18 @@ bool SettingsPanel::OnGuiMouseClickEvent(GuiControl* control)
     {
         app->guiManager->settingsPanel->Disable();
     }
-    else if(control->id == fullSrnON->id)
+
+    if(control->id == fullSrnON->id)
     {
-        if (fullSrnON->State == true)
-            fullSrnOff->State = false;
+        fullscreen = fullSrnON->State;
+        app->win->SetFullScreen(fullscreen);
+        app->render->SetFullScreen();
+    }
+    else if (control->id == fullSrnOff->id)
+    {
+        fullscreen = !fullSrnOff->State;
+        app->win->SetFullScreen(fullscreen);
+        app->render->SetFullScreen();
     }
 
     return true;

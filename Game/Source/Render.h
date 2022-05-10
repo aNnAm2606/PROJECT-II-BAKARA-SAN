@@ -30,6 +30,9 @@ public:
 	// Called before quitting
 	bool CleanUp();
 
+	// Screen options
+	void SetFullScreen();
+
 	void SetViewPort(const SDL_Rect& rect);
 	void ResetViewPort();
 

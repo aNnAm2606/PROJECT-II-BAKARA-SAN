@@ -104,6 +104,13 @@ void Render::SetViewPort(const SDL_Rect& rect)
 	SDL_RenderSetViewport(renderer, &rect);
 }
 
+void Render::SetFullScreen()
+{
+	uint w, h;
+	app->win->GetWindowSize(w, h);
+	SDL_RenderSetLogicalSize(renderer, w, h);
+}
+
 void Render::ResetViewPort()
 {
 	SDL_RenderSetViewport(renderer, &viewport);
