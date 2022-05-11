@@ -21,6 +21,7 @@ class DialogModule;
 class FadeToBlack;
 class PlayerModule;
 class BattleScene;
+class AssetsManager;
 
 //Scenes
 class LogoScreen;
@@ -127,6 +128,7 @@ public:
 	FadeToBlack* fade;
 	ModuleCollisions* collisions;
 	PlayerModule* playerModule;
+	AssetsManager* assetsManager;
 
 	//Scenes
 	LogoScreen* logoScreen;

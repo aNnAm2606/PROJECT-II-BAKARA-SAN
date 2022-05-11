@@ -11,6 +11,9 @@
 #include "DialogModule.h"
 #include "GuiManager.h"
 #include "ModuleCollisions.h"
+#include "AssetsManager.h"
+
+// Player
 #include "PlayerModule.h"
 
 #include "PerfTimer.h"
@@ -50,6 +53,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	fade = new FadeToBlack(true);
 	guiManager = new GuiManager(true);
 	collisions = new ModuleCollisions(true);
+	assetsManager = new AssetsManager(true);
 
 	// Game modules
 	dialog = new DialogModule(true);
@@ -76,7 +80,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(audio);
 	AddModule(guiManager);
 	AddModule(collisions);
-	
+	AddModule(assetsManager);
 
 	// Scenes
 	AddModule(tutorialScene_4);

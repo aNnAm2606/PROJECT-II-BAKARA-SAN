@@ -31,7 +31,7 @@ bool PlayerModule::Awake()
 
 bool PlayerModule::Start()
 {
-	playerSheet = app->tex->Load("Assets/Art/Characters/Chaman.png");
+	playerSheet = app->tex->Load("Assets/Art/Characters/chaman.png");
 	playerRect.w = 40;
 	playerRect.h = 20;
 	playerSpeed = 10;

@@ -161,6 +161,9 @@
     <ClCompile Include="Source\BGhost.cpp">
       <Filter>Battle\Enemies</Filter>
     </ClCompile>
+    <ClCompile Include="Source\AssetsManager.cpp">
+      <Filter>Core\Modules</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\StartForestScene.h">
@@ -357,6 +360,9 @@
     </ClInclude>
     <ClInclude Include="Source\BGhost.h">
       <Filter>Battle\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\AssetsManager.h">
+      <Filter>Core\Modules</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

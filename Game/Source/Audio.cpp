@@ -1,6 +1,8 @@
 #include "App.h"
 #include "Audio.h"
 
+#include "AssetsManager.h"
+
 #include "Defs.h"
 #include "Log.h"
 
@@ -119,8 +121,13 @@ bool Audio::PlayMusic(const char* path, float fadeTime, float fadeOutTime)
 		Mix_FreeMusic(music);
 	}
 
-	music = Mix_LoadMUS(path);
-
+	if(app->assetsManager->use_pak){
+		SDL_RWops* rwops = app->assetsManager->LoadAsset(path);
+		music = Mix_LoadMUS_RW(rwops, 1);
+	}
+	else {
+		music = Mix_LoadMUS(path);
+	}
 	if(music == NULL)
 	{
 		LOG("Cannot load music %s. Mix_GetError(): %s\n", path, Mix_GetError());
@@ -158,7 +165,16 @@ unsigned int Audio::LoadFx(const char* path)
 	if(!active)
 		return 0;
 
-	Mix_Chunk* chunk = Mix_LoadWAV(path);
+	Mix_Chunk* chunk = NULL;
+
+	if(app->assetsManager->use_pak){
+		SDL_RWops* rwops = app->assetsManager->LoadAsset(path);
+		chunk = Mix_LoadWAV_RW(rwops, 1);
+	}
+	else {
+		chunk = Mix_LoadWAV(path);
+	}
+	
 
 	if(chunk == NULL)
 	{
