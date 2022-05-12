@@ -9,6 +9,7 @@
 
 ModuleCollisions::ModuleCollisions(bool startEnabled) : Module(startEnabled)
 {
+	name.Create("collisions");
 	for(uint i = 0; i < MAX_COLLIDERS; ++i)
 		colliders[i] = nullptr;
 
