@@ -4,10 +4,10 @@
 	<window />
 	<input />
 	<textures />
-	<:anonymous />
+	<fonts />
 	<audio />
 	<guiManager />
-	<:anonymous />
+	<collisions />
 	<StartForestScene />
 	<StartForestScene />
 	<TownScene />
