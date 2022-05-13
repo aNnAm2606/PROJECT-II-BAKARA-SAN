@@ -14,6 +14,7 @@ void AlanParsons::FillBaseDialog()
 	dialog.SetPosition(414, 220);
 	dialog.SetDialogBg(dialogImg, 453, 206);
 	dialog.SetFont(font);
+	dialog.SetNPC(this);
 
 	// FILL
 	DialogNode dnode;

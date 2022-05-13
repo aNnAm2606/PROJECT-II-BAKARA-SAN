@@ -14,6 +14,7 @@ void SisterMadonna::FillBaseDialog()
 	dialog.SetPosition(414, 220);
 	dialog.SetDialogBg(dialogImg, 453, 206);
 	dialog.SetFont(font);
+	dialog.SetNPC(this);
 
 	// FILL
 	DialogNode dnode;
@@ -142,8 +143,10 @@ void SisterMadonna::FillBaseDialog()
 	dnode.text = "oh... hello... what d-do you need?";
 	dnode.options.push_back("purify");
 	dnode.nodes.push_back(b_purify);
+	dnode.optionsData.push_back(-1);
 	dnode.options.push_back("talk");
 	dnode.nodes.push_back(b_talk);
+	dnode.optionsData.push_back(27);
 
 	id = dialog.AddNode(dnode);
 
@@ -157,6 +160,11 @@ SisterMadonna::SisterMadonna()
 
 SisterMadonna::~SisterMadonna()
 {
+}
+
+void SisterMadonna::OnDialogButton(size_t data)
+{
+	std::cout << data << std::endl;
 }
 
 void SisterMadonna::Init()

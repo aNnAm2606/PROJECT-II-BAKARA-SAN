@@ -9,14 +9,16 @@ private:
 protected:
 	float m_InteractDistance;
 
-	std::vector<Dialog> m_Dialogs;
-	std::vector<size_t> m_StartingNodes;
-	int m_ActiveDialog;
-
 	SDL_Texture* m_NPCTex;
 	SDL_Rect m_NPCRect;
 
 	iPoint m_Position;
+
+	// Dialogs
+	std::vector<Dialog> m_Dialogs;
+	std::vector<size_t> m_StartingNodes;
+
+	int m_ActiveDialog;
 
 	void AddDialog(Dialog& dialog, size_t resetNode);
 public:
@@ -28,6 +30,7 @@ public:
 	void Interact();
 
 	virtual void OnInteract(){}
+	virtual void OnDialogButton(size_t data){}
 
 	void Update();
 	void Render();

@@ -86,9 +86,6 @@
     <ClCompile Include="Source\Dialog.cpp">
       <Filter>Dialogs</Filter>
     </ClCompile>
-    <ClCompile Include="Source\DialogNode.cpp">
-      <Filter>Dialogs</Filter>
-    </ClCompile>
     <ClCompile Include="Source\GuiSlider.cpp">
       <Filter>GUI</Filter>
     </ClCompile>
@@ -164,22 +161,34 @@
     <ClCompile Include="Source\AssetsManager.cpp">
       <Filter>Core\Modules</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Quest.cpp">
+      <Filter>Quests</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\PMQuest1.cpp">
+      <Filter>Quests\PrimusMundis</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Action.cpp">
+      <Filter>Core\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ActionPack.cpp">
+      <Filter>Core\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Function.cpp">
+      <Filter>Core\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Item.cpp">
+      <Filter>Items</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\InventoryModule.cpp">
+      <Filter>Core\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\StevenWonder.cpp">
+      <Filter>Entities\NPCs</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\QuestModule.cpp">
+      <Filter>Core\Modules</Filter>
+    </ClCompile>
     <ClCompile Include="Source\Scene.cpp">
-      <Filter>Scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\TutorialScene_1.cpp">
-      <Filter>Scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\TutorialScene_2.cpp">
-      <Filter>Scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\TutorialScene_3.cpp">
-      <Filter>Scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\WorldMapScene.cpp">
-      <Filter>Scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\DungeonScene.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
   </ItemGroup>
@@ -382,22 +391,40 @@
     <ClInclude Include="Source\AssetsManager.h">
       <Filter>Core\Modules</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Quest.h">
+      <Filter>Quests</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\PMQuest1.h">
+      <Filter>Quests\PrimusMundis</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Function.h">
+      <Filter>Core\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Action.h">
+      <Filter>Core\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ActionPack.h">
+      <Filter>Core\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ClassActionPack.h">
+      <Filter>Core\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ClassAction.h">
+      <Filter>Core\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Item.h">
+      <Filter>Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\InventoryModule.h">
+      <Filter>Core\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\StevenWonder.h">
+      <Filter>Entities\NPCs</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\QuestModule.h">
+      <Filter>Core\Modules</Filter>
+    </ClInclude>
     <ClInclude Include="Source\Scene.h">
-      <Filter>Scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\TutorialScene_1.h">
-      <Filter>Scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\TutorialScene_2.h">
-      <Filter>Scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\TutorialScene_3.h">
-      <Filter>Scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\WorldMapScene.h">
-      <Filter>Scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\DungeonScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
   </ItemGroup>
@@ -443,6 +470,15 @@
     </Filter>
     <Filter Include="Battle\Abilities">
       <UniqueIdentifier>{1d55569d-9294-4525-9b47-771e113d4e7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quests">
+      <UniqueIdentifier>{735e335c-0e39-4fc5-b09f-9bba402168c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quests\PrimusMundis">
+      <UniqueIdentifier>{5edf5ffa-5ba7-4be9-b06d-b57f274db9f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Items">
+      <UniqueIdentifier>{77c6408d-9de3-4ac9-84c7-1be45be8031f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

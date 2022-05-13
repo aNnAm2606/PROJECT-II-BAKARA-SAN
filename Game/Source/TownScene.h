@@ -4,6 +4,7 @@
 #include "Scene.h"
 #include "Triana.h"
 #include "SisterMadonna.h"
+#include "StevenWonder.h"
 
 struct SDL_Texture;
 
@@ -40,6 +41,7 @@ private:
 
 	Triana m_Triana;
 	SisterMadonna m_SisterMadonna;
+	StevenWonder m_StevenWonder;
 };
 
 #endif // __TOWNSCENE_H__

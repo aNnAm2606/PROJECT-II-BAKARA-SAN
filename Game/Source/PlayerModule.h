@@ -35,6 +35,7 @@ public:
 
 	// Called before quitting
 	bool CleanUp();
+
 	void SetPosition(int x, int y);
 	void GetPosition(int &x, int &y);
 

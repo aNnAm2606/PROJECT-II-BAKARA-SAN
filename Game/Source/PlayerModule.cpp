@@ -8,6 +8,8 @@
 #include "PlayerModule.h"
 #include "DialogModule.h"
 
+#include "InventoryModule.h"
+#include "PMQuest1.h"
 
 #include "Defs.h"
 #include "Log.h"

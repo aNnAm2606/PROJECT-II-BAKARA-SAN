@@ -10,6 +10,8 @@ public:
 	SisterMadonna();
 	~SisterMadonna();
 
+	void OnDialogButton(size_t data) override;
+
 	void Init();
 };
 

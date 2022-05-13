@@ -32,7 +32,6 @@ public:
 
 	// Called before quitting
 	bool CleanUp();
-
 private:
 	int count = 0;
 

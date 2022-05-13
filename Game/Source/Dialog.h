@@ -5,6 +5,7 @@
 #include "Button.h"
 
 class SDL_Texture;
+class NPC;
 
 class Dialog
 {
@@ -38,6 +39,9 @@ private:
 	SDL_Texture* dialogImg;
 	int dialogWidth, dialogHeight;
 
+	// NPC to which this dialog belongs
+	NPC* parentNPC;
+
 	// Whether the dialog has finished or not
 	bool finished;
 
@@ -52,6 +56,9 @@ public:
 
 	// Set follow node
 	void SetFollowNode(size_t node_origin, size_t node_index, size_t node_dest);
+
+	// Set NPC
+	void SetNPC(NPC* npc);
 
 	// Valid node
 	bool ValidNode(size_t node);

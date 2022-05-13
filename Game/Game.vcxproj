@@ -96,6 +96,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Source\Ability.cpp" />
+    <ClCompile Include="Source\Action.cpp" />
+    <ClCompile Include="Source\ActionPack.cpp" />
     <ClCompile Include="Source\AlanParsons.cpp" />
     <ClCompile Include="Source\AssetsManager.cpp" />
     <ClCompile Include="Source\BasicBackRowHit.cpp" />
@@ -110,12 +112,11 @@
     <ClCompile Include="Source\Credits.cpp" />
     <ClCompile Include="Source\Dialog.cpp" />
     <ClCompile Include="Source\DialogModule.cpp" />
-    <ClCompile Include="Source\DialogNode.cpp" />
-    <ClCompile Include="Source\DungeonScene.cpp" />
     <ClCompile Include="Source\Enemy.cpp" />
     <ClCompile Include="Source\FadeToBlack.cpp" />
     <ClCompile Include="Source\FallenAngel.cpp" />
     <ClCompile Include="Source\Fonts.cpp" />
+    <ClCompile Include="Source\Function.cpp" />
     <ClCompile Include="Source\GameplayScreen.cpp" />
     <ClCompile Include="Source\Gargoyle.cpp" />
     <ClCompile Include="Source\GargoyleTest.cpp" />
@@ -124,6 +125,8 @@
     <ClCompile Include="Source\GuiPanel.cpp" />
     <ClCompile Include="Source\GuiSlider.cpp" />
     <ClCompile Include="Source\GuiToggle.cpp" />
+    <ClCompile Include="Source\InventoryModule.cpp" />
+    <ClCompile Include="Source\Item.cpp" />
     <ClCompile Include="Source\Main.cpp" />
     <ClCompile Include="Source\App.cpp" />
     <ClCompile Include="Source\Audio.cpp" />
@@ -134,11 +137,15 @@
     <ClCompile Include="Source\PausePanel.cpp" />
     <ClCompile Include="Source\PerfTimer.cpp" />
     <ClCompile Include="Source\PlayerModule.cpp" />
+    <ClCompile Include="Source\PMQuest1.cpp" />
+    <ClCompile Include="Source\Quest.cpp" />
+    <ClCompile Include="Source\QuestModule.cpp" />
     <ClCompile Include="Source\QuitPanel.cpp" />
     <ClCompile Include="Source\Scene.cpp" />
     <ClCompile Include="Source\SettingsPanel.cpp" />
     <ClCompile Include="Source\SisterMadonna.cpp" />
     <ClCompile Include="Source\StartForestScene.cpp" />
+    <ClCompile Include="Source\StevenWonder.cpp" />
     <ClCompile Include="Source\TitlePanel.cpp" />
     <ClCompile Include="Source\TitleScreen.cpp" />
     <ClCompile Include="Source\LogoScreen.cpp" />
@@ -148,13 +155,11 @@
     <ClCompile Include="Source\TownScene.cpp" />
     <ClCompile Include="Source\Triana.cpp" />
     <ClCompile Include="Source\TutorialForestScene.cpp" />
-    <ClCompile Include="Source\TutorialScene_1.cpp" />
-    <ClCompile Include="Source\TutorialScene_2.cpp" />
-    <ClCompile Include="Source\TutorialScene_3.cpp" />
     <ClCompile Include="Source\TutorialScene_4.cpp" />
     <ClCompile Include="Source\Window.cpp" />
-    <ClCompile Include="Source\WorldMapScene.cpp" />
     <ClInclude Include="Source\Ability.h" />
+    <ClInclude Include="Source\Action.h" />
+    <ClInclude Include="Source\ActionPack.h" />
     <ClInclude Include="Source\AlanParsons.h" />
     <ClInclude Include="Source\Animation.h" />
     <ClInclude Include="Source\AssetsManager.h" />
@@ -166,16 +171,18 @@
     <ClInclude Include="Source\Button.h" />
     <ClInclude Include="Source\Chaman.h" />
     <ClInclude Include="Source\Character.h" />
+    <ClInclude Include="Source\ClassAction.h" />
+    <ClInclude Include="Source\ClassActionPack.h" />
     <ClInclude Include="Source\Collider.h" />
     <ClInclude Include="Source\Credits.h" />
     <ClInclude Include="Source\Dialog.h" />
     <ClInclude Include="Source\DialogModule.h" />
     <ClInclude Include="Source\DialogNode.h" />
-    <ClInclude Include="Source\DungeonScene.h" />
     <ClInclude Include="Source\Enemy.h" />
     <ClInclude Include="Source\FadeToBlack.h" />
     <ClInclude Include="Source\FallenAngel.h" />
     <ClInclude Include="Source\Fonts.h" />
+    <ClInclude Include="Source\Function.h" />
     <ClInclude Include="Source\GameplaySceen.h" />
     <ClInclude Include="Source\Gargoyle.h" />
     <ClInclude Include="Source\GargoyleTest.h" />
@@ -185,6 +192,8 @@
     <ClInclude Include="Source\GuiPanel.h" />
     <ClInclude Include="Source\GuiSlider.h" />
     <ClInclude Include="Source\GuiToggle.h" />
+    <ClInclude Include="Source\InventoryModule.h" />
+    <ClInclude Include="Source\Item.h" />
     <ClInclude Include="Source\ModuleCollisions.h" />
     <ClInclude Include="Source\NPC.h" />
     <ClInclude Include="Source\p2List.h" />
@@ -192,13 +201,17 @@
     <ClInclude Include="Source\PausePanel.h" />
     <ClInclude Include="Source\PerfTimer.h" />
     <ClInclude Include="Source\PlayerModule.h" />
+    <ClInclude Include="Source\PMQuest1.h" />
     <ClInclude Include="Source\PQueue.h" />
+    <ClInclude Include="Source\Quest.h" />
+    <ClInclude Include="Source\QuestModule.h" />
     <ClInclude Include="Source\Queue.h" />
     <ClInclude Include="Source\QuitPanel.h" />
     <ClInclude Include="Source\Scene.h" />
     <ClInclude Include="Source\SettingsPanel.h" />
     <ClInclude Include="Source\SisterMadonna.h" />
     <ClInclude Include="Source\StartForestScene.h" />
+    <ClInclude Include="Source\StevenWonder.h" />
     <ClInclude Include="Source\TitlePanel.h" />
     <ClInclude Include="Source\TitleScreen.h" />
     <ClInclude Include="Source\LogoScreen.h" />
@@ -212,9 +225,6 @@
     <ClInclude Include="Source\TownScene.h" />
     <ClInclude Include="Source\Triana.h" />
     <ClInclude Include="Source\TutorialForestScene.h" />
-    <ClInclude Include="Source\TutorialScene_1.h" />
-    <ClInclude Include="Source\TutorialScene_2.h" />
-    <ClInclude Include="Source\TutorialScene_3.h" />
     <ClInclude Include="Source\TutorialScene_4.h" />
     <ClInclude Include="Source\Window.h" />
     <ClInclude Include="Source\Defs.h" />
@@ -227,7 +237,6 @@
     <ClInclude Include="Source\External\PugiXml\src\pugiconfig.hpp" />
     <ClInclude Include="Source\External\PugiXml\src\pugixml.hpp" />
     <ClCompile Include="Source\External\PugiXml\src\pugixml.cpp" />
-    <ClInclude Include="Source\WorldMapScene.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

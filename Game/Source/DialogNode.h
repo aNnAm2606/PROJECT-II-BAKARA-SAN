@@ -12,4 +12,7 @@ struct DialogNode
 
 	// The dialog text for the options
 	std::vector<std::string> options;
+	
+	// Options data
+	std::vector<size_t> optionsData;
 };

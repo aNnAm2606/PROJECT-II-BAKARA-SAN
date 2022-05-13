@@ -3,6 +3,7 @@
 #include "Render.h"
 #include "Fonts.h"
 #include "Input.h"
+#include "NPC.h"
 
 void Dialog::SplitText(std::string text)
 {
@@ -79,6 +80,11 @@ void Dialog::SetFollowNode(size_t node_origin, size_t node_index, size_t node_de
 	}
 }
 
+void Dialog::SetNPC(NPC* npc)
+{
+	parentNPC = npc;
+}
+
 bool Dialog::ValidNode(size_t node)
 {
 	return node >= 0 && node < nodes.size();
@@ -140,6 +146,9 @@ void Dialog::Update()
 		if (optionSize > 0) {
 			for (size_t i = 0; i < optionSize; i++) {
 				if (buttons[i].clicked) {
+					if (i < activeNode->optionsData.size()) {
+						parentNPC->OnDialogButton(activeNode->optionsData[i]);
+					}
 					SetActiveNode(activeNode->nodes[i]);
 					break;
 				}
