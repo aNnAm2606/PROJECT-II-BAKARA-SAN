@@ -2,14 +2,15 @@
 #define __STARTFORESTSCENE_H__
 
 #include "Module.h"
+#include "Scene.h"
 
 struct SDL_Texture;
 
-class StartForestScene : public Module
+class StartForestScene : public Scene
 {
 public:
 
-	StartForestScene(bool startEnabled);
+	StartForestScene(bool startEnabled, bool playerEnabled, SString name, Point<int> cameraPos, Point<int>playerPos, Point<bool> followPlayer);
 	
 
 	// Destructor
@@ -34,8 +35,7 @@ public:
 	bool CleanUp();
 
 private:
-	SDL_Texture* startForestScene;
-	Point<int>playerPos;
+	
 };
 
 #endif // __STARTFORESTSCENE_H__

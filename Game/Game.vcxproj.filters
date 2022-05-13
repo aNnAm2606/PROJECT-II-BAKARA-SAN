@@ -164,6 +164,7 @@
     <ClCompile Include="Source\AssetsManager.cpp">
       <Filter>Core\Modules</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Scene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\StartForestScene.h">
@@ -364,6 +365,7 @@
     <ClInclude Include="Source\AssetsManager.h">
       <Filter>Core\Modules</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Scene.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Scenes">

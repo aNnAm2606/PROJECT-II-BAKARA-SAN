@@ -134,6 +134,7 @@
     <ClCompile Include="Source\PerfTimer.cpp" />
     <ClCompile Include="Source\PlayerModule.cpp" />
     <ClCompile Include="Source\QuitPanel.cpp" />
+    <ClCompile Include="Source\Scene.cpp" />
     <ClCompile Include="Source\SettingsPanel.cpp" />
     <ClCompile Include="Source\SisterMadonna.cpp" />
     <ClCompile Include="Source\StartForestScene.cpp" />
@@ -188,6 +189,7 @@
     <ClInclude Include="Source\PQueue.h" />
     <ClInclude Include="Source\Queue.h" />
     <ClInclude Include="Source\QuitPanel.h" />
+    <ClInclude Include="Source\Scene.h" />
     <ClInclude Include="Source\SettingsPanel.h" />
     <ClInclude Include="Source\SisterMadonna.h" />
     <ClInclude Include="Source\StartForestScene.h" />

@@ -15,7 +15,7 @@
 
 TutorialForestScene::TutorialForestScene(bool startEnabled) : Module(startEnabled)
 {
-	name.Create("StartForestScene");
+	name.Create("TutorialForestScene");
 }
 
 // Destructor
@@ -38,7 +38,7 @@ bool TutorialForestScene::Start()
 	app->render->camera.y = -150;
 	app->playerModule->Enable();
 	app->playerModule->SetPosition(1700, 600);
-	tutorialForestScene = app->tex->Load("Assets/Art/Maps/out_of_tutorial_map.png");
+	tutorialForestScene = app->tex->Load("Assets/Art/Maps/tutorial_forest_map.png");
 
 	app->audio->ChangeMusic(SANCTUARY_MUSIC, 1.0f, 1.0f);
 

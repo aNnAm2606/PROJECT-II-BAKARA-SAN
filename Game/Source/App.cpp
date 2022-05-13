@@ -63,7 +63,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	logoScreen = new LogoScreen(true);
 	titleScreen = new TitleScreen(false);
 	gameplayScreen = new GameplayScreen(false);
-	startForestScene = new StartForestScene(false);
+	startForestScene = new StartForestScene(false, true, "startForestScene", { 400 + 2000, -200 + 2000 }, { 650, 580 }, { true, true });
 	townScene = new TownScene(false);
 	tutorialForestScene = new TutorialForestScene(false);
 	tutorialScene_4 = new TutorialScene_4(false);

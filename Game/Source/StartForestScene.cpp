@@ -13,9 +13,10 @@
 #include "Defs.h"
 #include "Log.h"
 
-StartForestScene::StartForestScene(bool startEnabled) : Module(startEnabled)
+StartForestScene::StartForestScene(bool startEnabled, bool playerEnabled, SString name, Point<int> cameraPos, Point<int>playerPos, Point<bool> followPlayer) : 
+	Scene( startEnabled,  playerEnabled,  name,  cameraPos, playerPos, followPlayer)
 {
-	name.Create("StartForestScene");
+	
 }
 
 // Destructor
@@ -25,6 +26,7 @@ StartForestScene::~StartForestScene()
 // Called before render is available
 bool StartForestScene::Awake(pugi::xml_node& config)
 {
+	Scene::Awake(config);
 	LOG("Loading Scene");
 	bool ret = true;
 
@@ -34,16 +36,10 @@ bool StartForestScene::Awake(pugi::xml_node& config)
 // Called before the first frame
 bool StartForestScene::Start()
 {
-	app->render->camera.x = 100;
-	app->render->camera.y = -200;
-
-	startForestScene = app->tex->Load("Assets/Art/Maps/forest_map.png");
+	Scene::Start();
+	
+	sceneTexture = app->tex->Load("Assets/Art/Maps/start_forest_map.png");
 	app->audio->ChangeMusic(SANCTUARY_MUSIC, 1.0f, 1.0f);
-
-	app->playerModule->Enable();
-	app->playerModule->SetPosition(700, 550);
-	app->render->followPlayerX = true;
-	app->render->followPlayerY = true;
 
 	app->currentScene = sceneID::START_FOREST;
 	
@@ -53,35 +49,22 @@ bool StartForestScene::Start()
 // Called each loop iteration
 bool StartForestScene::PreUpdate()
 {
-	
+	Scene::PreUpdate();
 	return true;
 }
 
 // Called each loop iteration
 bool StartForestScene::Update(float dt)
 {
-	if (app->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
-		app->render->camera.y -= app->render->cameraSpeed;
-
-	if (app->input->GetKey(SDL_SCANCODE_DOWN) == KEY_REPEAT)
-		app->render->camera.y += app->render->cameraSpeed;
-
-
-	if (app->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT)
-		app->render->camera.x -= app->render->cameraSpeed;
-
-
-	if (app->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
-		app->render->camera.x += app->render->cameraSpeed;
-
-
-	app->render->DrawTexture(startForestScene, 0, 0, NULL);
-	app->playerModule->GetPosition(playerPos.x, playerPos.y);
-	if (playerPos.x < 700 || playerPos.x > 1250) app->render->followPlayerX = false;
+	Scene::Update( dt);
 	
-	else app->render->followPlayerX = true;
-	if (playerPos.y < 375 || playerPos.y > 700) app->render->followPlayerY = false;
-	else app->render->followPlayerY = true;
+	app->playerModule->GetPosition(playerPos.x, playerPos.y);
+
+	if (playerPos.x < 700 || playerPos.x > 1250) cameraFollowsPlayer.x = false;
+	else cameraFollowsPlayer.x = true;
+
+	if (playerPos.y < 375 || playerPos.y > 700) cameraFollowsPlayer.y = false;
+	else cameraFollowsPlayer.y = true;
 
 	return true;
 }
@@ -89,9 +72,16 @@ bool StartForestScene::Update(float dt)
 // Called each loop iteration
 bool StartForestScene::PostUpdate()
 {
+	Scene::PostUpdate();
 	bool ret = true;
 
-	if(playerPos.y < -200) app->fade->Fade(this, (Module*)app->townScene);
+	if (playerPos.y < -200)
+	{
+		startPlayerPos = { playerPos.x, 30 };
+		startCameraPos = { app->render->camera.x, app->render->camera.y };
+		startCameraFollowsPlayer = cameraFollowsPlayer;
+		app->fade->Fade(this, (Module*)app->townScene);
+	}
 	 
 
 	return ret;
@@ -100,9 +90,9 @@ bool StartForestScene::PostUpdate()
 // Called before quitting
 bool StartForestScene::CleanUp()
 {
+	Scene::CleanUp();
 	LOG("Freeing scene");
-	app->tex->UnLoad(startForestScene);
-	app->guiManager->pausePanel->Disable();
+	
 
 	return true;
 }
