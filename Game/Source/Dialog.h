@@ -60,6 +60,8 @@ public:
 	// Set NPC
 	void SetNPC(NPC* npc);
 
+	NPC* GetNPC() { return parentNPC; }
+
 	// Valid node
 	bool ValidNode(size_t node);
 

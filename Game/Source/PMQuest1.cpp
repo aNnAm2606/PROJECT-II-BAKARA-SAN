@@ -30,6 +30,7 @@ bool PMQuest1::HasRequirements()
 void PMQuest1::Finish()
 {
 	app->inventory->RemoveItem(Item::EItemType::EITEMTYPE_CAT);
+	app->inventory->AddItem(Item::EItemType::EITEMTYPE_HEALPOTION);
 }
 
 void PMQuest1::OnItemAdd(Item::EItemType item, size_t count)

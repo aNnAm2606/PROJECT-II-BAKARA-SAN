@@ -24,6 +24,7 @@ class PlayerModule;
 class BattleScene;
 class AssetsManager;
 class InventoryModule;
+class QuestModule;
 
 //Scenes
 class LogoScreen;
@@ -132,6 +133,7 @@ public:
 	PlayerModule* playerModule;
 	AssetsManager* assetsManager;
 	InventoryModule* inventory;
+	QuestModule* quests;
 
 	//Scenes
 	LogoScreen* logoScreen;

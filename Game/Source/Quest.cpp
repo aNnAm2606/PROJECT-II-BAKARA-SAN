@@ -8,8 +8,6 @@ Quest::Quest()
 
 	app->inventory->questOnAddCallbacks += QuestItemAction(&Quest::OnItemAdd, this);
 	app->inventory->questOnRemoveCallbacks += QuestItemAction(&Quest::OnItemRemove, this);
-
-	UpdateCheck();
 }
 
 Quest::~Quest()

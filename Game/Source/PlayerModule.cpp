@@ -86,6 +86,10 @@ bool PlayerModule::Update(float dt)
 		if (gamePad.left_y < 0.0f)
 		playerPos.y -= playerSpeed;
 	}
+
+	if (app->input->GetKey(SDL_SCANCODE_C) == KEY_DOWN) {
+		app->inventory->AddItem(Item::EItemType::EITEMTYPE_CAT);
+	}
 	
 	return true;
 }

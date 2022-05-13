@@ -66,6 +66,7 @@ size_t Dialog::AddNode(DialogNode& node, bool reset)
 		node.text = "";
 		node.nodes.clear();
 		node.options.clear();
+		node.optionsData.clear();
 	}
 
 	return id;

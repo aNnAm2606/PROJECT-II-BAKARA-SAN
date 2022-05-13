@@ -143,10 +143,8 @@ void SisterMadonna::FillBaseDialog()
 	dnode.text = "oh... hello... what d-do you need?";
 	dnode.options.push_back("purify");
 	dnode.nodes.push_back(b_purify);
-	dnode.optionsData.push_back(-1);
 	dnode.options.push_back("talk");
 	dnode.nodes.push_back(b_talk);
-	dnode.optionsData.push_back(27);
 
 	id = dialog.AddNode(dnode);
 

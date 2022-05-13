@@ -72,6 +72,9 @@ void QuestModule::ActivateQuest(EQuest quest)
 				m_Quests[quest] = new PMQuest1();
 				break;
 		}
+
+		m_Quests[quest]->UpdateCheck();
+		m_QuestStates[quest] = EQuestState::EQUEST_STATE_ACTIVE;
 	}
 }
 

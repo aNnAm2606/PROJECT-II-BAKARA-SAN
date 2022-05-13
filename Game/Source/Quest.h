@@ -21,7 +21,7 @@ public:
 	virtual void OnItemAdd(Item::EItemType item, size_t count){}
 	virtual void OnItemRemove(Item::EItemType item, size_t count){}
 
-	virtual void UpdateCheck() {};
+	virtual void UpdateCheck(){};
 
 	virtual bool HasRequirements() = 0;
 	virtual void Finish() = 0;

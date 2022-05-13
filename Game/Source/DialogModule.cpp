@@ -2,6 +2,7 @@
 #include "Dialog.h"
 
 #include "Log.h"
+#include "NPC.h"
 
 DialogModule::DialogModule(bool startEnabled) : Module(startEnabled)
 {
@@ -53,6 +54,8 @@ bool DialogModule::PostUpdate()
 
 		if (m_ActiveDialog->Finished()) {
 			m_IsDialogActive = false;
+
+			m_ActiveDialog->GetNPC()->OnDialogFinish();
 		}
 	}
 
@@ -69,7 +72,11 @@ bool DialogModule::CleanUp()
 
 void DialogModule::StartDialog(Dialog* dialog)
 {
+	if (m_IsDialogActive) return;
+
 	m_IsDialogActive = true;
 
 	m_ActiveDialog = dialog;
+
+	m_ActiveDialog->GetNPC()->OnDialogStart();
 }

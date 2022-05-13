@@ -30,7 +30,10 @@ public:
 	void Interact();
 
 	virtual void OnInteract(){}
+
+	virtual void OnDialogStart(){}
 	virtual void OnDialogButton(size_t data){}
+	virtual void OnDialogFinish(){}
 
 	void Update();
 	void Render();

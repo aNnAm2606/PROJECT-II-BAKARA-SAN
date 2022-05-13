@@ -5,6 +5,7 @@ class Item {
 public:
 	enum class EItemType {
 		EITEMTYPE_CAT,
+		EITEMTYPE_HEALPOTION,
 		EITEMTYPE_NONE
 	};
 private:

@@ -2,6 +2,8 @@
 #include "App.h"
 #include "Textures.h"
 #include "Fonts.h"
+#include "InventoryModule.h"
+#include "QuestModule.h"
 
 void StevenWonder::FillBaseDialog()
 {
@@ -19,6 +21,28 @@ void StevenWonder::FillBaseDialog()
 	// FILL
 	DialogNode dnode;
 	size_t id;
+
+	// YES
+	dnode.text = "i can not thank you enough! take this as compensation!";
+
+	id = dialog.AddNode(dnode);
+	
+	dnode.text = "great! where is he?";
+	dnode.options.push_back("here you go!");
+	dnode.nodes.push_back(id);
+	dnode.optionsData.push_back(1);
+
+	size_t mission_completed = dialog.AddNode(dnode);
+
+	dnode.text = "damn.";
+
+	id = dialog.AddNode(dnode);
+
+	dnode.text = "great! where is he?";
+	dnode.options.push_back("sorry, i lied");
+	dnode.nodes.push_back(id);
+
+	size_t mission_uncompleted = dialog.AddNode(dnode);
 
 	// NO
 	dnode.text = "thanks.";
@@ -44,14 +68,18 @@ void StevenWonder::FillBaseDialog()
 	dnode.options.push_back("no.");
 	dnode.nodes.push_back(b_no);
 
-	id = dialog.AddNode(dnode);
+	size_t mission_box = dialog.AddNode(dnode);
 
 	dnode.text = "yuuusuuuuf!!! yuuuuusuuuuuuuuf!!!!";
-	dnode.nodes.push_back(id);
+	dnode.nodes.push_back(mission_box);
 
 	id = dialog.AddNode(dnode);
 
 	AddDialog(dialog, id);
+
+	m_MissionBoxId = mission_box;
+	m_CompletedId = mission_completed;
+	m_UncompletedId = mission_uncompleted;
 }
 
 void StevenWonder::FillCompletedDialog()
@@ -65,6 +93,7 @@ void StevenWonder::FillCompletedDialog()
 	dialog.SetPosition(414, 220);
 	dialog.SetDialogBg(dialogImg, 453, 206);
 	dialog.SetFont(font);
+	dialog.SetNPC(this);
 
 	// FILL
 	DialogNode dnode;
@@ -84,7 +113,8 @@ void StevenWonder::FillCompletedDialog()
 
 StevenWonder::StevenWonder()
 {
-	m_ActiveDialog = 0;
+	m_ActiveDialog = ESTEVENDIALOG_MAIN;
+	m_GiveCat = false;
 }
 
 StevenWonder::~StevenWonder()
@@ -103,4 +133,32 @@ void StevenWonder::Init()
 	};
 
 	m_Position = { 905, 320 };
+}
+
+void StevenWonder::OnDialogStart()
+{
+	app->quests->ActivateQuest(QuestModule::EQuest::EQUEST_PM_Q1);
+
+	if (app->quests->QuestHasRequirements(QuestModule::EQuest::EQUEST_PM_Q1)) {
+		m_Dialogs[EStevenDialog::ESTEVENDIALOG_MAIN].SetFollowNode(m_MissionBoxId, 0, m_CompletedId);
+	}
+	else {
+		m_Dialogs[EStevenDialog::ESTEVENDIALOG_MAIN].SetFollowNode(m_MissionBoxId, 0, m_UncompletedId);
+	}
+}
+
+void StevenWonder::OnDialogFinish()
+{
+	if (m_GiveCat) {
+		app->quests->FinishQuest(QuestModule::EQuest::EQUEST_PM_Q1);
+
+		m_GiveCat = false;
+
+		m_ActiveDialog = EStevenDialog::ESTEVENDIALOG_COMPLETED;
+	}
+}
+
+void StevenWonder::OnDialogButton(size_t data)
+{
+	m_GiveCat = true;
 }
