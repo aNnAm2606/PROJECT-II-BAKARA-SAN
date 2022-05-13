@@ -5,7 +5,7 @@
 #include "Render.h"
 #include "Window.h"
 #include "FadeToBlack.h"
-#include "TutorialScene_4.h"
+#include "WorldMapScene.h"
 #include "GuiManager.h"
 #include "PlayerModule.h"
 #include "Point.h"
@@ -13,20 +13,20 @@
 #include "Defs.h"
 #include "Log.h"
 
-TutorialScene_4::TutorialScene_4(bool startEnabled, bool playerEnabled, SString name, Point<int> cameraPos, Point<int>playerPos, Point<bool> followPlayer) :
+WorldMapScene::WorldMapScene(bool startEnabled, bool playerEnabled, SString name, Point<int> cameraPos, Point<int>playerPos, Point<bool> followPlayer) :
 	Scene(startEnabled, playerEnabled, name, cameraPos, playerPos, followPlayer)
 {
-	
+
 }
 
 // Destructor
-TutorialScene_4::~TutorialScene_4()
+WorldMapScene::~WorldMapScene()
 {
 	Scene::~Scene();
 }
 
 // Called before render is available
-bool TutorialScene_4::Awake(pugi::xml_node& config)
+bool WorldMapScene::Awake(pugi::xml_node& config)
 {
 	Scene::Awake(config);
 	LOG("Loading Scene");
@@ -36,41 +36,38 @@ bool TutorialScene_4::Awake(pugi::xml_node& config)
 }
 
 // Called before the first frame
-bool TutorialScene_4::Start()
+bool WorldMapScene::Start()
 {
 	Scene::Start();
-	
-	sceneTexture = app->tex->Load("Assets/Art/Maps/tutorial_map_4.png");
+
+	sceneTexture = app->tex->Load("Assets/Art/Maps/world_map.png");
 
 	app->audio->ChangeMusic(DUNGEON_MUSIC, 1.0f, 1.0f);
-
-	
-	m_GargoyleTest.Init();
 
 	app->currentScene = sceneID::TUTORIAL_4;
 	return true;
 }
 
 // Called each loop iteration
-bool TutorialScene_4::PreUpdate()
+bool WorldMapScene::PreUpdate()
 {
 	Scene::PreUpdate();
 	return true;
 }
 
 // Called each loop iteration
-bool TutorialScene_4::Update(float dt)
+bool WorldMapScene::Update(float dt)
 {
 	Scene::Update(dt);
-	m_GargoyleTest.Update();
 
-	m_GargoyleTest.Render();
+
+
 
 	return true;
 }
 
 // Called each loop iteration
-bool TutorialScene_4::PostUpdate()
+bool WorldMapScene::PostUpdate()
 {
 	Scene::PostUpdate();
 	bool ret = true;
@@ -83,10 +80,11 @@ bool TutorialScene_4::PostUpdate()
 }
 
 // Called before quitting
-bool TutorialScene_4::CleanUp()
+bool WorldMapScene::CleanUp()
 {
 	Scene::CleanUp();
 	LOG("Freeing scene");
+	app->tex->UnLoad(sceneTexture);
 	app->guiManager->pausePanel->Disable();
 
 	return true;

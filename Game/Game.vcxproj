@@ -111,6 +111,7 @@
     <ClCompile Include="Source\Dialog.cpp" />
     <ClCompile Include="Source\DialogModule.cpp" />
     <ClCompile Include="Source\DialogNode.cpp" />
+    <ClCompile Include="Source\DungeonScene.cpp" />
     <ClCompile Include="Source\Enemy.cpp" />
     <ClCompile Include="Source\FadeToBlack.cpp" />
     <ClCompile Include="Source\FallenAngel.cpp" />
@@ -147,8 +148,12 @@
     <ClCompile Include="Source\TownScene.cpp" />
     <ClCompile Include="Source\Triana.cpp" />
     <ClCompile Include="Source\TutorialForestScene.cpp" />
+    <ClCompile Include="Source\TutorialScene_1.cpp" />
+    <ClCompile Include="Source\TutorialScene_2.cpp" />
+    <ClCompile Include="Source\TutorialScene_3.cpp" />
     <ClCompile Include="Source\TutorialScene_4.cpp" />
     <ClCompile Include="Source\Window.cpp" />
+    <ClCompile Include="Source\WorldMapScene.cpp" />
     <ClInclude Include="Source\Ability.h" />
     <ClInclude Include="Source\AlanParsons.h" />
     <ClInclude Include="Source\Animation.h" />
@@ -166,6 +171,7 @@
     <ClInclude Include="Source\Dialog.h" />
     <ClInclude Include="Source\DialogModule.h" />
     <ClInclude Include="Source\DialogNode.h" />
+    <ClInclude Include="Source\DungeonScene.h" />
     <ClInclude Include="Source\Enemy.h" />
     <ClInclude Include="Source\FadeToBlack.h" />
     <ClInclude Include="Source\FallenAngel.h" />
@@ -206,6 +212,9 @@
     <ClInclude Include="Source\TownScene.h" />
     <ClInclude Include="Source\Triana.h" />
     <ClInclude Include="Source\TutorialForestScene.h" />
+    <ClInclude Include="Source\TutorialScene_1.h" />
+    <ClInclude Include="Source\TutorialScene_2.h" />
+    <ClInclude Include="Source\TutorialScene_3.h" />
     <ClInclude Include="Source\TutorialScene_4.h" />
     <ClInclude Include="Source\Window.h" />
     <ClInclude Include="Source\Defs.h" />
@@ -218,6 +227,7 @@
     <ClInclude Include="Source\External\PugiXml\src\pugiconfig.hpp" />
     <ClInclude Include="Source\External\PugiXml\src\pugixml.hpp" />
     <ClCompile Include="Source\External\PugiXml\src\pugixml.cpp" />
+    <ClInclude Include="Source\WorldMapScene.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
