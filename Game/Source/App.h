@@ -23,6 +23,7 @@ class FadeToBlack;
 class PlayerModule;
 class BattleScene;
 class AssetsManager;
+class InventoryModule;
 
 //Scenes
 class LogoScreen;
@@ -130,6 +131,7 @@ public:
 	ModuleCollisions* collisions;
 	PlayerModule* playerModule;
 	AssetsManager* assetsManager;
+	InventoryModule* inventory;
 
 	//Scenes
 	LogoScreen* logoScreen;

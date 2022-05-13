@@ -15,6 +15,7 @@
 
 // Player
 #include "PlayerModule.h"
+#include "InventoryModule.h"
 
 #include "PerfTimer.h"
 #include "Defs.h"
@@ -57,6 +58,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 
 	// Game modules
 	dialog = new DialogModule(true);
+	inventory = new InventoryModule(true);
 	playerModule = new PlayerModule(false);
 
 	// Scenes
@@ -96,6 +98,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	//AddModule(battleModule);
 	AddModule(playerModule);
 	AddModule(dialog);
+	AddModule(inventory);
 
 	// FadeToBlack
 	AddModule(fade);
