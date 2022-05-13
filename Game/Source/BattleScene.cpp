@@ -13,27 +13,29 @@
 #include "App.h"
 #include "Input.h"
 
-BattleScene::BattleScene(bool startEnabled) : Module(startEnabled)
+BattleScene::BattleScene(bool startEnabled, bool playerEnabled, SString name, Point<int> cameraPos, Point<int>playerPos, Point<bool> followPlayer) :
+	Scene(startEnabled, playerEnabled, name, cameraPos, playerPos, followPlayer)
 {
-	name.Create("BattleScene");
+	
 
 	m_BattleOffset = { 200, 200 };
 }
 
 BattleScene::~BattleScene()
 {
-	
+	Scene::~Scene();
 }
 
 bool BattleScene::Awake(pugi::xml_node& config)
 {
-	
+	Scene::Awake(config);
 
 	return true;
 }
 
 bool BattleScene::Start()
 {
+	Scene::Start();
 	memset(m_PlayerGrid, NULL, GRID_SIZE * 4);
 	memset(m_EnemyGrid, NULL, GRID_SIZE * 4);
 
@@ -63,6 +65,7 @@ bool BattleScene::Start()
 
 bool BattleScene::PreUpdate()
 {
+	Scene::PreUpdate();
 	if (m_EnemyCount <= 0) {
 		app->fade->Fade(this, app->tutorialScene_4);
 		return true;
@@ -114,6 +117,7 @@ bool BattleScene::PreUpdate()
 #include <iostream>
 bool BattleScene::Update(float dt)
 {
+	Scene::Update(dt);
 	if (!m_ActiveCharacter) return true;
 
 	//
@@ -168,6 +172,7 @@ bool BattleScene::Update(float dt)
 
 bool BattleScene::PostUpdate()
 {
+	Scene::PostUpdate();
 	iPoint position;
 
 	// Battle grid
@@ -194,6 +199,7 @@ bool BattleScene::PostUpdate()
 
 bool BattleScene::CleanUp()
 {
+	Scene::CleanUp();
 	for (int y = 0; y < GRID_HEIGHT; y++) {
 		for (int x = 0; x < GRID_WIDTH; x++) {
 			if (m_PlayerGrid[y][x]) {

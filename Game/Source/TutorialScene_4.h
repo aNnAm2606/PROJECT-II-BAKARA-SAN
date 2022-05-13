@@ -1,15 +1,16 @@
 #ifndef __TUTORIAL_SCENE_4_H__
 #define __TUTORIAL_SCENE_4_H__
-#include "Module.h"
+
+#include "Scene.h"
 #include "GargoyleTest.h"
 
 struct SDL_Texture;
 
-class TutorialScene_4 : public Module
+class TutorialScene_4 : public Scene
 {
 public:
 
-	TutorialScene_4(bool startEnabled);
+	TutorialScene_4(bool startEnabled, bool playerEnabled, SString name, Point<int> cameraPos, Point<int>playerPos, Point<bool> followPlayer);
 
 
 	// Destructor
@@ -34,8 +35,7 @@ public:
 	bool CleanUp();
 
 private:
-	SDL_Texture* tutorialScene_4;
-	Point<int>playerPos;
+	
 
 	GargoyleTest m_GargoyleTest;
 };

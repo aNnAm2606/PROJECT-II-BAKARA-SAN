@@ -12,18 +12,23 @@
 #include "Defs.h"
 #include "Log.h"
 
-TownScene::TownScene(bool startEnabled) : Module(startEnabled)
+TownScene::TownScene(bool startEnabled, bool playerEnabled, SString name, Point<int> cameraPos, Point<int>playerPos, Point<bool> followPlayer) :
+	Scene(startEnabled, playerEnabled, name, cameraPos, playerPos, followPlayer)
 {
-	name.Create("TownScene");
+	
 }
 
 // Destructor
 TownScene::~TownScene()
-{}
+{
+	Scene::~Scene();
+
+}
 
 // Called before render is available
 bool TownScene::Awake(pugi::xml_node& config)
 {
+	Scene::Awake(config);
 	LOG("Loading Scene");
 	bool ret = true;
 
@@ -33,17 +38,9 @@ bool TownScene::Awake(pugi::xml_node& config)
 // Called before the first frame
 bool TownScene::Start()
 {
-	app->render->camera.x = -150;
-	app->render->camera.y = -360;
-	app->playerModule->Enable();
-	app->playerModule->SetPosition(900, 800);
-	
+	Scene::Start();
 
-	townScene = app->tex->Load("Assets/Art/Maps/town_map.png");
-
-	app->render->followPlayerX = true;
-	app->render->followPlayerY = false;
-
+	sceneTexture = app->tex->Load("Assets/Art/Maps/town_map.png");
 	app->audio->ChangeMusic(TOWN_MUSIC, 1.0f, 1.0f);
 
 	m_Triana.Init();
@@ -57,25 +54,28 @@ bool TownScene::Start()
 // Called each loop iteration
 bool TownScene::PreUpdate()
 {
+	Scene::PreUpdate();
 	return true;
 }
 
 // Called each loop iteration
 bool TownScene::Update(float dt)
 {
+	Scene::Update(dt);
 	m_Triana.Update();
 	m_SisterMadonna.Update();
 	
-	app->render->DrawTexture(townScene, 0, 0, NULL);
 	m_SisterMadonna.Render();
 	m_Triana.Render();
 
-	app->playerModule->GetPosition(playerPos.x, playerPos.y);
-	if (playerPos.x < 650 || playerPos.x > 1275) app->render->followPlayerX = false;
-	else app->render->followPlayerX = true;
 
-	if (playerPos.y < 375 || playerPos.y > 710) app->render->followPlayerY = false;
-	else app->render->followPlayerY = true;
+
+	app->playerModule->GetPosition(playerPos.x, playerPos.y);
+	if (playerPos.x < 650 || playerPos.x > 1275) cameraFollowsPlayer.x = false;
+	else cameraFollowsPlayer.x = true;
+
+	if (playerPos.y < 375 || playerPos.y > 710) cameraFollowsPlayer.y = false;
+	else cameraFollowsPlayer.y = true;
 
 
 
@@ -85,6 +85,7 @@ bool TownScene::Update(float dt)
 // Called each loop iteration
 bool TownScene::PostUpdate()
 {
+	Scene::PostUpdate();
 	bool ret = true;
 	
 	if (playerPos.x < 0)app->fade->Fade(this, (Module*) app->tutorialForestScene);
@@ -96,7 +97,8 @@ bool TownScene::PostUpdate()
 // Called before quitting
 bool TownScene::CleanUp()
 {
+	Scene::CleanUp();
 	LOG("Freeing scene");
-	app->tex->UnLoad(townScene);
+	
 	return true;
 }

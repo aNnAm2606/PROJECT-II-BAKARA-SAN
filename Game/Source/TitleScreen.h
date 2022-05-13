@@ -1,15 +1,15 @@
 #ifndef __TITLESCREEN_H__
 #define __TITLESCREEN_H__
 
-#include "Module.h"
+#include "Scene.h"
 
 struct SDL_Texture;
 
-class TitleScreen : public Module
+class TitleScreen : public Scene
 {
 public:
 
-	TitleScreen(bool startEnabled);
+	TitleScreen(bool startEnabled, bool playerEnabled, SString name, Point<int> cameraPos, Point<int>playerPos, Point<bool> followPlayer);
 
 	// Destructor
 	virtual ~TitleScreen();

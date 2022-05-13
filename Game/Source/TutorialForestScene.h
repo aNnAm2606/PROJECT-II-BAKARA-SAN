@@ -1,16 +1,16 @@
 #ifndef __TUTORIALFORESTSCENE_H__
 #define __TUTORIALFORESTSCENE_H__
 
-#include "Module.h"
+#include "Scene.h"
 #include "AlanParsons.h"
 
 struct SDL_Texture;
 
-class TutorialForestScene : public Module
+class TutorialForestScene : public Scene
 {
 public:
 
-	TutorialForestScene(bool startEnabled);
+	TutorialForestScene(bool startEnabled, bool playerEnabled, SString name, Point<int> cameraPos, Point<int>playerPos, Point<bool> followPlayer);
 
 	// Destructor
 	virtual ~TutorialForestScene();
@@ -34,8 +34,7 @@ public:
 	bool CleanUp();
 
 private:
-	Point<int> playerPos;
-	SDL_Texture* tutorialForestScene;
+	
 	AlanParsons m_AlanParsons;
 };
 

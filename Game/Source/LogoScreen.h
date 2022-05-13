@@ -1,15 +1,16 @@
 #ifndef __LOGOSCREEN_H__
 #define __LOGOSCREEN_H__
 
-#include "Module.h"
+#include "Scene.h"
+
 
 struct SDL_Texture;
 
-class LogoScreen : public Module
+class LogoScreen : public Scene
 {
 public:
 
-	LogoScreen(bool startEnabled);
+	LogoScreen(bool startEnabled, bool playerEnabled, SString name, Point<int> cameraPos, Point<int>playerPos, Point<bool> followPlayer);
 
 	// Destructor
 	virtual ~LogoScreen();

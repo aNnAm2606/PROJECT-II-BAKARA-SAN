@@ -1,7 +1,6 @@
 #ifndef __STARTFORESTSCENE_H__
 #define __STARTFORESTSCENE_H__
 
-#include "Module.h"
 #include "Scene.h"
 
 struct SDL_Texture;

@@ -11,18 +11,22 @@
 #include "Defs.h"
 #include "Log.h"
 
-TitleScreen::TitleScreen(bool startEnabled) : Module(startEnabled)
+TitleScreen::TitleScreen(bool startEnabled, bool playerEnabled, SString name, Point<int> cameraPos, Point<int>playerPos, Point<bool> followPlayer) :
+	Scene(startEnabled, playerEnabled, name, cameraPos, playerPos, followPlayer)
 {
-	name.Create("TitleScreen");
+	
 }
 
 // Destructor
 TitleScreen::~TitleScreen()
-{}
+{
+	Scene::~Scene();
+}
 
 // Called before render is available
 bool TitleScreen::Awake(pugi::xml_node& config)
 {
+	Scene::Awake(config);
 	LOG("Loading Scene");
 	bool ret = true;
 
@@ -32,9 +36,7 @@ bool TitleScreen::Awake(pugi::xml_node& config)
 // Called before the first frame
 bool TitleScreen::Start()
 {
-	app->render->camera.x = 0;
-	app->render->camera.y = 0;
-
+	Scene::Start();
 	bg = app->tex->Load("Assets/Art/GUI/TitlescreenBg.png");
 	app->guiManager->titlePanel->Enable();
 
@@ -48,12 +50,14 @@ bool TitleScreen::Start()
 // Called each loop iteration
 bool TitleScreen::PreUpdate()
 {
+	Scene::PreUpdate();
 	return true;
 }
 
 // Called each loop iteration
 bool TitleScreen::Update(float dt)
 {
+	Scene::Update(dt);
 	if(app->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
 		app->render->camera.y -= 1;
 
@@ -74,6 +78,7 @@ bool TitleScreen::Update(float dt)
 // Called each loop iteration
 bool TitleScreen::PostUpdate()
 {
+	Scene::PostUpdate();
 	bool ret = true;
 
 	if (startGame == true)
@@ -102,6 +107,7 @@ bool TitleScreen::PostUpdate()
 // Called before quitting
 bool TitleScreen::CleanUp()
 {
+	Scene::CleanUp();
 	LOG("Freeing scene");
 	app->tex->UnLoad(bg);
 	app->guiManager->titlePanel->Disable();

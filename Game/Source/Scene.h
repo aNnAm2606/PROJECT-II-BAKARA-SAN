@@ -2,7 +2,7 @@
 #define __SCENE_H__
 
 #include "Module.h"
-
+#include "Point.h"
 struct SDL_Texture;
 
 class Scene : public Module
@@ -33,7 +33,6 @@ public:
 	// Called before quitting
 	bool CleanUp();
 
-	void SetStartCameraPos(int x, int y);
 
 
 	bool isPlayerEnabled;

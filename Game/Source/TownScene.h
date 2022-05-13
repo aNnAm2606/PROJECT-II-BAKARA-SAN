@@ -1,17 +1,17 @@
 #ifndef __TOWNSCENE_H__
 #define __TOWNSCENE_H__
 
-#include "Module.h"
+#include "Scene.h"
 #include "Triana.h"
 #include "SisterMadonna.h"
 
 struct SDL_Texture;
 
-class TownScene : public Module
+class TownScene : public Scene
 {
 public:
 
-	TownScene(bool startEnabled);
+	TownScene(bool startEnabled, bool playerEnabled, SString name, Point<int> cameraPos, Point<int>playerPos, Point<bool> followPlayer);
 
 	// Destructor
 	virtual ~TownScene();
@@ -35,8 +35,8 @@ public:
 	bool CleanUp();
 
 private:
-	SDL_Texture* townScene;
-	Point<int>playerPos;
+	
+	
 
 	Triana m_Triana;
 	SisterMadonna m_SisterMadonna;

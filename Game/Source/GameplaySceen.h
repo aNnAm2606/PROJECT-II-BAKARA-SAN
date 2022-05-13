@@ -1,15 +1,15 @@
 #ifndef __GAMEPLAYSCREEN_H__
 #define __GAMEPLAYSCREEN_H__
 
-#include "Module.h"
+#include "Scene.h"
 
 struct SDL_Texture;
 
-class GameplayScreen : public Module
+class GameplayScreen : public Scene
 {
 public:
 
-	GameplayScreen(bool startEnabled);
+	GameplayScreen(bool startEnabled, bool playerEnabled, SString name, Point<int> cameraPos, Point<int>playerPos, Point<bool> followPlayer);
 
 	// Destructor
 	virtual ~GameplayScreen();
@@ -33,7 +33,7 @@ public:
 	bool CleanUp();
 
 private:
-	SDL_Texture* bg;
+	
 
 };
 

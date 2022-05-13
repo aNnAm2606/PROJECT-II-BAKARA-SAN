@@ -10,18 +10,22 @@
 #include "Defs.h"
 #include "Log.h"
 
-LogoScreen::LogoScreen(bool startEnabled) : Module(startEnabled)
+LogoScreen::LogoScreen(bool startEnabled, bool playerEnabled, SString name, Point<int> cameraPos, Point<int>playerPos, Point<bool> followPlayer)
+	: Scene(startEnabled, playerEnabled, name, cameraPos, playerPos, followPlayer)
 {
-	name.Create("LogoScreen");
+	
 }
 
 // Destructor
 LogoScreen::~LogoScreen()
-{}
+{
+	Scene::~Scene();
+}
 
 // Called before render is available
 bool LogoScreen::Awake(pugi::xml_node& config)
 {
+	Scene::Awake(config);
 	LOG("Loading Scene");
 	bool ret = true;
 
@@ -31,13 +35,9 @@ bool LogoScreen::Awake(pugi::xml_node& config)
 // Called before the first frame
 bool LogoScreen::Start()
 {
-	app->render->camera.x = 0;
-	app->render->camera.y = 0;
-
+	Scene::Start();
+	
 	logoScreen = app->tex->Load("Assets/Art/GUI/logo.png");
-	/*img = app->tex->Load("Assets/Textures/test.png");
-	app->audio->PlayMusic("Assets/Audio/Music/music_spy.ogg");*/
-
 	Logo_FX = app->audio->LoadFx("Assets/Audio/Fx/logo.wav");
 	app->audio->PlayFx(Logo_FX);
 
@@ -48,10 +48,7 @@ bool LogoScreen::Start()
 // Called each loop iteration
 bool LogoScreen::PreUpdate()
 {
-	/*if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
-	{
-		count = 400;
-	}*/
+	Scene::PreUpdate();
 
 	return true;
 }
@@ -59,18 +56,8 @@ bool LogoScreen::PreUpdate()
 // Called each loop iteration
 bool LogoScreen::Update(float dt)
 {
-	if(app->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
-		app->render->camera.y -= 1;
-
-	if(app->input->GetKey(SDL_SCANCODE_DOWN) == KEY_REPEAT)
-		app->render->camera.y += 1;
-
-	if(app->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT)
-		app->render->camera.x -= 1;
-
-	if(app->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
-		app->render->camera.x += 1;
-
+	Scene::Update(dt);
+	
 	app->render->DrawTexture(logoScreen, 0, 0, NULL);
 
 	if (count > 399) app->fade->Fade(this, (Module*)app->titleScreen);
@@ -82,6 +69,7 @@ bool LogoScreen::Update(float dt)
 // Called each loop iteration
 bool LogoScreen::PostUpdate()
 {
+	Scene::PostUpdate();
 	bool ret = true;
 
 	if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN) app->fade->Fade(this, (Module*)app->titleScreen);
@@ -94,6 +82,7 @@ bool LogoScreen::PostUpdate()
 // Called before quitting
 bool LogoScreen::CleanUp()
 {
+	Scene::CleanUp();
 	LOG("Freeing scene");
 	app->tex->UnLoad(logoScreen);
 

@@ -13,18 +13,22 @@
 #include "Defs.h"
 #include "Log.h"
 
-TutorialScene_4::TutorialScene_4(bool startEnabled) : Module(startEnabled)
+TutorialScene_4::TutorialScene_4(bool startEnabled, bool playerEnabled, SString name, Point<int> cameraPos, Point<int>playerPos, Point<bool> followPlayer) :
+	Scene(startEnabled, playerEnabled, name, cameraPos, playerPos, followPlayer)
 {
-	name.Create("StartForestScene");
+	
 }
 
 // Destructor
 TutorialScene_4::~TutorialScene_4()
-{}
+{
+	Scene::~Scene();
+}
 
 // Called before render is available
 bool TutorialScene_4::Awake(pugi::xml_node& config)
 {
+	Scene::Awake(config);
 	LOG("Loading Scene");
 	bool ret = true;
 
@@ -34,16 +38,13 @@ bool TutorialScene_4::Awake(pugi::xml_node& config)
 // Called before the first frame
 bool TutorialScene_4::Start()
 {
-	app->render->camera.x = -400;
-	app->render->camera.y = -150;
-	app->playerModule->Enable();
-
-	tutorialScene_4 = app->tex->Load("Assets/Art/Maps/tutorial_map_4.png");
+	Scene::Start();
+	
+	sceneTexture = app->tex->Load("Assets/Art/Maps/tutorial_map_4.png");
 
 	app->audio->ChangeMusic(DUNGEON_MUSIC, 1.0f, 1.0f);
 
-	app->playerModule->SetPosition(1600, 450);
-
+	
 	m_GargoyleTest.Init();
 
 	app->currentScene = sceneID::TUTORIAL_4;
@@ -53,16 +54,17 @@ bool TutorialScene_4::Start()
 // Called each loop iteration
 bool TutorialScene_4::PreUpdate()
 {
-
+	Scene::PreUpdate();
 	return true;
 }
 
 // Called each loop iteration
 bool TutorialScene_4::Update(float dt)
 {
+	Scene::Update(dt);
 	m_GargoyleTest.Update();
 
-	app->render->DrawTexture(tutorialScene_4, 0, 0, NULL);
+	app->render->DrawTexture(sceneTexture, 0, 0, NULL);
 	m_GargoyleTest.Render();
 
 	return true;
@@ -71,6 +73,7 @@ bool TutorialScene_4::Update(float dt)
 // Called each loop iteration
 bool TutorialScene_4::PostUpdate()
 {
+	Scene::PostUpdate();
 	bool ret = true;
 	app->playerModule->GetPosition(playerPos.x, playerPos.y);
 
@@ -83,8 +86,9 @@ bool TutorialScene_4::PostUpdate()
 // Called before quitting
 bool TutorialScene_4::CleanUp()
 {
+	Scene::CleanUp();
 	LOG("Freeing scene");
-	app->tex->UnLoad(tutorialScene_4);
+	app->tex->UnLoad(sceneTexture);
 	app->guiManager->pausePanel->Disable();
 
 	return true;

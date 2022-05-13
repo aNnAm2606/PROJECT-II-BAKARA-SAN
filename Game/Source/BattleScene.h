@@ -1,7 +1,7 @@
 #ifndef __BATTLE_MODULE_H__
 #define __BATTLE_MODULE_H__
 
-#include "Module.h"
+#include "Scene.h"
 #include "SDL/include/SDL.h"
 #include "Character.h"
 #include "PQueue.h"
@@ -12,7 +12,7 @@
 
 #define GRID_PIXEL_SIZE 128
 
-class BattleScene : public Module
+class BattleScene : public Scene
 {
 private:
 	enum EBattleState {
@@ -21,7 +21,7 @@ private:
 		EBATTLESTATE_NONE
 	};
 
-	SDL_Texture* m_Background;
+	
 
 	iPoint m_BattleOffset;
 	Character* m_PlayerGrid[GRID_HEIGHT][GRID_WIDTH];
@@ -38,7 +38,7 @@ private:
 	void Waiting();
 	void Attacking();
 public:
-	BattleScene(bool startEnabled);
+	BattleScene(bool startEnabled, bool playerEnabled, SString name, Point<int> cameraPos, Point<int>playerPos, Point<bool> followPlayer);
 
 	// Destructor
 	virtual ~BattleScene();

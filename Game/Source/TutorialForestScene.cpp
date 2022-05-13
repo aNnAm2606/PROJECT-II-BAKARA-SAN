@@ -13,18 +13,22 @@
 #include "Defs.h"
 #include "Log.h"
 
-TutorialForestScene::TutorialForestScene(bool startEnabled) : Module(startEnabled)
+TutorialForestScene::TutorialForestScene(bool startEnabled, bool playerEnabled, SString name, Point<int> cameraPos, Point<int>playerPos, Point<bool> followPlayer) :
+	Scene(startEnabled, playerEnabled, name, cameraPos, playerPos, followPlayer)
 {
-	name.Create("TutorialForestScene");
+	
 }
 
 // Destructor
 TutorialForestScene::~TutorialForestScene()
-{}
+{
+	Scene::~Scene();
+}
 
 // Called before render is available
 bool TutorialForestScene::Awake(pugi::xml_node& config)
 {
+	Scene::Awake(config);
 	LOG("Loading Scene");
 	bool ret = true;
 
@@ -34,16 +38,11 @@ bool TutorialForestScene::Awake(pugi::xml_node& config)
 // Called before the first frame
 bool TutorialForestScene::Start()
 {
-	app->render->camera.x = -600;
-	app->render->camera.y = -150;
-	app->playerModule->Enable();
-	app->playerModule->SetPosition(1700, 600);
-	tutorialForestScene = app->tex->Load("Assets/Art/Maps/tutorial_forest_map.png");
+	Scene::Start();
+	
+	sceneTexture = app->tex->Load("Assets/Art/Maps/tutorial_forest_map.png");
 
 	app->audio->ChangeMusic(SANCTUARY_MUSIC, 1.0f, 1.0f);
-
-	app->render->followPlayerX = false;
-	app->render->followPlayerY = false;
 
 	m_AlanParsons.Init();
 
@@ -54,20 +53,22 @@ bool TutorialForestScene::Start()
 // Called each loop iteration
 bool TutorialForestScene::PreUpdate()
 {
+	Scene::PreUpdate();
 	return true;
 }
 
 // Called each loop iteration
 bool TutorialForestScene::Update(float dt)
 {
+	Scene::Update(dt);
 	m_AlanParsons.Update();
 
-	app->render->DrawTexture(tutorialForestScene, 0, 0, NULL);
 	m_AlanParsons.Render();
 
 	app->playerModule->GetPosition(playerPos.x, playerPos.y);
-	if (playerPos.x < 650 || playerPos.x > 1250) app->render->followPlayerX = false;
-	else app->render->followPlayerX = true;
+
+	if (playerPos.x < 650 || playerPos.x > 1250) cameraFollowsPlayer.x = false;
+	else cameraFollowsPlayer.x = true;
 
 	
 	
@@ -77,7 +78,9 @@ bool TutorialForestScene::Update(float dt)
 // Called each loop iteration
 bool TutorialForestScene::PostUpdate()
 {
+	Scene::PostUpdate();
 	bool ret = true;
+
 	app->playerModule->GetPosition(playerPos.x, playerPos.y);
 
 	if (playerPos.x > 1800) app->fade->Fade(this, (Module*)app->townScene);
@@ -89,7 +92,8 @@ bool TutorialForestScene::PostUpdate()
 // Called before quitting
 bool TutorialForestScene::CleanUp()
 {
+	Scene::CleanUp();
 	LOG("Freeing scene");
-	app->tex->UnLoad(tutorialForestScene);
+	
 	return true;
 }

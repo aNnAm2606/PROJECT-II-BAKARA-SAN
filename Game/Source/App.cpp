@@ -60,14 +60,14 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	playerModule = new PlayerModule(false);
 
 	// Scenes
-	logoScreen = new LogoScreen(true);
-	titleScreen = new TitleScreen(false);
-	gameplayScreen = new GameplayScreen(false);
-	startForestScene = new StartForestScene(false, true, "startForestScene", { 400 + 2000, -200 + 2000 }, { 650, 580 }, { true, true });
-	townScene = new TownScene(false);
-	tutorialForestScene = new TutorialForestScene(false);
-	tutorialScene_4 = new TutorialScene_4(false);
-	battleScene = new BattleScene(false);
+	logoScreen = new LogoScreen(true, false, "logoScene", { 0,0 }, { 0,0 }, { false, false });
+	titleScreen = new TitleScreen(false, false, "titleScene", { 0,0 }, { 0,0 }, { false, false });
+	gameplayScreen = new GameplayScreen(false, false, "gameplayScene", { 0,0 }, { 0,0 }, { false, false });
+	startForestScene = new StartForestScene(false, true, "startForestScene", { 400, -200}, { 650, 580 }, { true, true });
+	townScene = new TownScene(false, true, "townScene", { -150, -360 }, { 900, 800 }, { true, false });
+	tutorialForestScene = new TutorialForestScene(false, true, "tutorialForestScene", { -600, -150 }, { 1700, 600 }, { false, false });
+	tutorialScene_4 = new TutorialScene_4(false, true, "tutorialForestScene", { -400, -150 }, { 1600, 450 }, { false, false });
+	battleScene = new BattleScene(false, false, "BattleScene", { 0, 0 }, { 0, 0 }, { false, false });
 
 	// Ordered for awake / Start / Update
 	// Reverse order of CleanUp

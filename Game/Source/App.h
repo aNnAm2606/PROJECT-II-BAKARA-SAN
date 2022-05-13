@@ -2,6 +2,7 @@
 #define __APP_H__
 
 #include "Module.h"
+#include "Scene.h"
 #include "List.h"
 
 #include "PerfTimer.h"

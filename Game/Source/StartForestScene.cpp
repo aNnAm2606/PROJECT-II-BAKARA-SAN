@@ -21,7 +21,9 @@ StartForestScene::StartForestScene(bool startEnabled, bool playerEnabled, SStrin
 
 // Destructor
 StartForestScene::~StartForestScene()
-{}
+{
+	Scene::~Scene();
+}
 
 // Called before render is available
 bool StartForestScene::Awake(pugi::xml_node& config)
@@ -93,6 +95,5 @@ bool StartForestScene::CleanUp()
 	Scene::CleanUp();
 	LOG("Freeing scene");
 	
-
 	return true;
 }

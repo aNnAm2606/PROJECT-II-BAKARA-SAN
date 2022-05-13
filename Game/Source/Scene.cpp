@@ -80,9 +80,7 @@ bool Scene::Update(float dt)
 
 	if (app->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
 		app->render->camera.x += app->render->cameraSpeed;
-
-
-	app->render->DrawTexture(sceneTexture, 0, 0, NULL);
+	if(sceneTexture != NULL) app->render->DrawTexture(sceneTexture, 0, 0, NULL);
 	
 	
 
@@ -118,7 +116,3 @@ bool Scene::CleanUp()
 	return true;
 }
 
-void Scene::SetStartCameraPos(int x, int y)
-{
-	
-}
