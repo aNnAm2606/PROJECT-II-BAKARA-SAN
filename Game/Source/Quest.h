@@ -19,6 +19,11 @@ public:
 	Quest();
 	virtual ~Quest();
 
+	// Getters
+	const char* getTitle() { return p_Title.c_str(); }
+	const char* getDesc() { return p_Description.c_str(); }
+
+	// Callbacks
 	virtual void OnItemAdd(Item::EItemType item, size_t count){}
 	virtual void OnItemRemove(Item::EItemType item, size_t count){}
 

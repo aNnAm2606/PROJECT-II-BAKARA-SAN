@@ -80,6 +80,8 @@ void QuestModule::ActivateQuest(EQuest quest)
 
 		m_Quests[quest]->UpdateCheck();
 		m_QuestStates[quest] = EQuestState::EQUEST_STATE_ACTIVE;
+
+		std::cout << "Activated quest: [" << m_Quests[quest]->getTitle() << "] : [" << m_Quests[quest]->getDesc() << "]" << std::endl;
 	}
 }
 
@@ -97,6 +99,9 @@ void QuestModule::FinishQuest(EQuest quest)
 	if (m_QuestStates[quest] == EQuestState::EQUEST_STATE_ACTIVE) {
 		if (m_Quests[quest]->HasRequirements()) {
 			m_Quests[quest]->Finish();
+
+			std::cout << "Finished quest: [" << m_Quests[quest]->getTitle() << "] : [" << m_Quests[quest]->getDesc() << "]" << std::endl;
+
 			delete m_Quests[quest];
 			m_Quests[quest] = NULL;
 
