@@ -9,8 +9,8 @@ PMQuest1::PMQuest1()
 
 	m_ItemCount = 0;
 
-	p_Title = "Pussy Control";
-	p_Description = "Steven’s Cat has gone missing. Find it and bring it to him!";
+	p_Title = "pussy control";
+	p_Description = "stevens cat has gone missing. find it and bring it to him!";
 }
 
 PMQuest1::~PMQuest1()

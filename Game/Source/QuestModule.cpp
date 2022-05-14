@@ -3,7 +3,9 @@
 
 #include "Log.h"
 
+// All quests
 #include "PMQuest1.h"
+#include "PMQuest2.h"
 
 QuestModule::QuestModule(bool startEnabled) : Module(startEnabled)
 {
@@ -70,6 +72,9 @@ void QuestModule::ActivateQuest(EQuest quest)
 		switch (quest) {
 			case EQuest::EQUEST_PM_Q1:
 				m_Quests[quest] = new PMQuest1();
+				break;
+			case EQuest::EQUEST_PM_Q2:
+				m_Quests[quest] = new PMQuest2();
 				break;
 		}
 

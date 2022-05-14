@@ -9,6 +9,7 @@
 #include "GuiManager.h"
 #include "FadeToBlack.h"
 #include "TutorialScene_4.h"
+#include "TownScene.h"
 
 #include "App.h"
 #include "Input.h"
@@ -67,7 +68,7 @@ bool BattleScene::PreUpdate()
 {
 	Scene::PreUpdate();
 	if (m_EnemyCount <= 0) {
-		app->fade->Fade(this, app->tutorialScene_4);
+		app->fade->Fade(this, app->townScene);
 		return true;
 	}
 
@@ -222,7 +223,9 @@ void BattleScene::DamagePlayerAt(iPoint position, int damage)
 	if (!m_PlayerGrid[position.y][position.x]) return;
 	if (m_PlayerGrid[position.y][position.x]->IsDead()) return;
 
-	m_PlayerGrid[position.y][position.x]->DealDamage(damage);
+	if (m_PlayerGrid[position.y][position.x]->DealDamage(damage)) {
+		onCharacterKilled(m_PlayerGrid[position.y][position.x]->getCharacterType());
+	}
 }
 
 void BattleScene::DamageEnemyAt(iPoint position, int damage)
@@ -232,6 +235,7 @@ void BattleScene::DamageEnemyAt(iPoint position, int damage)
 
 	if (m_EnemyGrid[position.y][position.x]->DealDamage(damage)) {
 		m_EnemyCount--;
+		onCharacterKilled(m_EnemyGrid[position.y][position.x]->getCharacterType());
 	}
 }
 

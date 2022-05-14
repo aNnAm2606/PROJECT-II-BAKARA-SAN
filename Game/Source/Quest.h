@@ -3,6 +3,7 @@
 
 #include <string>
 #include "Item.h"
+#include "Character.h"
 #include "ClassActionPack.h"
 #include "QuestModule.h"
 
@@ -21,6 +22,8 @@ public:
 	virtual void OnItemAdd(Item::EItemType item, size_t count){}
 	virtual void OnItemRemove(Item::EItemType item, size_t count){}
 
+	virtual void OnCharacterKilled(Character::ECharacterType character){}
+
 	virtual void UpdateCheck(){};
 
 	virtual bool HasRequirements() = 0;
@@ -29,6 +32,9 @@ public:
 
 typedef ClassActionPack<Quest, Item::EItemType, size_t> QuestItemCallbacks;
 typedef ClassAction<Quest, Item::EItemType, size_t> QuestItemAction;
+
+typedef ClassActionPack<Quest, Character::ECharacterType> QuestCharacterCallbacks;
+typedef ClassAction<Quest, Character::ECharacterType> QuestCharacterAction;
 
 typedef ClassActionPack<Quest> QuestCallbacks;
 typedef ClassAction<Quest> QuestAction;

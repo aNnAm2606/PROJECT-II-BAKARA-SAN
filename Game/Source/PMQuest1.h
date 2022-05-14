@@ -5,8 +5,6 @@
 
 class PMQuest1 : public Quest {
 private:
-	bool m_Completed;
-
 	size_t m_ItemCount;
 public:
 	PMQuest1();

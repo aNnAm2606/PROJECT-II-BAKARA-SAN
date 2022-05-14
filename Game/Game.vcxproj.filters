@@ -206,6 +206,9 @@
     <ClCompile Include="Source\TutorialScene_1.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="Source\PMQuest2.cpp">
+      <Filter>Quests\PrimusMundis</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\StartForestScene.h">
@@ -456,6 +459,9 @@
     </ClInclude>
     <ClInclude Include="Source\TutorialScene_1.h">
       <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\PMQuest2.h">
+      <Filter>Quests\PrimusMundis</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

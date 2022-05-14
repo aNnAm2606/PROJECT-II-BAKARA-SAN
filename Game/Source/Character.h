@@ -26,6 +26,7 @@ public:
 		ECHARACTER_FALLEN_ANGEL,
 		ECHARACTER_GARGOYLE,
 		ECHARACTER_GHOST,
+		ECHARACTER_MIPHARESH,
 
 		// None
 		ECHARACTERS_NONE
@@ -70,6 +71,8 @@ public:
 
 	bool IsDead() { return p_Dead; }
 	bool Remove() { return p_Remove; }
+
+	ECharacterType getCharacterType() { return p_CharacterId; }
 };
 
 #endif  // __LOG_H__

@@ -5,6 +5,7 @@
 #include "SDL/include/SDL.h"
 #include "Character.h"
 #include "PQueue.h"
+#include "Quest.h"
 
 #define GRID_WIDTH 2
 #define GRID_HEIGHT 4
@@ -66,6 +67,8 @@ public:
 
 	// Damage enemy at position
 	void DamageEnemyAt(iPoint position, int damage);
+
+	QuestCharacterCallbacks onCharacterKilled;
 };
 
 #endif // __SCENE_H__
