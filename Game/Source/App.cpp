@@ -12,6 +12,7 @@
 #include "GuiManager.h"
 #include "ModuleCollisions.h"
 #include "AssetsManager.h"
+#include "Transitions.h"
 
 // Player
 #include "PlayerModule.h"
@@ -61,6 +62,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	guiManager = new GuiManager(true);
 	collisions = new ModuleCollisions(true);
 	assetsManager = new AssetsManager(true);
+	transitions = new Transitions(true);
 
 	// Game modules
 	dialog = new DialogModule(true);
@@ -120,6 +122,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 
 	// FadeToBlack
 	AddModule(fade);
+	AddModule(transitions);
 
 	// Render last to swap buffer
 	AddModule(render);
@@ -300,11 +303,13 @@ void App::FinishUpdate()
 
 	float delay = float(1000 / maxFrameRate) - frameDuration->ReadMs();
 	
-	PerfTimer* delayt = new PerfTimer();
-	delayt->Start();
-	if (maxFrameRate > 0 && delay > 0) SDL_Delay(delay);
-	LOG("Expected %f milliseconds and the real delay is % f", delay, delayt->ReadMs());
-
+	if (!app->render->vsync)
+	{
+		PerfTimer* delayt = new PerfTimer();
+		delayt->Start();
+		if (maxFrameRate > 0 && delay > 0) SDL_Delay(delay);
+		LOG("Expected %f milliseconds and the real delay is % f", delay, delayt->ReadMs());
+	}
 	app->win->SetTitle(title);
 }
 

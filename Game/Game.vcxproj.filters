@@ -209,6 +209,9 @@
     <ClCompile Include="Source\PMQuest2.cpp">
       <Filter>Quests\PrimusMundis</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Transitions.cpp">
+      <Filter>Core\Modules</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\StartForestScene.h">

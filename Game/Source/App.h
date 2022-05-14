@@ -25,6 +25,7 @@ class BattleScene;
 class AssetsManager;
 class InventoryModule;
 class QuestModule;
+class Transitions;
 
 //Scenes
 class LogoScreen;
@@ -143,6 +144,7 @@ public:
 	AssetsManager* assetsManager;
 	InventoryModule* inventory;
 	QuestModule* quests;
+	Transitions* transitions;
 
 	//Scenes
 	LogoScreen* logoScreen;

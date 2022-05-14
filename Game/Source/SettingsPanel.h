@@ -25,7 +25,7 @@ public:
 	GuiButton* returnbtn;
 	GuiSlider* volumeSldr;
 	GuiSlider* musicSldr;
-	GuiSlider* fxSlrd;
+	GuiSlider* fxSldr;
 
 	SDL_Rect box;
 

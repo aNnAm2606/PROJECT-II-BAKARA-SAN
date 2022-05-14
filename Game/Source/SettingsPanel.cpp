@@ -32,10 +32,10 @@ bool SettingsPanel::Start()
     musicSldr->thumbRect = { 205,582,36,36 };
     musicSldr->SetValue(128);
 
-    fxSlrd = (GuiSlider*)CreateGuiSlider(2, app->guiManager, this, { 350 + 76,210 + 73, 620 ,30 }, { 355, 130, 36 * 2 ,36 });
-    fxSlrd->texture = app->guiManager->settingsBox;
-    fxSlrd->thumbRect = { 205,582,36,36 };
-    fxSlrd->SetValue(128);
+    fxSldr = (GuiSlider*)CreateGuiSlider(2, app->guiManager, this, { 350 + 76,210 + 73, 620 ,30 }, { 355, 130, 36 * 2 ,36 });
+    fxSldr->texture = app->guiManager->settingsBox;
+    fxSldr->thumbRect = { 205,582,36,36 };
+    fxSldr->SetValue(128);
 
     fullSrnON = (GuiToggle*)CreateGuiCheckBox(3, app->guiManager, this, { 350 + 76,285 + 73,50,30 });
     fullSrnON->texture = app->guiManager->settingsBox;
@@ -48,12 +48,12 @@ bool SettingsPanel::Start()
     fullSrnOff->selectedRec = { 75,580,45,35};
     fullSrnOff->State = true;
 
-    vsyncOff = (GuiToggle*)CreateGuiCheckBox(3, app->guiManager, this, { 350 + 76,327 + 73,50,30 });
-    vsyncOff->texture = app->guiManager->settingsBox;
-    vsyncOff->normalRec = { 350,285,50,30 };
-    vsyncOff->selectedRec = { 5,580, 50,30 };
+    vsyncOn = (GuiToggle*)CreateGuiCheckBox(6, app->guiManager, this, { 350 + 76,327 + 73,50,30 });
+    vsyncOn->texture = app->guiManager->settingsBox;
+    vsyncOn->normalRec = { 350,285,50,30 };
+    vsyncOn->selectedRec = { 5,580, 50,30 };
 
-    vsyncOff = (GuiToggle*)CreateGuiCheckBox(4, app->guiManager, this, { 420 + 76, 327 + 73, 45, 35 });
+    vsyncOff = (GuiToggle*)CreateGuiCheckBox(7, app->guiManager, this, { 420 + 76, 327 + 73, 45, 35 });
     vsyncOff->texture = app->guiManager->settingsBox;
     vsyncOff->normalRec = { 420,285,45,35 };
     vsyncOff->selectedRec = { 75,580,45,35 };
@@ -128,6 +128,28 @@ bool SettingsPanel::OnGuiMouseClickEvent(GuiControl* control)
         fullscreen = !fullSrnOff->State;
         app->win->SetFullScreen(fullscreen);
         app->render->SetFullScreen();
+    }
+
+    if (control->id == vsyncOn->id)
+    {
+        app->render->vsync = true;
+        app->render->SetVsync(app->render->vsync);
+    }
+    else if (control->id == vsyncOff->id)
+    {
+    }
+    
+    //if (control->id ==musicSldr->id)
+    //{ 
+    //    app->audio->SetMusicVolume(musicSldr->GetValue());
+    //    LOG("VOLUME %i", app->audio->GetMusicVolume());
+    //    LOG("sldr value %i", musicSldr->GetValue());
+    //}
+    else if (control->id == fxSldr->id)
+    {
+        app->audio->SetSFXVolume(fxSldr->GetValue());
+        LOG("FX VOLUME %i", app->audio->GetFxVolume());
+        LOG("RX sldr value %i", fxSldr->GetValue());
     }
 
     return true;
