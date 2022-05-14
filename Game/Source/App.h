@@ -33,8 +33,12 @@ class StartForestScene;
 class TownScene;
 class GameplayScreen;
 class TutorialForestScene;
+class TutorialScene_1;
+class TutorialScene_2;
+class TutorialScene_3;
 class TutorialScene_4;
-
+class WorldMapScene;
+class DungeonScene;
 enum  sceneID
 {
 	LOGO,
@@ -44,7 +48,12 @@ enum  sceneID
 	START_FOREST,
 	TOWN,
 	TUTORIAL_FOREST,
+	TUTORIAL_1,
+	TUTORIAL_2,
+	TUTORIAL_3,
 	TUTORIAL_4,
+	WORLD_MAP,
+	DUNGEON
 };
 class App
 {
@@ -142,7 +151,12 @@ public:
 	StartForestScene* startForestScene;
 	TownScene* townScene;
 	TutorialForestScene* tutorialForestScene;
+	TutorialScene_1* tutorialScene_1;
+	TutorialScene_2* tutorialScene_2;
+	TutorialScene_3* tutorialScene_3;
 	TutorialScene_4* tutorialScene_4;
+	WorldMapScene* worldMapScene;
+	DungeonScene* dungeonScene;
 	BattleScene* battleScene;
 
 	sceneID currentScene;

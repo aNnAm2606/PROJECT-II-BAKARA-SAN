@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <game_state>
-	<Scene id="7" />
+	<Scene id="12" />
 	<window />
 	<input />
 	<textures />
@@ -8,20 +8,28 @@
 	<audio />
 	<guiManager />
 	<collisions />
-	<StartForestScene />
-	<StartForestScene />
-	<TownScene />
-	<StartForestScene />
-	<TitleScreen />
-	<LogoScreen />
-	<GameplayScreen />
-	<BattleScene />
+	<assetsManager />
+	<:anonymous />
+	<:anonymous />
+	<:anonymous />
+	<:anonymous />
+	<:anonymous />
+	<:anonymous />
+	<:anonymous />
+	<:anonymous />
+	<:anonymous />
+	<:anonymous />
+	<:anonymous />
+	<:anonymous />
+	<:anonymous />
 	<PlayerModule>
-		<position x="1250" y="450" />
+		<position x="1100" y="700" />
 	</PlayerModule>
 	<DialogModule />
+	<inventory />
+	<quests />
 	<Fade />
 	<renderer>
-		<camera x="-400" y="-150" follow_X="false" follow_Y="false" />
+		<camera x="-460" y="-340" follow_X="true" follow_Y="true" />
 	</renderer>
 </game_state>

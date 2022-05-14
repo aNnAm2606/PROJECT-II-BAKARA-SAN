@@ -86,7 +86,7 @@ bool TitleScreen::PostUpdate()
 		
 		
 		if (continueGame == true) app->LoadGameRequest();
-		else app->fade->Fade(this, (Module*)app->startForestScene);
+		else app->fade->Fade(this, (Module*)app->tutorialScene_1);
 		
 	}
 		

@@ -35,10 +35,10 @@ public:
 
 private:
 
-	SDL_Texture* Background1;
-	SDL_Texture* Background2;
-	SDL_Texture* Background3;
-	SDL_Texture* Background4;
+	SDL_Texture* background1;
+	SDL_Texture* background2;
+	SDL_Texture* background3;
+	SDL_Texture* background4;
 
 
 };

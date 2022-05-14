@@ -35,7 +35,12 @@
 #include "StartForestScene.h"
 #include "TownScene.h"
 #include"TutorialForestScene.h"
+#include "TutorialScene_1.h"
+#include "TutorialScene_2.h"
+#include "TutorialScene_3.h"
 #include "TutorialScene_4.h"
+#include "WorldMapScene.h"
+#include "DungeonScene.h"
 
 
 
@@ -67,11 +72,16 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	logoScreen = new LogoScreen(true, false, "logoScene", { 0,0 }, { 0,0 }, { false, false });
 	titleScreen = new TitleScreen(false, false, "titleScene", { 0,0 }, { 0,0 }, { false, false });
 	gameplayScreen = new GameplayScreen(false, false, "gameplayScene", { 0,0 }, { 0,0 }, { false, false });
+	battleScene = new BattleScene(false, false, "BattleScene", { 0, 0 }, { 0, 0 }, { false, false });
 	startForestScene = new StartForestScene(false, true, "startForestScene", { 400, -200}, { 650, 580 }, { true, true });
 	townScene = new TownScene(false, true, "townScene", { -150, -360 }, { 900, 800 }, { true, false });
-	tutorialForestScene = new TutorialForestScene(false, true, "tutorialForestScene", { -600, -150 }, { 1700, 600 }, { false, false });
-	tutorialScene_4 = new TutorialScene_4(false, true, "tutorialForestScene", { -400, -150 }, { 1600, 450 }, { false, false });
-	battleScene = new BattleScene(false, false, "BattleScene", { 0, 0 }, { 0, 0 }, { false, false });
+	tutorialForestScene = new TutorialForestScene(false, true, "tutorialForestScene", { 0, -150 }, { 250, 600 }, { false, false });
+	tutorialScene_1 = new TutorialScene_1(false, true, "tutorialScene_1", { -350, 0 }, { 1200, 150 }, { false, false });
+	tutorialScene_2 = new TutorialScene_2(false, true, "tutorialScene_2", { -350, -150 }, { 1400, 450 }, { false, false });
+	tutorialScene_3 = new TutorialScene_3(false, true, "tutorialScene_3", { -350, -150 }, { 1400, 450 }, { false, false });
+	tutorialScene_4 = new TutorialScene_4(false, true, "tutorialScene_4", { -400, -150 }, { 1600, 450 }, { false, false });
+	worldMapScene = new WorldMapScene(false, false, "worldMapScene", { -300, -200 }, { 0,0 }, { false, false });
+	dungeonScene = new DungeonScene(false, true, "dungeonScene", { 0,-200 }, { 1100,700 }, { true, true });
 
 	// Ordered for awake / Start / Update
 	// Reverse order of CleanUp
@@ -87,7 +97,12 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(assetsManager);
 
 	// Scenes
+	AddModule(tutorialScene_1);
+	AddModule(tutorialScene_2);
+	AddModule(tutorialScene_3);
 	AddModule(tutorialScene_4);
+	AddModule(worldMapScene);
+	AddModule(dungeonScene);
 	AddModule(tutorialForestScene);
 	AddModule(townScene);
 	AddModule(startForestScene);
@@ -501,11 +516,19 @@ bool App::LoadSavedScene()
 		break;
 	case TOWN: current = townScene;
 		break;
-
 	case TUTORIAL_FOREST: current = tutorialForestScene;
+		break;
+	case TUTORIAL_1: current = tutorialScene_1;
+		break;
+	case TUTORIAL_2: current = tutorialScene_2;
+		break;
+	case TUTORIAL_3: current = tutorialScene_3;
 		break;
 	case TUTORIAL_4: current = tutorialScene_4;
 		break;
+	case WORLD_MAP: current = worldMapScene;
+		break;
+	case DUNGEON: current = dungeonScene;
 	default: current = logoScreen;
 		break;
 	}
@@ -528,7 +551,17 @@ bool App::LoadSavedScene()
 			break;
 		case TUTORIAL_FOREST: fade->Fade(current, tutorialForestScene);
 			break;
+		case TUTORIAL_1: fade->Fade(current, tutorialScene_1);
+			break;
+		case TUTORIAL_2: fade->Fade(current, tutorialScene_2);
+			break;
+		case TUTORIAL_3: fade->Fade(current, tutorialScene_3);
+			break;
 		case TUTORIAL_4: fade->Fade(current, tutorialScene_4);
+			break;
+		case WORLD_MAP: fade->Fade(current, worldMapScene);
+			break;
+		case DUNGEON: fade->Fade(current, dungeonScene);
 			break;
 		default: ret = false;
 			break;

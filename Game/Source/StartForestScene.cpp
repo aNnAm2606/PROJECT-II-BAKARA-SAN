@@ -77,12 +77,19 @@ bool StartForestScene::PostUpdate()
 	Scene::PostUpdate();
 	bool ret = true;
 
-	if (playerPos.y < -200)
+	if (playerPos.x < 400)
+	{
+		startPlayerPos = { 650, 580 };
+		startCameraPos = { app->render->camera.x, app->render->camera.y };
+		startCameraFollowsPlayer = cameraFollowsPlayer;
+		app->fade->Fade(this, (Module*)app->tutorialForestScene);
+	}
+	if (playerPos.y < 0)
 	{
 		startPlayerPos = { playerPos.x, 30 };
 		startCameraPos = { app->render->camera.x, app->render->camera.y };
 		startCameraFollowsPlayer = cameraFollowsPlayer;
-		app->fade->Fade(this, (Module*)app->townScene);
+		app->fade->Fade(this, (Module*)app->worldMapScene);
 	}
 	 
 

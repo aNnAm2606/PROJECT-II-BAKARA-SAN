@@ -44,7 +44,7 @@ bool TutorialScene_2::Start()
 
 	app->audio->ChangeMusic(DUNGEON_MUSIC, 1.0f, 1.0f);
 
-	app->currentScene = sceneID::TUTORIAL_4;
+	app->currentScene = sceneID::TUTORIAL_2;
 	return true;
 }
 
@@ -73,7 +73,20 @@ bool TutorialScene_2::PostUpdate()
 	bool ret = true;
 	app->playerModule->GetPosition(playerPos.x, playerPos.y);
 
-	if (playerPos.x > 1700) app->fade->Fade(this, (Module*)app->tutorialForestScene);
+	if (playerPos.x > 1500)
+	{
+		startPlayerPos = { 1400, 450 };
+		startCameraPos = { app->render->camera.x, app->render->camera.y };
+		startCameraFollowsPlayer = cameraFollowsPlayer;
+		app->fade->Fade(this, (Module*)app->tutorialScene_1);
+	}
+	if (playerPos.x < 500)
+	{
+		startPlayerPos = { 650, 450 };
+		startCameraPos = { app->render->camera.x, app->render->camera.y };
+		startCameraFollowsPlayer = cameraFollowsPlayer;
+		app->fade->Fade(this, (Module*)app->tutorialScene_3);
+	}
 
 
 	return ret;

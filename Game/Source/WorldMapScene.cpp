@@ -44,7 +44,7 @@ bool WorldMapScene::Start()
 
 	app->audio->ChangeMusic(DUNGEON_MUSIC, 1.0f, 1.0f);
 
-	app->currentScene = sceneID::TUTORIAL_4;
+	app->currentScene = sceneID::WORLD_MAP;
 	return true;
 }
 
@@ -71,9 +71,9 @@ bool WorldMapScene::PostUpdate()
 {
 	Scene::PostUpdate();
 	bool ret = true;
-	app->playerModule->GetPosition(playerPos.x, playerPos.y);
-
-	if (playerPos.x > 1700) app->fade->Fade(this, (Module*)app->tutorialForestScene);
+	if (app->input->GetKey(SDL_SCANCODE_1) == KEY_DOWN) app->fade->Fade(this, (Module*)app->startForestScene);
+	if (app->input->GetKey(SDL_SCANCODE_2) == KEY_DOWN) app->fade->Fade(this, (Module*)app->townScene);
+	if (app->input->GetKey(SDL_SCANCODE_3) == KEY_DOWN) app->fade->Fade(this, (Module*)app->dungeonScene);
 
 
 	return ret;

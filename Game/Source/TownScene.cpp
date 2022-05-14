@@ -91,8 +91,7 @@ bool TownScene::PostUpdate()
 	Scene::PostUpdate();
 	bool ret = true;
 	
-	if (playerPos.x < 0)app->fade->Fade(this, (Module*) app->tutorialForestScene);
-	if (playerPos.y > 1000)app->fade->Fade(this, (Module*) app->startForestScene);
+	if (playerPos.y > 1000)app->fade->Fade(this, (Module*) app->worldMapScene);
 
 	return ret;
 }

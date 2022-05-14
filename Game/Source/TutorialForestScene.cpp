@@ -83,8 +83,21 @@ bool TutorialForestScene::PostUpdate()
 
 	app->playerModule->GetPosition(playerPos.x, playerPos.y);
 
-	if (playerPos.x > 1800) app->fade->Fade(this, (Module*)app->townScene);
-	if (playerPos.x < 100) app->fade->Fade(this, (Module*)app->tutorialScene_4);
+	if (playerPos.x > 1800)
+	{
+		startPlayerPos = { 1500, 600 };
+		startCameraPos = { app->render->camera.x, app->render->camera.y };
+		startCameraFollowsPlayer = cameraFollowsPlayer;
+		app->fade->Fade(this, (Module*)app->startForestScene);
+		
+	}
+	if (playerPos.x < 100)
+	{
+		startPlayerPos = { 250, 600 };
+		startCameraPos = { app->render->camera.x, app->render->camera.y };
+		startCameraFollowsPlayer = cameraFollowsPlayer;
+		app->fade->Fade(this, (Module*)app->tutorialScene_4);
+	}
 
 	return ret;
 }
