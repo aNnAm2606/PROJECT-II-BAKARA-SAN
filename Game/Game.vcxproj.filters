@@ -214,12 +214,15 @@
     </ClCompile>
     <ClCompile Include="Source\PMQuest3.cpp">
       <Filter>Quests\PrimusMundis</Filter>
-	</ClCompile>
+    </ClCompile>
     <ClCompile Include="Source\LosePanel.cpp">
       <Filter>GUI\Panels</Filter>
     </ClCompile>
     <ClCompile Include="Source\VictoryPanel.cpp">
       <Filter>GUI\Panels</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DavidBow.cpp">
+      <Filter>Entities\NPCs</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -477,7 +480,7 @@
     </ClInclude>
     <ClInclude Include="Source\PMQuest3.h">
       <Filter>Quests\PrimusMundis</Filter>
-	</ClInclude>
+    </ClInclude>
     <ClInclude Include="Source\easings.h">
       <Filter>Core\Utils</Filter>
     </ClInclude>
@@ -489,6 +492,9 @@
     </ClInclude>
     <ClInclude Include="Source\VictoryPanel.h">
       <Filter>GUI\Panels</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DavidBow.h">
+      <Filter>Entities\NPCs</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
