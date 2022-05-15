@@ -22,7 +22,8 @@ public:
 	StevenWonder();
 	~StevenWonder();
 
-	void Init();
+	void Init() override;
+	void OnUpdate() override;
 
 	virtual void OnDialogStart() override;
 	virtual void OnDialogFinish() override;

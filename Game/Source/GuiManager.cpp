@@ -79,9 +79,9 @@ bool GuiManager::Update(float dt)
 	if (app->input->GetKey(SDL_SCANCODE_V) == KEY_DOWN)
 		battlePanel->Disable();
 
-	if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
+	if (app->input->GetKey(SDL_SCANCODE_E) == KEY_DOWN)
 		app->guiManager->pausePanel->gamePaused = !app->guiManager->pausePanel->gamePaused;
-	if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN && app->guiManager->settingsPanel->GetActive() == true)
+	if (app->input->GetKey(SDL_SCANCODE_E) == KEY_DOWN && app->guiManager->settingsPanel->GetActive() == true)
 		app->guiManager->settingsPanel->Disable();
 
 	if (app->guiManager->pausePanel->gamePaused == true

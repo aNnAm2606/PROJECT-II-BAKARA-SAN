@@ -135,6 +135,13 @@ void StevenWonder::Init()
 	m_Position = { 905, 320 };
 }
 
+void StevenWonder::OnUpdate()
+{
+	if (app->quests->FinishedQuest(QuestModule::EQuest::EQUEST_PM_Q1)) {
+		m_ActiveDialog = EStevenDialog::ESTEVENDIALOG_COMPLETED;
+	}
+}
+
 void StevenWonder::OnDialogStart()
 {
 	app->quests->ActivateQuest(QuestModule::EQuest::EQUEST_PM_Q1);

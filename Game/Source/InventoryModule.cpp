@@ -62,13 +62,31 @@ bool InventoryModule::CleanUp()
 
 bool InventoryModule::LoadState(pugi::xml_node& save)
 {
-	
+	m_Inventory.clear();
+	m_ItemCount.clear();
+
+	pugi::xml_node item = save.first_child();
+
+	for (item = save.first_child(); item; item = item.next_sibling()) {
+		Item::EItemType item_t = (Item::EItemType)item.attribute("id").as_int();
+		int item_c = item.attribute("count").as_int();
+
+		AddItem(item_t, item_c);
+	}
 
 	return true;
 }
 
 bool InventoryModule::SaveState(pugi::xml_node& save)
 {
+	size_t size = m_Inventory.size();
+
+	for (size_t i = 0; i < size; i++) {
+		pugi::xml_node item = save.append_child("item");
+		
+		item.append_attribute("id") = m_Inventory[i];
+		item.append_attribute("count") = m_ItemCount[i];
+	}
 
 	return true;
 }
@@ -83,13 +101,15 @@ bool InventoryModule::AddItem(Item::EItemType item, size_t count)
 		}
 
 		m_Inventory.push_back(item);
-		m_ItemCount.push_back(1);
+		m_ItemCount.push_back(count);
 	}
 	else {
 		m_ItemCount[index] += count;
 	}
 
 	questOnAddCallbacks(item, count);
+
+	std::cout << "[Inventory] Item added - type(" << item << ") count(" << count << ")" << std::endl;
 
 	return true;
 }
@@ -143,6 +163,8 @@ bool InventoryModule::RemoveItem(size_t index, size_t count)
 	}
 
 	questOnRemoveCallbacks(item, count);
+	
+	std::cout << "[Inventory] Item removed - type(" << item << ") count(" << count << ")" << std::endl;
 
 	return true;
 }

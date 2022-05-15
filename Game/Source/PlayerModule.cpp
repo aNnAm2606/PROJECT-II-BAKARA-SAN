@@ -73,7 +73,6 @@ bool PlayerModule::Update(float dt)
 
 		if (app->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT)	
 			playerPos.y += playerSpeed;
-		
 	}
 	else
 	{

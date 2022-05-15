@@ -36,6 +36,9 @@ public:
 	virtual void OnDialogFinish(){}
 
 	void Update();
+
+	virtual void OnUpdate(){}
+
 	void Render();
 
 	bool Interacting() { return m_Interacting; }

@@ -56,6 +56,8 @@ void NPC::Update()
 			}
 		}
 	}
+
+	OnUpdate();
 }
 
 void NPC::Render()

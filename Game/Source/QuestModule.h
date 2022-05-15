@@ -54,6 +54,9 @@ public:
 	void FinishQuest(EQuest quet);
 
 	bool FinishedQuest(EQuest quest) { return m_QuestStates[quest] == EQuestState::EQUEST_STATE_FINISHED; }
+
+	bool LoadState(pugi::xml_node& save) override;
+	bool SaveState(pugi::xml_node& save) override;
 private:
 	EQuestState m_QuestStates[EQuest::EQUEST_NONE];
 	Quest* m_Quests[EQuest::EQUEST_NONE];

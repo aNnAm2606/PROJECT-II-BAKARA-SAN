@@ -81,7 +81,7 @@ void QuestModule::ActivateQuest(EQuest quest)
 		m_Quests[quest]->UpdateCheck();
 		m_QuestStates[quest] = EQuestState::EQUEST_STATE_ACTIVE;
 
-		std::cout << "Activated quest: [" << m_Quests[quest]->getTitle() << "] : [" << m_Quests[quest]->getDesc() << "]" << std::endl;
+		std::cout << "[Quest] Activated quest: [" << m_Quests[quest]->getTitle() << "] : [" << m_Quests[quest]->getDesc() << "]" << std::endl;
 	}
 }
 
@@ -100,7 +100,7 @@ void QuestModule::FinishQuest(EQuest quest)
 		if (m_Quests[quest]->HasRequirements()) {
 			m_Quests[quest]->Finish();
 
-			std::cout << "Finished quest: [" << m_Quests[quest]->getTitle() << "] : [" << m_Quests[quest]->getDesc() << "]" << std::endl;
+			std::cout << "[Quest] Finished quest: [" << m_Quests[quest]->getTitle() << "] : [" << m_Quests[quest]->getDesc() << "]" << std::endl;
 
 			delete m_Quests[quest];
 			m_Quests[quest] = NULL;
@@ -108,4 +108,37 @@ void QuestModule::FinishQuest(EQuest quest)
 			m_QuestStates[quest] = EQuestState::EQUEST_STATE_FINISHED;
 		}
 	}
+}
+
+bool QuestModule::LoadState(pugi::xml_node& save)
+{
+	pugi::xml_node quest = save.first_child();
+
+	for (int i = 0; i < EQUEST_NONE; i++) {
+		EQuestState state = (EQuestState)quest.attribute("state").as_int();
+
+		if (state == EQuestState::EQUEST_STATE_ACTIVE) {
+			if (!m_Quests[i]) {
+				ActivateQuest((EQuest)i);
+			}
+		}
+
+		m_QuestStates[i] = state;
+
+		quest = quest.next_sibling();
+	}
+
+	return true;
+}
+
+bool QuestModule::SaveState(pugi::xml_node& save)
+{
+	for (int i = 0; i < EQUEST_NONE; i++) {
+		pugi::xml_node quest = save.append_child("quest");
+
+		quest.append_attribute("id") = i;
+		quest.append_attribute("state") = m_QuestStates[i];
+	}
+
+	return true;
 }
