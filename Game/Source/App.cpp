@@ -94,7 +94,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(tex);
 	AddModule(fonts);
 	AddModule(audio);
-	AddModule(guiManager);
+
 	AddModule(collisions);
 	AddModule(assetsManager);
 
@@ -119,7 +119,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(dialog);
 	AddModule(inventory);
 	AddModule(quests);
-
+	AddModule(guiManager);
 	// FadeToBlack
 	AddModule(fade);
 	AddModule(transitions);
