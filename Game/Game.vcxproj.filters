@@ -214,6 +214,7 @@
     </ClCompile>
     <ClCompile Include="Source\PMQuest3.cpp">
       <Filter>Quests\PrimusMundis</Filter>
+	</ClCompile>
     <ClCompile Include="Source\LosePanel.cpp">
       <Filter>GUI\Panels</Filter>
     </ClCompile>
@@ -476,6 +477,7 @@
     </ClInclude>
     <ClInclude Include="Source\PMQuest3.h">
       <Filter>Quests\PrimusMundis</Filter>
+	</ClInclude>
     <ClInclude Include="Source\easings.h">
       <Filter>Core\Utils</Filter>
     </ClInclude>
