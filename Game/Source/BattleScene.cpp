@@ -13,6 +13,7 @@
 
 #include "App.h"
 #include "Input.h"
+#include "Textures.h"
 
 BattleScene::BattleScene(bool startEnabled, bool playerEnabled, SString name, Point<int> cameraPos, Point<int>playerPos, Point<bool> followPlayer) :
 	Scene(startEnabled, playerEnabled, name, cameraPos, playerPos, followPlayer)
@@ -37,6 +38,9 @@ bool BattleScene::Awake(pugi::xml_node& config)
 bool BattleScene::Start()
 {
 	Scene::Start();
+
+	sceneTexture = app->tex->Load("Assets/Art/Maps/fightground.png");
+
 	memset(m_PlayerGrid, NULL, GRID_SIZE * 4);
 	memset(m_EnemyGrid, NULL, GRID_SIZE * 4);
 

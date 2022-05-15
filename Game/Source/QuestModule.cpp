@@ -6,6 +6,7 @@
 // All quests
 #include "PMQuest1.h"
 #include "PMQuest2.h"
+#include "PMQuest3.h"
 
 QuestModule::QuestModule(bool startEnabled) : Module(startEnabled)
 {
@@ -76,6 +77,9 @@ void QuestModule::ActivateQuest(EQuest quest)
 			case EQuest::EQUEST_PM_Q2:
 				m_Quests[quest] = new PMQuest2();
 				break;
+			case EQuest::EQUEST_PM_Q3:
+				m_Quests[quest] = new PMQuest3();
+				break;
 		}
 
 		m_Quests[quest]->UpdateCheck();
@@ -121,6 +125,8 @@ bool QuestModule::LoadState(pugi::xml_node& save)
 			if (!m_Quests[i]) {
 				ActivateQuest((EQuest)i);
 			}
+
+			m_Quests[i]->OnGameLoad(quest);
 		}
 
 		m_QuestStates[i] = state;
@@ -138,6 +144,10 @@ bool QuestModule::SaveState(pugi::xml_node& save)
 
 		quest.append_attribute("id") = i;
 		quest.append_attribute("state") = m_QuestStates[i];
+
+		if (m_QuestStates[i] == EQuestState::EQUEST_STATE_ACTIVE) {
+			m_Quests[i]->OnGameSave(quest);
+		}
 	}
 
 	return true;

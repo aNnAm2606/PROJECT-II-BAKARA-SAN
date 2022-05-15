@@ -7,6 +7,8 @@
 #include "ClassActionPack.h"
 #include "QuestModule.h"
 
+#include "PugiXml/src/pugixml.hpp"
+
 class Quest {
 public:
 	
@@ -23,16 +25,20 @@ public:
 	const char* getTitle() { return p_Title.c_str(); }
 	const char* getDesc() { return p_Description.c_str(); }
 
+	// Quest functions
+	virtual void UpdateCheck() {};
+
+	virtual bool HasRequirements() = 0;
+	virtual void Finish() = 0;
+
+	virtual void OnGameSave(pugi::xml_node& quest){}
+	virtual void OnGameLoad(pugi::xml_node& quest) {}
+
 	// Callbacks
 	virtual void OnItemAdd(Item::EItemType item, size_t count){}
 	virtual void OnItemRemove(Item::EItemType item, size_t count){}
 
 	virtual void OnCharacterKilled(Character::ECharacterType character){}
-
-	virtual void UpdateCheck(){};
-
-	virtual bool HasRequirements() = 0;
-	virtual void Finish() = 0;
 };
 
 typedef ClassActionPack<Quest, Item::EItemType, size_t> QuestItemCallbacks;
