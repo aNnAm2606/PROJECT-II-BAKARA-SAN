@@ -16,5 +16,9 @@ public:
 
 	// Buttons
 	GuiButton* closeBtn;
+
+	// chars
+	SDL_Texture* chamanStats;
+	SDL_Texture* chamanPic;
 };
 

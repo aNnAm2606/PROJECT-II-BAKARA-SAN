@@ -52,6 +52,7 @@ bool SettingsPanel::Start()
     vsyncOn->texture = app->guiManager->settingsBox;
     vsyncOn->normalRec = { 350,285,50,30 };
     vsyncOn->selectedRec = { 5,580, 50,30 };
+    vsyncOn->State = true;
 
     vsyncOff = (GuiToggle*)CreateGuiCheckBox(7, app->guiManager, this, { 420 + 76, 327 + 73, 45, 35 });
     vsyncOff->texture = app->guiManager->settingsBox;
