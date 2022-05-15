@@ -18,10 +18,12 @@
 PlayerModule::PlayerModule(bool startEnabled) : Module(startEnabled)
 {
 	name.Create("PlayerModule");
+	playerCollider = new Collider(playerRect, Collider::PLAYER);
 }
 
 PlayerModule::~PlayerModule()
 {
+	delete playerCollider;
 }
 
 bool PlayerModule::Awake()
@@ -37,6 +39,8 @@ bool PlayerModule::Start()
 	playerRect.w = 40;
 	playerRect.h = 20;
 	playerSpeed = 10;
+	playerCollider->rect = playerRect;
+
 	
 	return true;
 }
@@ -49,6 +53,8 @@ bool PlayerModule::PreUpdate()
 {
 	playerRect.x = playerPos.x - playerRect.w;
 	playerRect.y = playerPos.y - playerRect.h;
+	playerCollider->rect = playerRect;
+
 	return true;
 }
 
