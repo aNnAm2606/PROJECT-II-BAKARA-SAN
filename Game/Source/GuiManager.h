@@ -51,6 +51,8 @@ public:
 	SDL_Texture* credits = nullptr;
 	SDL_Texture* pauseBox = nullptr;
 	SDL_Texture* battleBox = nullptr;
+	SDL_Texture* loseScreen = nullptr;
+	SDL_Texture* victoryScreen = nullptr;
 
 	int mainFont;
 	int numberFont;
@@ -63,6 +65,8 @@ public:
 	GuiPanel* creditsPanel;
 	GuiPanel* pausePanel;
 	GuiPanel* battlePanel;
+	GuiPanel* losePanel;
+	GuiPanel* victoryPanel;
 
 	GuiState lastPanel;
 

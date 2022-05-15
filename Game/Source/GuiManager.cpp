@@ -12,6 +12,8 @@
 #include "Credits.h"
 #include "PausePanel.h"
 #include "BattlePanel.h"
+#include "LosePanel.h"
+#include "VictoryPanel.h"
 
 GuiManager::GuiManager(bool startEnabled) : Module(startEnabled)
 {
@@ -34,6 +36,8 @@ bool GuiManager::Start()
 	credits = app->tex->Load("Assets/Art/GUI/credits.png");
 	pauseBox = app->tex->Load("Assets/Art/GUI/pauseBox.png");
 	battleBox = app->tex->Load("Assets/Art/GUI/battleUI.png");
+	loseScreen = app->tex->Load("Assets/Art/GUI/loseScreen.png");
+	victoryScreen = app->tex->Load("Assets/Art/GUI/winScreen.png");
 
 	// Audio for buttons
 	//app->audio->LoadFx("Assets/audio/fx/buttonFocus.wav");
@@ -47,6 +51,8 @@ bool GuiManager::Start()
 	creditsPanel = new Credits(false);
 	pausePanel = new PausePanel(false);
 	battlePanel = new BattlePanel(false);
+	losePanel = new LosePanel(false);
+	victoryPanel = new VictoryPanel(false);
 
 	panels.add(titlePanel);
 	panels.add(settingsPanel);
@@ -54,6 +60,8 @@ bool GuiManager::Start()
 	panels.add(creditsPanel);
 	panels.add(pausePanel);
 	panels.add(battlePanel);
+	panels.add(losePanel);
+	panels.add(victoryPanel);
 
 	//init panels
 	p2ListItem<GuiPanel*>* panel = panels.start;
@@ -78,6 +86,16 @@ bool GuiManager::Update(float dt)
 		battlePanel->Enable();
 	if (app->input->GetKey(SDL_SCANCODE_V) == KEY_DOWN)
 		battlePanel->Disable();
+
+	if (app->input->GetKey(SDL_SCANCODE_U) == KEY_DOWN)
+		victoryPanel->Enable();
+	if (app->input->GetKey(SDL_SCANCODE_I) == KEY_DOWN)
+		victoryPanel->Disable();
+
+	if (app->input->GetKey(SDL_SCANCODE_O) == KEY_DOWN)
+		losePanel->Enable();
+	if (app->input->GetKey(SDL_SCANCODE_P) == KEY_DOWN)
+		losePanel->Disable();
 
 	if (app->input->GetKey(SDL_SCANCODE_E) == KEY_DOWN)
 		app->guiManager->pausePanel->gamePaused = !app->guiManager->pausePanel->gamePaused;
