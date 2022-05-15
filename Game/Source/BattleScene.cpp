@@ -59,7 +59,9 @@ bool BattleScene::Start()
 	m_EnemyGrid[0][0] = new Gargoyle();
 	m_EnemyGrid[0][1] = new FallenAngel();
 	m_EnemyGrid[1][1] = new BGhost();
-	m_EnemyCount = 3;
+	m_EnemyGrid[2][1] = new BGhost();
+	m_EnemyGrid[3][1] = new BGhost();
+	m_EnemyCount = 5;
 
 	m_Rounds = 0;
 
@@ -232,10 +234,11 @@ void BattleScene::DamagePlayerAt(iPoint position, int damage)
 	if (m_PlayerGrid[position.y][position.x]->IsDead()) return;
 
 	if (m_PlayerGrid[position.y][position.x]->DealDamage(damage)) {
-		Character::ECharacterType character_t = m_EnemyGrid[position.y][position.x]->getCharacterType();
+		Character::ECharacterType character_t = m_PlayerGrid[position.y][position.x]->getCharacterType();
+
+		std::cout << "[Battle] Character (" << (int)character_t << ") died." << std::endl;
 
 		onCharacterKilled(character_t);
-		std::cout << "[Battle] Character (" << (int)character_t << ") died." << std::endl;
 	}
 }
 
@@ -249,16 +252,17 @@ void BattleScene::DamageEnemyAt(iPoint position, int damage)
 
 		Character::ECharacterType character_t = m_EnemyGrid[position.y][position.x]->getCharacterType();
 
-		onCharacterKilled(character_t);
 		std::cout << "[Battle] Character (" << (int)character_t << ") died." << std::endl;
+
+		onCharacterKilled(character_t);
 	}
 }
 
 void BattleScene::FakeKill(Character::ECharacterType character)
 {
-	onCharacterKilled(character);
-
 	std::cout << "[Battle] Character (" << (int)character << ") died." << std::endl;
+
+	onCharacterKilled(character);
 }
 
 

@@ -47,6 +47,10 @@ bool TownScene::Start()
 	m_SisterMadonna.Init();
 	m_StevenWonder.Init();
 	m_DavidBow.Init();
+	m_Cat.Init();
+	m_GargoyleTest.Init();
+	m_GargoyleTest.SetPosition(1560, 650);
+	m_GargoyleTest.SetOriginScene(this);
 
 	app->currentScene = sceneID::TOWN;
 
@@ -68,11 +72,15 @@ bool TownScene::Update(float dt)
 	m_SisterMadonna.Update();
 	m_StevenWonder.Update();
 	m_DavidBow.Update();
+	m_Cat.Update();
+	m_GargoyleTest.Update();
 
 	m_SisterMadonna.Render();
 	m_Triana.Render();
 	m_StevenWonder.Render();
 	m_DavidBow.Render();
+	m_Cat.Render();
+	m_GargoyleTest.Render();
 
 
 

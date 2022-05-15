@@ -132,7 +132,7 @@ void StevenWonder::Init()
 		75,85
 	};
 
-	m_Position = { 905, 320 };
+	m_Position = { 600, 650 };
 }
 
 void StevenWonder::OnUpdate()

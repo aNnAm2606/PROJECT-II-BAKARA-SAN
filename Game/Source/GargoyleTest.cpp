@@ -24,9 +24,10 @@ void GargoyleTest::Init()
 	};
 
 	m_Position = { 500, 450 };
+	m_OriginScene = app->tutorialScene_4;
 }
 
 void GargoyleTest::OnInteract()
 {
-	app->fade->Fade(app->tutorialScene_4, app->battleScene);
+	app->fade->Fade(m_OriginScene, app->battleScene);
 }

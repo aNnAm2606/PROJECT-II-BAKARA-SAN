@@ -6,7 +6,7 @@
 
 BGhost::BGhost()
 {
-	p_CharacterId = ECharacterType::ECHARACTER_GHOST;
+	p_CharacterId = ECharacterType::ECHARACTER_SPECTRE;
 	p_Stats.health = 20;
 	p_Stats.damage = 1;
 	p_Stats.speed = 1;

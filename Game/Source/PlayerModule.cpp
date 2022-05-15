@@ -16,6 +16,7 @@
 #include "Defs.h"
 #include "Log.h"
 
+#include <iostream>
 
 PlayerModule::PlayerModule(bool startEnabled) : Module(startEnabled)
 {
@@ -93,14 +94,6 @@ bool PlayerModule::Update(float dt)
 			playerPos.y += playerSpeed;
 		if (gamePad.left_y < 0.0f)
 		playerPos.y -= playerSpeed;
-	}
-
-	if (app->input->GetKey(SDL_SCANCODE_C) == KEY_DOWN) {
-		app->inventory->AddItem(Item::EItemType::EITEMTYPE_CAT);
-	}
-
-	if (app->input->GetKey(SDL_SCANCODE_V) == KEY_DOWN) {
-		app->battleScene->FakeKill(Character::ECharacterType::ECHARACTER_SPECTRE);
 	}
 
 	if (app->input->GetKey(SDL_SCANCODE_B) == KEY_DOWN) {
