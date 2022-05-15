@@ -77,9 +77,9 @@ void QuestModule::ActivateQuest(EQuest quest)
 			case EQuest::EQUEST_PM_Q2:
 				m_Quests[quest] = new PMQuest2();
 				break;
-			case EQuest::EQUEST_PM_Q3:
-				m_Quests[quest] = new PMQuest3();
-				break;
+			//case EQuest::EQUEST_PM_Q3:
+			//	m_Quests[quest] = new PMQuest3();
+			//	break;
 		}
 
 		m_Quests[quest]->UpdateCheck();

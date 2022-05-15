@@ -9,6 +9,7 @@
 #include "GuiManager.h"
 #include "PlayerModule.h"
 #include "Point.h"
+#include "Transitions.h"
 
 #include "Defs.h"
 #include "Log.h"
@@ -88,7 +89,7 @@ bool TutorialForestScene::PostUpdate()
 		startPlayerPos = { 1500, 600 };
 		startCameraPos = { app->render->camera.x, app->render->camera.y };
 		startCameraFollowsPlayer = cameraFollowsPlayer;
-		app->fade->Fade(this, (Module*)app->startForestScene);
+		app->transitions->SelectTransition(1, 0, 1280, this, (Module*)app->startForestScene);
 		
 	}
 	if (playerPos.x < 100)
@@ -96,7 +97,7 @@ bool TutorialForestScene::PostUpdate()
 		startPlayerPos = { 250, 600 };
 		startCameraPos = { app->render->camera.x, app->render->camera.y };
 		startCameraFollowsPlayer = cameraFollowsPlayer;
-		app->fade->Fade(this, (Module*)app->tutorialScene_4);
+		app->transitions->SelectTransition(1, 0, 1280, this, (Module*)app->tutorialScene_4);
 	}
 
 	return ret;

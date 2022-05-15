@@ -10,8 +10,6 @@
 
 using namespace std;
 
-
-
 Transitions::Transitions(bool startEnabled) : Module(startEnabled)
 {
 	name.Create("BattleTransitions");
@@ -23,7 +21,7 @@ bool Transitions::Start()
 {
 	
 	texture = app->tex->Load("Assets/textures/eyes.png");
-	pokeball = app->tex->Load("Assets/textures/Pokeball.png");
+	transition = app->tex->Load("Assets/Art/GUI/transition.png");
 	app->win->GetWindowSize(win_width, win_height);
 
 	return true;
@@ -128,15 +126,14 @@ void Transitions::DrawTransition1()
 
 	SDL_Rect Rect1;
 	
-	Rect1.x = app->render->camera.x;
-	Rect1.y = app->render->camera.y;
-	Rect1.h = win_height;
+	Rect1.x = 0;
+	Rect1.y = 0;
+	Rect1.h = win_height + 500;
 	Rect1.w = 0;
 
 	if(currentStep == Fade_Step::TRANSTITION) Rect1.w = EaseLinearIn(timer_in_transition / 8, win_width / 64, win_width, 120);
 	if (currentStep == Fade_Step::FROM_TRANSITION) Rect1.w = EaseLinearOut(timer_out_transition / 8, win_width / 64, win_width, 60);
-	app->render->DrawRectangle(Rect1, 255, 255, 255, 255,true,true);
-
+	app->render->DrawRectangle(Rect1, 59, 56, 66, 255,true,true);
 }
 
 void Transitions::DrawTransition2()
@@ -184,7 +181,7 @@ void Transitions::DrawTransition3()
 	SDL_Rect Rect4;
 	SDL_Rect Rect5;
 
-	Rect1.x = app->render->camera.x;  Rect2.x = win_width;  Rect3.x = 0; Rect4.x = win_width; Rect5.x = 0;
+	Rect1.x = app->render->camera.x;  Rect2.x = win_width;  Rect3.x = app->render->camera.x; Rect4.x = win_width; Rect5.x = app->render->camera.x;
 	Rect1.y = app->render->camera.y;
 	Rect2.y = win_height / 5;
 	Rect3.y = (win_height / 5) * 2;
@@ -205,11 +202,11 @@ void Transitions::DrawTransition3()
 		app->render->DrawRectangle(Rect4, 255, 0, 0, 255);
 		app->render->DrawRectangle(Rect5, 255, 0, 0, 255);
 
-		app->render->DrawTexture(pokeball, (Rect1.x + Rect1.w - 120), (Rect1.y - 10), NULL, 0, EaseLinearIn(timer_in_transition / 24, win_width / 64, win_width, 240));
-		app->render->DrawTexture(pokeball, (Rect2.x + Rect2.w - 120), (Rect2.y - 10), NULL, 0, EaseLinearIn(timer_in_transition / 24, win_width / 64, win_width, 240));
-		app->render->DrawTexture(pokeball, (Rect3.x + Rect3.w - 120), (Rect3.y - 10), NULL, 0, EaseLinearIn(timer_in_transition / 24, win_width / 64, win_width, 240));
-		app->render->DrawTexture(pokeball, (Rect4.x + Rect4.w - 120), (Rect4.y - 10), NULL, 0, EaseLinearIn(timer_in_transition / 24, win_width / 64, win_width, 240));
-		app->render->DrawTexture(pokeball, (Rect5.x + Rect5.w - 120), (Rect5.y - 10), NULL, 0, EaseLinearIn(timer_in_transition / 24, win_width / 64, win_width, 240));
+		app->render->DrawTexture(transition, (Rect1.x + Rect1.w - 120), (Rect1.y - 10), NULL, 0, EaseLinearIn(timer_in_transition / 24, win_width / 64, win_width, 240));
+		app->render->DrawTexture(transition, (Rect2.x + Rect2.w - 120), (Rect2.y - 10), NULL, 0, EaseLinearIn(timer_in_transition / 24, win_width / 64, win_width, 240));
+		app->render->DrawTexture(transition, (Rect3.x + Rect3.w - 120), (Rect3.y - 10), NULL, 0, EaseLinearIn(timer_in_transition / 24, win_width / 64, win_width, 240));
+		app->render->DrawTexture(transition, (Rect4.x + Rect4.w - 120), (Rect4.y - 10), NULL, 0, EaseLinearIn(timer_in_transition / 24, win_width / 64, win_width, 240));
+		app->render->DrawTexture(transition, (Rect5.x + Rect5.w - 120), (Rect5.y - 10), NULL, 0, EaseLinearIn(timer_in_transition / 24, win_width / 64, win_width, 240));
 	}
 	if (currentStep == Fade_Step::FROM_TRANSITION)
 	{
@@ -225,11 +222,11 @@ void Transitions::DrawTransition3()
 		app->render->DrawRectangle(Rect4, 255, 0, 0, 255);
 		app->render->DrawRectangle(Rect5, 255, 0, 0, 255);
 
-		app->render->DrawTexture(pokeball, (Rect1.x + Rect1.w - 120), (Rect1.y - 10), NULL, 0, EaseLinearIn(timer_out_transition / 24, win_width / 64, win_width, 240));
-		app->render->DrawTexture(pokeball, (Rect2.x + Rect2.w - 120), (Rect2.y - 10), NULL, 0, EaseLinearIn(timer_out_transition / 24, win_width / 64, win_width, 240));
-		app->render->DrawTexture(pokeball, (Rect3.x + Rect3.w - 120), (Rect3.y - 10), NULL, 0, EaseLinearIn(timer_out_transition / 24, win_width / 64, win_width, 240));
-		app->render->DrawTexture(pokeball, (Rect4.x + Rect4.w - 120), (Rect4.y - 10), NULL, 0, EaseLinearIn(timer_out_transition / 24, win_width / 64, win_width, 240));
-		app->render->DrawTexture(pokeball, (Rect5.x + Rect5.w - 120), (Rect5.y - 10), NULL, 0, EaseLinearIn(timer_out_transition / 24, win_width / 64, win_width, 240));
+		app->render->DrawTexture(transition, (Rect1.x + Rect1.w - 120), (Rect1.y - 10), NULL, 0, EaseLinearIn(timer_out_transition / 24, win_width / 64, win_width, 240));
+		app->render->DrawTexture(transition, (Rect2.x + Rect2.w - 120), (Rect2.y - 10), NULL, 0, EaseLinearIn(timer_out_transition / 24, win_width / 64, win_width, 240));
+		app->render->DrawTexture(transition, (Rect3.x + Rect3.w - 120), (Rect3.y - 10), NULL, 0, EaseLinearIn(timer_out_transition / 24, win_width / 64, win_width, 240));
+		app->render->DrawTexture(transition, (Rect4.x + Rect4.w - 120), (Rect4.y - 10), NULL, 0, EaseLinearIn(timer_out_transition / 24, win_width / 64, win_width, 240));
+		app->render->DrawTexture(transition, (Rect5.x + Rect5.w - 120), (Rect5.y - 10), NULL, 0, EaseLinearIn(timer_out_transition / 24, win_width / 64, win_width, 240));
 	}
 
 }

@@ -47,7 +47,7 @@ public:
 
 	// The rectangles of the screen, used to render the animation
 	
-	SDL_Texture* pokeball;
+	SDL_Texture* transition;
 	SDL_Texture* texture;
 };
 

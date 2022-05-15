@@ -9,6 +9,7 @@
 #include "GuiManager.h"
 #include "PlayerModule.h"
 #include "Point.h"
+#include "Transitions.h"
 
 #include "Defs.h"
 #include "Log.h"
@@ -89,8 +90,7 @@ bool TutorialScene_1::PostUpdate()
 		startPlayerPos = { 650, 700 };
 		startCameraPos = { app->render->camera.x, app->render->camera.y };
 		startCameraFollowsPlayer = cameraFollowsPlayer;
-		app->fade->Fade(this, (Module*)app->tutorialScene_2);
-
+		app->transitions->SelectTransition(1, 0, 1280, this, (Module*)app->tutorialScene_2);
 	}
 
 
