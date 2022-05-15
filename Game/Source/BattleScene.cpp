@@ -15,6 +15,8 @@
 #include "Input.h"
 #include "Textures.h"
 
+#include <iostream>
+
 BattleScene::BattleScene(bool startEnabled, bool playerEnabled, SString name, Point<int> cameraPos, Point<int>playerPos, Point<bool> followPlayer) :
 	Scene(startEnabled, playerEnabled, name, cameraPos, playerPos, followPlayer)
 {
@@ -119,15 +121,17 @@ bool BattleScene::PreUpdate()
 
 	return true;
 }
-#include <iostream>
+
 bool BattleScene::Update(float dt)
 {
 	Scene::Update(dt);
 	if (!m_ActiveCharacter) return true;
 
-	//
-	system("cls");
 	Character* c;
+
+	//
+	/*system("cls");
+	
 	std::cout << "Players" << std::endl;
 	for (int y = 0; y < GRID_HEIGHT; y++) {
 		for (int x = 0; x < GRID_WIDTH; x++) {
@@ -146,7 +150,7 @@ bool BattleScene::Update(float dt)
 				std::cout << c->GetHealth() << std::endl;
 			}
 		}
-	}
+	}*/
 	//
 
 	for (int y = 0; y < GRID_HEIGHT; y++) {
@@ -228,7 +232,10 @@ void BattleScene::DamagePlayerAt(iPoint position, int damage)
 	if (m_PlayerGrid[position.y][position.x]->IsDead()) return;
 
 	if (m_PlayerGrid[position.y][position.x]->DealDamage(damage)) {
-		onCharacterKilled(m_PlayerGrid[position.y][position.x]->getCharacterType());
+		Character::ECharacterType character_t = m_EnemyGrid[position.y][position.x]->getCharacterType();
+
+		onCharacterKilled(character_t);
+		std::cout << "[Battle] Character (" << (int)character_t << ") died." << std::endl;
 	}
 }
 
@@ -239,8 +246,19 @@ void BattleScene::DamageEnemyAt(iPoint position, int damage)
 
 	if (m_EnemyGrid[position.y][position.x]->DealDamage(damage)) {
 		m_EnemyCount--;
-		onCharacterKilled(m_EnemyGrid[position.y][position.x]->getCharacterType());
+
+		Character::ECharacterType character_t = m_EnemyGrid[position.y][position.x]->getCharacterType();
+
+		onCharacterKilled(character_t);
+		std::cout << "[Battle] Character (" << (int)character_t << ") died." << std::endl;
 	}
+}
+
+void BattleScene::FakeKill(Character::ECharacterType character)
+{
+	onCharacterKilled(character);
+
+	std::cout << "[Battle] Character (" << (int)character << ") died." << std::endl;
 }
 
 

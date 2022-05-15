@@ -27,7 +27,8 @@ struct Collider
 		NEXT,
 		MAX,
 		POWER_UP,
-		BOUNDS
+		BOUNDS,
+		TRIGGER
 	};
 
 	//Methods

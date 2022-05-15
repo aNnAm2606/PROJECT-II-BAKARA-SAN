@@ -4,6 +4,7 @@
 #include "Module.h"
 #include "SDL/include/SDL.h"
 #include "Point.h"
+#include "Collider.h"
 
 class PlayerModule : public Module
 {
@@ -12,6 +13,7 @@ private:
 	int playerSpeed;
 	SDL_Texture* playerSheet;
 	SDL_Rect playerRect;
+	Collider* playerCollider;
 public:
 	PlayerModule(bool startEnabled);
 
@@ -38,6 +40,7 @@ public:
 
 	void SetPosition(int x, int y);
 	void GetPosition(int &x, int &y);
+	Collider* GetPLayerCollider() { return playerCollider; }
 
 	bool LoadState(pugi::xml_node&) override;
 	bool SaveState(pugi::xml_node&) override;

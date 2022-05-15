@@ -2,6 +2,7 @@
 #define __DUNGEON_SCENE_H__
 
 #include "Scene.h"
+#include "Collider.h"
 
 struct SDL_Texture;
 
@@ -34,11 +35,33 @@ public:
 	bool CleanUp();
 
 private:
-
+	
 	SDL_Texture* background1;
 	SDL_Texture* background2;
 	SDL_Texture* background3;
 	SDL_Texture* background4;
+
+	SDL_Texture* keyTexture;
+	SDL_Texture* leverTexture;
+
+	List <Collider*> colliderList;
+
+	Collider* secretRoomButton;
+	Collider* secretRoomBottomWall;
+	Collider* secretRoomTopWall;
+	Collider* secretRoomLeftWall;
+	Collider* secretRoomRightWall;
+	
+	Collider* dungeonKey;
+	Collider* keyWall;
+
+	Collider* lever;
+	Collider* leverWall;
+
+	
+	bool isSecretRoomOpen = false;
+	bool KeyObtained = false;
+	bool leverActivated = false;
 
 
 };

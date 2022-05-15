@@ -8,6 +8,7 @@
 #include "PlayerModule.h"
 #include "DialogModule.h"
 
+#include "BattleScene.h"
 #include "InventoryModule.h"
 #include "PMQuest1.h"
 
@@ -18,10 +19,12 @@
 PlayerModule::PlayerModule(bool startEnabled) : Module(startEnabled)
 {
 	name.Create("PlayerModule");
+	playerCollider = new Collider(playerRect, Collider::PLAYER);
 }
 
 PlayerModule::~PlayerModule()
 {
+	delete playerCollider;
 }
 
 bool PlayerModule::Awake()
@@ -37,6 +40,8 @@ bool PlayerModule::Start()
 	playerRect.w = 40;
 	playerRect.h = 20;
 	playerSpeed = 10;
+	playerCollider->rect = playerRect;
+
 	
 	return true;
 }
@@ -49,6 +54,8 @@ bool PlayerModule::PreUpdate()
 {
 	playerRect.x = playerPos.x - playerRect.w;
 	playerRect.y = playerPos.y - playerRect.h;
+	playerCollider->rect = playerRect;
+
 	return true;
 }
 
@@ -88,6 +95,14 @@ bool PlayerModule::Update(float dt)
 
 	if (app->input->GetKey(SDL_SCANCODE_C) == KEY_DOWN) {
 		app->inventory->AddItem(Item::EItemType::EITEMTYPE_CAT);
+	}
+
+	if (app->input->GetKey(SDL_SCANCODE_V) == KEY_DOWN) {
+		app->battleScene->FakeKill(Character::ECharacterType::ECHARACTER_SPECTRE);
+	}
+
+	if (app->input->GetKey(SDL_SCANCODE_B) == KEY_DOWN) {
+		app->battleScene->FakeKill(Character::ECharacterType::ECHARACTER_MIPHARESH);
 	}
 	
 	return true;
