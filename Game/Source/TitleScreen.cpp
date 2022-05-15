@@ -44,6 +44,7 @@ bool TitleScreen::Start()
 	transparent = app->tex->Load("Assets/Art/GUI/transparent.png");
 	app->guiManager->titlePanel->Enable();
 
+	app->audio->SetMusicVolume(128);
 	app->audio->ChangeMusic(TITLE_MUSIC, 0.0f, 0.0f);
 
 	startGame = false;

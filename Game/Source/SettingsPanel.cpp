@@ -146,6 +146,7 @@ bool SettingsPanel::OnGuiMouseClickEvent(GuiControl* control)
     //    LOG("VOLUME %i", app->audio->GetMusicVolume());
     //    LOG("sldr value %i", musicSldr->GetValue());
     //}
+
     else if (control->id == fxSldr->id)
     {
         app->audio->SetSFXVolume(fxSldr->GetValue());
