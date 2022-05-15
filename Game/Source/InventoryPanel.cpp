@@ -38,12 +38,12 @@ bool InventoryPanel::Draw()
 
     SDL_Rect itemrect = {
         0, 0,
-        34, 34
+        35, 35
     };
 
     iPoint ipos = { 105, 160 };
 
-    size_t spacing = 28;
+    size_t spacing = 29;
 
     int dWidth = 88;
     int dHeight = 88;
