@@ -128,6 +128,7 @@
     <ClCompile Include="Source\GuiSlider.cpp" />
     <ClCompile Include="Source\GuiToggle.cpp" />
     <ClCompile Include="Source\InventoryModule.cpp" />
+    <ClCompile Include="Source\InventoryPanel.cpp" />
     <ClCompile Include="Source\Item.cpp" />
     <ClCompile Include="Source\LosePanel.cpp" />
     <ClCompile Include="Source\Main.cpp" />
@@ -137,6 +138,7 @@
     <ClCompile Include="Source\ModuleCollisions.cpp" />
     <ClCompile Include="Source\NPC.cpp" />
     <ClCompile Include="Source\Paladin.cpp" />
+    <ClCompile Include="Source\PartyPanel.cpp" />
     <ClCompile Include="Source\PausePanel.cpp" />
     <ClCompile Include="Source\PerfTimer.cpp" />
     <ClCompile Include="Source\PlayerModule.cpp" />
@@ -145,6 +147,7 @@
     <ClCompile Include="Source\PMQuest3.cpp" />
     <ClCompile Include="Source\Quest.cpp" />
     <ClCompile Include="Source\QuestModule.cpp" />
+    <ClCompile Include="Source\QuestPanel.cpp" />
     <ClCompile Include="Source\QuitPanel.cpp" />
     <ClCompile Include="Source\Scene.cpp" />
     <ClCompile Include="Source\SettingsPanel.cpp" />
@@ -207,12 +210,14 @@
     <ClInclude Include="Source\GuiSlider.h" />
     <ClInclude Include="Source\GuiToggle.h" />
     <ClInclude Include="Source\InventoryModule.h" />
+    <ClInclude Include="Source\InventoryPanel.h" />
     <ClInclude Include="Source\Item.h" />
     <ClInclude Include="Source\LosePanel.h" />
     <ClInclude Include="Source\ModuleCollisions.h" />
     <ClInclude Include="Source\NPC.h" />
     <ClInclude Include="Source\p2List.h" />
     <ClInclude Include="Source\Paladin.h" />
+    <ClInclude Include="Source\PartyPanel.h" />
     <ClInclude Include="Source\PausePanel.h" />
     <ClInclude Include="Source\PerfTimer.h" />
     <ClInclude Include="Source\PlayerModule.h" />
@@ -222,6 +227,7 @@
     <ClInclude Include="Source\PQueue.h" />
     <ClInclude Include="Source\Quest.h" />
     <ClInclude Include="Source\QuestModule.h" />
+    <ClInclude Include="Source\QuestPanel.h" />
     <ClInclude Include="Source\Queue.h" />
     <ClInclude Include="Source\QuitPanel.h" />
     <ClInclude Include="Source\Scene.h" />

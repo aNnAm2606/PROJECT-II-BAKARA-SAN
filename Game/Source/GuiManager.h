@@ -53,10 +53,15 @@ public:
 	SDL_Texture* battleBox = nullptr;
 	SDL_Texture* loseScreen = nullptr;
 	SDL_Texture* victoryScreen = nullptr;
+	SDL_Texture* questScreen = nullptr;
+	SDL_Texture* inventoryScreen = nullptr;
+	SDL_Texture* partyScreen = nullptr;
 
 	int mainFont;
 	int numberFont;
+	int cursor = 0;
 	bool debug = false;
+	bool cursorMode = false;
 
 	// Gui panels used
 	GuiPanel* titlePanel;
@@ -67,6 +72,9 @@ public:
 	GuiPanel* battlePanel;
 	GuiPanel* losePanel;
 	GuiPanel* victoryPanel;
+	GuiPanel* questPanel;
+	GuiPanel* inventoryPanel;
+	GuiPanel* partyPanel;
 
 	GuiState lastPanel;
 

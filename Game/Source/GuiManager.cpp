@@ -14,6 +14,9 @@
 #include "BattlePanel.h"
 #include "LosePanel.h"
 #include "VictoryPanel.h"
+#include "InventoryPanel.h"
+#include "PartyPanel.h"
+#include "QuestPanel.h"
 
 GuiManager::GuiManager(bool startEnabled) : Module(startEnabled)
 {
@@ -38,12 +41,17 @@ bool GuiManager::Start()
 	battleBox = app->tex->Load("Assets/Art/GUI/battleUI.png");
 	loseScreen = app->tex->Load("Assets/Art/GUI/loseScreen.png");
 	victoryScreen = app->tex->Load("Assets/Art/GUI/winScreen.png");
+	questScreen = app->tex->Load("Assets/Art/GUI/questUI.png");
+	inventoryScreen = app->tex->Load("Assets/Art/GUI/inventoryUI.png");
+	partyScreen = app->tex->Load("Assets/Art/GUI/partyUI.png");
 
 	// Audio for buttons
 	//app->audio->LoadFx("Assets/audio/fx/buttonFocus.wav");
 	//app->audio->LoadFx("Assets/audio/fx/buttonPressed.wav");
 
 	debug = false;
+	cursorMode = false;
+	cursor = 0;
 
 	titlePanel = new TitlePanel(false);
 	settingsPanel = new SettingsPanel(false);
@@ -53,6 +61,9 @@ bool GuiManager::Start()
 	battlePanel = new BattlePanel(false);
 	losePanel = new LosePanel(false);
 	victoryPanel = new VictoryPanel(false);
+	questPanel = new QuestPanel(false);
+	inventoryPanel = new InventoryPanel(false);
+	partyPanel = new PartyPanel(false);
 
 	panels.add(titlePanel);
 	panels.add(settingsPanel);
@@ -62,6 +73,9 @@ bool GuiManager::Start()
 	panels.add(battlePanel);
 	panels.add(losePanel);
 	panels.add(victoryPanel);
+	panels.add(questPanel);
+	panels.add(inventoryPanel);
+	panels.add(partyPanel);
 
 	//init panels
 	p2ListItem<GuiPanel*>* panel = panels.start;
@@ -71,7 +85,6 @@ bool GuiManager::Start()
 		panel->data->Start();
 		panel = panel->next;
 	}
-
 
 	return true;
 }
@@ -85,15 +98,44 @@ bool GuiManager::Update(float dt)
 	if (app->input->GetKey(SDL_SCANCODE_V) == KEY_DOWN)
 		battlePanel->Disable();
 
-	if (app->input->GetKey(SDL_SCANCODE_U) == KEY_DOWN)
-		victoryPanel->Enable();
-	if (app->input->GetKey(SDL_SCANCODE_I) == KEY_DOWN)
-		victoryPanel->Disable();
+	if (app->input->GetKey(SDL_SCANCODE_Q) == KEY_DOWN)
+	{
+		cursorMode = !cursorMode;
+		cursor = 0;
+	}
 
-	if (app->input->GetKey(SDL_SCANCODE_O) == KEY_DOWN)
-		losePanel->Enable();
-	if (app->input->GetKey(SDL_SCANCODE_P) == KEY_DOWN)
-		losePanel->Disable();
+	if (cursorMode == true)
+	{
+		if (app->input->GetMouseButtonDown(SDL_BUTTON_LEFT) == KeyState::KEY_DOWN) cursor = cursor + 1;
+
+		switch (cursor)
+		{
+		case 0:
+			questPanel->Disable();
+			partyPanel->Disable();
+			inventoryPanel->Enable();
+			break;
+		case 1:
+			inventoryPanel->Disable();
+			questPanel->Disable();
+			partyPanel->Enable();
+			break;
+		case 2:
+			inventoryPanel->Disable();
+			partyPanel->Disable();
+			questPanel->Enable();
+			break;
+		}
+		
+		if (cursor > 2) cursor = 0;
+	}
+	else
+	{
+		cursor = 0;
+		inventoryPanel->Disable();
+		questPanel->Disable();
+		partyPanel->Disable();
+	}
 
 	if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
 		app->guiManager->pausePanel->gamePaused = !app->guiManager->pausePanel->gamePaused;

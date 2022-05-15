@@ -224,6 +224,15 @@
     <ClCompile Include="Source\DavidBow.cpp">
       <Filter>Entities\NPCs</Filter>
     </ClCompile>
+    <ClCompile Include="Source\InventoryPanel.cpp">
+      <Filter>GUI\Panels</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\PartyPanel.cpp">
+      <Filter>GUI\Panels</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\QuestPanel.cpp">
+      <Filter>GUI\Panels</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\StartForestScene.h">
@@ -495,6 +504,15 @@
     </ClInclude>
     <ClInclude Include="Source\DavidBow.h">
       <Filter>Entities\NPCs</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\InventoryPanel.h">
+      <Filter>GUI\Panels</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\PartyPanel.h">
+      <Filter>GUI\Panels</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\QuestPanel.h">
+      <Filter>GUI\Panels</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

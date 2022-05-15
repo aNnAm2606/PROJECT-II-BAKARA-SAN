@@ -119,8 +119,8 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(inventory);
 	AddModule(quests);
 	AddModule(guiManager);
+
 	// FadeToBlack
-	AddModule(guiManager);
 	AddModule(fade);
 	AddModule(transitions);
 
