@@ -110,6 +110,7 @@
     <ClCompile Include="Source\Character.cpp" />
     <ClCompile Include="Source\Collider.cpp" />
     <ClCompile Include="Source\Credits.cpp" />
+    <ClCompile Include="Source\DavidBow.cpp" />
     <ClCompile Include="Source\Dialog.cpp" />
     <ClCompile Include="Source\DialogModule.cpp" />
     <ClCompile Include="Source\DungeonScene.cpp" />
@@ -185,6 +186,7 @@
     <ClInclude Include="Source\ClassActionPack.h" />
     <ClInclude Include="Source\Collider.h" />
     <ClInclude Include="Source\Credits.h" />
+    <ClInclude Include="Source\DavidBow.h" />
     <ClInclude Include="Source\Dialog.h" />
     <ClInclude Include="Source\DialogModule.h" />
     <ClInclude Include="Source\DialogNode.h" />

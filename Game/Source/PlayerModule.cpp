@@ -7,7 +7,9 @@
 #include "FadeToBlack.h"
 #include "PlayerModule.h"
 #include "DialogModule.h"
+#include "GuiManager.h"
 
+#include "BattleScene.h"
 #include "InventoryModule.h"
 #include "PMQuest1.h"
 
@@ -62,6 +64,7 @@ bool PlayerModule::Update(float dt)
 {
 	// Skip cases
 	if (app->dialog->IsDialogActive()) return true;
+	if (app->guiManager->pausePanel->gamePaused) return true;
 
 	// Update
 	GamePad& gamePad = app->input->pads[0];
@@ -94,6 +97,14 @@ bool PlayerModule::Update(float dt)
 
 	if (app->input->GetKey(SDL_SCANCODE_C) == KEY_DOWN) {
 		app->inventory->AddItem(Item::EItemType::EITEMTYPE_CAT);
+	}
+
+	if (app->input->GetKey(SDL_SCANCODE_V) == KEY_DOWN) {
+		app->battleScene->FakeKill(Character::ECharacterType::ECHARACTER_SPECTRE);
+	}
+
+	if (app->input->GetKey(SDL_SCANCODE_B) == KEY_DOWN) {
+		app->battleScene->FakeKill(Character::ECharacterType::ECHARACTER_MIPHARESH);
 	}
 	
 	return true;

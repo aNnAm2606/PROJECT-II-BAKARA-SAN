@@ -10,10 +10,7 @@ public:
 	PMQuest3();
 	~PMQuest3();
 
-	void UpdateCheck() override;
-
 	bool HasRequirements() override;
-	void Finish() override;
 
 	void OnGameSave(pugi::xml_node& quest) override;
 	void OnGameLoad(pugi::xml_node& quest) override;

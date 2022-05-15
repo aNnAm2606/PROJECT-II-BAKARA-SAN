@@ -68,6 +68,8 @@ public:
 	// Damage enemy at position
 	void DamageEnemyAt(iPoint position, int damage);
 
+	void FakeKill(Character::ECharacterType character);
+
 	QuestCharacterCallbacks onCharacterKilled;
 };
 

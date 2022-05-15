@@ -5,7 +5,7 @@
 
 PMQuest3::PMQuest3()
 {
-	p_QuestId = QuestModule::EQuest::EQUEST_PM_Q2;
+	p_QuestId = QuestModule::EQuest::EQUEST_PM_Q3;
 
 	m_KillCount = false;
 
@@ -17,19 +17,9 @@ PMQuest3::~PMQuest3()
 {
 }
 
-void PMQuest3::UpdateCheck()
-{
-	
-}
-
 bool PMQuest3::HasRequirements()
 {
 	return m_KillCount >= 5;
-}
-
-void PMQuest3::Finish()
-{
-	
 }
 
 void PMQuest3::OnGameSave(pugi::xml_node& quest)

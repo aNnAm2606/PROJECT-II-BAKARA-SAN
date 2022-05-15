@@ -28,8 +28,8 @@ public:
 	// Quest functions
 	virtual void UpdateCheck() {};
 
-	virtual bool HasRequirements() = 0;
-	virtual void Finish() = 0;
+	virtual bool HasRequirements() { return true; };
+	virtual void Finish() {};
 
 	virtual void OnGameSave(pugi::xml_node& quest){}
 	virtual void OnGameLoad(pugi::xml_node& quest) {}
