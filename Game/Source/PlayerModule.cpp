@@ -99,6 +99,10 @@ bool PlayerModule::Update(float dt)
 	if (app->input->GetKey(SDL_SCANCODE_B) == KEY_DOWN) {
 		app->battleScene->FakeKill(Character::ECharacterType::ECHARACTER_MIPHARESH);
 	}
+
+	if (app->input->GetKey(SDL_SCANCODE_V) == KEY_DOWN) {
+		app->inventory->AddItem((Item::EItemType)(rand() % Item::EItemType::EITEMTYPE_NONE));
+	}
 	
 	return true;
 }
