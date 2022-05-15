@@ -224,6 +224,9 @@
     <ClCompile Include="Source\DavidBow.cpp">
       <Filter>Entities\NPCs</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Cat.cpp">
+      <Filter>Entities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\StartForestScene.h">
@@ -495,6 +498,9 @@
     </ClInclude>
     <ClInclude Include="Source\DavidBow.h">
       <Filter>Entities\NPCs</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Cat.h">
+      <Filter>Entities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

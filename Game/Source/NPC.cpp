@@ -17,6 +17,7 @@ NPC::NPC()
 	m_ActiveDialog = -1;
 	m_Interacting = false;
 	m_InteractDistance = 90.0f;
+	m_Active = true;
 }
 
 NPC::~NPC()
@@ -39,6 +40,8 @@ void NPC::Interact()
 
 void NPC::Update()
 {
+	if (!m_Active) return;
+
 	if (m_Interacting) {
 		if (!app->dialog->IsDialogActive()) {
 			m_Interacting = false;
@@ -62,5 +65,7 @@ void NPC::Update()
 
 void NPC::Render()
 {
+	if (!m_Active) return;
+
 	app->render->DrawTexture(m_NPCTex, m_Position.x, m_Position.y, &m_NPCRect);
 }

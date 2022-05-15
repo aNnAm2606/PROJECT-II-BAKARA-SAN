@@ -47,6 +47,7 @@ bool TownScene::Start()
 	m_SisterMadonna.Init();
 	m_StevenWonder.Init();
 	m_DavidBow.Init();
+	m_Cat.Init();
 
 	app->currentScene = sceneID::TOWN;
 
@@ -68,11 +69,13 @@ bool TownScene::Update(float dt)
 	m_SisterMadonna.Update();
 	m_StevenWonder.Update();
 	m_DavidBow.Update();
+	m_Cat.Update();
 
 	m_SisterMadonna.Render();
 	m_Triana.Render();
 	m_StevenWonder.Render();
 	m_DavidBow.Render();
+	m_Cat.Render();
 
 
 

@@ -92,7 +92,7 @@ void DavidBow::Init()
 		75,85
 	};
 
-	m_Position = { 1205, 320 };
+	m_Position = { 230, 230 };
 }
 
 void DavidBow::OnUpdate()

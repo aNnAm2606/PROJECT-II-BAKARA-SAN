@@ -6,6 +6,7 @@
 #include "SisterMadonna.h"
 #include "StevenWonder.h"
 #include "DavidBow.h"
+#include "Cat.h"
 
 struct SDL_Texture;
 
@@ -44,6 +45,7 @@ private:
 	SisterMadonna m_SisterMadonna;
 	StevenWonder m_StevenWonder;
 	DavidBow m_DavidBow;
+	Cat m_Cat;
 };
 
 #endif // __TOWNSCENE_H__

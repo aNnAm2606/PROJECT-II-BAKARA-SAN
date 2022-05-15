@@ -16,6 +16,7 @@
 #include "Defs.h"
 #include "Log.h"
 
+#include <iostream>
 
 PlayerModule::PlayerModule(bool startEnabled) : Module(startEnabled)
 {
@@ -105,6 +106,10 @@ bool PlayerModule::Update(float dt)
 
 	if (app->input->GetKey(SDL_SCANCODE_B) == KEY_DOWN) {
 		app->battleScene->FakeKill(Character::ECharacterType::ECHARACTER_MIPHARESH);
+	}
+
+	if (app->input->GetKey(SDL_SCANCODE_P) == KEY_DOWN) {
+		std::cout << "[Player] Position (" << playerPos.x << "," << playerPos.y << ")" << std::endl;
 	}
 	
 	return true;

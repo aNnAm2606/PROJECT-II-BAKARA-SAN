@@ -20,6 +20,8 @@ protected:
 
 	int m_ActiveDialog;
 
+	bool m_Active;
+
 	void AddDialog(Dialog& dialog, size_t resetNode);
 public:
 	NPC();

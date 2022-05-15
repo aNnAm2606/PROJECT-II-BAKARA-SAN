@@ -1,12 +1,11 @@
 <?xml version="1.0"?>
 <game_state>
-	<Scene id="12" />
+	<Scene id="5" />
 	<window />
 	<input />
 	<textures />
 	<fonts />
 	<audio />
-	<guiManager />
 	<collisions />
 	<assetsManager />
 	<:anonymous />
@@ -23,7 +22,7 @@
 	<:anonymous />
 	<:anonymous />
 	<PlayerModule>
-		<position x="540" y="-2580" />
+		<position x="920" y="490" />
 	</PlayerModule>
 	<DialogModule />
 	<inventory />
@@ -32,9 +31,10 @@
 		<quest id="1" state="1" />
 		<quest id="2" state="0" />
 	</quests>
+	<guiManager />
 	<Fade />
 	<BattleTransitions />
 	<renderer>
-		<camera x="-50" y="2940" follow_X="false" follow_Y="true" />
+		<camera x="-280" y="-130" follow_X="true" follow_Y="true" />
 	</renderer>
 </game_state>
