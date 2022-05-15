@@ -27,6 +27,8 @@ public:
 	NPC();
 	~NPC();
 
+	void SetPosition(int x, int y) { m_Position = { x,y }; }
+
 	virtual void Init(){}
 
 	void Interact();

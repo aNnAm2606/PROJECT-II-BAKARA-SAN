@@ -22,19 +22,19 @@
 	<:anonymous />
 	<:anonymous />
 	<PlayerModule>
-		<position x="920" y="490" />
+		<position x="910" y="590" />
 	</PlayerModule>
 	<DialogModule />
 	<inventory />
 	<quests>
 		<quest id="0" state="0" />
 		<quest id="1" state="1" />
-		<quest id="2" state="0" />
+		<quest id="2" state="1" data="3" />
 	</quests>
 	<guiManager />
 	<Fade />
 	<BattleTransitions />
 	<renderer>
-		<camera x="-280" y="-130" follow_X="true" follow_Y="true" />
+		<camera x="-270" y="-230" follow_X="true" follow_Y="true" />
 	</renderer>
 </game_state>

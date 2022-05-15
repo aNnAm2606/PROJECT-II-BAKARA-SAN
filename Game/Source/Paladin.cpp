@@ -7,7 +7,7 @@
 Paladin::Paladin()
 {
 	p_CharacterId = ECharacterType::ECHARACTER_PALADIN;
-	p_Stats.health = 20;
+	p_Stats.health = 30;
 	p_Stats.damage = 4;
 	p_Stats.speed = 2;
 
