@@ -18,16 +18,16 @@ DungeonScene::DungeonScene(bool startEnabled, bool playerEnabled, SString name, 
 {
 	secretRoomButton = new Collider({ 1600,550, 80, 80 }, Collider::TRIGGER, this);
 
-	secretRoomBottomWall = new Collider({ 1550, 0, 200, 30 }, Collider::WALL);
-	secretRoomTopWall = new Collider({ 1550, -200, 200, 30 }, Collider::WALL);
-	secretRoomLeftWall = new Collider({ 1550, -200, 10, 200 }, Collider::WALL);
-	secretRoomRightWall = new Collider({ 1750, -200, 10, 200 }, Collider::WALL);
+	secretRoomBottomWall = new Collider({ 1550, 0, 400, 30 }, Collider::WALL);
+	secretRoomTopWall = new Collider({ 1550, -300, 400, 30 }, Collider::WALL);
+	secretRoomLeftWall = new Collider({ 1550, -400, 10, 400 }, Collider::WALL);
+	secretRoomRightWall = new Collider({ 1850, -400, 10, 400 }, Collider::WALL);
 
-	dungeonKey = new Collider({ 1000,1120, 40,40 }, Collider::TRIGGER);
-	keyWall = new Collider({ 0,1080, 2000,60 }, Collider::WALL);
+	dungeonKey = new Collider({ 1000,-2120, 40,40 }, Collider::TRIGGER);
+	keyWall = new Collider({ 0,-2280, 2000,60 }, Collider::WALL);
 
-	lever = new Collider({ 200, 2560, 60,60 }, Collider::TRIGGER);
-	leverWall = new Collider({ 0, 2460, 40,40 }, Collider::WALL);
+	lever = new Collider({ 200, -2860, 60,60 }, Collider::TRIGGER);
+	leverWall = new Collider({ 0, -2960, 2000,40 }, Collider::WALL);
 
 	colliderList.Add(secretRoomButton);
 	colliderList.Add(secretRoomBottomWall);
@@ -89,7 +89,7 @@ bool DungeonScene::PreUpdate()
 	}
 	if (dungeonKey->Intersects(app->playerModule->GetPLayerCollider()->rect))
 	{
-		KeyObtained = true;
+		keyObtained = true;
 	}
 	if (lever->Intersects(app->playerModule->GetPLayerCollider()->rect))
 	{
@@ -98,7 +98,7 @@ bool DungeonScene::PreUpdate()
 			leverActivated = !leverActivated;
 		}
 	}
-
+	if (app->input->GetKey(SDL_SCANCODE_F1) == KEY_DOWN) { toggleDebug = !toggleDebug; }
 
 	return true;
 }
@@ -128,7 +128,7 @@ bool DungeonScene::Update(float dt)
 	{
 		app->playerModule->SetPosition(playerPos.x + 20, playerPos.y);
 	}
-	if (keyWall->Intersects(playerRect) && KeyObtained == false)
+	if (keyWall->Intersects(playerRect) && keyObtained == false)
 	{
 		app->playerModule->SetPosition(playerPos.x, playerPos.y + 20);
 	}
@@ -151,8 +151,33 @@ bool DungeonScene::Update(float dt)
 	app->render->DrawTexture(background3, 0, -1080, NULL);
 	app->render->DrawTexture(background2, 0, -2160, NULL);
 	app->render->DrawTexture(background1, 0, -3240, NULL);
-	app->render->DrawTexture(leverTexture, lever->rect.x, lever->rect.y, &leverSection);
-	app->render->DrawTexture(keyTexture, dungeonKey->rect.x, dungeonKey->rect.y, &keySection);
+
+	
+	if (toggleDebug)
+	{
+		app->render->DrawRectangle(secretRoomBottomWall->rect, 255, 0, 0);
+		app->render->DrawRectangle(secretRoomTopWall->rect, 255, 0, 0);
+		app->render->DrawRectangle(secretRoomLeftWall->rect, 255, 0, 0);
+		app->render->DrawRectangle(secretRoomRightWall->rect, 255, 0, 0);
+		app->render->DrawRectangle(keyWall->rect, 255, 0, 0);
+		app->render->DrawRectangle(leverWall->rect, 255, 0, 0);
+
+
+		app->render->DrawRectangle(dungeonKey->rect, 0, 255, 0);
+		app->render->DrawRectangle(secretRoomButton->rect, 0, 255, 0);
+		app->render->DrawRectangle(lever->rect, 0, 255, 0);
+	}
+	else
+	{
+
+		if (!keyObtained)
+		{
+			app->render->DrawTexture(keyTexture, dungeonKey->rect.x, dungeonKey->rect.y, &keySection);
+		}
+		
+		app->render->DrawTexture(leverTexture, lever->rect.x, lever->rect.y, &leverSection);
+	}
+	
 
 	
 

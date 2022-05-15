@@ -60,8 +60,10 @@ private:
 
 	
 	bool isSecretRoomOpen = false;
-	bool KeyObtained = false;
+	bool keyObtained = false;
 	bool leverActivated = false;
+
+	bool toggleDebug;
 
 
 };
