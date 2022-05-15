@@ -74,41 +74,8 @@ bool TitleScreen::Update(float dt)
 	if(app->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
 		app->render->camera.x += 1;
 
-	//if (app->input->GetKey(SDL_SCANCODE_1) == KEY_DOWN)
-	//{
-	//	app->transitions->SelectTransition(1, 0, 1900);
-	//}
-	//if (app->input->GetKey(SDL_SCANCODE_2) == KEY_DOWN)
-	//{
-	//	app->transitions->SelectTransition(2, 0, 1900);
-	//}
-	//if (app->input->GetKey(SDL_SCANCODE_3) == KEY_DOWN)
-	//{
-	//	app->transitions->SelectTransition(3, 0, 1900);
-	//}
-	//if (app->input->GetKey(SDL_SCANCODE_4) == KEY_DOWN)
-	//{
-	//	app->transitions->SelectTransition(4, 0, 1900);
-	//}
-
 	app->render->DrawTexture(bg, 0, 0, NULL);
 	app->render->DrawTexture(title, 54, 235, NULL);
-
-	//SDL_Rect Rect1;
-
-	//Rect1.x = app->render->camera.x;
-	//Rect1.y = app->render->camera.y;
-	//Rect1.h = app->win->height;
-	//Rect1.w = 0;
-	//Rect1.w = EaseLinearIn(0 / 8, app->win->width / 64, app->win->width, 120);
-	//Rect1.w = EaseLinearOut(300 / 8, app->win->width / 64, app->win->width, 60);
-	//SDL_Rect Rect1;
-	//Rect1.x = app->render->camera.x;
-	//Rect1.y = app->render->camera.y;
-	//Rect1.h = app->win->height / 5;
-	//Rect1.w = EaseLinearIn(0 / 8, app->win->width / 64, app->win->width, 60);
-	//app->render->DrawTexture(title, (Rect1.x + Rect1.w - 120), (Rect1.y - 10), NULL, 0, EaseLinearIn(0 / 24, app->win->width / 64, app->win->width, 240));
-	//app->render->DrawTexture(title, 255, 255, NULL,0, EaseLinearIn(0 / 24, app->win->width / 64, app->win->width, 60));
 
 	return true;
 }
