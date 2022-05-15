@@ -7,7 +7,7 @@
 #include "Item.h"
 #include "Quest.h"
 
-#define MAX_ITEMS 10
+#define MAX_ITEMS 24
 
 class InventoryModule : public Module
 {
@@ -47,6 +47,7 @@ public:
 	bool RemoveItem(Item::EItemType item, size_t count=1);
 	bool RemoveItem(size_t index, size_t count=1);
 
+	std::vector<Item::EItemType>* GetInventory() { return &m_Inventory; }
 	size_t GetItemCount(Item::EItemType item);
 
 	// Variables
