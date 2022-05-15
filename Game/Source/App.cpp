@@ -71,8 +71,8 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	playerModule = new PlayerModule(false);
 
 	// Scenes
-	logoScreen = new LogoScreen(true, false, "logoScene", { 0,0 }, { 0,0 }, { false, false });
-	titleScreen = new TitleScreen(false, false, "titleScene", { 0,0 }, { 0,0 }, { false, false });
+	logoScreen = new LogoScreen(false, false, "logoScene", { 0,0 }, { 0,0 }, { false, false });
+	titleScreen = new TitleScreen(true, false, "titleScene", { 0,0 }, { 0,0 }, { false, false });
 	gameplayScreen = new GameplayScreen(false, false, "gameplayScene", { 0,0 }, { 0,0 }, { false, false });
 	battleScene = new BattleScene(false, false, "BattleScene", { 0, 0 }, { 0, 0 }, { false, false });
 	startForestScene = new StartForestScene(false, true, "startForestScene", { 400, -200}, { 650, 580 }, { true, true });

@@ -34,6 +34,8 @@ public:
 
 private:
 	SDL_Texture* bg;
+	SDL_Texture* transparent;
+	SDL_Texture* title;
 
 public:
 	bool startGame = false;

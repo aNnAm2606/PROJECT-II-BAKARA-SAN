@@ -214,6 +214,11 @@
     </ClCompile>
     <ClCompile Include="Source\PMQuest3.cpp">
       <Filter>Quests\PrimusMundis</Filter>
+    <ClCompile Include="Source\LosePanel.cpp">
+      <Filter>GUI\Panels</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\VictoryPanel.cpp">
+      <Filter>GUI\Panels</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -469,10 +474,19 @@
     <ClInclude Include="Source\PMQuest2.h">
       <Filter>Quests\PrimusMundis</Filter>
     </ClInclude>
-    <ClInclude Include="Source\easings.h" />
-    <ClInclude Include="Source\Transitions.h" />
     <ClInclude Include="Source\PMQuest3.h">
       <Filter>Quests\PrimusMundis</Filter>
+    <ClInclude Include="Source\easings.h">
+      <Filter>Core\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Transitions.h">
+      <Filter>Core\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\LosePanel.h">
+      <Filter>GUI\Panels</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\VictoryPanel.h">
+      <Filter>GUI\Panels</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
