@@ -11,6 +11,8 @@
 #include "Point.h"
 #include "Transitions.h"
 
+#include "QuestModule.h"
+
 #include "Defs.h"
 #include "Log.h"
 
@@ -46,6 +48,9 @@ bool TutorialScene_1::Start()
 	app->audio->ChangeMusic(DUNGEON_MUSIC, 1.0f, 1.0f);
 
 	app->currentScene = sceneID::TUTORIAL_1;
+
+	app->quests->ActivateQuest(QuestModule::EQuest::EQUEST_PM_Q2);
+
 	return true;
 }
 
