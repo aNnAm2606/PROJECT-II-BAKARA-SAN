@@ -7,6 +7,7 @@
 #include "TitleScreen.h"
 #include "FadeToBlack.h"
 #include "GuiManager.h"
+#include "Transitions.h"
 
 #include "Defs.h"
 #include "Log.h"
@@ -70,6 +71,24 @@ bool TitleScreen::Update(float dt)
 	if(app->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
 		app->render->camera.x += 1;
 
+	//if (app->input->GetKey(SDL_SCANCODE_1) == KEY_DOWN)
+	//{
+	//	app->transitions->SelectTransition(1, 0, 1900);
+
+	//}
+	//if (app->input->GetKey(SDL_SCANCODE_2) == KEY_DOWN)
+	//{
+	//	app->transitions->SelectTransition(2, 0, 1900);
+	//}
+	//if (app->input->GetKey(SDL_SCANCODE_3) == KEY_DOWN)
+	//{
+	//	app->transitions->SelectTransition(3, 0, 1900);
+	//}
+	//if (app->input->GetKey(SDL_SCANCODE_4) == KEY_DOWN)
+	//{
+	//	app->transitions->SelectTransition(4, 0, 1900);
+	//}
+
 	app->render->DrawTexture(bg, 0, 0, NULL);
 
 	return true;
@@ -85,8 +104,14 @@ bool TitleScreen::PostUpdate()
 	{
 		
 		
-		if (continueGame == true) app->LoadGameRequest();
-		else app->fade->Fade(this, (Module*)app->tutorialScene_1);
+		if (continueGame == true)
+		{
+			app->LoadGameRequest();
+		}
+		else
+		{
+			app->transitions->SelectTransition(1, 0, 1280, this, (Module*)app->tutorialScene_1);
+		}
 		
 	}
 		

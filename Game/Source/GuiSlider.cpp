@@ -62,8 +62,8 @@ bool GuiSlider::Update(float dt)
 
 				
 
-				value = GetValue(mouseX);
-				LOG("slider value:%f", GetValue(mouseX));
+				value = UpdateValue(mouseX);
+				LOG("slider value:%f", UpdateValue(mouseX));
 				state = GuiControlState::PRESSED;
 			}
 
@@ -172,13 +172,13 @@ bool GuiSlider::CleanUp()
 	return true;
 }
 
-int GuiSlider::GetValue(float pos)
+int GuiSlider::UpdateValue(float pos)
 {
 
-	if (pos < bounds.x)
+	if (pos <= bounds.x + (thumbBounds.w * 0.5f))
 		return value = minValue;
 
-	if (pos > (bounds.x + bounds.w))
+	if (pos >= (bounds.x + bounds.w) + (thumbBounds.w * 0.5f))
 		return	value = maxValue;
 
 	value = minValue + (maxValue - minValue) * ((pos - minValueFrom) / (maxValueFrom - minValueFrom));

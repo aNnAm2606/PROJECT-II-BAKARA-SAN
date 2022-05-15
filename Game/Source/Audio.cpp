@@ -66,7 +66,7 @@ bool Audio::Awake(pugi::xml_node& config)
 bool Audio::Update(float dt)
 {
 
-	if (playMusicSpatially == false) Mix_VolumeMusic(MUSIC_VOLUME);
+	if (playMusicSpatially == false) Mix_VolumeMusic(musicVol);
 
 
 	return true;
@@ -293,9 +293,19 @@ void Audio::SetMusicVolume(int vol)
 	Mix_VolumeMusic(vol);
 }
 
+int Audio::GetMusicVolume()
+{
+	return musicVol;
+}
+
 void Audio::SetSFXVolume(int vol)
 {
 	fxVol = vol;
 
 	Mix_Volume(-1, vol);
+}
+
+int Audio::GetFxVolume()
+{
+	return fxVol;
 }

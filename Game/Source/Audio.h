@@ -75,12 +75,10 @@ public:
 	//bool PlayMusicSpatially(iPoint musicGeneratorPosition);
 
 	void SetMusicVolume(int vol);
-
+	int GetMusicVolume();
 	void SetSFXVolume(int vol);
+	int GetFxVolume();
 
-	float musicVol = 0;
-
-	float fxVol = 0;
 private:
 
 	_Mix_Music* music;
@@ -89,6 +87,10 @@ private:
 public:
 
 	bool playMusicSpatially = false;
+
+	float musicVol = 0;
+
+	float fxVol = 0;
 };
 
 #endif // __AUDIO_H__

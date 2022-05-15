@@ -16,8 +16,10 @@ public:
 	bool Update(float dt);
 	bool Draw(Render* render);
 	bool CleanUp();
-	int GetValue(float pos);
+	int UpdateValue(float pos);
 	void SetValue(int value);
+
+	int GetValue() { return value; };
 
 	int mouseX, mouseY;
 	unsigned int click;

@@ -32,6 +32,7 @@ public:
 
 	// Screen options
 	void SetFullScreen();
+	void SetVsync(bool value);
 
 	void SetViewPort(const SDL_Rect& rect);
 	void ResetViewPort();
@@ -59,6 +60,7 @@ public:
 	int cameraSpeed = 8;
 	bool followPlayerX = false;
 	bool followPlayerY = false;
+	bool vsync;
 };
 
 #endif // __RENDER_H__
