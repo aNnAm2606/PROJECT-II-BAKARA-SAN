@@ -7,6 +7,7 @@
 #include "FadeToBlack.h"
 #include "PlayerModule.h"
 #include "DialogModule.h"
+#include "GuiManager.h"
 
 #include "BattleScene.h"
 #include "InventoryModule.h"
@@ -63,6 +64,7 @@ bool PlayerModule::Update(float dt)
 {
 	// Skip cases
 	if (app->dialog->IsDialogActive()) return true;
+	if (app->guiManager->pausePanel->gamePaused) return true;
 
 	// Update
 	GamePad& gamePad = app->input->pads[0];
