@@ -140,6 +140,7 @@
     <ClCompile Include="Source\PlayerModule.cpp" />
     <ClCompile Include="Source\PMQuest1.cpp" />
     <ClCompile Include="Source\PMQuest2.cpp" />
+    <ClCompile Include="Source\PMQuest3.cpp" />
     <ClCompile Include="Source\Quest.cpp" />
     <ClCompile Include="Source\QuestModule.cpp" />
     <ClCompile Include="Source\QuitPanel.cpp" />
@@ -212,6 +213,7 @@
     <ClInclude Include="Source\PlayerModule.h" />
     <ClInclude Include="Source\PMQuest1.h" />
     <ClInclude Include="Source\PMQuest2.h" />
+    <ClInclude Include="Source\PMQuest3.h" />
     <ClInclude Include="Source\PQueue.h" />
     <ClInclude Include="Source\Quest.h" />
     <ClInclude Include="Source\QuestModule.h" />

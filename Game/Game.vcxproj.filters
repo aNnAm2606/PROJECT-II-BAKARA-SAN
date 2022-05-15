@@ -212,6 +212,9 @@
     <ClCompile Include="Source\Transitions.cpp">
       <Filter>Core\Modules</Filter>
     </ClCompile>
+    <ClCompile Include="Source\PMQuest3.cpp">
+      <Filter>Quests\PrimusMundis</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\StartForestScene.h">
@@ -464,6 +467,11 @@
       <Filter>Scenes</Filter>
     </ClInclude>
     <ClInclude Include="Source\PMQuest2.h">
+      <Filter>Quests\PrimusMundis</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\easings.h" />
+    <ClInclude Include="Source\Transitions.h" />
+    <ClInclude Include="Source\PMQuest3.h">
       <Filter>Quests\PrimusMundis</Filter>
     </ClInclude>
   </ItemGroup>

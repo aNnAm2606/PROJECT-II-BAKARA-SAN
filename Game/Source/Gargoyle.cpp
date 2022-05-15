@@ -11,21 +11,22 @@ Gargoyle::Gargoyle()
 	p_Stats.damage = 1;
 	p_Stats.speed = 1;
 
-	p_CharacterSpriteSheet = app->tex->Load("Assets/Art/Enemies/gargoyle.png");
+	p_CharacterSpriteSheet = app->tex->Load("Assets/Art/Enemies/gargoyle_battle.png");
 	p_CharacterRect = {
-		0, 256,
+		0, 0,
 		128, 128
 	};
 
 	p_Abilities[0] = new BasicFrontRowHit(this);
 
-	p_AttackAnimations[0].PushBack({ 0, 384, 128, 128 });
-	p_AttackAnimations[0].PushBack({ 128, 384, 128, 128 });
-	p_AttackAnimations[0].PushBack({ 256, 384, 128, 128 });
+	p_AttackAnimations[0].PushBack({ 0, 0, 128, 128 });
+	p_AttackAnimations[0].PushBack({ 128, 0, 128, 128 });
+	p_AttackAnimations[0].PushBack({ 256, 0, 128, 128 });
+	p_AttackAnimations[0].PushBack({ 384, 0, 128, 128 });
 	p_AttackAnimations[0].speed = 0.2f;
 	p_AttackAnimations[0].loop = false;
 
-	SDL_Rect rect = { 0, 640, 128, 128 };
+	SDL_Rect rect = { 0, 256, 128, 128 };
 
 	for (int i = 0; i < 5; i++) {
 		rect.x = i * 128;
