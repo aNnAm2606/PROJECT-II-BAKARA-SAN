@@ -92,12 +92,13 @@ bool GuiManager::Start()
 	return true;
 }
 
-
 bool GuiManager::Update(float dt)
 {
 	if (app->input->GetKey(SDL_SCANCODE_F1) == KEY_DOWN)
 		debug = !debug;
 
+	if (app->input->GetKey(SDL_SCANCODE_B) == KEY_DOWN)
+		battlePanel->Enable();
 	if (app->input->GetKey(SDL_SCANCODE_V) == KEY_DOWN)
 		battlePanel->Disable();
 
@@ -156,7 +157,6 @@ bool GuiManager::Update(float dt)
 	
 	accumulatedTime += dt;
 	if (accumulatedTime >= updateMsCycle) doLogic = true;
-
 
 	UpdateAll(dt,doLogic);
 
