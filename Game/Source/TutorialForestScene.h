@@ -34,7 +34,7 @@ public:
 	bool CleanUp();
 
 private:
-	
+	uint Fade_FX = NULL;
 	AlanParsons m_AlanParsons;
 };
 

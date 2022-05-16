@@ -35,7 +35,7 @@ public:
 	bool CleanUp();
 
 private:
-	
+	uint Fade_FX = NULL;
 
 	GargoyleTest m_GargoyleTest;
 };

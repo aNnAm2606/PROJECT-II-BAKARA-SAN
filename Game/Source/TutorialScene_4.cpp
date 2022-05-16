@@ -43,6 +43,8 @@ bool TutorialScene_4::Start()
 	
 	sceneTexture = app->tex->Load("Assets/Art/Maps/tutorial_map_4.png");
 
+	Fade_FX = app->audio->LoadFx("Assets/Audio/Fx/fade_in.wav");
+	app->audio->PlayFx(Fade_FX);
 	app->audio->ChangeMusic(DUNGEON2_MUSIC, 1.0f, 1.0f);
 
 	

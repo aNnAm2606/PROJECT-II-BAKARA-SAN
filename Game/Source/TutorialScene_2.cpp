@@ -40,7 +40,8 @@ bool TutorialScene_2::Awake(pugi::xml_node& config)
 bool TutorialScene_2::Start()
 {
 	Scene::Start();
-
+	Fade_FX = app->audio->LoadFx("Assets/Audio/Fx/fade_in.wav");
+	app->audio->PlayFx(Fade_FX);
 	sceneTexture = app->tex->Load("Assets/Art/Maps/tutorial_map_2.png");
 
 	app->currentScene = sceneID::TUTORIAL_2;

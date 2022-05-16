@@ -38,6 +38,7 @@ bool GameplayScreen::Start()
 {
 	Scene::Start();
 	sceneTexture = app->tex->Load("Assets/Art/Maps/tutorial_map_part1.png");
+
 	return true;
 }
 
@@ -64,8 +65,9 @@ bool GameplayScreen::PostUpdate()
 	Scene::PostUpdate();
 	bool ret = true;
 
-	if(app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
+	if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN) {
 		app->guiManager->pausePanel->Enable();
+	}
 
 	return ret;
 }

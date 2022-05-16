@@ -39,7 +39,7 @@ public:
 	bool CleanUp();
 
 private:
-	
+	uint Fade_FX = NULL;
 	
 
 	Triana m_Triana;

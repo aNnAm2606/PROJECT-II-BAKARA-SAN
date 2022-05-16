@@ -48,10 +48,12 @@ bool GuiManager::Start()
 	inventoryScreen = app->tex->Load("Assets/Art/GUI/inventoryUI.png");
 	partyScreen = app->tex->Load("Assets/Art/GUI/partyUI.png");
 
+
 	// Audio for buttons
 	//app->audio->LoadFx("Assets/audio/fx/buttonFocus.wav");
 	//app->audio->LoadFx("Assets/audio/fx/buttonPressed.wav");
-
+	Close_FX = app->audio->LoadFx("Assets/Audio/Fx/UI_CloseMenu.wav");
+	Open_FX = app->audio->LoadFx("Assets/Audio/Fx/UI_openMenu.wav");
 	debug = false;
 	cursorMode = false;
 	cursor = 0;
@@ -141,10 +143,15 @@ bool GuiManager::Update(float dt)
 		partyPanel->Disable();
 	}
 
-	if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
+	if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN) {
+		if(app->guiManager->pausePanel->gamePaused == false) app->audio->PlayFx(Open_FX);
+		else if (app->guiManager->pausePanel->gamePaused == true) app->audio->PlayFx(Close_FX);
 		app->guiManager->pausePanel->gamePaused = !app->guiManager->pausePanel->gamePaused;
-	if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN && app->guiManager->settingsPanel->GetActive() == true)
+	}
+	if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN && app->guiManager->settingsPanel->GetActive() == true) {
+		app->audio->PlayFx(Close_FX);
 		app->guiManager->settingsPanel->Disable();
+	}
 
 	if (app->guiManager->pausePanel->gamePaused == true
 		&& app->guiManager->settingsPanel->GetActive() == false

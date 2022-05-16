@@ -33,7 +33,6 @@ public:
 	bool CleanUp();
 
 private:
-	
 
 };
 

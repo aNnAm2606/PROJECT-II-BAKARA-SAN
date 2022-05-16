@@ -78,6 +78,10 @@ public:
 
 	GuiState lastPanel;
 
+private:
+	uint Close_FX = NULL;
+	uint Open_FX = NULL;
+
 };
 
 #endif // __GUIMANAGER_H__

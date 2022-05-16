@@ -41,6 +41,7 @@ bool TownScene::Start()
 	Scene::Start();
 
 	sceneTexture = app->tex->Load("Assets/Art/Maps/town_map.png");
+	Fade_FX = app->audio->LoadFx("Assets/Audio/Fx/fade_in.wav");
 	app->audio->ChangeMusic(TOWN_MUSIC, 1.0f, 1.0f);
 
 	m_Triana.Init();

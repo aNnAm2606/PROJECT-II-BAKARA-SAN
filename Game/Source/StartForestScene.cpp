@@ -42,6 +42,7 @@ bool StartForestScene::Start()
 	Scene::Start();
 	
 	sceneTexture = app->tex->Load("Assets/Art/Maps/start_forest_map.png");
+	Fade_FX = app->audio->LoadFx("Assets/Audio/Fx/fade_in.wav");
 	app->audio->ChangeMusic(FOREST_MUSIC, 1.0f, 1.0f);
 
 	app->currentScene = sceneID::START_FOREST;

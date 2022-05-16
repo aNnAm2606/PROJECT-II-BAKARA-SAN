@@ -42,7 +42,7 @@ bool WorldMapScene::Start()
 	Scene::Start();
 
 	sceneTexture = app->tex->Load("Assets/Art/Maps/world_map.png");
-
+	Portal_FX = app->audio->LoadFx("Assets/Audio/Fx/portal.wav");
 	app->audio->ChangeMusic(WORLDMAP_MUSIC, 1.0f, 1.0f);
 
 	app->currentScene = sceneID::WORLD_MAP;
@@ -72,9 +72,18 @@ bool WorldMapScene::PostUpdate()
 {
 	Scene::PostUpdate();
 	bool ret = true;
-	if (app->input->GetKey(SDL_SCANCODE_1) == KEY_DOWN)		app->transitions->SelectTransition(1, 0, 1280, this, (Module*)app->startForestScene);
-	if (app->input->GetKey(SDL_SCANCODE_2) == KEY_DOWN)		app->transitions->SelectTransition(1, 0, 1280, this, (Module*)app->townScene);
-	if (app->input->GetKey(SDL_SCANCODE_3) == KEY_DOWN)		app->transitions->SelectTransition(1, 0, 1280, this, (Module*)app->dungeonScene);
+	if (app->input->GetKey(SDL_SCANCODE_1) == KEY_DOWN) {
+		app->audio->PlayFx(Portal_FX);
+		app->transitions->SelectTransition(1, 0, 1280, this, (Module*)app->startForestScene);
+	}
+	if (app->input->GetKey(SDL_SCANCODE_2) == KEY_DOWN) {
+		app->audio->PlayFx(Portal_FX);
+		app->transitions->SelectTransition(1, 0, 1280, this, (Module*)app->townScene);
+	}
+	if (app->input->GetKey(SDL_SCANCODE_3) == KEY_DOWN) {
+		app->audio->PlayFx(Portal_FX);
+		app->transitions->SelectTransition(1, 0, 1280, this, (Module*)app->dungeonScene);
+	}
 
 
 	return ret;
