@@ -104,6 +104,16 @@ bool GuiManager::Update(float dt)
 	if (app->input->GetKey(SDL_SCANCODE_V) == KEY_DOWN)
 		battlePanel->Disable();
 
+	if (app->input->GetKey(SDL_SCANCODE_K) == KEY_DOWN)
+		losePanel->Enable();
+	if (app->input->GetKey(SDL_SCANCODE_L) == KEY_DOWN)
+		losePanel->Disable();
+
+	if (app->input->GetKey(SDL_SCANCODE_I) == KEY_DOWN)
+		victoryPanel->Enable();
+	if (app->input->GetKey(SDL_SCANCODE_O) == KEY_DOWN)
+		victoryPanel->Disable();
+
 	if (app->input->GetKey(SDL_SCANCODE_Q) == KEY_DOWN)
 	{
 		cursorMode = !cursorMode;
