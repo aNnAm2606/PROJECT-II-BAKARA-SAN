@@ -164,6 +164,8 @@ public:
 	sceneID currentScene;
 	sceneID savedScene;
 
+	uint64 frameCount = 0;
+
 private:
 
 	int argc;
@@ -194,7 +196,6 @@ private:
 	Timer frameTime;
 	Timer lastSecFrameTime;
 
-	uint64 frameCount = 0;
 	uint32 framesPerSecond = 0;
 	uint32 lastSecFrameCount = 0;
 

@@ -39,6 +39,7 @@ bool PlayerModule::Awake()
 bool PlayerModule::Start()
 {
 	playerSheet = app->tex->Load("Assets/Art/Characters/chaman.png");
+	Walking_FX = app->audio->LoadFx("Assets/Audio/Fx/Character_walking.wav");
 	playerRect.w = 40;
 	playerRect.h = 20;
 	playerSpeed = 10;
@@ -72,17 +73,27 @@ bool PlayerModule::Update(float dt)
 	
 	if (app->input->GamepadConnected() == false)
 	{
-		if (app->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT )
+		if (app->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT)
+		{
+			if (app->frameCount % 18 == 0) app->audio->PlayFx(Walking_FX);
 			playerPos.x += playerSpeed;
+		}
 		
-		if (app->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT )
+		if (app->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT)
+		{
+			if (app->frameCount % 18 == 0) app->audio->PlayFx(Walking_FX);
 			playerPos.x -= playerSpeed;
+		}
 
-		if (app->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT)
+		if (app->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT) {
+			if (app->frameCount % 18 == 0) app->audio->PlayFx(Walking_FX);
 			playerPos.y -= playerSpeed;
+		}
 
-		if (app->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT)	
+		if (app->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT) {
+			if (app->frameCount % 18 == 0) app->audio->PlayFx(Walking_FX);
 			playerPos.y += playerSpeed;
+		}
 	}
 	else
 	{

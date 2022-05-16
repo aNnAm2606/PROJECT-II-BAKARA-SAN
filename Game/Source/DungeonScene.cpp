@@ -71,6 +71,8 @@ bool DungeonScene::Start()
 
 	keyTexture = app->tex->Load("Assets/Art/Items/items.png");
 	leverTexture = app->tex->Load("Assets/Art/Items/weapons.png");
+	Lever_FX = app->audio->LoadFx("Assets/Audio/Fx/trigger.wav");
+	Pickup_FX = app->audio->LoadFx("Assets/Audio/Fx/pickup_items.wav");
 
 	app->audio->ChangeMusic(DUNGEON1_MUSIC, 1.0f, 1.0f);
 
@@ -85,16 +87,19 @@ bool DungeonScene::PreUpdate()
 	
 	if (secretRoomButton->Intersects(app->playerModule->GetPLayerCollider()->rect))
 	{
+		app->audio->PlayFx(Lever_FX);
 		isSecretRoomOpen = true;
 	}
 	if (dungeonKey->Intersects(app->playerModule->GetPLayerCollider()->rect))
 	{
 		keyObtained = true;
+		app->audio->PlayFx(Pickup_FX);
 	}
 	if (lever->Intersects(app->playerModule->GetPLayerCollider()->rect))
 	{
 		if (app->input->GetKey(SDL_SCANCODE_E) == KEY_DOWN)
 		{
+			app->audio->PlayFx(Lever_FX);
 			leverActivated = !leverActivated;
 		}
 	}

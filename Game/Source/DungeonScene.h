@@ -65,7 +65,8 @@ private:
 
 	bool toggleDebug;
 
-
+	uint Lever_FX = NULL;
+	uint Pickup_FX = NULL;
 };
 
 #endif //__DUNGEON_SCENE_H__

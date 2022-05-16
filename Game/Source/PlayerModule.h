@@ -14,6 +14,7 @@ private:
 	SDL_Texture* playerSheet;
 	SDL_Rect playerRect;
 	Collider* playerCollider;
+	uint Walking_FX = NULL;
 public:
 	PlayerModule(bool startEnabled);
 
