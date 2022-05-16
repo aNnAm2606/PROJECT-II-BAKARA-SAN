@@ -43,8 +43,6 @@ bool TutorialScene_2::Start()
 
 	sceneTexture = app->tex->Load("Assets/Art/Maps/tutorial_map_2.png");
 
-	app->audio->ChangeMusic(DUNGEON_MUSIC, 1.0f, 1.0f);
-
 	app->currentScene = sceneID::TUTORIAL_2;
 	return true;
 }

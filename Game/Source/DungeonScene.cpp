@@ -72,7 +72,7 @@ bool DungeonScene::Start()
 	keyTexture = app->tex->Load("Assets/Art/Items/items.png");
 	leverTexture = app->tex->Load("Assets/Art/Items/weapons.png");
 
-	app->audio->ChangeMusic(DUNGEON_MUSIC, 1.0f, 1.0f);
+	app->audio->ChangeMusic(DUNGEON1_MUSIC, 1.0f, 1.0f);
 
 	app->currentScene = sceneID::DUNGEON;
 	return true;

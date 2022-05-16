@@ -1,6 +1,7 @@
 #include "Credits.h"
 #include "Log.h"
 #include "App.h"
+#include "Audio.h"
 #include "GuiManager.h"
 #include "FadeToBlack.h"
 #include "TitleScreen.h"
@@ -46,6 +47,7 @@ bool Credits::OnGuiMouseClickEvent(GuiControl* control)
     if(control->id == closeBtn->id)
     {
         app->guiManager->creditsPanel->Disable();
+        app->audio->ChangeMusic(TITLE_MUSIC, 0.0f, 0.0f);
     }
 
     return true;

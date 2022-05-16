@@ -43,7 +43,7 @@ bool TutorialForestScene::Start()
 	
 	sceneTexture = app->tex->Load("Assets/Art/Maps/tutorial_forest_map.png");
 
-	app->audio->ChangeMusic(SANCTUARY_MUSIC, 1.0f, 1.0f);
+	app->audio->ChangeMusic(FOREST_MUSIC, 1.0f, 1.0f);
 
 	m_AlanParsons.Init();
 

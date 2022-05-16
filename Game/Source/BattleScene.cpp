@@ -12,6 +12,7 @@
 #include "TownScene.h"
 
 #include "App.h"
+#include "Audio.h"
 #include "Input.h"
 #include "Textures.h"
 
@@ -42,6 +43,8 @@ bool BattleScene::Start()
 	Scene::Start();
 
 	sceneTexture = app->tex->Load("Assets/Art/Maps/fightground.png");
+
+	app->audio->ChangeMusic(BATTLE_MUSIC, 1.0f, 1.0f);
 
 	memset(m_PlayerGrid, NULL, GRID_SIZE * 4);
 	memset(m_EnemyGrid, NULL, GRID_SIZE * 4);

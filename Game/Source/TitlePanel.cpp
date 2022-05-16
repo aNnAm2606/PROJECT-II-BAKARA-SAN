@@ -2,6 +2,7 @@
 #include "Log.h"
 #include "App.h"
 #include "GuiManager.h"
+#include "Audio.h"
 #include "FadeToBlack.h"
 #include "TitleScreen.h"
 
@@ -97,6 +98,7 @@ bool TitlePanel::OnGuiMouseClickEvent(GuiControl* control)
     {
         app->guiManager->creditsPanel->Enable();
         app->guiManager->titlePanel->Disable();
+        app->audio->ChangeMusic(CREDITS_MUSIC, 1.0f, 1.0f);
     }
 
     return true;

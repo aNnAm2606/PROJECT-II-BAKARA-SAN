@@ -214,7 +214,7 @@ bool Audio::ChangeMusic(int Id, float fadeInTime, float fadeOutTime)
 		Mix_HaltMusic();
 		break;
 	}
-	case DUNGEON_MUSIC:
+	case DUNGEON1_MUSIC:
 	{
 		Mix_ResumeMusic();
 
@@ -222,11 +222,35 @@ bool Audio::ChangeMusic(int Id, float fadeInTime, float fadeOutTime)
 
 		break;
 	}
+	case DUNGEON2_MUSIC:
+	{
+		Mix_ResumeMusic();
+
+		app->audio->PlayMusic("Assets/Audio/Music/dungeon_1.ogg", fadeInTime, fadeOutTime);
+
+		break;
+	}
+	case BATTLE_MUSIC:
+	{
+		Mix_ResumeMusic();
+
+		app->audio->PlayMusic("Assets/Audio/Music/battle.ogg", fadeInTime, fadeOutTime);
+
+		break;
+	}
+	case BATTLEBOSS_MUSIC:
+	{
+		Mix_ResumeMusic();
+
+		app->audio->PlayMusic("Assets/Audio/Music/battle_finalboss.ogg", fadeInTime, fadeOutTime);
+
+		break;
+	}
 	case INHOUSE_MUSIC:
 	{
 		Mix_ResumeMusic();
 
-		app->audio->PlayMusic("Assets/Audio/Music/in_the_house.ogg", fadeInTime, fadeOutTime);
+		app->audio->PlayMusic("Assets/Audio/Music/safe_house.ogg", fadeInTime, fadeOutTime);
 
 		break;
 	}
@@ -258,7 +282,7 @@ bool Audio::ChangeMusic(int Id, float fadeInTime, float fadeOutTime)
 	{
 		Mix_ResumeMusic();
 
-		app->audio->PlayMusic("Assets/Audio/Music/Town.ogg", fadeInTime, fadeOutTime);
+		app->audio->PlayMusic("Assets/Audio/Music/town.ogg", fadeInTime, fadeOutTime);
 
 		break;
 	}
@@ -267,6 +291,30 @@ bool Audio::ChangeMusic(int Id, float fadeInTime, float fadeOutTime)
 		Mix_ResumeMusic();
 
 		app->audio->PlayMusic("Assets/Audio/Music/world_map.ogg", fadeInTime, fadeOutTime);
+
+		break;
+	}
+	case FOREST_MUSIC:
+	{
+		Mix_ResumeMusic();
+
+		app->audio->PlayMusic("Assets/Audio/Music/forest.ogg", fadeInTime, fadeOutTime);
+
+		break;
+	}
+	case BAR_MUSIC:
+	{
+		Mix_ResumeMusic();
+
+		app->audio->PlayMusic("Assets/Audio/Music/restaurant.ogg", fadeInTime, fadeOutTime);
+
+		break;
+	}
+	case CREDITS_MUSIC:
+	{
+		Mix_ResumeMusic();
+
+		app->audio->PlayMusic("Assets/Audio/Music/credits.ogg", fadeInTime, fadeOutTime);
 
 		break;
 	}

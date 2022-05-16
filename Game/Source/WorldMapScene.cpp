@@ -43,7 +43,7 @@ bool WorldMapScene::Start()
 
 	sceneTexture = app->tex->Load("Assets/Art/Maps/world_map.png");
 
-	app->audio->ChangeMusic(DUNGEON_MUSIC, 1.0f, 1.0f);
+	app->audio->ChangeMusic(WORLDMAP_MUSIC, 1.0f, 1.0f);
 
 	app->currentScene = sceneID::WORLD_MAP;
 	return true;

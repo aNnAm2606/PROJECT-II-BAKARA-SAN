@@ -43,7 +43,7 @@ bool TutorialScene_4::Start()
 	
 	sceneTexture = app->tex->Load("Assets/Art/Maps/tutorial_map_4.png");
 
-	app->audio->ChangeMusic(DUNGEON_MUSIC, 1.0f, 1.0f);
+	app->audio->ChangeMusic(DUNGEON2_MUSIC, 1.0f, 1.0f);
 
 	
 	m_GargoyleTest.Init();
