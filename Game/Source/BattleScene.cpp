@@ -271,12 +271,22 @@ void BattleScene::FakeKill(Character::ECharacterType character)
 
 void BattleScene::Waiting()
 {
+	GamePad& gamepad = app->input->pads[0];
 	if (m_ActiveCharacter->IsPlayer()) {
 		// TODO: SWAP WITH USER INTERFACE
-		if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN) {
+		if (app->input->GamepadConnected() == false)
+		{
+			if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN) {
+				m_BattleState = EBATTLESTATE_ATTACKING;
+				m_ActiveCharacter->StartAttack();
+			}
+		}
+		else if (gamepad.a == true)
+		{
 			m_BattleState = EBATTLESTATE_ATTACKING;
 			m_ActiveCharacter->StartAttack();
 		}
+		
 	}
 	else {
 		m_BattleState = EBATTLESTATE_ATTACKING;

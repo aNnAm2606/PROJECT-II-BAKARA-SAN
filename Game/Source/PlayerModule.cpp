@@ -98,13 +98,29 @@ bool PlayerModule::Update(float dt)
 	else
 	{
 		if (gamePad.left_x > 0.0f)
+		{
+			if (app->frameCount % 18 == 0) app->audio->PlayFx(Walking_FX);
 			playerPos.x += playerSpeed;
+		}
+			
 		if (gamePad.left_x < 0.0f)
-			playerPos.x -= playerSpeed;
+		{
+			if (app->frameCount % 18 == 0) app->audio->PlayFx(Walking_FX);
+				playerPos.x -= playerSpeed;
+		}
+			
 		if (gamePad.left_y > 0.0f)
+		{
+			if (app->frameCount % 18 == 0) app->audio->PlayFx(Walking_FX);
 			playerPos.y += playerSpeed;
+		}
+			
 		if (gamePad.left_y < 0.0f)
-		playerPos.y -= playerSpeed;
+		{
+			if (app->frameCount % 18 == 0) app->audio->PlayFx(Walking_FX);
+			playerPos.y -= playerSpeed;
+		}
+		
 	}
 
 	if (app->input->GetKey(SDL_SCANCODE_B) == KEY_DOWN) {

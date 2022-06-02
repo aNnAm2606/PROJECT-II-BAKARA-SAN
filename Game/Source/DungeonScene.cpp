@@ -84,7 +84,7 @@ bool DungeonScene::Start()
 bool DungeonScene::PreUpdate()
 {
 	Scene::PreUpdate();
-	
+	GamePad& gamepad = app->input->pads[0];
 	if (secretRoomButton->Intersects(app->playerModule->GetPLayerCollider()->rect))
 	{
 		app->audio->PlayFx(Lever_FX);
@@ -97,11 +97,20 @@ bool DungeonScene::PreUpdate()
 	}
 	if (lever->Intersects(app->playerModule->GetPLayerCollider()->rect))
 	{
-		if (app->input->GetKey(SDL_SCANCODE_E) == KEY_DOWN)
+		if (app->input->GamepadConnected() == false)
+		{
+			if (app->input->GetKey(SDL_SCANCODE_E) == KEY_DOWN)
+			{
+				app->audio->PlayFx(Lever_FX);
+				leverActivated = !leverActivated;
+			}
+		}
+		else if (gamepad.a == true)
 		{
 			app->audio->PlayFx(Lever_FX);
 			leverActivated = !leverActivated;
 		}
+		
 	}
 	if (app->input->GetKey(SDL_SCANCODE_F1) == KEY_DOWN) { toggleDebug = !toggleDebug; }
 

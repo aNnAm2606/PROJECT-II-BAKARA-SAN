@@ -70,20 +70,43 @@ bool WorldMapScene::Update(float dt)
 // Called each loop iteration
 bool WorldMapScene::PostUpdate()
 {
-	Scene::PostUpdate();
 	bool ret = true;
-	if (app->input->GetKey(SDL_SCANCODE_1) == KEY_DOWN) {
-		app->audio->PlayFx(Portal_FX);
-		app->transitions->SelectTransition(1, 0, 1280, this, (Module*)app->startForestScene);
+	GamePad& gamepad = app->input->pads[0];
+	Scene::PostUpdate();
+	if (app->input->GamepadConnected() == false)
+	{
+		if (app->input->GetKey(SDL_SCANCODE_1) == KEY_DOWN) {
+			app->audio->PlayFx(Portal_FX);
+			app->transitions->SelectTransition(1, 0, 1280, this, (Module*)app->startForestScene);
+		}
+		if (app->input->GetKey(SDL_SCANCODE_2) == KEY_DOWN) {
+			app->audio->PlayFx(Portal_FX);
+			app->transitions->SelectTransition(1, 0, 1280, this, (Module*)app->townScene);
+		}
+		if (app->input->GetKey(SDL_SCANCODE_3) == KEY_DOWN) {
+			app->audio->PlayFx(Portal_FX);
+			app->transitions->SelectTransition(1, 0, 1280, this, (Module*)app->dungeonScene);
+		}
 	}
-	if (app->input->GetKey(SDL_SCANCODE_2) == KEY_DOWN) {
-		app->audio->PlayFx(Portal_FX);
-		app->transitions->SelectTransition(1, 0, 1280, this, (Module*)app->townScene);
+	else
+	{
+		if (gamepad.a == true)
+		{
+			app->audio->PlayFx(Portal_FX);
+			app->transitions->SelectTransition(1, 0, 1280, this, (Module*)app->townScene);
+		}
+		if (gamepad.b == true)
+		{
+			app->audio->PlayFx(Portal_FX);
+			app->transitions->SelectTransition(1, 0, 1280, this, (Module*)app->startForestScene);
+		}
+		if (gamepad.x == true)
+		{
+			app->audio->PlayFx(Portal_FX);
+			app->transitions->SelectTransition(1, 0, 1280, this, (Module*)app->dungeonScene);
+		}
 	}
-	if (app->input->GetKey(SDL_SCANCODE_3) == KEY_DOWN) {
-		app->audio->PlayFx(Portal_FX);
-		app->transitions->SelectTransition(1, 0, 1280, this, (Module*)app->dungeonScene);
-	}
+	
 
 
 	return ret;

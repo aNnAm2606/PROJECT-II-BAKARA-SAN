@@ -96,6 +96,7 @@ bool GuiManager::Start()
 
 bool GuiManager::Update(float dt)
 {
+	GamePad& gamepad = app->input->pads[0];
 	if (app->input->GetKey(SDL_SCANCODE_F1) == KEY_DOWN)
 		debug = !debug;
 
@@ -152,16 +153,32 @@ bool GuiManager::Update(float dt)
 		questPanel->Disable();
 		partyPanel->Disable();
 	}
-
-	if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN) {
-		if(app->guiManager->pausePanel->gamePaused == false) app->audio->PlayFx(Open_FX);
-		else if (app->guiManager->pausePanel->gamePaused == true) app->audio->PlayFx(Close_FX);
-		app->guiManager->pausePanel->gamePaused = !app->guiManager->pausePanel->gamePaused;
+	if (app->input->GamepadConnected() == false)
+	{
+		if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN) {
+			if (app->guiManager->pausePanel->gamePaused == false) app->audio->PlayFx(Open_FX);
+			else if (app->guiManager->pausePanel->gamePaused == true) app->audio->PlayFx(Close_FX);
+			app->guiManager->pausePanel->gamePaused = !app->guiManager->pausePanel->gamePaused;
+		}
+		if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN && app->guiManager->settingsPanel->GetActive() == true) {
+			app->audio->PlayFx(Close_FX);
+			app->guiManager->settingsPanel->Disable();
+		}
 	}
-	if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN && app->guiManager->settingsPanel->GetActive() == true) {
-		app->audio->PlayFx(Close_FX);
-		app->guiManager->settingsPanel->Disable();
+	else
+	{
+		if (gamepad.start == true)
+		{
+			if (app->guiManager->pausePanel->gamePaused == false) app->audio->PlayFx(Open_FX);
+			else if (app->guiManager->pausePanel->gamePaused == true) app->audio->PlayFx(Close_FX);
+			app->guiManager->pausePanel->gamePaused = !app->guiManager->pausePanel->gamePaused;
+		}
+		if (gamepad.start == true && app->guiManager->settingsPanel->GetActive() == true) {
+			app->audio->PlayFx(Close_FX);
+			app->guiManager->settingsPanel->Disable();
+		}
 	}
+	
 
 	if (app->guiManager->pausePanel->gamePaused == true
 		&& app->guiManager->settingsPanel->GetActive() == false

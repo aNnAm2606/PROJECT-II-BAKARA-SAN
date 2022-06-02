@@ -63,17 +63,7 @@ bool TitleScreen::PreUpdate()
 bool TitleScreen::Update(float dt)
 {
 	Scene::Update(dt);
-	if(app->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
-		app->render->camera.y -= 1;
-
-	if(app->input->GetKey(SDL_SCANCODE_DOWN) == KEY_REPEAT)
-		app->render->camera.y += 1;
-
-	if(app->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT)
-		app->render->camera.x -= 1;
-
-	if(app->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
-		app->render->camera.x += 1;
+	
 
 	app->render->DrawTexture(bg, 0, 0, NULL);
 	app->render->DrawTexture(title, 54, 235, NULL);

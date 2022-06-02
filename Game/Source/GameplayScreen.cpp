@@ -64,10 +64,16 @@ bool GameplayScreen::PostUpdate()
 {
 	Scene::PostUpdate();
 	bool ret = true;
-
-	if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN) {
-		app->guiManager->pausePanel->Enable();
+	GamePad& gamepad = app->input->pads[0];
+	if(app->input->GamepadConnected() == false)
+	{
+		if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
+		{
+			app->guiManager->pausePanel->Enable();
+		}
 	}
+	else if(gamepad.start == true) app->guiManager->pausePanel->Enable();
+	
 
 	return ret;
 }

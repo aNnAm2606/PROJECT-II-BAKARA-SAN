@@ -129,6 +129,8 @@ void Dialog::SetActiveNode(size_t id)
 
 void Dialog::Update()
 {
+	GamePad& gamepad = app->input->pads[0];
+	
 	if (activeNode) {
 		app->render->DrawTextureScaled(dialogImg, posX, posY, dialogWidth, dialogHeight, NULL, false);
 
@@ -159,11 +161,19 @@ void Dialog::Update()
 			if (activeNode->nodes.size() > 0) {
 				continueButton.Update();
 				continueButton.Draw();
-
-				if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN || continueButton.clicked) {
+				if (app->input->GamepadConnected() == false)
+				{
+					if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN || continueButton.clicked) {
+						continueButton.clicked = false;
+						SetActiveNode(activeNode->nodes[0]);
+					}
+				}
+				else if (gamepad.a == true || continueButton.clicked)
+				{
 					continueButton.clicked = false;
 					SetActiveNode(activeNode->nodes[0]);
 				}
+				
 			}
 			else {
 				finishButton.Update();

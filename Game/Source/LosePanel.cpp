@@ -25,7 +25,13 @@ bool LosePanel::Start()
 
 bool LosePanel::Update(float dt, bool doLogic)
 {
-    if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN) CleanUp();
+    GamePad& gamepad = app->input->pads[0];
+
+    if (app->input->GamepadConnected() == false)
+    {
+        if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN) CleanUp();
+    }
+    else if (gamepad.a == true) CleanUp();
     GuiPanel::Update(dt, doLogic);
     return true;
 }

@@ -41,6 +41,7 @@ void NPC::Interact()
 void NPC::Update()
 {
 	if (!m_Active) return;
+	GamePad& gamepad = app->input->pads[0];
 
 	if (m_Interacting) {
 		if (!app->dialog->IsDialogActive()) {
@@ -48,14 +49,30 @@ void NPC::Update()
 		}
 	}
 	else {
-		if (app->input->GetKey(SDL_SCANCODE_E) == KEY_DOWN) {
-			int x, y;
-			app->playerModule->GetPosition(x, y);
+		if (app->input->GamepadConnected() == false)
+		{
+			if (app->input->GetKey(SDL_SCANCODE_E) == KEY_DOWN) {
+				int x, y;
+				app->playerModule->GetPosition(x, y);
 
-			float distance = DISTANCE_F(m_Position.x, m_Position.y, x, y);
+				float distance = DISTANCE_F(m_Position.x, m_Position.y, x, y);
 
-			if (distance < m_InteractDistance) {
-				Interact();
+				if (distance < m_InteractDistance) {
+					Interact();
+				}
+			}
+		}
+		else
+		{
+			if (gamepad.a == true) {
+				int x, y;
+				app->playerModule->GetPosition(x, y);
+
+				float distance = DISTANCE_F(m_Position.x, m_Position.y, x, y);
+
+				if (distance < m_InteractDistance) {
+					Interact();
+				}
 			}
 		}
 	}

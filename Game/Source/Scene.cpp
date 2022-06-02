@@ -67,19 +67,32 @@ bool Scene::PreUpdate()
 // Called each loop iteration
 bool Scene::Update(float dt)
 {
-	if (app->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
-		app->render->camera.y -= app->render->cameraSpeed;
+	GamePad& gamepad = app->input->pads[0];
 
-	if (app->input->GetKey(SDL_SCANCODE_DOWN) == KEY_REPEAT)
-		app->render->camera.y += app->render->cameraSpeed;
+	if (app->input->GamepadConnected() == false)
+	{
+		if (app->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
+			app->render->camera.y -= app->render->cameraSpeed;
+
+		if (app->input->GetKey(SDL_SCANCODE_DOWN) == KEY_REPEAT)
+			app->render->camera.y += app->render->cameraSpeed;
 
 
-	if (app->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT)
-		app->render->camera.x -= app->render->cameraSpeed;
+		if (app->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT)
+			app->render->camera.x -= app->render->cameraSpeed;
 
 
-	if (app->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
-		app->render->camera.x += app->render->cameraSpeed;
+		if (app->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
+			app->render->camera.x += app->render->cameraSpeed;
+	}
+	else
+	{
+		if (gamepad.right == true) app->render->camera.x += app->render->cameraSpeed;
+		if (gamepad.left == true) app->render->camera.x -= app->render->cameraSpeed;
+		if (gamepad.up == true) app->render->camera.y -= app->render->cameraSpeed;
+		if (gamepad.down == true) app->render->camera.y += app->render->cameraSpeed;
+	}
+	
 	if(sceneTexture != NULL) app->render->DrawTexture(sceneTexture, 0, 0, NULL);
 	
 	
