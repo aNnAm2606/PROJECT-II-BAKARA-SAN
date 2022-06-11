@@ -26,6 +26,7 @@ class AssetsManager;
 class InventoryModule;
 class QuestModule;
 class Transitions;
+class ParticleModule;
 
 //Scenes
 class LogoScreen;
@@ -145,6 +146,7 @@ public:
 	InventoryModule* inventory;
 	QuestModule* quests;
 	Transitions* transitions;
+	ParticleModule* particleModule;
 
 	//Scenes
 	LogoScreen* logoScreen;

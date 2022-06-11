@@ -139,6 +139,8 @@
     <ClCompile Include="Source\ModuleCollisions.cpp" />
     <ClCompile Include="Source\NPC.cpp" />
     <ClCompile Include="Source\Paladin.cpp" />
+    <ClCompile Include="Source\Particle.cpp" />
+    <ClCompile Include="Source\ParticleModule.cpp" />
     <ClCompile Include="Source\PartyPanel.cpp" />
     <ClCompile Include="Source\PausePanel.cpp" />
     <ClCompile Include="Source\PerfTimer.cpp" />
@@ -219,6 +221,8 @@
     <ClInclude Include="Source\NPC.h" />
     <ClInclude Include="Source\p2List.h" />
     <ClInclude Include="Source\Paladin.h" />
+    <ClInclude Include="Source\Particle.h" />
+    <ClInclude Include="Source\ParticleModule.h" />
     <ClInclude Include="Source\PartyPanel.h" />
     <ClInclude Include="Source\PausePanel.h" />
     <ClInclude Include="Source\PerfTimer.h" />

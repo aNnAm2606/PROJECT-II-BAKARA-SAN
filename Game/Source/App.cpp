@@ -13,6 +13,7 @@
 #include "ModuleCollisions.h"
 #include "AssetsManager.h"
 #include "Transitions.h"
+#include "ParticleModule.h"
 
 // Player
 #include "PlayerModule.h"
@@ -63,6 +64,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	collisions = new ModuleCollisions(true);
 	assetsManager = new AssetsManager(true);
 	transitions = new Transitions(true);
+	particleModule = new ParticleModule(false);
 
 	// Game modules
 	dialog = new DialogModule(true);
@@ -119,6 +121,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(inventory);
 	AddModule(quests);
 	AddModule(guiManager);
+	AddModule(particleModule);
 
 	// FadeToBlack
 	AddModule(fade);
