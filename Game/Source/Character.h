@@ -8,6 +8,7 @@
 #define MAX_ABILITIES 1
 
 struct Stats {
+	int maxHealth;
 	int health;
 	int damage;
 	int speed;
@@ -21,6 +22,7 @@ public:
 		// Player characters
 		ECHARACTER_CHAMAN,
 		ECHARACTER_PALADIN,
+		ECHARACTER_MONK,
 
 		// Enemy characters
 		ECHARACTER_FALLEN_ANGEL,
@@ -36,6 +38,10 @@ protected:
 	Stats p_Stats;
 	ECharacterType p_CharacterId;
 
+	SDL_Texture* p_StatsTexture;
+	SDL_Rect p_HealthRect;
+	SDL_Rect p_HealthMissingRect;
+
 	SDL_Texture* p_CharacterSpriteSheet;
 	SDL_Rect p_CharacterRect;
 
@@ -45,6 +51,8 @@ protected:
 	Animation p_IdleAnimation;
 	Animation p_DeadAnimation;
 
+	iPoint p_GridPosition;
+
 	bool p_IsPlayer;
 
 	bool p_Attacking;
@@ -52,7 +60,7 @@ protected:
 	bool p_Remove;
 	int p_SelectedAttack;
 public:
-	Character();
+	Character(iPoint g_pos);
 	virtual ~Character();
 
 	int GetDamage() { return p_Stats.damage; }
@@ -67,13 +75,19 @@ public:
 	virtual void Update();
 
 	void Render(iPoint position);
+	void RenderEffects(iPoint position);
 
 	bool IsAttacking() { return p_Attacking; }
 
 	bool IsDead() { return p_Dead; }
 	bool Remove() { return p_Remove; }
 
+	void SetGridPosition(iPoint position) { p_GridPosition = position; }
+	iPoint GetGridPosition() { return p_GridPosition; }
+
 	ECharacterType getCharacterType() { return p_CharacterId; }
+
+	SDL_Texture* GetCharacterSpriteSheet() { return p_CharacterSpriteSheet; }
 };
 
 #endif  // __LOG_H__

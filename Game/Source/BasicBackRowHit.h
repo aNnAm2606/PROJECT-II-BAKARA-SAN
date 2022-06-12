@@ -10,7 +10,7 @@ public:
 	BasicBackRowHit(Character* character);
 	~BasicBackRowHit();
 
-	virtual void Execute();
+	virtual void Execute(iPoint position);
 };
 
 #endif  // __ABILITY_H__

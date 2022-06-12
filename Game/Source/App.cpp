@@ -64,7 +64,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	collisions = new ModuleCollisions(true);
 	assetsManager = new AssetsManager(true);
 	transitions = new Transitions(true);
-	particleModule = new ParticleModule(false);
+	particleModule = new ParticleModule(true);
 
 	// Game modules
 	dialog = new DialogModule(true);

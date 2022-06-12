@@ -94,7 +94,7 @@ public:
 			PQueueItem<tdata>* prev = start;
 			PQueueItem<tdata>* tmp = start;
 
-			while (tmp && tmp->priority <= priority)
+			while (tmp && tmp->priority > priority)
 			{
 				prev = tmp;
 				tmp = tmp->next;

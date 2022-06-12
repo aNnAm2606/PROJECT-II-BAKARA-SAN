@@ -7,7 +7,7 @@ class Chaman : public Character {
 private:
 
 public:
-	Chaman();
+	Chaman(iPoint g_pos);
 	~Chaman();
 };
 

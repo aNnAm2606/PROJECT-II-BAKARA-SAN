@@ -7,7 +7,7 @@ class Enemy : public Character {
 private:
 
 public:
-	Enemy();
+	Enemy(iPoint g_pos);
 	virtual ~Enemy();
 };
 

@@ -8,6 +8,8 @@
 #include "PlayerModule.h"
 #include "DialogModule.h"
 #include "GuiManager.h"
+#include "ParticleModule.h"
+#include "Particle.h"
 
 #include "BattleScene.h"
 #include "InventoryModule.h"
@@ -42,7 +44,7 @@ bool PlayerModule::Start()
 	Walking_FX = app->audio->LoadFx("Assets/Audio/Fx/Character_walking.wav");
 	playerRect.w = 40;
 	playerRect.h = 20;
-	playerSpeed = 10;
+	playerSpeed = 7;
 	playerCollider->rect = playerRect;
 
 	
@@ -129,6 +131,11 @@ bool PlayerModule::Update(float dt)
 
 	if (app->input->GetKey(SDL_SCANCODE_V) == KEY_DOWN) {
 		app->inventory->AddItem((Item::EItemType)(rand() % Item::EItemType::EITEMTYPE_NONE));
+	}
+
+	if (app->input->GetKey(SDL_SCANCODE_X) == KEY_DOWN) {
+		Particle p;
+		app->particleModule->AddParticle(p, playerPos.x, playerPos.y, 0);
 	}
 	
 	return true;

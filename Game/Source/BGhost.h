@@ -7,7 +7,7 @@ class BGhost : public Enemy {
 private:
 
 public:
-	BGhost();
+	BGhost(iPoint g_pos);
 	~BGhost();
 };
 

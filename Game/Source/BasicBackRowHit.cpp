@@ -6,14 +6,14 @@
 
 BasicBackRowHit::BasicBackRowHit(Character* character) : Ability(character)
 {
-	
+	p_Animation.loop = false;
 }
 
 BasicBackRowHit::~BasicBackRowHit()
 {
 }
 
-void BasicBackRowHit::Execute()
+void BasicBackRowHit::Execute(iPoint p)
 {
 	iPoint position;
 	

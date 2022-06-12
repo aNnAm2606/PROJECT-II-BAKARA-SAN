@@ -8,7 +8,7 @@
 
 ParticleModule::ParticleModule(bool startEnabled) :Module(startEnabled)
 {
-	//particleTexture = app->tex->Load("MyTexture");
+	name.Create("ParticleModule");
 }
 
 ParticleModule::~ParticleModule()
@@ -22,6 +22,7 @@ bool ParticleModule::Awake()
 }
 bool ParticleModule::Start()
 {
+	particleTexture = app->tex->Load("Assets/Art/Enemies/ghost_battle.png");
 	return true;
 }
 bool ParticleModule::CleanUp()
@@ -38,8 +39,6 @@ bool ParticleModule::Update(float dt)
 
 	for (ListItem<Particle*>* item = particles.start; item; item = item->next)
 	{
-		if (item == nullptr)	continue;
-
 		if (item->data->Update(dt) == false)
 		{
 			particles.Del(item);
@@ -54,17 +53,22 @@ bool ParticleModule::PostUpdate()
 	{
 
 		app->render->DrawTexture(particleTexture, item->data->position.x, item->data->position.y, &(item->data->animation.GetCurrentFrame()));
+		
 
 	}
 	return true;
 }
 void ParticleModule::AddParticle(const Particle& particle, int x, int y, uint delay)
 {
-	Particle* p = new Particle(particle);
+	if (particles.Count() < MAX_ACTIVE_PARTICLES)
+	{
+		Particle* p = new Particle(particle);
 
-	p->position.x = x;
-	p->position.y = y;
+		p->position.x = x;
+		p->position.y = y;
 
-	if(particles.Count() < MAX_ACTIVE_PARTICLES) particles.Add(p);
+		particles.Add(p);
+	}
+	
 	
 }

@@ -5,6 +5,7 @@
 #include "Defs.h"
 #include "Log.h"
 #include "Window.h"
+#include "ParticleModule.h"
 
 #include "SDL/include/SDL_render.h"
 
@@ -38,6 +39,7 @@ bool FadeToBlack::Update(float dt)
 		++frameCount;
 		if (frameCount >= maxFadeFrames)
 		{
+			app->particleModule->CleanUp();
 			moduleToDisable->Disable();
 			moduleToEnable->Enable();
 
