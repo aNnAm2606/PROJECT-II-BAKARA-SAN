@@ -27,7 +27,7 @@ Gameplay-wise, ExorQuest isn't your standard RPG. The turn-based combat takes po
 
 Game resolution: 1280x720px@60fps, support for windowed mode and fullscreen
 ❏ Maximum memory usage must be under 256 MB (RAM)
-❏ Turn-based battle system (`Research: RPG Turn-based Combat`)
+❏ Turn-based battle system
 ❏ Team logo: custom art, avoid plain text
 ❏ AUDIO: Sound FX characteristic for the logo
 ❏ AUDIO: Sound FX characteristic for the title appearing
