@@ -130,12 +130,12 @@ bool BattleScene::PreUpdate()
 bool BattleScene::Update(float dt)
 {
 	Scene::Update(dt);
+
 	if (!m_ActiveCharacter) return true;
 
 	Character* c;
 
-	//
-	/*system("cls");
+	system("cls");
 	
 	std::cout << "Players" << std::endl;
 	for (int y = 0; y < GRID_HEIGHT; y++) {
@@ -155,8 +155,8 @@ bool BattleScene::Update(float dt)
 				std::cout << c->GetHealth() << std::endl;
 			}
 		}
-	}*/
-	//
+	}
+	
 
 	for (int y = 0; y < GRID_HEIGHT; y++) {
 		for (int x = 0; x < GRID_WIDTH; x++) {
@@ -204,6 +204,25 @@ bool BattleScene::PostUpdate()
 				position.y = y * GRID_PIXEL_SIZE + m_BattleOffset.y;
 
 				m_EnemyGrid[y][x]->Render(position);
+			}
+		}
+	}
+
+	// Render effects
+	for (int y = 0; y < GRID_HEIGHT; y++) {
+		for (int x = 0; x < GRID_WIDTH; x++) {
+			if (m_PlayerGrid[y][x]) {
+				position.x = x * GRID_PIXEL_SIZE + m_BattleOffset.x;
+				position.y = y * GRID_PIXEL_SIZE + m_BattleOffset.y;
+
+				m_PlayerGrid[y][x]->RenderEffects(position);
+			}
+
+			if (m_EnemyGrid[y][x]) {
+				position.x = x * GRID_PIXEL_SIZE + m_BattleOffset.x + 3 * GRID_PIXEL_SIZE;
+				position.y = y * GRID_PIXEL_SIZE + m_BattleOffset.y;
+
+				m_EnemyGrid[y][x]->RenderEffects(position);
 			}
 		}
 	}

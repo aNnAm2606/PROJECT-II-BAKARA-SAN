@@ -6,7 +6,7 @@
 
 BasicBackRowHit::BasicBackRowHit(Character* character) : Ability(character)
 {
-	
+	p_Animation.loop = false;
 }
 
 BasicBackRowHit::~BasicBackRowHit()

@@ -8,6 +8,7 @@ Chaman::Chaman()
 {
 	p_CharacterId = ECharacterType::ECHARACTER_CHAMAN;
 	p_Stats.health = 25;
+	p_Stats.maxHealth = 25;
 	p_Stats.damage = 4;
 	p_Stats.speed = 2;
 

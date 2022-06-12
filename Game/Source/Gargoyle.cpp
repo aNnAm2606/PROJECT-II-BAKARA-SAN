@@ -8,6 +8,7 @@ Gargoyle::Gargoyle()
 {
 	p_CharacterId = ECharacterType::ECHARACTER_GARGOYLE;
 	p_Stats.health = 20;
+	p_Stats.maxHealth = 20;
 	p_Stats.damage = 1;
 	p_Stats.speed = 1;
 

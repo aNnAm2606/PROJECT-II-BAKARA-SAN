@@ -6,7 +6,7 @@
 
 BasicFrontRowHit::BasicFrontRowHit(Character* character) : Ability(character)
 {
-	
+	p_Animation.loop = false;
 }
 
 BasicFrontRowHit::~BasicFrontRowHit()

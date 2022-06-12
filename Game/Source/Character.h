@@ -8,6 +8,7 @@
 #define MAX_ABILITIES 1
 
 struct Stats {
+	int maxHealth;
 	int health;
 	int damage;
 	int speed;
@@ -36,6 +37,10 @@ protected:
 	Stats p_Stats;
 	ECharacterType p_CharacterId;
 
+	SDL_Texture* p_StatsTexture;
+	SDL_Rect p_HealthRect;
+	SDL_Rect p_HealthMissingRect;
+
 	SDL_Texture* p_CharacterSpriteSheet;
 	SDL_Rect p_CharacterRect;
 
@@ -44,6 +49,8 @@ protected:
 	Animation p_AttackAnimations[MAX_ABILITIES];
 	Animation p_IdleAnimation;
 	Animation p_DeadAnimation;
+	
+	int p_StartAttackAnimFrame;
 
 	bool p_IsPlayer;
 
@@ -67,6 +74,7 @@ public:
 	virtual void Update();
 
 	void Render(iPoint position);
+	void RenderEffects(iPoint position);
 
 	bool IsAttacking() { return p_Attacking; }
 
