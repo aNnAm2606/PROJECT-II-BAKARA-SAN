@@ -6,6 +6,7 @@
 #include "FadeToBlack.h"
 #include "PausePanel.h"
 #include "Window.h"
+#include "Transitions.h"
 
 SettingsPanel::SettingsPanel(bool active) : GuiPanel(active)
 {
@@ -95,7 +96,8 @@ bool SettingsPanel::Update(float dt, bool doLogic)
 
 bool SettingsPanel::Draw()
 {
-    app->render->DrawTexture(app->guiManager->settingsBox, -app->render->camera.x + 76, -app->render->camera.y + 73, &box);
+    app->transitions->UiAnim(5, -500, 100);
+    app->render->DrawTexture(app->guiManager->settingsBox, 76, 73, &box ,false);
     GuiPanel::Draw();
     return true;
 }
@@ -140,12 +142,12 @@ bool SettingsPanel::OnGuiMouseClickEvent(GuiControl* control)
     {
     }
     
-    //if (control->id ==musicSldr->id)
-    //{ 
-    //    app->audio->SetMusicVolume(musicSldr->GetValue());
-    //    LOG("VOLUME %i", app->audio->GetMusicVolume());
-    //    LOG("sldr value %i", musicSldr->GetValue());
-    //}
+    if (control->id ==musicSldr->id)
+    { 
+        app->audio->SetMusicVolume(musicSldr->GetValue());
+        LOG("VOLUME %i", app->audio->GetMusicVolume());
+        LOG("sldr value %i", musicSldr->GetValue());
+    }
 
     else if (control->id == fxSldr->id)
     {

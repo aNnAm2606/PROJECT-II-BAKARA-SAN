@@ -64,7 +64,6 @@ bool TitleScreen::Update(float dt)
 {
 	Scene::Update(dt);
 	
-¡
 	app->render->DrawTexture(bg, 0, 0, NULL);
 	app->render->DrawTexture(title, 54, 235, NULL);
 

@@ -28,7 +28,7 @@ bool QuestPanel::Update(float dt, bool doLogic)
 
 bool QuestPanel::Draw()
 {
-    app->render->DrawTexture(app->guiManager->questScreen, -app->render->camera.x, -app->render->camera.y, NULL, true);
+    app->render->DrawTexture(app->guiManager->questScreen, 0, 0, NULL, false);
     GuiPanel::Draw();
     return true;
 }

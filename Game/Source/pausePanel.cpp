@@ -4,6 +4,7 @@
 #include "GuiManager.h"
 #include "FadeToBlack.h"
 #include "TitleScreen.h"
+#include "Transitions.h"
 
 PausePanel::PausePanel(bool active) : GuiPanel(active)
 {
@@ -60,7 +61,8 @@ bool PausePanel::Update(float dt, bool doLogic)
 
 bool PausePanel::Draw()
 {
-    app->render->DrawTexture(app->guiManager->pauseBox, -app->render->camera.x + 436, -app->render->camera.y + 88, &box);
+    app->transitions->UiAnim(6, -500, 150);
+    app->render->DrawTexture(app->guiManager->pauseBox, 436, 88, &box, false);
     GuiPanel::Draw();
     return true;
 }

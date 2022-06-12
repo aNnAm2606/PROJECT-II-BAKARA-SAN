@@ -6,6 +6,7 @@
 #include "TitleScreen.h"
 #include "InventoryModule.h"
 #include "Textures.h"
+#include "Transitions.h"
 
 InventoryPanel::InventoryPanel(bool active) : GuiPanel(active)
 {
