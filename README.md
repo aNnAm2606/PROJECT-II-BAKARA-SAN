@@ -17,7 +17,11 @@ Gameplay-wise, ExorQuest isn't your standard RPG. The turn-based combat takes po
  
 ## Controls
 
- - {ControlsScheme}
+- "W A S D" for movement.
+- "E" for interaction with the NPCs.
+- "Q" for the quest.
+- "I" for opening the inventory.
+
 
 ## General
 
