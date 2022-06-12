@@ -56,14 +56,14 @@ bool BattleScene::Start()
 	app->render->camera.x = 0;
 	app->render->camera.y = 0;
 
-	m_PlayerGrid[1][0] = new Chaman();
-	m_PlayerGrid[1][1] = new Paladin();
+	m_PlayerGrid[1][0] = new Chaman({0,1});
+	m_PlayerGrid[1][1] = new Paladin({ 1,1 });
 
-	m_EnemyGrid[0][0] = new Gargoyle();
-	m_EnemyGrid[0][1] = new FallenAngel();
-	m_EnemyGrid[1][1] = new BGhost();
-	m_EnemyGrid[2][1] = new BGhost();
-	m_EnemyGrid[3][1] = new BGhost();
+	m_EnemyGrid[1][0] = new Gargoyle({ 0,1 });
+	m_EnemyGrid[0][1] = new FallenAngel({ 1,0 });
+	m_EnemyGrid[1][1] = new BGhost({ 1,1 });
+	m_EnemyGrid[2][1] = new BGhost({ 1,2 });
+	m_EnemyGrid[3][1] = new BGhost({ 1,3 });
 	m_EnemyCount = 5;
 
 	m_Rounds = 0;
@@ -135,7 +135,7 @@ bool BattleScene::Update(float dt)
 
 	Character* c;
 
-	system("cls");
+	/*system("cls");
 	
 	std::cout << "Players" << std::endl;
 	for (int y = 0; y < GRID_HEIGHT; y++) {
@@ -155,7 +155,7 @@ bool BattleScene::Update(float dt)
 				std::cout << c->GetHealth() << std::endl;
 			}
 		}
-	}
+	}*/
 	
 
 	for (int y = 0; y < GRID_HEIGHT; y++) {

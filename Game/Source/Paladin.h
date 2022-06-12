@@ -7,7 +7,7 @@ class Paladin : public Character {
 private:
 
 public:
-	Paladin();
+	Paladin(iPoint g_pos);
 	~Paladin();
 };
 

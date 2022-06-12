@@ -242,6 +242,21 @@
     <ClCompile Include="Source\ParticleModule.cpp">
       <Filter>Core\Modules</Filter>
     </ClCompile>
+    <ClCompile Include="Source\ASkullcracker.cpp">
+      <Filter>Battle\Abilities\Agnetha Lyngstad</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\AShadowBolt.cpp">
+      <Filter>Battle\Abilities\Chaka Umqombothi</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ASlash.cpp">
+      <Filter>Battle\Abilities\Gargoyle</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ABlackFlame.cpp">
+      <Filter>Battle\Abilities\Spectre</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ATearsInHeaven.cpp">
+      <Filter>Battle\Abilities\Flying Eyes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\StartForestScene.h">
@@ -532,6 +547,21 @@
     <ClInclude Include="Source\ParticleModule.h">
       <Filter>Core\Modules</Filter>
     </ClInclude>
+    <ClInclude Include="Source\ASkullcracker.h">
+      <Filter>Battle\Abilities\Agnetha Lyngstad</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\AShadowBolt.h">
+      <Filter>Battle\Abilities\Chaka Umqombothi</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ASlash.h">
+      <Filter>Battle\Abilities\Gargoyle</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ABlackFlame.h">
+      <Filter>Battle\Abilities\Spectre</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ATearsInHeaven.h">
+      <Filter>Battle\Abilities\Flying Eyes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Scenes">
@@ -584,6 +614,21 @@
     </Filter>
     <Filter Include="Items">
       <UniqueIdentifier>{77c6408d-9de3-4ac9-84c7-1be45be8031f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Battle\Abilities\Agnetha Lyngstad">
+      <UniqueIdentifier>{cd7efc4c-b57c-4ee2-acad-a4ed0c8bf4c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Battle\Abilities\Chaka Umqombothi">
+      <UniqueIdentifier>{78b80297-b024-4f1c-8b5c-fb5a5e74eac6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Battle\Abilities\Gargoyle">
+      <UniqueIdentifier>{d52b228c-b46e-45a2-b91d-bdeaa4040f92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Battle\Abilities\Spectre">
+      <UniqueIdentifier>{1d4378ea-7d58-4775-afdb-9a347ce711ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Battle\Abilities\Flying Eyes">
+      <UniqueIdentifier>{91252f98-63dd-411a-a990-5bc08aa76e28}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

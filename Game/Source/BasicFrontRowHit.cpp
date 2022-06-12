@@ -13,7 +13,7 @@ BasicFrontRowHit::~BasicFrontRowHit()
 {
 }
 
-void BasicFrontRowHit::Execute()
+void BasicFrontRowHit::Execute(iPoint p)
 {
 	iPoint position;
 	

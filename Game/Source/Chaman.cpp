@@ -2,15 +2,15 @@
 #include "App.h"
 #include "Textures.h"
 #include "Render.h"
-#include "BasicBackRowHit.h"
+#include "AShadowBolt.h"
 
-Chaman::Chaman()
+Chaman::Chaman(iPoint g_pos) : Character(g_pos)
 {
 	p_CharacterId = ECharacterType::ECHARACTER_CHAMAN;
-	p_Stats.health = 25;
-	p_Stats.maxHealth = 25;
-	p_Stats.damage = 4;
-	p_Stats.speed = 2;
+	p_Stats.health = 20;
+	p_Stats.maxHealth = 20;
+	p_Stats.damage = 35;
+	p_Stats.speed = 20;
 
 	p_CharacterSpriteSheet = app->tex->Load("Assets/Art/Characters/chaman_battle.png");
 	p_CharacterRect = {
@@ -18,7 +18,7 @@ Chaman::Chaman()
 		128, 128
 	};
 
-	p_Abilities[0] = new BasicBackRowHit(this);
+	p_Abilities[0] = new AShadowBolt(this);
 
 	p_AttackAnimations[0].PushBack({ 0, 0, 128, 128 });
 	p_AttackAnimations[0].PushBack({ 128, 0, 128, 128 });

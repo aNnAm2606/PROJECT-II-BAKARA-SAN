@@ -49,8 +49,8 @@ protected:
 	Animation p_AttackAnimations[MAX_ABILITIES];
 	Animation p_IdleAnimation;
 	Animation p_DeadAnimation;
-	
-	int p_StartAttackAnimFrame;
+
+	iPoint p_GridPosition;
 
 	bool p_IsPlayer;
 
@@ -59,7 +59,7 @@ protected:
 	bool p_Remove;
 	int p_SelectedAttack;
 public:
-	Character();
+	Character(iPoint g_pos);
 	virtual ~Character();
 
 	int GetDamage() { return p_Stats.damage; }
@@ -81,7 +81,11 @@ public:
 	bool IsDead() { return p_Dead; }
 	bool Remove() { return p_Remove; }
 
+	void SetGridPosition(iPoint position) { p_GridPosition = position; }
+
 	ECharacterType getCharacterType() { return p_CharacterId; }
+
+	SDL_Texture* GetCharacterSpriteSheet() { return p_CharacterSpriteSheet; }
 };
 
 #endif  // __LOG_H__

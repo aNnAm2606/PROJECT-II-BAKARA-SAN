@@ -2,15 +2,15 @@
 #include "App.h"
 #include "Textures.h"
 #include "Render.h"
-#include "BasicBackRowHit.h"
+#include "ABlackFlame.h"
 
-BGhost::BGhost()
+BGhost::BGhost(iPoint g_pos) : Enemy(g_pos)
 {
 	p_CharacterId = ECharacterType::ECHARACTER_SPECTRE;
-	p_Stats.health = 20;
-	p_Stats.maxHealth = 20;
-	p_Stats.damage = 1;
-	p_Stats.speed = 1;
+	p_Stats.health = 15;
+	p_Stats.maxHealth = 15;
+	p_Stats.damage = 15;
+	p_Stats.speed = 10;
 
 	p_CharacterSpriteSheet = app->tex->Load("Assets/Art/Enemies/ghost_battle.png");
 	p_CharacterRect = {
@@ -18,7 +18,7 @@ BGhost::BGhost()
 		128, 128
 	};
 
-	p_Abilities[0] = new BasicBackRowHit(this);
+	p_Abilities[0] = new ABlackFlame(this);
 
 	p_AttackAnimations[0].PushBack({ 0, 0, 128, 128 });
 	p_AttackAnimations[0].PushBack({ 128, 0, 128, 128 });

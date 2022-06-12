@@ -7,7 +7,7 @@ class FallenAngel : public Enemy {
 private:
 
 public:
-	FallenAngel();
+	FallenAngel(iPoint g_pos);
 	~FallenAngel();
 };
 

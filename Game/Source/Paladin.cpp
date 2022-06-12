@@ -2,15 +2,15 @@
 #include "App.h"
 #include "Textures.h"
 #include "Render.h"
-#include "BasicFrontRowHit.h"
+#include "ASkullcracker.h"
 
-Paladin::Paladin()
+Paladin::Paladin(iPoint g_pos) : Character(g_pos)
 {
 	p_CharacterId = ECharacterType::ECHARACTER_PALADIN;
-	p_Stats.health = 30;
-	p_Stats.maxHealth = 30;
-	p_Stats.damage = 4;
-	p_Stats.speed = 2;
+	p_Stats.health = 50;
+	p_Stats.maxHealth = 50;
+	p_Stats.damage = 20;
+	p_Stats.speed = 10;
 
 	p_CharacterSpriteSheet = app->tex->Load("Assets/Art/Characters/paladin_battle.png");
 	p_CharacterRect = {
@@ -18,7 +18,7 @@ Paladin::Paladin()
 		128, 128
 	};
 
-	p_Abilities[0] = new BasicFrontRowHit(this);
+	p_Abilities[0] = new ASkullcracker(this);
 
 	p_AttackAnimations[0].PushBack({ 0, 0, 128, 128 });
 	p_AttackAnimations[0].PushBack({ 128, 0, 128, 128 });

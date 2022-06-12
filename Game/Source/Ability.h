@@ -1,11 +1,11 @@
 #ifndef __ABILITY_H__
 #define __ABILITY_H__
 
+#include "SDL/include/SDL.h"
 #include "Animation.h"
 #include "Point.h"
 
 class Character;
-class SDL_Texture;
 
 class Ability {
 protected:
@@ -14,6 +14,8 @@ protected:
 	Animation p_Animation;
 	SDL_Texture* p_Texture;
 
+	int p_StartFrame;
+
 	int p_FrameCount;
 private:
 
@@ -21,8 +23,10 @@ public:
 	Ability(Character* character);
 	~Ability();
 
+	int GetStartFrame() { return p_StartFrame; }
+
 	void Update();
-	void Render(iPoint position);
+	virtual void Render(iPoint position) {}
 
 	virtual bool HasFinished() {
 		return p_Animation.HasFinished();
@@ -33,7 +37,7 @@ public:
 		p_Animation.Reset();
 	}
 
-	virtual void Execute() = 0;
+	virtual void Execute(iPoint position) = 0;
 }; 
 
 #endif  // __ABILITY_H__

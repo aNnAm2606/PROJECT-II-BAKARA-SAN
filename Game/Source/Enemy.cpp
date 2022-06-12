@@ -1,6 +1,6 @@
 #include "Enemy.h"
 
-Enemy::Enemy()
+Enemy::Enemy(iPoint g_pos) : Character(g_pos)
 {
 	p_IsPlayer = false;
 }

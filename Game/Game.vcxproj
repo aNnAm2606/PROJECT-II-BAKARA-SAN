@@ -96,10 +96,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Source\Ability.cpp" />
+    <ClCompile Include="Source\ABlackFlame.cpp" />
     <ClCompile Include="Source\Action.cpp" />
     <ClCompile Include="Source\ActionPack.cpp" />
     <ClCompile Include="Source\AlanParsons.cpp" />
+    <ClCompile Include="Source\AShadowBolt.cpp" />
+    <ClCompile Include="Source\ASkullcracker.cpp" />
+    <ClCompile Include="Source\ASlash.cpp" />
     <ClCompile Include="Source\AssetsManager.cpp" />
+    <ClCompile Include="Source\ATearsInHeaven.cpp" />
     <ClCompile Include="Source\BasicBackRowHit.cpp" />
     <ClCompile Include="Source\BasicFrontRowHit.cpp" />
     <ClCompile Include="Source\BattleScene.cpp" />
@@ -175,11 +180,16 @@
     <ClCompile Include="Source\Window.cpp" />
     <ClCompile Include="Source\WorldMapScene.cpp" />
     <ClInclude Include="Source\Ability.h" />
+    <ClInclude Include="Source\ABlackFlame.h" />
     <ClInclude Include="Source\Action.h" />
     <ClInclude Include="Source\ActionPack.h" />
     <ClInclude Include="Source\AlanParsons.h" />
     <ClInclude Include="Source\Animation.h" />
+    <ClInclude Include="Source\AShadowBolt.h" />
+    <ClInclude Include="Source\ASkullcracker.h" />
+    <ClInclude Include="Source\ASlash.h" />
     <ClInclude Include="Source\AssetsManager.h" />
+    <ClInclude Include="Source\ATearsInHeaven.h" />
     <ClInclude Include="Source\BasicBackRowHit.h" />
     <ClInclude Include="Source\BasicFrontRowHit.h" />
     <ClInclude Include="Source\BattleScene.h" />

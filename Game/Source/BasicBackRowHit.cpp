@@ -13,7 +13,7 @@ BasicBackRowHit::~BasicBackRowHit()
 {
 }
 
-void BasicBackRowHit::Execute()
+void BasicBackRowHit::Execute(iPoint p)
 {
 	iPoint position;
 	

@@ -7,7 +7,7 @@ class Gargoyle : public Enemy {
 private:
 
 public:
-	Gargoyle();
+	Gargoyle(iPoint g_pos);
 	~Gargoyle();
 };
 
