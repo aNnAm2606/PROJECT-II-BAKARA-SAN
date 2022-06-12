@@ -6,6 +6,8 @@
 #include "Window.h"
 #include "LogoScreen.h"
 #include "FadeToBlack.h"
+#include "GuiManager.h"
+#include "Transitions.h"
 
 #include "Defs.h"
 #include "Log.h"
@@ -78,7 +80,11 @@ bool LogoScreen::PostUpdate()
 	}
 	else if(gamepad.a == true) app->fade->Fade(this, (Module*)app->titleScreen);
 		
-	
+	if (app->guiManager->back2Title == true)
+	{
+		app->transitions->SelectTransition(1, 0, 1280, this, (Module*)app->titleScreen);
+		app->guiManager->back2Title = false;
+	}
 
 	return ret;
 }

@@ -49,6 +49,12 @@ bool PausePanel::Start()
     exitGameBtn->focusedRec = { 27,377,177,43 };
     exitGameBtn->pressedRec = { 698,377,177,43 };
 
+    titleBtn = (GuiButton*)CreateGuiButton(5, app->guiManager, this, { 551,377 + 88 +62,180,34 }, "title screen");
+    titleBtn->texture = app->guiManager->pauseBox;
+    titleBtn->normalRec = { 368,441,180,34 };
+    titleBtn->focusedRec = { 27,441,180,34 };
+    titleBtn->pressedRec = { 698,441,180,34 };
+
     return true;
 }
 
@@ -100,6 +106,12 @@ bool PausePanel::OnGuiMouseClickEvent(GuiControl* control)
     else if (control->id == exitGameBtn->id)
     {
         app->guiManager->quitPanel->Enable();
+        app->guiManager->pausePanel->Disable();
+        gamePaused = false;
+    }
+    else if (control->id == titleBtn->id)
+    {
+        app->guiManager->back2Title = true;
         app->guiManager->pausePanel->Disable();
         gamePaused = false;
     }

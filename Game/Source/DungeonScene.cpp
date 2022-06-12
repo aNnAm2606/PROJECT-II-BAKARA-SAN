@@ -9,6 +9,7 @@
 #include "GuiManager.h"
 #include "PlayerModule.h"
 #include "Point.h"
+#include "Transitions.h"
 
 #include "Defs.h"
 #include "Log.h"
@@ -207,7 +208,11 @@ bool DungeonScene::PostUpdate()
 
 	if (playerPos.y > 800) app->fade->Fade(this, (Module*)app->worldMapScene);
 
-
+	if (app->guiManager->back2Title == true)
+	{
+		app->transitions->SelectTransition(1, 0, 1280, this, (Module*)app->titleScreen);
+		app->guiManager->back2Title = false;
+	}
 	return ret;
 }
 
