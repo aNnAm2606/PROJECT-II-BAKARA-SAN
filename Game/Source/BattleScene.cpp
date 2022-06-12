@@ -1,6 +1,7 @@
 #include "BattleScene.h"
 #include "Chaman.h"
 #include "Paladin.h"
+#include "Monk.h"
 #include "FallenAngel.h"
 #include "Gargoyle.h"
 #include "BGhost.h"
@@ -56,11 +57,12 @@ bool BattleScene::Start()
 	app->render->camera.x = 0;
 	app->render->camera.y = 0;
 
-	m_PlayerGrid[1][0] = new Chaman({0,1});
+	m_PlayerGrid[0][1] = new Monk({ 1, 0 });
+	m_PlayerGrid[2][0] = new Chaman({0,2});
 	m_PlayerGrid[1][1] = new Paladin({ 1,1 });
 
 	m_EnemyGrid[1][0] = new Gargoyle({ 0,1 });
-	m_EnemyGrid[0][1] = new FallenAngel({ 1,0 });
+	m_EnemyGrid[0][0] = new FallenAngel({ 0,0 });
 	m_EnemyGrid[1][1] = new BGhost({ 1,1 });
 	m_EnemyGrid[2][1] = new BGhost({ 1,2 });
 	m_EnemyGrid[3][1] = new BGhost({ 1,3 });
@@ -252,6 +254,7 @@ bool BattleScene::CleanUp()
 
 void BattleScene::DamagePlayerAt(iPoint position, int damage)
 {
+	if (position.x < 0 || position.x >= GRID_WIDTH || position.y < 0 || position.y >= GRID_HEIGHT) return;
 	if (!m_PlayerGrid[position.y][position.x]) return;
 	if (m_PlayerGrid[position.y][position.x]->IsDead()) return;
 
@@ -266,6 +269,7 @@ void BattleScene::DamagePlayerAt(iPoint position, int damage)
 
 void BattleScene::DamageEnemyAt(iPoint position, int damage)
 {
+	if (position.x < 0 || position.x >= GRID_WIDTH || position.y < 0 || position.y >= GRID_HEIGHT) return;
 	if (!m_EnemyGrid[position.y][position.x]) return;
 	if (m_EnemyGrid[position.y][position.x]->IsDead()) return;
 

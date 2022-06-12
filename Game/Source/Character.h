@@ -22,6 +22,7 @@ public:
 		// Player characters
 		ECHARACTER_CHAMAN,
 		ECHARACTER_PALADIN,
+		ECHARACTER_MONK,
 
 		// Enemy characters
 		ECHARACTER_FALLEN_ANGEL,
@@ -82,6 +83,7 @@ public:
 	bool Remove() { return p_Remove; }
 
 	void SetGridPosition(iPoint position) { p_GridPosition = position; }
+	iPoint GetGridPosition() { return p_GridPosition; }
 
 	ECharacterType getCharacterType() { return p_CharacterId; }
 

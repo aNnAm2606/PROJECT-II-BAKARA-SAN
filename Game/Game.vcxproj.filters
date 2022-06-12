@@ -257,6 +257,12 @@
     <ClCompile Include="Source\ATearsInHeaven.cpp">
       <Filter>Battle\Abilities\Flying Eyes</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Monk.cpp">
+      <Filter>Battle\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ASerpentStrike.cpp">
+      <Filter>Battle\Abilities\Matsubara Miki</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\StartForestScene.h">
@@ -562,6 +568,12 @@
     <ClInclude Include="Source\ATearsInHeaven.h">
       <Filter>Battle\Abilities\Flying Eyes</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Monk.h">
+      <Filter>Battle\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ASerpentStrike.h">
+      <Filter>Battle\Abilities\Matsubara Miki</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Scenes">
@@ -629,6 +641,9 @@
     </Filter>
     <Filter Include="Battle\Abilities\Flying Eyes">
       <UniqueIdentifier>{91252f98-63dd-411a-a990-5bc08aa76e28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Battle\Abilities\Matsubara Miki">
+      <UniqueIdentifier>{8a1a78bd-19d4-4ac3-a89e-705712bb7d75}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
