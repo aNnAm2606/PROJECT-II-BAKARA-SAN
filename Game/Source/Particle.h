@@ -20,8 +20,8 @@ public:
 	Animation animation;
 
 private:
-	float timePassed;
-	int lifeTime;
+	float timePassed = 0.0f;
+	int lifeTime = 4;
 };
 
 #endif
