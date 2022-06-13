@@ -22,9 +22,11 @@ BattlePanel::BattlePanel(bool active) : GuiPanel(active)
     small_box = { 0, 0, 145, 208 };
     arrow = { 410, 210, 16, 36 };
 
-    m_BaseColor = { 0,0,0 };
-    m_HighlightColor = { 255,255,255 };
-    m_PressColor = {85,85,85};
+    m_LabelColor = { 0,0,0 };
+
+    m_BaseColor = {85,85,85};
+    m_HighlightColor = { 240,240,240 };
+    m_PressColor = {50,50,50};
 }
 
 BattlePanel::~BattlePanel()
@@ -38,6 +40,7 @@ bool BattlePanel::Start()
     //char format[] = { "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz " };
     char format[] = { "! @,_./0123456789$;< ?abcdefghijklmnopqrstuvwxyz" };
 
+    m_LabelFont = app->fonts->Load("Assets/Fonts/rtype_font3.png", format, 2, m_LabelColor);
     m_BaseFont = app->fonts->Load("Assets/Fonts/rtype_font3.png", format, 2, m_BaseColor);
     m_HighlightFont = app->fonts->Load("Assets/Fonts/rtype_font3.png", format, 2, m_HighlightColor);
     m_PressFont = app->fonts->Load("Assets/Fonts/rtype_font3.png", format, 2, m_PressColor);
@@ -69,14 +72,32 @@ bool BattlePanel::Update(float dt, bool doLogic)
 bool BattlePanel::Draw()
 {   
     app->render->DrawTexture(app->guiManager->battleBox, swidth - 250, 50, &medium_box);
+    app->render->DrawTexture(app->guiManager->battleBox, swidth - 250, 258, &medium_box);
 
     std::string name = "";
     name += character->GetCharacterName();
+    app->fonts->BlitText(swidth - 180, 80, m_LabelFont, name.c_str());
 
-    app->fonts->BlitText(swidth - 200, 60, m_BaseFont, name.c_str());
+    // Health
+    app->fonts->BlitText(swidth - 230, 110, m_LabelFont, "hp");
+    std::string health = "";
+    health += std::to_string(character->GetHealth());
+    health += "/";
+    health += std::to_string(character->GetMaxHealth());
+    app->fonts->BlitText(swidth - 200, 110, m_BaseFont, health.c_str());
 
-    app->render->DrawTexture(app->guiManager->battleBox, swidth - 250, 258, &medium_box);
+    // Damage
+    std::string damage = std::to_string(character->GetDamage());
+    app->fonts->BlitText(swidth - 230, 130, m_LabelFont, "damage");
+    app->fonts->BlitText(swidth - 160, 130, m_BaseFont, damage.c_str());
 
+    // Speed
+    std::string speed = std::to_string(character->GetSpeed());
+    app->fonts->BlitText(swidth - 230, 150, m_LabelFont, "speed");
+    app->fonts->BlitText(swidth - 160, 150, m_BaseFont, speed.c_str());
+    
+    // Abilities
+    app->fonts->BlitText(swidth - 190, 280, m_LabelFont, "abilities");
     for (size_t i = 0; i < m_Buttons.size(); i++) {
         m_Buttons[i].Draw();
     }
@@ -109,7 +130,7 @@ void BattlePanel::OnEnable()
 
     SDL_Rect rect = {
         swidth - 250,
-        258,
+        280,
         200,
         8
     };

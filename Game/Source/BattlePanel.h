@@ -40,11 +40,13 @@ private:
 	SDL_Rect arrow;
 
 	// Colors
+	Color m_LabelColor;
 	Color m_BaseColor;
 	Color m_HighlightColor;
 	Color m_PressColor;
 
 	// Fonts
+	int m_LabelFont;
 	int m_BaseFont;
 	int m_HighlightFont;
 	int m_PressFont;

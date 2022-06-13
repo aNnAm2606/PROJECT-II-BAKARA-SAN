@@ -79,21 +79,23 @@ bool Button::Draw()
 		app->render->DrawTextureScaled(texture, bounds.x, bounds.y, bounds.w, bounds.h, NULL, false);
 	}
 
-	Font& fontobj = app->fonts->GetFont(font);
+	int ifont = font;
 
 	if (use_font_states) {
 		if (state == State::FOCUSED) {
-			fontobj = app->fonts->GetFont(hfont);
+			ifont = hfont;
 		}
 		else if (state == State::PRESSED) {
-			fontobj = app->fonts->GetFont(pfont);
+			ifont = pfont;
 		}
 	}
+
+	Font& fontobj = app->fonts->GetFont(ifont);
 	
 	int textXOffset = bounds.w / 2 - fontobj.char_w * text.length() / 2;
 	int textYOffset = bounds.h / 2 - fontobj.char_h / 2;
 
-	app->fonts->BlitText(bounds.x + textXOffset, bounds.y + textYOffset, font, text.c_str(), false);
+	app->fonts->BlitText(bounds.x + textXOffset, bounds.y + textYOffset, ifont, text.c_str(), false);
 
 	return false;
 }

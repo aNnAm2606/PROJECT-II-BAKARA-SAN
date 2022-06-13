@@ -71,6 +71,7 @@ public:
 
 	int GetSpeed() { return p_Stats.speed; }
 	int GetHealth() { return p_Stats.health; }
+	int GetMaxHealth() { return p_Stats.maxHealth; }
 	
 	bool IsPlayer() { return p_IsPlayer; }
 
