@@ -80,9 +80,9 @@ public:
 	// Play Music track spatially (diegetic)
 	//bool PlayMusicSpatially(iPoint musicGeneratorPosition);
 
-	void SetMusicVolume(int vol);
+	int SetMusicVolume(int vol);
 	int GetMusicVolume();
-	void SetSFXVolume(int vol);
+	int SetSFXVolume(int vol);
 	int GetFxVolume();
 
 private:

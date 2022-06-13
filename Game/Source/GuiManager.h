@@ -62,6 +62,7 @@ public:
 	int cursor = 0;
 	bool debug = false;
 	bool cursorMode = false;
+	bool back2Title = false;
 
 	// Gui panels used
 	GuiPanel* titlePanel;

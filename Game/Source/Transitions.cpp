@@ -7,6 +7,7 @@
 #include "FadeToBlack.h"
 #include <SDL_image/include/SDL_image.h>
 #include <iostream>
+#include "GuiManager.h"
 
 using namespace std;
 
@@ -19,8 +20,7 @@ Transitions::~Transitions() {}
 
 bool Transitions::Start()
 {
-	
-	texture = app->tex->Load("Assets/textures/eyes.png");
+	textureSettings = app->tex->Load("Assets/Art/GUI/settingsBox.png");
 	transition = app->tex->Load("Assets/Art/GUI/transition.png");
 	app->win->GetWindowSize(win_width, win_height);
 
@@ -36,70 +36,128 @@ bool Transitions::Update(float dt)
 bool Transitions::PostUpdate()
 {
 	bool ret = true;
-
-	switch (currentStep)
+	if (animationSelected == 1 || animationSelected == 2 || animationSelected == 3 || animationSelected == 4)
 	{
-	case Transitions::NONE:
-		
-		break;
-	case Transitions::TRANSTITION:
+		switch (currentStep)
+		{
+		case Transitions::NONE:
 
-		timer_in_transition += 30;
+			break;
+		case Transitions::TRANSTITION:
 
-		if (animationSelected == 1)
-		{
-			DrawTransition1();
-		}
-		if (animationSelected == 2)
-		{
-			DrawTransition2();
-		}
-		if (animationSelected == 3)
-		{
-			DrawTransition3();
-		}
-		if (animationSelected == 4)
-		{
-			DrawTransition4();
-		}
+			timer_in_transition += 30;
 
-		if (timer_in_transition >= timer_out_transition)
-		{
-			moduleTimer += 30;
-			if(moduleTimer >= 300) currentStep = Fade_Step::FROM_TRANSITION;
-		}
+			if (animationSelected == 1)
+			{
+				DrawTransition1();
+			}
+			if (animationSelected == 2)
+			{
+				DrawTransition2();
+			}
+			if (animationSelected == 3)
+			{
+				DrawTransition3();
+			}
+			if (animationSelected == 4)
+			{
+				DrawTransition4();
+			}
 
-		break;
-	case Transitions::FROM_TRANSITION:
+			if (timer_in_transition >= timer_out_transition)
+			{
+				moduleTimer += 30;
+				if (moduleTimer >= 300) currentStep = Fade_Step::FROM_TRANSITION;
+			}
 
-		timer_out_transition = timer_out_transition - 30;
+			break;
+		case Transitions::FROM_TRANSITION:
 
-		if (animationSelected == 1)
-		{
-			DrawTransition1();
-		}
-		if (animationSelected == 2)
-		{
-			DrawTransition2();
-		}
-		if (animationSelected == 3)
-		{
-			DrawTransition3();
-		}
-		if (animationSelected == 4)
-		{
-			DrawTransition4();
-		}
+			timer_out_transition = timer_out_transition - 30;
 
-		if (timer_out_transition <= 0)
-		{
-			currentStep = Fade_Step::NONE;
-		}
+			if (animationSelected == 1)
+			{
+				DrawTransition1();
+			}
+			if (animationSelected == 2)
+			{
+				DrawTransition2();
+			}
+			if (animationSelected == 3)
+			{
+				DrawTransition3();
+			}
+			if (animationSelected == 4)
+			{
+				DrawTransition4();
+			}
 
-		break;
-	default:
-		break;
+			if (timer_out_transition <= 0)
+			{
+				currentStep = Fade_Step::NONE;
+			}
+
+			break;
+		default:
+			break;
+		}
 	}
+	else if (animationSelected == 5 || animationSelected == 6 || animationSelected == 7 || animationSelected == 8)
+	{
+		switch (currentStep)
+		{
+		case Transitions::NONE:
+
+			break;
+		case Transitions::TRANSTITION:
+
+			timer_in_transition += 30;
+
+			if (animationSelected == 5)
+			{
+				DrawSettings();
+			}
+			if (animationSelected == 6)
+			{
+				DrawPause();
+			}
+
+			if (timer_in_transition >= timer_out_transition)
+			{
+				currentStep = Fade_Step::FROM_TRANSITION;
+			}
+
+			break;
+		case Transitions::FROM_TRANSITION:
+
+			if (animationSelected == 5)
+			{
+				DrawSettings();
+				if (app->guiManager->settingsPanel->Active == false)
+				{
+					currentStep = Fade_Step::NONE;
+				}
+			}
+			if (animationSelected == 6)
+			{
+				DrawPause();
+				if (app->guiManager->pausePanel->Active == false)
+				{
+					currentStep = Fade_Step::NONE;
+				}
+			}
+
+			//if (timer_out_transition <= 0)
+			//{
+			//	currentStep = Fade_Step::NONE;
+			//}
+
+			break;
+		default:
+			break;
+		}
+	}
+	
 	
 	return ret;
 
@@ -120,6 +178,17 @@ void Transitions::SelectTransition(int id,int timer1,int timer2, Module* moduleT
 	
 }
 
+void Transitions::UiAnim(int id, int timer1, int timer2)
+{
+	if (currentStep == Fade_Step::NONE)
+	{
+		timer_in_transition = timer1;
+		timer_out_transition = timer2;
+		currentStep = Fade_Step::TRANSTITION;
+		animationSelected = id;
+	}
+}
+
 void Transitions::DrawTransition1()
 {
 	//SLIDE TRANSITION
@@ -133,7 +202,55 @@ void Transitions::DrawTransition1()
 
 	if(currentStep == Fade_Step::TRANSTITION) Rect1.w = EaseLinearIn(timer_in_transition / 8, win_width / 64, win_width, 120);
 	if (currentStep == Fade_Step::FROM_TRANSITION) Rect1.w = EaseLinearOut(timer_out_transition / 8, win_width / 64, win_width, 60);
-	app->render->DrawRectangle(Rect1, 59, 56, 66, 255,true,true);
+	app->render->DrawRectangle(Rect1, 59, 56, 66, 255,true,false);
+}
+
+void Transitions::DrawSettings()
+{
+	//SLIDE TRANSITION
+	int timer = 0;
+	timer++;
+	SDL_Rect Rect1;
+	SDL_Rect Box = { 0,0,1129,580 };
+
+	Rect1.x = 0;
+	Rect1.y = 0;
+	Rect1.h = win_height + 500;
+	Rect1.w = 0;
+
+	if (currentStep == Fade_Step::TRANSTITION)
+	{
+		Rect1.w = EaseLinearIn(timer_in_transition / 8, win_width / 64, win_width, 60);
+		app->render->DrawTexture(textureSettings, (Rect1.x + Rect1.w - 120), 73, &Box, 0, EaseLinearIn(timer_in_transition / 24, win_width / 64, win_width, 60));
+	}
+	//else if (currentStep == Fade_Step::FROM_TRANSITION)
+	//{
+	//	app->render->DrawTexture(app->guiManager->settingsBox, 76, 73, &Box, false);
+	//}
+}
+
+void Transitions::DrawPause()
+{
+	//SLIDE TRANSITION
+	int timer = 0;
+	timer++;
+	SDL_Rect Rect1;
+	SDL_Rect Box = { 254,0,407,544 };
+
+	Rect1.x = 0;
+	Rect1.y = 0;
+	Rect1.h = win_height + 500;
+	Rect1.w = 0;
+
+	if (currentStep == Fade_Step::TRANSTITION)
+	{
+		Rect1.w = EaseLinearIn(timer_in_transition / 8, win_width / 64, win_width, 60);
+		app->render->DrawTexture(app->guiManager->pauseBox, (Rect1.x + Rect1.w - 120), 88, &Box, 0, EaseLinearIn(timer_in_transition / 24, win_width / 64, win_width, 60));
+	}
+	//else if (currentStep == Fade_Step::FROM_TRANSITION)
+	//{
+	//	app->render->DrawTexture(app->guiManager->settingsBox, 76, 73, &Box, false);
+	//}
 }
 
 void Transitions::DrawTransition2()

@@ -57,8 +57,8 @@ bool Audio::Awake(pugi::xml_node& config)
 		ret = true;
 	}
 
-	Mix_Volume(-1, FX_VOLUME);
-	Mix_VolumeMusic(MUSIC_VOLUME);
+	SetMusicVolume(128);
+	SetSFXVolume(128);
 
 	return ret;
 }
@@ -66,7 +66,7 @@ bool Audio::Awake(pugi::xml_node& config)
 bool Audio::Update(float dt)
 {
 
-	if (playMusicSpatially == false) Mix_VolumeMusic(musicVol);
+	//if (playMusicSpatially == false) Mix_VolumeMusic(musicVol);
 
 
 	return true;
@@ -334,11 +334,11 @@ bool Audio::ChangeMusic(int Id, float fadeInTime, float fadeOutTime)
 //	return true;
 //}
 
-void Audio::SetMusicVolume(int vol)
+int Audio::SetMusicVolume(int vol)
 {
 	musicVol = vol;
-
 	Mix_VolumeMusic(vol);
+	return musicVol = vol;
 }
 
 int Audio::GetMusicVolume()
@@ -346,11 +346,12 @@ int Audio::GetMusicVolume()
 	return musicVol;
 }
 
-void Audio::SetSFXVolume(int vol)
+int Audio::SetSFXVolume(int vol)
 {
 	fxVol = vol;
-
 	Mix_Volume(-1, vol);
+
+	return fxVol = vol;
 }
 
 int Audio::GetFxVolume()

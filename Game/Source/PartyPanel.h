@@ -20,5 +20,13 @@ public:
 	// chars
 	SDL_Texture* chamanStats;
 	SDL_Texture* chamanPic;
+	SDL_Texture* paladinStats;
+	SDL_Texture* paladinPic;
+	SDL_Texture* monkStats;
+	SDL_Texture* monkPic;
+	SDL_Texture* priestStats;
+	SDL_Texture* priestPic;
+
+	int selected = 0;
 };
 
