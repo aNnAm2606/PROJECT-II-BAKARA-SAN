@@ -68,8 +68,11 @@ bool PausePanel::Update(float dt, bool doLogic)
 bool PausePanel::Draw()
 {
     app->transitions->UiAnim(6, -500, 150);
-    app->render->DrawTexture(app->guiManager->pauseBox, 436, 88, &box, false);
-    GuiPanel::Draw();
+    if(app->guiManager->pause==true)
+    {
+        app->render->DrawTexture(app->guiManager->pauseBox, 436, 88, &box, false);
+        GuiPanel::Draw();
+    }
     return true;
 }
 

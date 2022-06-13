@@ -97,14 +97,18 @@ bool SettingsPanel::Update(float dt, bool doLogic)
 bool SettingsPanel::Draw()
 {
     app->transitions->UiAnim(5, -500, 100);
-    app->render->DrawTexture(app->guiManager->settingsBox, 76, 73, &box ,false);
-    GuiPanel::Draw();
+    if (app->guiManager->settings == true) 
+    {
+        app->render->DrawTexture(app->guiManager->settingsBox, 76, 73, &box, false);
+        GuiPanel::Draw();
+    }
     return true;
 }
 
 bool SettingsPanel::CleanUp()
 {
     app->guiManager->settingsPanel->Disable();
+    app->guiManager->settings = false;
     return true;
 }
 

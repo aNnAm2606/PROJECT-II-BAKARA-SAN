@@ -56,6 +56,8 @@ bool GuiManager::Start()
 	Open_FX = app->audio->LoadFx("Assets/Audio/Fx/UI_openMenu.wav");
 	debug = false;
 	cursorMode = false;
+	settings = false;
+	pause = false;
 	cursor = 0;
 
 	titlePanel = new TitlePanel(false);
@@ -91,6 +93,16 @@ bool GuiManager::Start()
 		panel = panel->next;
 	}
 
+	rect1 = { 603,352,66,27 };
+	rect2 = { 587,326,190,90 };
+	rect3 = { 560,307,259,132 };
+	rect4 = { 503,258,397,237 };
+	rect5 = { 432,203,602,360 };
+	rect6 = { 282,155,851,443 };
+	rect7 = { 227,129,966,516 };
+	rect8 = { 124,104,1108,550 };
+	rect9 = { 61,57,1191,623 };
+
 	return true;
 }
 
@@ -118,12 +130,23 @@ bool GuiManager::Update(float dt)
 	if (app->input->GetKey(SDL_SCANCODE_Q) == KEY_DOWN)
 	{
 		cursorMode = !cursorMode;
-		cursor = 0;
 	}
 
 	if (cursorMode == true)
 	{
-		if (app->input->GetMouseButtonDown(SDL_BUTTON_LEFT) == KeyState::KEY_DOWN) cursor = cursor + 1;
+		if (anim != 9)
+		{
+			timer++;
+			if (timer >= 2)
+			{
+				anim++;
+				timer = 0;
+			}
+		}
+		if (anim >= 9) anim = 9;
+
+		if (app->input->GetKey(SDL_SCANCODE_L) == KeyState::KEY_DOWN) cursor = cursor + 1;
+		if (app->input->GetKey(SDL_SCANCODE_J) == KeyState::KEY_DOWN) cursor = cursor - 1;
 
 		switch (cursor)
 		{
@@ -145,14 +168,29 @@ bool GuiManager::Update(float dt)
 		}
 		
 		if (cursor > 2) cursor = 0;
+		if (cursor < 0) cursor = 2;
 	}
 	else
 	{
-		cursor = 0;
-		inventoryPanel->Disable();
-		questPanel->Disable();
-		partyPanel->Disable();
+		if (anim != 0)
+		{
+			timer++;
+			if (timer >= 2)
+			{
+				anim--;
+				timer = 0;
+			}
+		}
+
+		if (anim <= 0)
+		{
+			anim = 0;
+			inventoryPanel->Disable();
+			partyPanel->Disable();
+			questPanel->Disable();
+		}
 	}
+
 	if (app->input->GamepadConnected() == false)
 	{
 		if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN) {

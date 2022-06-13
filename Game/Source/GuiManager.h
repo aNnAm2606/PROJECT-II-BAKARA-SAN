@@ -63,6 +63,8 @@ public:
 	bool debug = false;
 	bool cursorMode = false;
 	bool back2Title = false;
+	bool settings = false;
+	bool pause = false;
 
 	// Gui panels used
 	GuiPanel* titlePanel;
@@ -78,6 +80,20 @@ public:
 	GuiPanel* partyPanel;
 
 	GuiState lastPanel;
+
+	// Panel animation
+	bool ba = false;
+	int anim = 0;
+	int timer = 0;
+	SDL_Rect rect1;
+	SDL_Rect rect2;
+	SDL_Rect rect3;
+	SDL_Rect rect4;
+	SDL_Rect rect5;
+	SDL_Rect rect6;
+	SDL_Rect rect7;
+	SDL_Rect rect8;
+	SDL_Rect rect9;
 
 private:
 	uint Close_FX = NULL;
