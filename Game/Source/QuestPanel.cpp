@@ -46,34 +46,34 @@ bool QuestPanel::Draw()
         switch (app->guiManager->anim)
         {
         case 0:
-            app->render->DrawTexture(questPanel, 603, 352, &app->guiManager->rect1);
+            app->render->DrawTexture(questPanel, 603, 352, &app->guiManager->rect1, false);
             break;
         case 1:
-            app->render->DrawTexture(questPanel, 587, 326, &app->guiManager->rect2);
+            app->render->DrawTexture(questPanel, 587, 326, &app->guiManager->rect2, false);
             break;
         case 2:
-            app->render->DrawTexture(questPanel, 560, 307, &app->guiManager->rect3);
+            app->render->DrawTexture(questPanel, 560, 307, &app->guiManager->rect3, false);
             break;
         case 3:
-            app->render->DrawTexture(questPanel, 503, 258, &app->guiManager->rect4);
+            app->render->DrawTexture(questPanel, 503, 258, &app->guiManager->rect4, false);
             break;
         case 4:
-            app->render->DrawTexture(questPanel, 432, 203, &app->guiManager->rect5);
+            app->render->DrawTexture(questPanel, 432, 203, &app->guiManager->rect5, false);
             break;
         case 5:
-            app->render->DrawTexture(questPanel, 282, 155, &app->guiManager->rect6);
+            app->render->DrawTexture(questPanel, 282, 155, &app->guiManager->rect6, false);
             break;
         case 6:
-            app->render->DrawTexture(questPanel, 227, 129, &app->guiManager->rect7);
+            app->render->DrawTexture(questPanel, 227, 129, &app->guiManager->rect7, false);
             break;
         case 7:
-            app->render->DrawTexture(questPanel, 124, 104, &app->guiManager->rect8);
+            app->render->DrawTexture(questPanel, 124, 104, &app->guiManager->rect8, false);
             break;
         case 8:
-            app->render->DrawTexture(questPanel, 61, 57, &app->guiManager->rect9);
+            app->render->DrawTexture(questPanel, 61, 57, &app->guiManager->rect9, false);
             break;
         case 9:
-            app->render->DrawTexture(questPanel, 0, 0, NULL);
+            app->render->DrawTexture(questPanel, 0, 0, NULL, false);
             break;
         }
     }
@@ -82,34 +82,34 @@ bool QuestPanel::Draw()
         switch (app->guiManager->anim)
         {
         case 0:
-            app->render->DrawTexture(questPanel, 603, 352, &app->guiManager->rect1);
+            app->render->DrawTexture(questPanel, 603, 352, &app->guiManager->rect1, false);
             break;
         case 1:
-            app->render->DrawTexture(questPanel, 587, 326, &app->guiManager->rect2);
+            app->render->DrawTexture(questPanel, 587, 326, &app->guiManager->rect2, false);
             break;
         case 2:
-            app->render->DrawTexture(questPanel, 560, 307, &app->guiManager->rect3);
+            app->render->DrawTexture(questPanel, 560, 307, &app->guiManager->rect3, false);
             break;
         case 3:
-            app->render->DrawTexture(questPanel, 503, 258, &app->guiManager->rect4);
+            app->render->DrawTexture(questPanel, 503, 258, &app->guiManager->rect4, false);
             break;
         case 4:
-            app->render->DrawTexture(questPanel, 432, 203, &app->guiManager->rect5);
+            app->render->DrawTexture(questPanel, 432, 203, &app->guiManager->rect5, false);
             break;
         case 5:
-            app->render->DrawTexture(questPanel, 282, 155, &app->guiManager->rect6);
+            app->render->DrawTexture(questPanel, 282, 155, &app->guiManager->rect6, false);
             break;
         case 6:
-            app->render->DrawTexture(questPanel, 227, 129, &app->guiManager->rect7);
+            app->render->DrawTexture(questPanel, 227, 129, &app->guiManager->rect7, false);
             break;
         case 7:
-            app->render->DrawTexture(questPanel, 124, 104, &app->guiManager->rect8);
+            app->render->DrawTexture(questPanel, 124, 104, &app->guiManager->rect8, false);
             break;
         case 8:
-            app->render->DrawTexture(questPanel, 61, 57, &app->guiManager->rect9);
+            app->render->DrawTexture(questPanel, 61, 57, &app->guiManager->rect9, false);
             break;
         case 9:
-            app->render->DrawTexture(questPanel, 0, 0, NULL);
+            app->render->DrawTexture(questPanel, 0, 0, NULL, false);
             break;
         }
     }

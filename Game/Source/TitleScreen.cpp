@@ -68,7 +68,7 @@ bool TitleScreen::PreUpdate()
 bool TitleScreen::Update(float dt)
 {
 	Scene::Update(dt);
-	app->render->DrawTexture(bg, 0, 0, NULL);
+	app->render->DrawTexture(bg, 0, 0, NULL,false);
 
 	timer++; 
 	if (timer >= 15)
@@ -108,7 +108,7 @@ bool TitleScreen::Update(float dt)
 // Called each loop iteration
 bool TitleScreen::PostUpdate()
 {
-	app->render->DrawTexture(transparent, 0, 0, NULL);
+	app->render->DrawTexture(transparent, 0, 0, NULL, false);
 	Scene::PostUpdate();
 	bool ret = true;
 
