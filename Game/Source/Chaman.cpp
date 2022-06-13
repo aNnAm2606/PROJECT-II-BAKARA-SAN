@@ -6,7 +6,7 @@
 
 Chaman::Chaman(iPoint g_pos) : Character(g_pos)
 {
-	p_CharacterName = "Chaka";
+	p_CharacterName = "chaka";
 	p_CharacterId = ECharacterType::ECHARACTER_CHAMAN;
 	p_Stats.health = 20;
 	p_Stats.maxHealth = 20;

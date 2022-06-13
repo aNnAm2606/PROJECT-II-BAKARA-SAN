@@ -9,6 +9,7 @@
 #include "Fonts.h"
 #include "Character.h"
 #include "Ability.h"
+#include "Color.h"
 
 #include <iostream>
 
@@ -20,6 +21,10 @@ BattlePanel::BattlePanel(bool active) : GuiPanel(active)
     medium_box = { 331,0,205,208 };
     small_box = { 0, 0, 145, 208 };
     arrow = { 410, 210, 16, 36 };
+
+    m_BaseColor = { 0,0,0 };
+    m_HighlightColor = { 255,255,255 };
+    m_PressColor = {85,85,85};
 }
 
 BattlePanel::~BattlePanel()
@@ -30,10 +35,16 @@ bool BattlePanel::Start()
 {
     app->win->GetWindowSize(swidth, sheight);
 
-    const char* format = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz";
-    m_BaseFont = app->fonts->Load("Assets/Fonts/rune_font_base.png", format);
+    //char format[] = { "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz " };
+    char format[] = { "! @,_./0123456789$;< ?abcdefghijklmnopqrstuvwxyz" };
+
+    m_BaseFont = app->fonts->Load("Assets/Fonts/rtype_font3.png", format, 2, m_BaseColor);
+    m_HighlightFont = app->fonts->Load("Assets/Fonts/rtype_font3.png", format, 2, m_HighlightColor);
+    m_PressFont = app->fonts->Load("Assets/Fonts/rtype_font3.png", format, 2, m_PressColor);
+
+    /*m_BaseFont = app->fonts->Load("Assets/Fonts/rune_font_base.png", format);
     m_HighlightFont = app->fonts->Load("Assets/Fonts/rune_font_highlight.png", format);
-    m_PressFont = app->fonts->Load("Assets/Fonts/rune_font_press.png", format);
+    m_PressFont = app->fonts->Load("Assets/Fonts/rune_font_press.png", format);*/
 
     return true;
 }

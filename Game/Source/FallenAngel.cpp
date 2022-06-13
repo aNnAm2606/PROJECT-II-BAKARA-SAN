@@ -6,7 +6,7 @@
 
 FallenAngel::FallenAngel(iPoint g_pos) : Enemy(g_pos)
 {
-	p_CharacterName = "Fallen Angel";
+	p_CharacterName = "fallen angel";
 	p_CharacterId = ECharacterType::ECHARACTER_FALLEN_ANGEL;
 	p_Stats.health = 5;
 	p_Stats.maxHealth = 5;

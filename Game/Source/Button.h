@@ -19,9 +19,11 @@ private:
 
 	State state;
 	SDL_Rect bounds;
+
 	int font;
 	int hfont;
 	int pfont;
+
 	bool use_font_states;
 public:
 	Button();

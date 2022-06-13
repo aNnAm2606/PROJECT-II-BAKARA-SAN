@@ -1,6 +1,7 @@
 #pragma once
 #include "GuiPanel.h"
 #include "Button.h"
+#include "Color.h"
 
 #include <vector>
 
@@ -37,6 +38,11 @@ private:
 	SDL_Rect medium_box;
 	SDL_Rect small_box;
 	SDL_Rect arrow;
+
+	// Colors
+	Color m_BaseColor;
+	Color m_HighlightColor;
+	Color m_PressColor;
 
 	// Fonts
 	int m_BaseFont;

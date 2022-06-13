@@ -3,6 +3,7 @@
 
 #include "Module.h"
 #include "Log.h"
+#include "Color.h"
 #include "SDL\include\SDL_pixels.h"
 
 #define MAX_FONTS 60
@@ -22,6 +23,7 @@ struct Font
 	uint totalLength;
 	uint rows, columns;
 	uint char_w, char_h;
+	Color color;
 };
 
 class Fonts : public Module
@@ -39,7 +41,7 @@ public:
 	// Param texturePath	- The path to the texture file
 	// Param characters		- The lookup table. All characters displayed in the same order as the texture
 	// Param rows			- The amount of character rows in the texture
-	int Load(const char* texturePath, const char* characters, uint rows = 1);
+	int Load(const char* texturePath, const char* characters, uint rows = 1, Color c = {255,255,255});
 
 	// Removes a font by its index
 	// Unloads the texture and removes it from the fonts array

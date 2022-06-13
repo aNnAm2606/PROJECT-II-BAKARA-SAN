@@ -205,6 +205,7 @@
     <ClInclude Include="Source\ClassAction.h" />
     <ClInclude Include="Source\ClassActionPack.h" />
     <ClInclude Include="Source\Collider.h" />
+    <ClInclude Include="Source\Color.h" />
     <ClInclude Include="Source\Credits.h" />
     <ClInclude Include="Source\DavidBow.h" />
     <ClInclude Include="Source\Dialog.h" />

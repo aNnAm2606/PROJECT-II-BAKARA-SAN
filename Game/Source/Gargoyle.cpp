@@ -6,7 +6,7 @@
 
 Gargoyle::Gargoyle(iPoint g_pos) : Enemy(g_pos)
 {
-	p_CharacterName = "Gargoyle";
+	p_CharacterName = "gargoyle";
 	p_CharacterId = ECharacterType::ECHARACTER_GARGOYLE;
 	p_Stats.health = 20;
 	p_Stats.maxHealth = 20;

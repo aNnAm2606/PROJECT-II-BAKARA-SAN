@@ -6,7 +6,7 @@
 
 Monk::Monk(iPoint g_pos) : Character(g_pos)
 {
-	p_CharacterName = "Matsubara";
+	p_CharacterName = "matsubara";
 	p_CharacterId = ECharacterType::ECHARACTER_MONK;
 	p_Stats.health = 30;
 	p_Stats.maxHealth = 30;

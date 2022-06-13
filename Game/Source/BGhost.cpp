@@ -6,7 +6,7 @@
 
 BGhost::BGhost(iPoint g_pos) : Enemy(g_pos)
 {
-	p_CharacterName = "Spectre";
+	p_CharacterName = "spectre";
 	p_CharacterId = ECharacterType::ECHARACTER_SPECTRE;
 	p_Stats.health = 15;
 	p_Stats.maxHealth = 15;

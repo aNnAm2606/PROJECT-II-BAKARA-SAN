@@ -6,7 +6,7 @@
 
 Paladin::Paladin(iPoint g_pos) : Character(g_pos)
 {
-	p_CharacterName = "Agnetha";
+	p_CharacterName = "agnetha";
 	p_CharacterId = ECharacterType::ECHARACTER_PALADIN;
 	p_Stats.health = 50;
 	p_Stats.maxHealth = 50;
