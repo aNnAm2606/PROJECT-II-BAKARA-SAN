@@ -6,6 +6,7 @@
 
 ASkullcracker::ASkullcracker(Character* character) : Ability(character)
 {
+	p_AbilityName = "Skullcracker";
 	p_Animation.PushBack({ 128 * 3, 0, 128, 128 });
 	p_Animation.PushBack({ 128 * 4, 0, 128, 128 });
 	p_Animation.speed = 0.1f;

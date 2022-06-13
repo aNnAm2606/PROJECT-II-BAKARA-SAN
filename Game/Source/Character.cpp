@@ -32,7 +32,7 @@ Character::Character(iPoint g_pos)
 
 Character::~Character()
 {
-	for (int i = 0; i < MAX_ABILITIES; i++) {
+	for (size_t i = 0; i < p_Abilities.size(); i++) {
 		delete p_Abilities[i];
 	}
 }
@@ -60,20 +60,20 @@ void Character::Update()
 
 	// TODO: Use selected attack
 	if (p_Attacking) {
-		p_AttackAnimations[0].Update();
+		p_AttackAnimations[p_SelectedAttack].Update();
 
-		int c_frame = p_AttackAnimations[0].GetCurrentFrameCount();
+		int c_frame = p_AttackAnimations[p_SelectedAttack].GetCurrentFrameCount();
 
-		if (c_frame >= p_Abilities[0]->GetStartFrame()) {
-			p_Abilities[0]->Update();
+		if (c_frame >= p_Abilities[p_SelectedAttack]->GetStartFrame()) {
+			p_Abilities[p_SelectedAttack]->Update();
 		}
 
-		if (p_AttackAnimations[0].HasFinished()) {
-			if (p_Abilities[0]->HasFinished()) {
-				p_AttackAnimations[0].Reset();
-				p_Abilities[0]->Reset();
+		if (p_AttackAnimations[p_SelectedAttack].HasFinished()) {
+			if (p_Abilities[p_SelectedAttack]->HasFinished()) {
+				p_AttackAnimations[p_SelectedAttack].Reset();
+				p_Abilities[p_SelectedAttack]->Reset();
 
-				p_Abilities[0]->Execute(p_GridPosition);
+				p_Abilities[p_SelectedAttack]->Execute(p_GridPosition);
 				p_Attacking = false;
 			}
 		}
@@ -120,8 +120,8 @@ void Character::Render(iPoint position)
 void Character::RenderEffects(iPoint position)
 {
 	if (p_Attacking) {
-		if (!p_Abilities[0]->HasFinished()) {
-			p_Abilities[0]->Render(position);
+		if (!p_Abilities[p_SelectedAttack]->HasFinished()) {
+			p_Abilities[p_SelectedAttack]->Render(position);
 		}
 	}
 }

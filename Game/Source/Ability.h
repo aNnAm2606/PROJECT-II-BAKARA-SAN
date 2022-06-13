@@ -5,6 +5,8 @@
 #include "Animation.h"
 #include "Point.h"
 
+#include <string>
+
 class Character;
 
 class Ability {
@@ -17,6 +19,8 @@ protected:
 	int p_StartFrame;
 
 	int p_FrameCount;
+
+	std::string p_AbilityName;
 private:
 
 public:
@@ -24,6 +28,7 @@ public:
 	~Ability();
 
 	int GetStartFrame() { return p_StartFrame; }
+	const char* GetAbilityName() { return p_AbilityName.c_str(); }
 
 	void Update();
 	virtual void Render(iPoint position) {}

@@ -20,6 +20,9 @@ private:
 	State state;
 	SDL_Rect bounds;
 	int font;
+	int hfont;
+	int pfont;
+	bool use_font_states;
 public:
 	Button();
 	Button(SDL_Rect bounds, SDL_Texture* texture, const char* text, int font);
@@ -27,6 +30,7 @@ public:
 
 	void SetPosition(int x, int y);
 
+	void SetFontStates(int base, int highlight, int press);
 	void SetFont(int bfont) { font = bfont; }
 	void SetBounds(SDL_Rect bbounds) { bounds = bbounds; }
 	void SetText(const char* btext) { text = btext; }
