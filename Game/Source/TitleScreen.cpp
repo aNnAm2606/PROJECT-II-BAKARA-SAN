@@ -48,6 +48,8 @@ bool TitleScreen::Start()
 	app->audio->ChangeMusic(TITLE_MUSIC, 0.0f, 0.0f);
 
 	startGame = false;
+	anim = 0;
+	ba = false;
 	app->currentScene = sceneID::TITLE;
 	return true;
 }
@@ -63,10 +65,40 @@ bool TitleScreen::PreUpdate()
 bool TitleScreen::Update(float dt)
 {
 	Scene::Update(dt);
-
 	app->render->DrawTexture(bg, 0, 0, NULL);
-	app->render->DrawTexture(title, 54, 235, NULL);
 
+	timer++; 
+	if (timer >= 15)
+	{
+		if(ba == false)
+			anim++;
+		if(ba == true)
+			anim--;
+
+		timer = 0;
+	}
+
+	switch (anim)
+	{
+	case 0:
+		app->render->DrawTexture(title, 54, 235, NULL);
+		break;
+	case 1:
+		app->render->DrawTexture(title, 54, 240, NULL);
+		break;
+	case 2:
+		app->render->DrawTexture(title, 54, 250, NULL);
+		break;
+	case 3:
+		app->render->DrawTexture(title, 54, 255, NULL);
+		break;
+	case 4:
+		app->render->DrawTexture(title, 54, 260, NULL);
+		ba = !ba;
+		break;
+	}
+
+	if (anim == 0) ba = !ba;
 	return true;
 }
 
