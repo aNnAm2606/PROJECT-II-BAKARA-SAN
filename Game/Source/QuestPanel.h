@@ -14,7 +14,10 @@ public:
 
 	bool OnGuiMouseClickEvent(GuiControl* control) override;
 
+	SDL_Texture* questPanel;
 	// Buttons
 	GuiButton* closeBtn;
+	GuiButton* inventoryBtn;
+	GuiButton* partyBtn;
 };
 

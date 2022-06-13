@@ -47,6 +47,9 @@ bool TitleScreen::Start()
 	app->audio->SetMusicVolume(128);
 	app->audio->ChangeMusic(TITLE_MUSIC, 0.0f, 0.0f);
 
+	app->render->camera.x = 0;
+	app->render->camera.y = 0;
+
 	startGame = false;
 	anim = 0;
 	ba = false;

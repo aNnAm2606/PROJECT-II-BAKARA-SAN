@@ -136,6 +136,7 @@ bool Transitions::PostUpdate()
 				if (app->guiManager->settingsPanel->Active == false)
 				{
 					currentStep = Fade_Step::NONE;
+					app->guiManager->settings = false;
 				}
 			}
 			if (animationSelected == 6)
@@ -144,6 +145,7 @@ bool Transitions::PostUpdate()
 				if (app->guiManager->pausePanel->Active == false)
 				{
 					currentStep = Fade_Step::NONE;
+					app->guiManager->pause = false;
 				}
 			}
 
@@ -223,10 +225,10 @@ void Transitions::DrawSettings()
 		Rect1.w = EaseLinearIn(timer_in_transition / 8, win_width / 64, win_width, 60);
 		app->render->DrawTexture(textureSettings, (Rect1.x + Rect1.w - 120), 73, &Box, 0, EaseLinearIn(timer_in_transition / 24, win_width / 64, win_width, 60));
 	}
-	//else if (currentStep == Fade_Step::FROM_TRANSITION)
-	//{
-	//	app->render->DrawTexture(app->guiManager->settingsBox, 76, 73, &Box, false);
-	//}
+	else if (currentStep == Fade_Step::FROM_TRANSITION)
+	{
+		app->guiManager->settings = true;
+	}
 }
 
 void Transitions::DrawPause()
@@ -247,10 +249,10 @@ void Transitions::DrawPause()
 		Rect1.w = EaseLinearIn(timer_in_transition / 8, win_width / 64, win_width, 60);
 		app->render->DrawTexture(app->guiManager->pauseBox, (Rect1.x + Rect1.w - 120), 88, &Box, 0, EaseLinearIn(timer_in_transition / 24, win_width / 64, win_width, 60));
 	}
-	//else if (currentStep == Fade_Step::FROM_TRANSITION)
-	//{
-	//	app->render->DrawTexture(app->guiManager->settingsBox, 76, 73, &Box, false);
-	//}
+	else if (currentStep == Fade_Step::FROM_TRANSITION)
+	{
+		app->guiManager->pause = true;
+	}
 }
 
 void Transitions::DrawTransition2()
