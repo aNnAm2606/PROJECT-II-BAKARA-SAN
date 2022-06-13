@@ -6,6 +6,7 @@
 
 FallenAngel::FallenAngel(iPoint g_pos) : Enemy(g_pos)
 {
+	p_CharacterName = "Fallen Angel";
 	p_CharacterId = ECharacterType::ECHARACTER_FALLEN_ANGEL;
 	p_Stats.health = 5;
 	p_Stats.maxHealth = 5;
@@ -18,8 +19,9 @@ FallenAngel::FallenAngel(iPoint g_pos) : Enemy(g_pos)
 		128, 128
 	};
 
-	p_Abilities[0] = new ATearsInHeaven(this);
+	p_Abilities.push_back(new ATearsInHeaven(this));
 
+	p_AttackAnimations.emplace_back();
 	p_AttackAnimations[0].PushBack({ 0, 0, 128, 128 });
 	p_AttackAnimations[0].speed = 0.2f;
 	p_AttackAnimations[0].loop = false;

@@ -41,7 +41,7 @@ bool GuiManager::Start()
 	quitBox = app->tex->Load("Assets/Art/GUI/exitBox.png");
 	credits = app->tex->Load("Assets/Art/GUI/credits.png");
 	pauseBox = app->tex->Load("Assets/Art/GUI/pauseBox.png");
-	battleBox = app->tex->Load("Assets/Art/GUI/battleUI.png");
+	battleBox = app->tex->Load("Assets/Art/GUI/battleUI2.png");
 	loseScreen = app->tex->Load("Assets/Art/GUI/loseScreen.png");
 	victoryScreen = app->tex->Load("Assets/Art/GUI/winScreen.png");
 	questScreen = app->tex->Load("Assets/Art/GUI/questUI.png");

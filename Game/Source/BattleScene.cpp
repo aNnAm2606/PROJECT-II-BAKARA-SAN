@@ -26,6 +26,8 @@ BattleScene::BattleScene(bool startEnabled, bool playerEnabled, SString name, Po
 	
 
 	m_BattleOffset = { 200, 200 };
+
+	m_SelectedAbility = -1;
 }
 
 BattleScene::~BattleScene()
@@ -66,8 +68,8 @@ bool BattleScene::Start()
 	m_EnemyGrid[0][0] = new FallenAngel({ 0,0 });
 	m_EnemyGrid[1][1] = new BGhost({ 1,1 });
 	m_EnemyGrid[2][1] = new BGhost({ 1,2 });
-	m_EnemyGrid[3][1] = new BGhost({ 1,3 });
-	m_EnemyCount = 5;
+	//m_EnemyGrid[3][1] = new BGhost({ 1,3 });
+	m_EnemyCount = 4;
 
 	m_Rounds = 0;
 
@@ -302,13 +304,18 @@ void BattleScene::Waiting()
 {
 	GamePad& gamepad = app->input->pads[0];
 	if (m_ActiveCharacter->IsPlayer()) {
-		// TODO: SWAP WITH USER INTERFACE
 		if (app->input->GamepadConnected() == false)
 		{
-			if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN) {
+			if (m_SelectedAbility >= 0) {
+				m_BattleState = EBATTLESTATE_ATTACKING;
+				m_ActiveCharacter->StartAttack(m_SelectedAbility);
+
+				m_SelectedAbility = -1;
+			}
+			/*if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN) {
 				m_BattleState = EBATTLESTATE_ATTACKING;
 				m_ActiveCharacter->StartAttack();
-			}
+			}*/
 		}
 		else if (gamepad.a == true)
 		{

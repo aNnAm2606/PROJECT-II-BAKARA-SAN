@@ -6,6 +6,7 @@
 
 Paladin::Paladin(iPoint g_pos) : Character(g_pos)
 {
+	p_CharacterName = "Agnetha";
 	p_CharacterId = ECharacterType::ECHARACTER_PALADIN;
 	p_Stats.health = 50;
 	p_Stats.maxHealth = 50;
@@ -18,8 +19,9 @@ Paladin::Paladin(iPoint g_pos) : Character(g_pos)
 		128, 128
 	};
 
-	p_Abilities[0] = new ASkullcracker(this);
+	p_Abilities.push_back(new ASkullcracker(this));
 
+	p_AttackAnimations.emplace_back();
 	p_AttackAnimations[0].PushBack({ 0, 0, 128, 128 });
 	p_AttackAnimations[0].PushBack({ 128, 0, 128, 128 });
 	p_AttackAnimations[0].PushBack({ 256, 0, 128, 128 });
