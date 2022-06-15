@@ -301,6 +301,11 @@ bool BattleScene::AddEnemy(Character::ECharacterType enemy, int x, int y)
 	return true;
 }
 
+bool BattleScene::HasEnemy(int x, int y)
+{
+	return m_EnemyGrid[y][x] != NULL;
+}
+
 void BattleScene::Waiting()
 {
 	m_ActiveCharacter->SetBattleState(Character::EBattleState::EBATTLESTATE_ACTIVE);

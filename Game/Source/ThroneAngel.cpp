@@ -28,6 +28,11 @@ ThroneAngel::ThroneAngel(iPoint g_pos) : Enemy(g_pos)
 	p_AttackAnimations[0].speed = 0.2f;
 	p_AttackAnimations[0].loop = false;
 
+	p_AttackAnimations.emplace_back();
+	p_AttackAnimations[1].PushBack({ 0, 0, 128, 128 });
+	p_AttackAnimations[1].speed = 0.2f;
+	p_AttackAnimations[1].loop = false;
+
 	SDL_Rect rect = { 0, 256, 128, 128 };
 
 	for (int i = 0; i < 6; i++) {

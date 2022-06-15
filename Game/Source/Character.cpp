@@ -4,6 +4,7 @@
 #include "Ability.h"
 #include "App.h"
 #include "Textures.h"
+#include "BattleScene.h"
 
 Character::Character(iPoint g_pos)
 {
@@ -57,6 +58,12 @@ void Character::StartAttack(int selectedAttack)
 {
 	p_Attacking = true;
 	p_SelectedAttack = selectedAttack;
+
+	if (p_CharacterId == ECharacterType::ECHARACTER_MIPHARESH) {
+		if (!app->battleScene->HasEnemy(0, 0) || !app->battleScene->HasEnemy(0, 1)) {
+			p_SelectedAttack = 1;
+		}
+	}
 }
 
 void Character::Update()
