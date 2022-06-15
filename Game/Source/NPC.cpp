@@ -5,6 +5,7 @@
 #include "PlayerModule.h"
 #include "Input.h"
 #include "Defs.h"
+#include "Audio.h"
 
 void NPC::AddDialog(Dialog& dialog, size_t resetNode)
 {
@@ -30,6 +31,7 @@ void NPC::Interact()
 
 	if (m_ActiveDialog >= 0 && m_ActiveDialog < m_Dialogs.size()) {
 		m_Interacting = true;
+		app->audio->PlayFx(m_NPCFX);
 		m_Dialogs[m_ActiveDialog].ResetDialog(m_StartingNodes[m_ActiveDialog]);
 
 		app->dialog->StartDialog(&m_Dialogs[m_ActiveDialog]);

@@ -13,6 +13,7 @@ protected:
 	SDL_Rect m_NPCRect;
 
 	iPoint m_Position;
+	uint m_NPCFX = NULL;
 
 	// Dialogs
 	std::vector<Dialog> m_Dialogs;

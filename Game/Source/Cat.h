@@ -14,6 +14,7 @@ public:
 	void OnUpdate() override;
 
 	void OnInteract();
+
 };
 
 #endif  // __LOG_H__
