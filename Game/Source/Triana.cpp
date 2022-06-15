@@ -153,7 +153,7 @@ Triana::~Triana()
 {
 }
 
-void Triana::Init()
+void Triana::OnInit()
 {
 	FillShopDialog();
 

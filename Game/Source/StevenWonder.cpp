@@ -123,7 +123,7 @@ StevenWonder::~StevenWonder()
 {
 }
 
-void StevenWonder::Init()
+void StevenWonder::OnInit()
 {
 	FillBaseDialog();
 	FillCompletedDialog();

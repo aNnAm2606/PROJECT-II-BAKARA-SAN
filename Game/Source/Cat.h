@@ -10,7 +10,7 @@ public:
 	Cat();
 	~Cat();
 
-	void Init();
+	void OnInit() override;
 	void OnUpdate() override;
 
 	void OnInteract();

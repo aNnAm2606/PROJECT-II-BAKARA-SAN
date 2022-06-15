@@ -91,7 +91,7 @@ AlanParsons::~AlanParsons()
 {
 }
 
-void AlanParsons::Init()
+void AlanParsons::OnInit()
 {
 	FillBaseDialog();
 

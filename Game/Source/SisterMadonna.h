@@ -12,7 +12,7 @@ public:
 
 	void OnDialogButton(size_t data) override;
 
-	void Init();
+	void OnInit() override;
 };
 
 #endif  // __LOG_H__

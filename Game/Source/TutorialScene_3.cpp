@@ -48,6 +48,11 @@ bool TutorialScene_3::Start()
 	app->audio->ChangeMusic(DUNGEON1_MUSIC, 1.0f, 1.0f);
 
 	app->currentScene = sceneID::TUTORIAL_3;
+
+	m_Gargoyle.Init();
+	m_Gargoyle.SetPosition(966, 450);
+	m_Gargoyle.SetOriginScene(this);
+
 	return true;
 }
 
@@ -63,7 +68,7 @@ bool TutorialScene_3::Update(float dt)
 {
 	Scene::Update(dt);
 
-
+	m_Gargoyle.Update();
 
 
 	return true;
@@ -95,6 +100,9 @@ bool TutorialScene_3::PostUpdate()
 	{
 		app->transitions->SelectTransition(1, 0, 1280, this, (Module*)app->titleScreen);
 	}
+
+	m_Gargoyle.Render();
+
 	return ret;
 }
 
