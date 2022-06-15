@@ -6,18 +6,18 @@
 class Scene;
 
 class GargoyleBattle : public NPC {
-private:
+protected:
 	Scene* m_OriginScene;
+
+	virtual void SetBattlefield() = 0;
 public:
 	GargoyleBattle();
 	~GargoyleBattle();
 
 	void SetOriginScene(Scene* scene) { m_OriginScene = scene; }
 
-	void Init() override;
+	void OnInit() override;
 	void OnInteract() override;
-
-	virtual void SetBattlefield() = 0;
 };
 
 #endif  // __LOG_H__

@@ -53,6 +53,14 @@ bool TutorialScene_1::Start()
 
 	app->quests->ActivateQuest(QuestModule::EQuest::EQUEST_PM_Q2);
 
+	m_Gargoyle_1.Init();
+	m_Gargoyle_1.SetPosition(913, 150);
+	m_Gargoyle_1.SetOriginScene(this);
+
+	m_Gargoyle_2.Init();
+	m_Gargoyle_2.SetPosition(925, 720);
+	m_Gargoyle_2.SetOriginScene(this);
+
 	return true;
 }
 
@@ -67,9 +75,9 @@ bool TutorialScene_1::PreUpdate()
 bool TutorialScene_1::Update(float dt)
 {
 	Scene::Update(dt);
-	
 
-	
+	m_Gargoyle_1.Update();
+	m_Gargoyle_2.Update();
 	
 	return true;
 }
@@ -103,6 +111,9 @@ bool TutorialScene_1::PostUpdate()
 	{
 		app->transitions->SelectTransition(1, 0, 1280, this, (Module*)app->titleScreen);
 	}
+
+	m_Gargoyle_1.Render();
+	m_Gargoyle_2.Render();
 
 	return ret;
 }

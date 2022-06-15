@@ -45,6 +45,11 @@ bool TutorialScene_2::Start()
 	sceneTexture = app->tex->Load("Assets/Art/Maps/tutorial_map_2.png");
 
 	app->currentScene = sceneID::TUTORIAL_2;
+
+	m_Gargoyle.Init();
+	m_Gargoyle.SetPosition(966, 450);
+	m_Gargoyle.SetOriginScene(this);
+
 	return true;
 }
 
@@ -60,8 +65,7 @@ bool TutorialScene_2::Update(float dt)
 {
 	Scene::Update(dt);
 
-
-
+	m_Gargoyle.Update();
 
 	return true;
 }
@@ -92,6 +96,9 @@ bool TutorialScene_2::PostUpdate()
 	{
 		app->transitions->SelectTransition(1, 0, 1280, this, (Module*)app->titleScreen);
 	}
+
+	m_Gargoyle.Render();
+
 	return ret;
 }
 

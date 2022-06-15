@@ -8,14 +8,14 @@
 
 GargoyleBattle::GargoyleBattle()
 {
-	m_InteractDistance = 350;
+	m_InteractDistance = 200;
 }
 
 GargoyleBattle::~GargoyleBattle()
 {
 }
 
-void GargoyleBattle::Init()
+void GargoyleBattle::OnInit()
 {
 	m_NPCTex = app->tex->Load("Assets/Art/Enemies/gargoyle_statue.png");
 	m_NPCRect = {
@@ -30,6 +30,6 @@ void GargoyleBattle::Init()
 void GargoyleBattle::OnInteract()
 {
 	SetBattlefield();
-
+	m_Deactivate = true;
 	app->fade->Fade(m_OriginScene, app->battleScene);
 }
