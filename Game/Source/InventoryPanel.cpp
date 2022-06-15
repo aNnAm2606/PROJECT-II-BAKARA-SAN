@@ -164,7 +164,7 @@ bool InventoryPanel::OnGuiMouseClickEvent(GuiControl* control)
     }
     else if (control->id == questBtn->id)
     {
-        app->guiManager->cursor = 2;
+        app->guiManager->cursor = 0;
     }
 
     return true;

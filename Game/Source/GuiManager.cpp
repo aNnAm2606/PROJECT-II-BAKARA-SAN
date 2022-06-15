@@ -137,7 +137,7 @@ bool GuiManager::Update(float dt)
 		if (anim != 9)
 		{
 			timer++;
-			if (timer >= 2)
+			if (timer >= 1)
 			{
 				anim++;
 				timer = 0;
@@ -151,9 +151,9 @@ bool GuiManager::Update(float dt)
 		switch (cursor)
 		{
 		case 0:
-			questPanel->Disable();
+			inventoryPanel->Disable();
 			partyPanel->Disable();
-			inventoryPanel->Enable();
+			questPanel->Enable();	
 			break;
 		case 1:
 			inventoryPanel->Disable();
@@ -161,9 +161,9 @@ bool GuiManager::Update(float dt)
 			partyPanel->Enable();
 			break;
 		case 2:
-			inventoryPanel->Disable();
+			questPanel->Disable();
 			partyPanel->Disable();
-			questPanel->Enable();
+			inventoryPanel->Enable();
 			break;
 		}
 		
@@ -175,7 +175,7 @@ bool GuiManager::Update(float dt)
 		if (anim != 0)
 		{
 			timer++;
-			if (timer >= 2)
+			if (timer >= 1)
 			{
 				anim--;
 				timer = 0;

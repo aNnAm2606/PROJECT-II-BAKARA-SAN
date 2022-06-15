@@ -186,11 +186,11 @@ bool PartyPanel::OnGuiMouseClickEvent(GuiControl* control)
 {
     if (control->id == inventoryBtn->id)
     {
-        app->guiManager->cursor = 0;
+        app->guiManager->cursor = 2;
     }
     else if (control->id == questBtn->id)
     {
-        app->guiManager->cursor = 2;
+        app->guiManager->cursor = 0;
     }
 
     if (control->id == Btn1->id)

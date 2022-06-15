@@ -202,7 +202,7 @@ bool QuestPanel::OnGuiMouseClickEvent(GuiControl* control)
 {
     if (control->id == inventoryBtn->id)
     {
-        app->guiManager->cursor = 0;
+        app->guiManager->cursor = 2;
     } 
     else if (control->id == partyBtn->id)
     {
