@@ -71,33 +71,33 @@ bool BattlePanel::Update(float dt, bool doLogic)
 
 bool BattlePanel::Draw()
 {   
-    app->render->DrawTexture(app->guiManager->battleBox, swidth - 250, 50, &medium_box);
-    app->render->DrawTexture(app->guiManager->battleBox, swidth - 250, 258, &medium_box);
+    app->render->DrawTexture(app->guiManager->battleBox, swidth - 250, 50, &medium_box, false);
+    app->render->DrawTexture(app->guiManager->battleBox, swidth - 250, 258, &medium_box, false);
 
     std::string name = "";
     name += character->GetCharacterName();
-    app->fonts->BlitText(swidth - 180, 80, m_LabelFont, name.c_str());
+    app->fonts->BlitText(swidth - 180, 80, m_LabelFont, name.c_str(), false);
 
     // Health
-    app->fonts->BlitText(swidth - 230, 110, m_LabelFont, "hp");
+    app->fonts->BlitText(swidth - 230, 110, m_LabelFont, "hp", false);
     std::string health = "";
     health += std::to_string(character->GetHealth());
     health += "/";
     health += std::to_string(character->GetMaxHealth());
-    app->fonts->BlitText(swidth - 200, 110, m_BaseFont, health.c_str());
+    app->fonts->BlitText(swidth - 200, 110, m_BaseFont, health.c_str(), false);
 
     // Damage
     std::string damage = std::to_string(character->GetDamage());
-    app->fonts->BlitText(swidth - 230, 130, m_LabelFont, "damage");
-    app->fonts->BlitText(swidth - 160, 130, m_BaseFont, damage.c_str());
+    app->fonts->BlitText(swidth - 230, 130, m_LabelFont, "damage", false);
+    app->fonts->BlitText(swidth - 160, 130, m_BaseFont, damage.c_str(), false);
 
     // Speed
     std::string speed = std::to_string(character->GetSpeed());
     app->fonts->BlitText(swidth - 230, 150, m_LabelFont, "speed");
-    app->fonts->BlitText(swidth - 160, 150, m_BaseFont, speed.c_str());
+    app->fonts->BlitText(swidth - 160, 150, m_BaseFont, speed.c_str(), false);
     
     // Abilities
-    app->fonts->BlitText(swidth - 190, 280, m_LabelFont, "abilities");
+    app->fonts->BlitText(swidth - 190, 280, m_LabelFont, "abilities", false);
     for (size_t i = 0; i < m_Buttons.size(); i++) {
         m_Buttons[i].Draw();
     }

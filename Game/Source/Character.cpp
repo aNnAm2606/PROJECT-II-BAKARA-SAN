@@ -96,15 +96,15 @@ void Character::Render(iPoint position)
 	if (p_Attacking) {
 		SDL_Rect& rect = p_AttackAnimations[0].GetCurrentFrame();
 
-		app->render->DrawTexture(p_CharacterSpriteSheet, position.x, position.y, &rect);
+		app->render->DrawTexture(p_CharacterSpriteSheet, position.x, position.y, &rect, false);
 	}
 	else if (p_Dead) {
 		SDL_Rect& rect = p_DeadAnimation.GetCurrentFrame();
 
-		app->render->DrawTexture(p_CharacterSpriteSheet, position.x, position.y, &rect);
+		app->render->DrawTexture(p_CharacterSpriteSheet, position.x, position.y, &rect, false);
 	}
 	else {
-		app->render->DrawTexture(p_CharacterSpriteSheet, position.x, position.y, &p_CharacterRect);
+		app->render->DrawTexture(p_CharacterSpriteSheet, position.x, position.y, &p_CharacterRect, false);
 	}
 
 	// Health bar
@@ -113,8 +113,8 @@ void Character::Render(iPoint position)
 	SDL_Rect r = p_HealthRect;
 	r.w = p_HealthRect.w * hperc;
 
-	app->render->DrawTexture(p_StatsTexture, position.x, position.y - p_HealthMissingRect.h, &p_HealthMissingRect);
-	app->render->DrawTextureScaled(p_StatsTexture, position.x, position.y - r.h, r.w * 1.01, r.h, &r);
+	app->render->DrawTexture(p_StatsTexture, position.x, position.y - p_HealthMissingRect.h, &p_HealthMissingRect, false);
+	app->render->DrawTextureScaled(p_StatsTexture, position.x, position.y - r.h, r.w * 1.01, r.h, &r, false);
 }
 
 void Character::RenderEffects(iPoint position)

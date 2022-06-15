@@ -7,6 +7,8 @@
 #include "Collider.h"
 #include "Animation.h"
 
+#include "BattleScene.h"
+
 class PlayerModule : public Module
 {
 private:
@@ -27,7 +29,11 @@ private:
 	Animation m_WalkAnimations[4];
 	EWalkAnimation m_ActiveAnimation;
 
+	Character* m_PlayerGrid[GRID_HEIGHT][GRID_WIDTH];
+
 	bool m_Moving;
+
+	bool m_InitPlayers;
 public:
 	PlayerModule(bool startEnabled);
 
@@ -35,7 +41,7 @@ public:
 	virtual ~PlayerModule();
 
 	// Called before render is available
-	bool Awake();
+	bool Awake(pugi::xml_node&);
 
 	// Called before the first frame
 	bool Start();
@@ -58,6 +64,10 @@ public:
 
 	bool LoadState(pugi::xml_node&) override;
 	bool SaveState(pugi::xml_node&) override;
+
+	Character** GetPlayerGrid() { return &m_PlayerGrid[0][0]; }
+
+	void HealTeam();
 };
 
 #endif // __PLAYER_MODULE_H__

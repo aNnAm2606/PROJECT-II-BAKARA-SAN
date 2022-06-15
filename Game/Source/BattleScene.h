@@ -22,10 +22,9 @@ private:
 		EBATTLESTATE_NONE
 	};
 
-	
-
 	iPoint m_BattleOffset;
-	Character* m_PlayerGrid[GRID_HEIGHT][GRID_WIDTH];
+
+	Character** m_PlayerGrid;
 	Character* m_EnemyGrid[GRID_HEIGHT][GRID_WIDTH];
 
 	int m_Rounds;
@@ -40,6 +39,8 @@ private:
 
 	void Waiting();
 	void Attacking();
+
+	int dim2(int x, int y) { return y * GRID_WIDTH + x; }
 public:
 	BattleScene(bool startEnabled, bool playerEnabled, SString name, Point<int> cameraPos, Point<int>playerPos, Point<bool> followPlayer);
 

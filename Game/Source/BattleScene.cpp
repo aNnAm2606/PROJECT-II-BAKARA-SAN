@@ -2,6 +2,7 @@
 #include "Chaman.h"
 #include "Paladin.h"
 #include "Monk.h"
+#include "Priest.h"
 #include "FallenAngel.h"
 #include "Gargoyle.h"
 #include "BGhost.h"
@@ -28,6 +29,8 @@ BattleScene::BattleScene(bool startEnabled, bool playerEnabled, SString name, Po
 	m_BattleOffset = { 200, 200 };
 
 	m_SelectedAbility = -1;
+
+	memset(m_EnemyGrid, NULL, GRID_SIZE * 4);
 }
 
 BattleScene::~BattleScene()
@@ -46,30 +49,23 @@ bool BattleScene::Start()
 {
 	Scene::Start();
 
+	startCameraPos.x = 0;
+	startCameraPos.y = 0;
+
+	app->playerModule->Disable();
+
 	sceneTexture = app->tex->Load("Assets/Art/Maps/fightground.png");
 
 	app->audio->ChangeMusic(BATTLE_MUSIC, 1.0f, 1.0f);
 
-	memset(m_PlayerGrid, NULL, GRID_SIZE * 4);
-	memset(m_EnemyGrid, NULL, GRID_SIZE * 4);
-
 	m_ActiveCharacter = NULL;
-
-	app->playerModule->Disable();
-
-	app->render->camera.x = 0;
-	app->render->camera.y = 0;
-
-	m_PlayerGrid[0][1] = new Monk({ 1, 0 });
-	m_PlayerGrid[2][0] = new Chaman({0,2});
-	m_PlayerGrid[1][1] = new Paladin({ 1,1 });
 
 	m_EnemyGrid[1][0] = new Gargoyle({ 0,1 });
 	m_EnemyGrid[0][0] = new FallenAngel({ 0,0 });
 	m_EnemyGrid[1][1] = new BGhost({ 1,1 });
 	m_EnemyGrid[2][1] = new BGhost({ 1,2 });
-	//m_EnemyGrid[3][1] = new BGhost({ 1,3 });
-	m_EnemyCount = 4;
+	m_EnemyGrid[3][1] = new BGhost({ 1,3 });
+	m_EnemyCount = 5;
 
 	m_Rounds = 0;
 
@@ -77,12 +73,15 @@ bool BattleScene::Start()
 
 	app->currentScene = sceneID::BATTLE;
 
+	m_PlayerGrid = app->playerModule->GetPlayerGrid();
+
 	return true;
 }
 
 bool BattleScene::PreUpdate()
 {
 	Scene::PreUpdate();
+
 	if (m_EnemyCount <= 0) {
 		app->fade->Fade(this, app->townScene);
 		return true;
@@ -92,20 +91,20 @@ bool BattleScene::PreUpdate()
 		Character* c;
 		for (int y = 0; y < GRID_HEIGHT; y++) {
 			for (int x = 0; x < GRID_WIDTH; x++) {
-				c = m_PlayerGrid[y][x];
-				if (c) {
+				c = m_PlayerGrid[dim2(x,y)];
+				if (c != NULL) {
 					if (!c->IsDead()) {
 						m_BattleQueue.Push(c, c->GetSpeed());
 					}
 
 					if (c->Remove()) {
 						delete c;
-						m_PlayerGrid[y][x] = NULL;
+						m_PlayerGrid[dim2(x, y)] = NULL;
 					}
 				}
 
 				c = m_EnemyGrid[y][x];
-				if (c) {
+				if (c != NULL) {
 					if (!c->IsDead()) {
 						m_BattleQueue.Push(c, c->GetSpeed());
 					}
@@ -165,13 +164,13 @@ bool BattleScene::Update(float dt)
 
 	for (int y = 0; y < GRID_HEIGHT; y++) {
 		for (int x = 0; x < GRID_WIDTH; x++) {
-			c = m_PlayerGrid[y][x];
-			if (c) {
+			c = m_PlayerGrid[dim2(x, y)];
+			if (c != NULL) {
 				c->Update();
 			}
 
 			c = m_EnemyGrid[y][x];
-			if (c) {
+			if (c != NULL) {
 				c->Update();
 			}
 		}
@@ -197,14 +196,17 @@ bool BattleScene::PostUpdate()
 	// Battle grid
 	for (int y = 0; y < GRID_HEIGHT; y++) {
 		for (int x = 0; x < GRID_WIDTH; x++) {
-			if (m_PlayerGrid[y][x]) {
+			Character* c = m_PlayerGrid[dim2(x, y)];
+
+			if (c != NULL) {
 				position.x = x * GRID_PIXEL_SIZE + m_BattleOffset.x;
 				position.y = y * GRID_PIXEL_SIZE + m_BattleOffset.y;
 
-				m_PlayerGrid[y][x]->Render(position);
+				m_PlayerGrid[dim2(x, y)]->Render(position);
 			}
 
-			if (m_EnemyGrid[y][x]) {
+			c = m_EnemyGrid[y][x];
+			if (c != NULL) {
 				position.x = x * GRID_PIXEL_SIZE + m_BattleOffset.x + 3 * GRID_PIXEL_SIZE;
 				position.y = y * GRID_PIXEL_SIZE + m_BattleOffset.y;
 
@@ -216,14 +218,14 @@ bool BattleScene::PostUpdate()
 	// Render effects
 	for (int y = 0; y < GRID_HEIGHT; y++) {
 		for (int x = 0; x < GRID_WIDTH; x++) {
-			if (m_PlayerGrid[y][x]) {
+			if (m_PlayerGrid[dim2(x, y)] != NULL) {
 				position.x = x * GRID_PIXEL_SIZE + m_BattleOffset.x;
 				position.y = y * GRID_PIXEL_SIZE + m_BattleOffset.y;
 
-				m_PlayerGrid[y][x]->RenderEffects(position);
+				m_PlayerGrid[dim2(x, y)]->RenderEffects(position);
 			}
 
-			if (m_EnemyGrid[y][x]) {
+			if (m_EnemyGrid[y][x] != NULL) {
 				position.x = x * GRID_PIXEL_SIZE + m_BattleOffset.x + 3 * GRID_PIXEL_SIZE;
 				position.y = y * GRID_PIXEL_SIZE + m_BattleOffset.y;
 
@@ -245,12 +247,9 @@ bool BattleScene::CleanUp()
 	Scene::CleanUp();
 	for (int y = 0; y < GRID_HEIGHT; y++) {
 		for (int x = 0; x < GRID_WIDTH; x++) {
-			if (m_PlayerGrid[y][x]) {
-				delete m_PlayerGrid[y][x];
-			}
-
 			if (m_EnemyGrid[y][x]) {
 				delete m_EnemyGrid[y][x];
+				m_EnemyGrid[y][x] = NULL;
 			}
 		}
 	}
@@ -263,11 +262,11 @@ bool BattleScene::CleanUp()
 void BattleScene::DamagePlayerAt(iPoint position, int damage)
 {
 	if (position.x < 0 || position.x >= GRID_WIDTH || position.y < 0 || position.y >= GRID_HEIGHT) return;
-	if (!m_PlayerGrid[position.y][position.x]) return;
-	if (m_PlayerGrid[position.y][position.x]->IsDead()) return;
+	if (!m_PlayerGrid[dim2(position.x, position.y)]) return;
+	if (m_PlayerGrid[dim2(position.x, position.y)]->IsDead()) return;
 
-	if (m_PlayerGrid[position.y][position.x]->DealDamage(damage)) {
-		Character::ECharacterType character_t = m_PlayerGrid[position.y][position.x]->getCharacterType();
+	if (m_PlayerGrid[dim2(position.x, position.y)]->DealDamage(damage)) {
+		Character::ECharacterType character_t = m_PlayerGrid[dim2(position.x, position.y)]->getCharacterType();
 
 		std::cout << "[Battle] Character (" << (int)character_t << ") died." << std::endl;
 

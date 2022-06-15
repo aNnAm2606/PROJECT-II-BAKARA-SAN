@@ -24,6 +24,7 @@ public:
 		ECHARACTER_CHAMAN,
 		ECHARACTER_PALADIN,
 		ECHARACTER_MONK,
+		ECHARACTER_PRIEST,
 
 		// Enemy characters
 		ECHARACTER_FALLEN_ANGEL,
@@ -68,6 +69,8 @@ public:
 
 	int GetDamage() { return p_Stats.damage; }
 	bool DealDamage(int dmg);
+
+	void FullHeal() { p_Stats.health = p_Stats.maxHealth; }
 
 	int GetSpeed() { return p_Stats.speed; }
 	int GetHealth() { return p_Stats.health; }

@@ -18,6 +18,11 @@
 #include "Defs.h"
 #include "Log.h"
 
+#include "Chaman.h"
+#include "Paladin.h"
+#include "Monk.h"
+#include "Priest.h"
+
 #include <iostream>
 
 PlayerModule::PlayerModule(bool startEnabled) : Module(startEnabled)
@@ -40,6 +45,8 @@ PlayerModule::PlayerModule(bool startEnabled) : Module(startEnabled)
 
 		m_WalkAnimations[i].speed = 0.1f;
 	}
+
+	m_InitPlayers = true;
 }
 
 PlayerModule::~PlayerModule()
@@ -47,10 +54,8 @@ PlayerModule::~PlayerModule()
 	delete playerCollider;
 }
 
-bool PlayerModule::Awake()
+bool PlayerModule::Awake(pugi::xml_node& config)
 {
-	
-
 	return true;
 }
 
@@ -63,7 +68,18 @@ bool PlayerModule::Start()
 	playerSpeed = 7;
 	playerCollider->rect = playerRect;
 
-	
+	// Init playergrid
+	if (m_InitPlayers) {
+		memset(m_PlayerGrid, NULL, GRID_SIZE * 4);
+
+		m_PlayerGrid[0][1] = new Monk({ 1, 0 });
+		m_PlayerGrid[2][0] = new Chaman({ 0,2 });
+		m_PlayerGrid[1][1] = new Paladin({ 1,1 });
+		m_PlayerGrid[3][0] = new Priest({ 0, 3 });
+
+		m_InitPlayers = false;
+	}
+
 	return true;
 }
 void PlayerModule::SetPosition(int x, int y)
@@ -188,7 +204,7 @@ bool PlayerModule::PostUpdate()
 		m_WalkAnimations[m_ActiveAnimation].Update();
 	}
 	else {
-		m_WalkAnimations[m_ActiveAnimation].Reset();
+		m_WalkAnimations[m_ActiveAnimation].Reset(); 
 	}
 
 	SDL_Rect rect = m_WalkAnimations[m_ActiveAnimation].GetCurrentFrame();
@@ -220,4 +236,17 @@ bool PlayerModule::SaveState(pugi::xml_node& node)
 	pos.append_attribute("y").set_value(playerPos.y);
 
 	return true;
+}
+
+void PlayerModule::HealTeam()
+{
+	for (int y = 0; y < GRID_HEIGHT; y++) {
+		for (int x = 0; x < GRID_WIDTH; x++) {
+			Character* c = m_PlayerGrid[y][x];
+
+			if (c) {
+				c->FullHeal();
+			}
+		}
+	}
 }

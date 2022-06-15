@@ -263,6 +263,12 @@
     <ClCompile Include="Source\ASerpentStrike.cpp">
       <Filter>Battle\Abilities\Matsubara Miki</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Priest.cpp">
+      <Filter>Battle\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ASacredFlame.cpp">
+      <Filter>Battle\Abilities\Gabriel Peterson</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\StartForestScene.h">
@@ -577,6 +583,12 @@
     <ClInclude Include="Source\Color.h">
       <Filter>Core\Utils</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Priest.h">
+      <Filter>Battle\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ASacredFlame.h">
+      <Filter>Battle\Abilities\Gabriel Peterson</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Scenes">
@@ -647,6 +659,9 @@
     </Filter>
     <Filter Include="Battle\Abilities\Matsubara Miki">
       <UniqueIdentifier>{8a1a78bd-19d4-4ac3-a89e-705712bb7d75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Battle\Abilities\Gabriel Peterson">
+      <UniqueIdentifier>{772c8f85-6643-4f62-a632-b6e825247aa7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

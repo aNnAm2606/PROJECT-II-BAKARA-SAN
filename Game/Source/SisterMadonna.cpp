@@ -2,6 +2,7 @@
 #include "App.h"
 #include "Textures.h"
 #include "Fonts.h"
+#include "PlayerModule.h"
 
 void SisterMadonna::FillBaseDialog()
 {
@@ -135,6 +136,7 @@ void SisterMadonna::FillBaseDialog()
 
 	dnode.text = "okay... hold on a minute...";
 	dnode.options.push_back("heal hp and mp");
+	dnode.optionsData.push_back(5);
 	dnode.nodes.push_back(id);
 
 	size_t b_purify = dialog.AddNode(dnode);
@@ -162,7 +164,9 @@ SisterMadonna::~SisterMadonna()
 
 void SisterMadonna::OnDialogButton(size_t data)
 {
-	std::cout << data << std::endl;
+	if (data == 5) {
+		app->playerModule->HealTeam();
+	}
 }
 
 void SisterMadonna::Init()
