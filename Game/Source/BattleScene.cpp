@@ -299,6 +299,8 @@ void BattleScene::AddEnemy(Character::ECharacterType enemy, int x, int y)
 
 void BattleScene::Waiting()
 {
+	m_ActiveCharacter->SetBattleState(Character::EBattleState::EBATTLESTATE_ACTIVE);
+
 	GamePad& gamepad = app->input->pads[0];
 	if (m_ActiveCharacter->IsPlayer()) {
 		if (app->input->GamepadConnected() == false)
@@ -330,6 +332,8 @@ void BattleScene::Waiting()
 void BattleScene::Attacking()
 {
 	if (!m_ActiveCharacter->IsAttacking()) {
+		m_ActiveCharacter->SetBattleState(Character::EBattleState::EBATTLESTATE_BASE);
+
 		m_ActiveCharacter = NULL;
 
 		while (m_BattleQueue.Pop(m_ActiveCharacter) && m_ActiveCharacter->IsDead());

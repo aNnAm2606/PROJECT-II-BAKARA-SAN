@@ -36,6 +36,12 @@ public:
 		// None
 		ECHARACTERS_NONE
 	};
+
+	enum class EBattleState {
+		EBATTLESTATE_BASE,
+		EBATTLESTATE_ACTIVE,
+		EBATTLESTATE_SELECTED
+	};
 protected:
 	Stats p_Stats;
 	ECharacterType p_CharacterId;
@@ -63,6 +69,11 @@ protected:
 	int p_SelectedAttack;
 
 	std::string p_CharacterName;
+
+	SDL_Texture* m_BaseGrid;
+	SDL_Texture* m_ActiveGrid;
+
+	EBattleState m_BattleState;
 public:
 	Character(iPoint g_pos);
 	virtual ~Character();
@@ -88,6 +99,8 @@ public:
 
 	bool IsDead() { return p_Dead; }
 	bool Remove() { return p_Remove; }
+
+	void SetBattleState(EBattleState bstate) { m_BattleState = bstate; }
 
 	void SetGridPosition(iPoint position) { p_GridPosition = position; }
 	iPoint GetGridPosition() { return p_GridPosition; }
