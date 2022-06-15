@@ -34,8 +34,12 @@ public:
 	// this funtion will handle events recived on the panel
 	virtual bool OnGuiMouseClickEvent(GuiControl* control);
 
-	void Enable() { Active = true; };
-	void Disable() { Active = false; };
+	void Enable() { if (Active) return; Active = true; OnEnable(); };
+	virtual void OnEnable() {};
+
+	void Disable() { if (!Active) return; Active = false; OnDisable(); };
+	virtual void OnDisable() {};
+
 	bool GetActive() { return Active; };
 
 public:

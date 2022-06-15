@@ -12,6 +12,8 @@ public:
 
 	bool HasRequirements() override;
 
+	void UpdateProgressText() override;
+
 	void OnGameSave(pugi::xml_node& quest) override;
 	void OnGameLoad(pugi::xml_node& quest) override;
 

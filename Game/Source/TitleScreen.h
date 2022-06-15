@@ -40,6 +40,9 @@ private:
 public:
 	bool startGame = false;
 	bool continueGame = false;
+	bool ba = false;
+	int anim = 0;
+	int timer = 0;
 };
 
 #endif // __TITLESCREEN_H__

@@ -17,7 +17,7 @@ Fonts::~Fonts()
 }
 
 // Load new texture from file path
-int Fonts::Load(const char* texture_path, const char* characters, uint rows)
+int Fonts::Load(const char* texture_path, const char* characters, uint rows, Color c)
 {
 	int id = -1;
 
@@ -28,6 +28,7 @@ int Fonts::Load(const char* texture_path, const char* characters, uint rows)
 	}
 
 	SDL_Texture* tex = app->tex->Load(texture_path);
+	SDL_SetTextureColorMod(tex, c.r, c.g, c.b);
 
 	if (tex == nullptr || strlen(characters) >= MAX_FONT_CHARS)
 	{
@@ -50,6 +51,7 @@ int Fonts::Load(const char* texture_path, const char* characters, uint rows)
 
 	font.texture = tex;
 	font.rows = rows;
+	font.color = c;
 
 	// TODO 1: Finish storing font data
 
@@ -58,9 +60,9 @@ int Fonts::Load(const char* texture_path, const char* characters, uint rows)
 	// columns -------  Amount of chars per row of the texture
 	// char_w --------	Width of each character
 	// char_h --------	Height of each character
-	strcpy_s(fonts[id].table, MAX_FONT_CHARS, characters);
+	strcpy_s(font.table, MAX_FONT_CHARS, characters);
 	font.totalLength = strlen(characters);
-	font.columns = fonts[id].totalLength / rows;
+	font.columns = font.totalLength / rows;
 
 	uint tex_w, tex_h;
 	app->tex->GetSize(tex, tex_w, tex_h);

@@ -10,10 +10,12 @@ public:
 	PMQuest1();
 	~PMQuest1();
 
-	virtual void UpdateCheck() override;
+	void UpdateCheck() override;
 
-	virtual bool HasRequirements() override;
-	virtual void Finish() override;
+	void UpdateProgressText() override;
+
+	bool HasRequirements() override;
+	void OnFinish() override;
 
 	void OnItemAdd(Item::EItemType item, size_t count) override;
 	void OnItemRemove(Item::EItemType item, size_t count) override;

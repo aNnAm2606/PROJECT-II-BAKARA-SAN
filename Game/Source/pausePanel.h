@@ -20,6 +20,7 @@ public:
 	GuiButton* saveBtn;
 	GuiButton* loadBtn;
 	GuiButton* exitGameBtn;
+	GuiButton* titleBtn;
 
 	SDL_Rect box;
 };

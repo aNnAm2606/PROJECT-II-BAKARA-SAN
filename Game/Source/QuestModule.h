@@ -57,6 +57,8 @@ public:
 
 	bool LoadState(pugi::xml_node& save) override;
 	bool SaveState(pugi::xml_node& save) override;
+
+	Quest** GetQuestList() { return m_Quests; }
 private:
 	EQuestState m_QuestStates[EQuest::EQUEST_NONE];
 	Quest* m_Quests[EQuest::EQUEST_NONE];

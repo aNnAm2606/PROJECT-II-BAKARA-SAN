@@ -5,6 +5,7 @@
 #include "GuiManager.h"
 #include "FadeToBlack.h"
 #include "TitleScreen.h"
+#include "Transitions.h"
 
 Credits::Credits(bool active) : GuiPanel(active)
 {

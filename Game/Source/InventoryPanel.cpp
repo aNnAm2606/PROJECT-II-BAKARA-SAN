@@ -6,6 +6,7 @@
 #include "TitleScreen.h"
 #include "InventoryModule.h"
 #include "Textures.h"
+#include "Transitions.h"
 
 InventoryPanel::InventoryPanel(bool active) : GuiPanel(active)
 {
@@ -19,6 +20,19 @@ InventoryPanel::~InventoryPanel()
 bool InventoryPanel::Start()
 {
     m_ItemsTex = app->tex->Load("Assets/Art/Items/items.png");
+    inventoryPanel = app->tex->Load("Assets/Art/GUI/inventoryUI.png");
+
+    partyBtn = (GuiButton*)CreateGuiButton(0, app->guiManager, this, { 1001,58,126,58 }, "party");
+    partyBtn->texture = app->guiManager->titleButtons;
+    partyBtn->normalRec = { 1001,58,126,58 };
+    partyBtn->focusedRec = { 1001,58,126,58 };
+    partyBtn->pressedRec = { 1001,58,126,58 };
+
+    questBtn = (GuiButton*)CreateGuiButton(1, app->guiManager, this, { 1128,58,124,58 }, "quest");
+    questBtn->texture = app->guiManager->titleButtons;
+    questBtn->normalRec = { 1128,58,124,58 };
+    questBtn->focusedRec = { 1128,58,124,58 };
+    questBtn->pressedRec = { 1128,58,124,58 };
 
     return true;
 }
@@ -31,7 +45,78 @@ bool InventoryPanel::Update(float dt, bool doLogic)
 
 bool InventoryPanel::Draw()
 {
-    app->render->DrawTexture(app->guiManager->inventoryScreen, 0, 0, NULL, false);
+    if (app->guiManager->cursorMode == true)
+    {
+        switch (app->guiManager->anim)
+        {
+        case 0:
+            app->render->DrawTexture(inventoryPanel, 603, 352, &app->guiManager->rect1,false);
+            break;
+        case 1:
+            app->render->DrawTexture(inventoryPanel, 587, 326, &app->guiManager->rect2, false);
+            break;
+        case 2:
+            app->render->DrawTexture(inventoryPanel, 560, 307, &app->guiManager->rect3, false);
+            break;
+        case 3:
+            app->render->DrawTexture(inventoryPanel, 503, 258, &app->guiManager->rect4, false);
+            break;
+        case 4:
+            app->render->DrawTexture(inventoryPanel, 432, 203, &app->guiManager->rect5, false);
+            break;
+        case 5:
+            app->render->DrawTexture(inventoryPanel, 282, 155, &app->guiManager->rect6, false);
+            break;
+        case 6:
+            app->render->DrawTexture(inventoryPanel, 227, 129, &app->guiManager->rect7, false);
+            break;
+        case 7:
+            app->render->DrawTexture(inventoryPanel, 124, 104, &app->guiManager->rect8, false);
+            break;
+        case 8:
+            app->render->DrawTexture(inventoryPanel, 61, 57, &app->guiManager->rect9, false);
+            break;
+        case 9:
+            app->render->DrawTexture(inventoryPanel, 0, 0, NULL, false);
+            break;
+        }
+    }
+    else
+    {
+        switch (app->guiManager->anim)
+        {
+        case 0:
+            app->render->DrawTexture(inventoryPanel, 603, 352, &app->guiManager->rect1, false);
+            break;
+        case 1:
+            app->render->DrawTexture(inventoryPanel, 587, 326, &app->guiManager->rect2, false);
+            break;
+        case 2:
+            app->render->DrawTexture(inventoryPanel, 560, 307, &app->guiManager->rect3, false);
+            break;
+        case 3:
+            app->render->DrawTexture(inventoryPanel, 503, 258, &app->guiManager->rect4, false);
+            break;
+        case 4:
+            app->render->DrawTexture(inventoryPanel, 432, 203, &app->guiManager->rect5, false);
+            break;
+        case 5:
+            app->render->DrawTexture(inventoryPanel, 282, 155, &app->guiManager->rect6, false);
+            break;
+        case 6:
+            app->render->DrawTexture(inventoryPanel, 227, 129, &app->guiManager->rect7, false);
+            break;
+        case 7:
+            app->render->DrawTexture(inventoryPanel, 124, 104, &app->guiManager->rect8, false);
+            break;
+        case 8:
+            app->render->DrawTexture(inventoryPanel, 61, 57, &app->guiManager->rect9, false);
+            break;
+        case 9:
+            app->render->DrawTexture(inventoryPanel, 0, 0, NULL, false);
+            break;
+        }
+    }
 
     std::vector<Item::EItemType>* inventory = app->inventory->GetInventory();
     size_t size = inventory->size();
@@ -73,6 +158,14 @@ bool InventoryPanel::CleanUp()
 
 bool InventoryPanel::OnGuiMouseClickEvent(GuiControl* control)
 {
+    if (control->id == partyBtn->id)
+    {
+        app->guiManager->cursor = 1;
+    }
+    else if (control->id == questBtn->id)
+    {
+        app->guiManager->cursor = 2;
+    }
 
     return true;
 }

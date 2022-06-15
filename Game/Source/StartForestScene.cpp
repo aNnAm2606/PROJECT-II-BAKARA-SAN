@@ -94,7 +94,11 @@ bool StartForestScene::PostUpdate()
 		app->transitions->SelectTransition(1, 0, 1280, this, (Module*)app->worldMapScene);
 	}
 	 
-
+	if (app->guiManager->back2Title == true)
+	{
+		app->transitions->SelectTransition(1, 0, 1280, this, (Module*)app->titleScreen);
+		app->guiManager->back2Title = false;
+	}
 	return ret;
 }
 

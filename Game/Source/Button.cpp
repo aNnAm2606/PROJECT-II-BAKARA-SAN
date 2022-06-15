@@ -18,6 +18,7 @@ Button::Button(SDL_Rect bounds, SDL_Texture* texture, const char* text, int font
 
 	canClick = true;
 	drawBasic = false;
+	use_font_states = false;
 
 	state = State::NORMAL;
 }
@@ -31,6 +32,15 @@ void Button::SetPosition(int x, int y)
 {
 	bounds.x = x;
 	bounds.y = y;
+}
+
+void Button::SetFontStates(int base, int highlight, int press)
+{
+	font = base;
+	hfont = highlight;
+	pfont = press;
+
+	use_font_states = true;
 }
 
 bool Button::Update()
@@ -65,13 +75,27 @@ bool Button::Update()
 
 bool Button::Draw()
 {
-	app->render->DrawTextureScaled(texture, bounds.x, bounds.y, bounds.w, bounds.h, NULL, false);
+	if (texture) {
+		app->render->DrawTextureScaled(texture, bounds.x, bounds.y, bounds.w, bounds.h, NULL, false);
+	}
 
-	Font& fontobj = app->fonts->GetFont(font);
+	int ifont = font;
+
+	if (use_font_states) {
+		if (state == State::FOCUSED) {
+			ifont = hfont;
+		}
+		else if (state == State::PRESSED) {
+			ifont = pfont;
+		}
+	}
+
+	Font& fontobj = app->fonts->GetFont(ifont);
+	
 	int textXOffset = bounds.w / 2 - fontobj.char_w * text.length() / 2;
 	int textYOffset = bounds.h / 2 - fontobj.char_h / 2;
-	
-	app->fonts->BlitText(bounds.x + textXOffset, bounds.y + textYOffset, font, text.c_str(), false);
+
+	app->fonts->BlitText(bounds.x + textXOffset, bounds.y + textYOffset, ifont, text.c_str(), false);
 
 	return false;
 }

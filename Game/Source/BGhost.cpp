@@ -6,6 +6,7 @@
 
 BGhost::BGhost(iPoint g_pos) : Enemy(g_pos)
 {
+	p_CharacterName = "spectre";
 	p_CharacterId = ECharacterType::ECHARACTER_SPECTRE;
 	p_Stats.health = 15;
 	p_Stats.maxHealth = 15;
@@ -18,8 +19,9 @@ BGhost::BGhost(iPoint g_pos) : Enemy(g_pos)
 		128, 128
 	};
 
-	p_Abilities[0] = new ABlackFlame(this);
+	p_Abilities.push_back(new ABlackFlame(this));
 
+	p_AttackAnimations.emplace_back();
 	p_AttackAnimations[0].PushBack({ 0, 0, 128, 128 });
 	p_AttackAnimations[0].PushBack({ 128, 0, 128, 128 });
 	p_AttackAnimations[0].PushBack({ 256, 0, 128, 128 });

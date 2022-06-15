@@ -8,6 +8,7 @@
 #include "TownScene.h"
 #include "GuiManager.h"
 #include "PlayerModule.h"
+#include "Transitions.h"
 
 #include "Defs.h"
 #include "Log.h"
@@ -104,6 +105,12 @@ bool TownScene::PostUpdate()
 	bool ret = true;
 	
 	if (playerPos.y > 1000)app->fade->Fade(this, (Module*) app->worldMapScene);
+
+	if (app->guiManager->back2Title == true)
+	{
+		app->transitions->SelectTransition(1, 0, 1280, this, (Module*)app->titleScreen);
+		app->guiManager->back2Title = false;
+	}
 
 	return ret;
 }

@@ -22,11 +22,15 @@ public:
 
 	bool PostUpdate();
 	void SelectTransition(int id,int timer_in_transition, int timer_out_transition, Module* toDisable, Module* toEnable);
+	void UiAnim(int id, int timer_in_transition, int timer_out_transition);
 	//NEED TO CREATE MORE DRAWTRANSITIONS
 	void DrawTransition1();
 	void DrawTransition2();
 	void DrawTransition3();
 	void DrawTransition4();
+
+	void DrawSettings();
+	void DrawPause();
 
 
 public:
@@ -46,9 +50,8 @@ public:
 	uint win_height;
 
 	// The rectangles of the screen, used to render the animation
-	
+	SDL_Texture* textureSettings;
 	SDL_Texture* transition;
-	SDL_Texture* texture;
 };
 
 #endif // __WINDOW_H__

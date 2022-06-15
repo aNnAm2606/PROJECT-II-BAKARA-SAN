@@ -36,6 +36,8 @@ private:
 
 	EBattleState m_BattleState;
 
+	int m_SelectedAbility;
+
 	void Waiting();
 	void Attacking();
 public:
@@ -67,6 +69,10 @@ public:
 
 	// Damage enemy at position
 	void DamageEnemyAt(iPoint position, int damage);
+
+	Character* GetActiveCharacter() { return m_ActiveCharacter; }
+
+	void SelectedAbility(int id) { m_SelectedAbility = id; }
 
 	void FakeKill(Character::ECharacterType character);
 

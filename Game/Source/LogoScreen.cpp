@@ -6,6 +6,8 @@
 #include "Window.h"
 #include "LogoScreen.h"
 #include "FadeToBlack.h"
+#include "GuiManager.h"
+#include "Transitions.h"
 
 #include "Defs.h"
 #include "Log.h"
@@ -74,11 +76,15 @@ bool LogoScreen::PostUpdate()
 	GamePad& gamepad = app->input->pads[0];
 	if (app->input->GamepadConnected() == false)
 	{
-		if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN) app->fade->Fade(this, (Module*)app->battleScene);
+		if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN) app->fade->Fade(this, (Module*)app->titleScreen);
 	}
 	else if(gamepad.a == true) app->fade->Fade(this, (Module*)app->titleScreen);
 		
-	
+	if (app->guiManager->back2Title == true)
+	{
+		app->transitions->SelectTransition(1, 0, 1280, this, (Module*)app->titleScreen);
+		app->guiManager->back2Title = false;
+	}
 
 	return ret;
 }

@@ -43,7 +43,7 @@ bool QuitPanel::Update(float dt, bool doLogic)
 
 bool QuitPanel::Draw()
 {
-    app->render->DrawTexture(app->guiManager->quitBox, -app->render->camera.x + 268, -app->render->camera.y + 212, &box);
+    app->render->DrawTexture(app->guiManager->quitBox, 268,  212, &box, false);
     GuiPanel::Draw();
     return true;
 }

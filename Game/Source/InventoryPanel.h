@@ -8,6 +8,7 @@ class InventoryPanel : public GuiPanel
 {
 private:
 	SDL_Texture* m_ItemsTex;
+	SDL_Texture* inventoryPanel;
 public:
 	InventoryPanel(bool active);
 	~InventoryPanel();
@@ -21,5 +22,8 @@ public:
 
 	// Buttons
 	GuiButton* closeBtn;
+	GuiButton* partyBtn;
+	GuiButton* questBtn;
+
 };
 

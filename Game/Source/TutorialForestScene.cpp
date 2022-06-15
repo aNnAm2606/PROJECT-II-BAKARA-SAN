@@ -102,6 +102,10 @@ bool TutorialForestScene::PostUpdate()
 		app->transitions->SelectTransition(1, 0, 1280, this, (Module*)app->tutorialScene_4);
 	}
 
+	if (app->guiManager->back2Title == true)
+	{
+		app->transitions->SelectTransition(1, 0, 1280, this, (Module*)app->titleScreen);
+	}
 	return ret;
 }
 

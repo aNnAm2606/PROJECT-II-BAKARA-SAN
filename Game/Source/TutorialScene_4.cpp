@@ -93,7 +93,10 @@ bool TutorialScene_4::PostUpdate()
 		startCameraFollowsPlayer = cameraFollowsPlayer;
 		app->transitions->SelectTransition(1, 0, 1280, this, (Module*)app->tutorialForestScene);
 	}
-
+	if (app->guiManager->back2Title == true)
+	{
+		app->transitions->SelectTransition(1, 0, 1280, this, (Module*)app->titleScreen);
+	}
 
 	return ret;
 }

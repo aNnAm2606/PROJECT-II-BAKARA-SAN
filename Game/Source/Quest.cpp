@@ -11,6 +11,10 @@ Quest::Quest()
 	app->inventory->questOnRemoveCallbacks += QuestItemAction(&Quest::OnItemRemove, this);
 
 	app->battleScene->onCharacterKilled += QuestCharacterAction(&Quest::OnCharacterKilled, this);
+
+	for (int i = 0; i < 4; i++) {
+		p_Rewards[i] = Item::EItemType::EITEMTYPE_NONE;
+	}
 }
 
 Quest::~Quest()
@@ -19,4 +23,17 @@ Quest::~Quest()
 	app->inventory->questOnRemoveCallbacks -= QuestItemAction(&Quest::OnItemRemove, this);
 
 	app->battleScene->onCharacterKilled -= QuestCharacterAction(&Quest::OnCharacterKilled, this);
+}
+
+void Quest::Finish()
+{
+	for (int i = 0; i < 4; i++) {
+		Item::EItemType item = p_Rewards[i];
+
+		if (item != Item::EItemType::EITEMTYPE_NONE) {
+			app->inventory->AddItem(item);
+		}
+	}
+
+	OnFinish();
 }

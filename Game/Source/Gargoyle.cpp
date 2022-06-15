@@ -6,6 +6,7 @@
 
 Gargoyle::Gargoyle(iPoint g_pos) : Enemy(g_pos)
 {
+	p_CharacterName = "gargoyle";
 	p_CharacterId = ECharacterType::ECHARACTER_GARGOYLE;
 	p_Stats.health = 20;
 	p_Stats.maxHealth = 20;
@@ -18,8 +19,9 @@ Gargoyle::Gargoyle(iPoint g_pos) : Enemy(g_pos)
 		128, 128
 	};
 
-	p_Abilities[0] = new ASlash(this);
+	p_Abilities.push_back(new ASlash(this));
 
+	p_AttackAnimations.emplace_back();
 	p_AttackAnimations[0].PushBack({ 0, 0, 128, 128 });
 	p_AttackAnimations[0].PushBack({ 128, 0, 128, 128 });
 	p_AttackAnimations[0].PushBack({ 256, 0, 128, 128 });

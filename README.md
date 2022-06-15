@@ -81,6 +81,9 @@ turn will begin, the enemies will attack, and then its ur turn again.
  - Hang Xue: Music Artist, UI.
    Github Account: Patronum129
 
+## Trailer
+
+https://youtu.be/YMVeioFv2Lo
 
 ## License
 

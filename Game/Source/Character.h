@@ -5,7 +5,8 @@
 #include "Point.h"
 #include "Animation.h"
 
-#define MAX_ABILITIES 1
+#include <string>
+#include <vector>
 
 struct Stats {
 	int maxHealth;
@@ -45,9 +46,9 @@ protected:
 	SDL_Texture* p_CharacterSpriteSheet;
 	SDL_Rect p_CharacterRect;
 
-	Ability* p_Abilities[MAX_ABILITIES];
+	std::vector<Ability*> p_Abilities;
 
-	Animation p_AttackAnimations[MAX_ABILITIES];
+	std::vector<Animation> p_AttackAnimations;
 	Animation p_IdleAnimation;
 	Animation p_DeadAnimation;
 
@@ -59,6 +60,8 @@ protected:
 	bool p_Dead;
 	bool p_Remove;
 	int p_SelectedAttack;
+
+	std::string p_CharacterName;
 public:
 	Character(iPoint g_pos);
 	virtual ~Character();
@@ -68,10 +71,11 @@ public:
 
 	int GetSpeed() { return p_Stats.speed; }
 	int GetHealth() { return p_Stats.health; }
+	int GetMaxHealth() { return p_Stats.maxHealth; }
 	
 	bool IsPlayer() { return p_IsPlayer; }
 
-	void StartAttack(int selectedAttack = -1);
+	void StartAttack(int selectedAttack = 0);
 	virtual void Update();
 
 	void Render(iPoint position);
@@ -88,6 +92,10 @@ public:
 	ECharacterType getCharacterType() { return p_CharacterId; }
 
 	SDL_Texture* GetCharacterSpriteSheet() { return p_CharacterSpriteSheet; }
+
+	std::vector<Ability*>* GetAbilities() { return &p_Abilities; }
+
+	const char* GetCharacterName() { return p_CharacterName.c_str(); }
 };
 
 #endif  // __LOG_H__

@@ -4,6 +4,7 @@
 #include "GuiManager.h"
 #include "FadeToBlack.h"
 #include "TitleScreen.h"
+#include "Transitions.h"
 
 PausePanel::PausePanel(bool active) : GuiPanel(active)
 {
@@ -48,6 +49,12 @@ bool PausePanel::Start()
     exitGameBtn->focusedRec = { 27,377,177,43 };
     exitGameBtn->pressedRec = { 698,377,177,43 };
 
+    titleBtn = (GuiButton*)CreateGuiButton(5, app->guiManager, this, { 551,377 + 88 +62,180,34 }, "title screen");
+    titleBtn->texture = app->guiManager->pauseBox;
+    titleBtn->normalRec = { 368,441,180,34 };
+    titleBtn->focusedRec = { 27,441,180,34 };
+    titleBtn->pressedRec = { 698,441,180,34 };
+
     return true;
 }
 
@@ -60,8 +67,12 @@ bool PausePanel::Update(float dt, bool doLogic)
 
 bool PausePanel::Draw()
 {
-    app->render->DrawTexture(app->guiManager->pauseBox, -app->render->camera.x + 436, -app->render->camera.y + 88, &box);
-    GuiPanel::Draw();
+    app->transitions->UiAnim(6, -500, 150);
+    if(app->guiManager->pause==true)
+    {
+        app->render->DrawTexture(app->guiManager->pauseBox, 436, 88, &box, false);
+        GuiPanel::Draw();
+    }
     return true;
 }
 
@@ -98,6 +109,12 @@ bool PausePanel::OnGuiMouseClickEvent(GuiControl* control)
     else if (control->id == exitGameBtn->id)
     {
         app->guiManager->quitPanel->Enable();
+        app->guiManager->pausePanel->Disable();
+        gamePaused = false;
+    }
+    else if (control->id == titleBtn->id)
+    {
+        app->guiManager->back2Title = true;
         app->guiManager->pausePanel->Disable();
         gamePaused = false;
     }

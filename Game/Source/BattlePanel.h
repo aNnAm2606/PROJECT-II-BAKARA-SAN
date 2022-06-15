@@ -1,5 +1,13 @@
 #pragma once
 #include "GuiPanel.h"
+#include "Button.h"
+#include "Color.h"
+
+#include <vector>
+
+class Character;
+class Ability;
+
 class BattlePanel : public GuiPanel
 {
 
@@ -14,24 +22,32 @@ public:
 
 	bool OnGuiMouseClickEvent(GuiControl* control) override;
 
-	// Buttons
-	GuiButton* ChamanBtn;
-	GuiButton* PaladinBtn;
-	GuiButton* attackBtn;
-	GuiButton* dodgeBtn;
-	GuiButton* runBtn;
-	GuiButton* fallenAngelBtn;
-	GuiButton* ghostBtn;
-	GuiButton* gargoyleBtn;
+	void OnEnable() override;
+	void OnDisable() override;
+private:
+	uint swidth, sheight;
+
+	Character* character;
+	std::vector<Ability*>* abilities;
+
+	// Attack buttons
+	std::vector<Button> m_Buttons;
 
 	// Box texture
-	SDL_Rect charBox;
-	SDL_Rect actionBox;
-	SDL_Rect enemyBox;
+	SDL_Rect big_box;
+	SDL_Rect medium_box;
+	SDL_Rect small_box;
 	SDL_Rect arrow;
 
-	// Arrow for selecting
-	int charArrow = -1;
-	int actionArrow = -1;
-	int enemyArrow = -1;
+	// Colors
+	Color m_LabelColor;
+	Color m_BaseColor;
+	Color m_HighlightColor;
+	Color m_PressColor;
+
+	// Fonts
+	int m_LabelFont;
+	int m_BaseFont;
+	int m_HighlightFont;
+	int m_PressFont;
 };

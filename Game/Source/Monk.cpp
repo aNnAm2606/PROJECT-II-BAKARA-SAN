@@ -6,6 +6,7 @@
 
 Monk::Monk(iPoint g_pos) : Character(g_pos)
 {
+	p_CharacterName = "matsubara";
 	p_CharacterId = ECharacterType::ECHARACTER_MONK;
 	p_Stats.health = 30;
 	p_Stats.maxHealth = 30;
@@ -18,8 +19,9 @@ Monk::Monk(iPoint g_pos) : Character(g_pos)
 		128, 128
 	};
 
-	p_Abilities[0] = new ASerpentStrike(this);
+	p_Abilities.push_back(new ASerpentStrike(this));
 
+	p_AttackAnimations.emplace_back();
 	p_AttackAnimations[0].PushBack({ 0, 0, 128, 128 });
 	p_AttackAnimations[0].PushBack({ 128, 0, 128, 128 });
 	p_AttackAnimations[0].PushBack({ 256, 0, 128, 128 });
