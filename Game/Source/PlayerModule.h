@@ -5,6 +5,7 @@
 #include "SDL/include/SDL.h"
 #include "Point.h"
 #include "Collider.h"
+#include "Animation.h"
 
 class PlayerModule : public Module
 {
@@ -15,6 +16,18 @@ private:
 	SDL_Rect playerRect;
 	Collider* playerCollider;
 	uint Walking_FX = NULL;
+
+	enum EWalkAnimation {
+		EWALK_DOWN,
+		EWALK_LEFT,
+		EWALK_RIGHT,
+		EWALK_UP
+	};
+
+	Animation m_WalkAnimations[4];
+	EWalkAnimation m_ActiveAnimation;
+
+	bool m_Moving;
 public:
 	PlayerModule(bool startEnabled);
 

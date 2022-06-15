@@ -24,6 +24,22 @@ PlayerModule::PlayerModule(bool startEnabled) : Module(startEnabled)
 {
 	name.Create("PlayerModule");
 	playerCollider = new Collider(playerRect, Collider::PLAYER);
+	m_ActiveAnimation = EWalkAnimation::EWALK_DOWN;
+
+	SDL_Rect prect = { 0, 0, 128, 128 };
+
+	// Walking animation
+	for (int i = 0; i < 4; i++) {
+		prect.y = i * prect.h;
+
+		for (int j = 0; j < 4; j++) {
+			prect.x = j * prect.w;
+			
+			m_WalkAnimations[i].PushBack(prect);
+		}
+
+		m_WalkAnimations[i].speed = 0.1f;
+	}
 }
 
 PlayerModule::~PlayerModule()
@@ -72,6 +88,8 @@ bool PlayerModule::Update(float dt)
 
 	// Update
 	GamePad& gamePad = app->input->pads[0];
+
+	m_Moving = false;
 	
 	if (app->input->GamepadConnected() == false)
 	{
@@ -79,22 +97,30 @@ bool PlayerModule::Update(float dt)
 		{
 			if (app->frameCount % 18 == 0) app->audio->PlayFx(Walking_FX);
 			playerPos.x += playerSpeed;
+			m_ActiveAnimation = EWalkAnimation::EWALK_RIGHT;
+			m_Moving = true;
 		}
 		
 		if (app->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT)
 		{
 			if (app->frameCount % 18 == 0) app->audio->PlayFx(Walking_FX);
 			playerPos.x -= playerSpeed;
+			m_ActiveAnimation = EWalkAnimation::EWALK_LEFT;
+			m_Moving = true;
 		}
 
 		if (app->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT) {
 			if (app->frameCount % 18 == 0) app->audio->PlayFx(Walking_FX);
 			playerPos.y -= playerSpeed;
+			m_ActiveAnimation = EWalkAnimation::EWALK_UP;
+			m_Moving = true;
 		}
 
 		if (app->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT) {
 			if (app->frameCount % 18 == 0) app->audio->PlayFx(Walking_FX);
 			playerPos.y += playerSpeed;
+			m_ActiveAnimation = EWalkAnimation::EWALK_DOWN;
+			m_Moving = true;
 		}
 	}
 	else
@@ -103,24 +129,32 @@ bool PlayerModule::Update(float dt)
 		{
 			if (app->frameCount % 18 == 0) app->audio->PlayFx(Walking_FX);
 			playerPos.x += playerSpeed;
+			m_ActiveAnimation = EWalkAnimation::EWALK_LEFT;
+			m_Moving = true;
 		}
 			
 		if (gamePad.left_x < 0.0f)
 		{
 			if (app->frameCount % 18 == 0) app->audio->PlayFx(Walking_FX);
 				playerPos.x -= playerSpeed;
+				m_ActiveAnimation = EWalkAnimation::EWALK_RIGHT;
+				m_Moving = true;
 		}
 			
 		if (gamePad.left_y > 0.0f)
 		{
 			if (app->frameCount % 18 == 0) app->audio->PlayFx(Walking_FX);
 			playerPos.y += playerSpeed;
+			m_ActiveAnimation = EWalkAnimation::EWALK_DOWN;
+			m_Moving = true;
 		}
 			
 		if (gamePad.left_y < 0.0f)
 		{
 			if (app->frameCount % 18 == 0) app->audio->PlayFx(Walking_FX);
 			playerPos.y -= playerSpeed;
+			m_ActiveAnimation = EWalkAnimation::EWALK_UP;
+			m_Moving = true;
 		}
 		
 	}
@@ -147,8 +181,19 @@ void PlayerModule::GetPosition(int &x, int &y)
 }
 bool PlayerModule::PostUpdate()
 {
-	SDL_Rect section = { 0,0, 100,120 };
-	app->render->DrawTexture(playerSheet, playerRect.x, playerRect.y, &section);
+	/*SDL_Rect section = { 0,0, 100,120 };
+	app->render->DrawTexture(playerSheet, playerRect.x, playerRect.y, &section);*/
+
+	if (m_Moving) {
+		m_WalkAnimations[m_ActiveAnimation].Update();
+	}
+	else {
+		m_WalkAnimations[m_ActiveAnimation].Reset();
+	}
+
+	SDL_Rect rect = m_WalkAnimations[m_ActiveAnimation].GetCurrentFrame();
+
+	app->render->DrawTexture(playerSheet, playerRect.x, playerRect.y, &rect);
 
 	return true;
 }
