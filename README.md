@@ -46,15 +46,25 @@ Game resolution: 1280x720px@60fps, support for windowed mode and fullscreen
 
 ❏ Implemented TOWN map with 3 locations to visit ( House, Shop,
 Sanctuary.)
+
 ❏ Implemented 2 Playable Characters, available as the base Team Party
+
 ❏ Implemented 3 NPC Characters (town person, shopkeeper, nun)
+
 ❏ Implemented 4 Dialogs with branching with NPC characters 
+
 ❏ INPUTS: Keyboard/Gamepad inputs supported
+
 ❏ UI: PAUSE menu available on pause
+
 ❏ AUDIO: Music track specific for the screen
+
 ❏ AUDIO: Music effects fade-in/fade-out, lower volume on PAUSE
+
 ❏ Implemented 3 Types of Enemies with different stats
+
 ❏ Implemented turn-based combat system, players and enemies alternate attacks
+
 ❏ UI: Implement a minimal menu to choose the next player's actions.
 
 ## SPECIAL FEATURES
