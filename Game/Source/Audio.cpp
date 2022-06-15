@@ -338,6 +338,7 @@ int Audio::SetMusicVolume(int vol)
 {
 	musicVol = vol;
 	Mix_VolumeMusic(vol);
+
 	return musicVol = vol;
 }
 

@@ -1,5 +1,11 @@
 #pragma once
 #include "GuiPanel.h"
+#include "Color.h"
+#include <vector>
+
+class Character;
+class Ability;
+
 class PartyPanel : public GuiPanel
 {
 
@@ -33,6 +39,30 @@ public:
 	SDL_Texture* priestStats;
 	SDL_Texture* priestPic;
 	SDL_Texture* partyPanel;
+
+private:
+	uint swidth, sheight;
+
+	Character* character;
+	std::vector<Ability*>* abilities;
+
+	// Box texture
+	SDL_Rect big_box;
+	SDL_Rect medium_box;
+	SDL_Rect small_box;
+	SDL_Rect arrow;
+
+	// Colors
+	Color m_LabelColor;
+	Color m_BaseColor;
+	Color m_HighlightColor;
+	Color m_PressColor;
+
+	// Fonts
+	int m_LabelFont;
+	int m_BaseFont;
+	int m_HighlightFont;
+	int m_PressFont;
 
 	int selected = 0;
 };
