@@ -48,10 +48,10 @@ bool BattleScene::Awake(pugi::xml_node& config)
 
 bool BattleScene::Start()
 {
-	Scene::Start();
-
 	startCameraPos.x = 0;
 	startCameraPos.y = 0;
+
+	Scene::Start();
 
 	app->playerModule->Disable();
 
