@@ -78,6 +78,11 @@ bool DungeonScene::Start()
 	app->audio->ChangeMusic(DUNGEON1_MUSIC, 1.0f, 1.0f);
 
 	app->currentScene = sceneID::DUNGEON;
+
+	m_Gargoyle.Init();
+	m_Gargoyle.SetOriginScene(this);
+	m_Gargoyle.SetPosition(1653, -3143);
+
 	return true;
 }
 
@@ -124,8 +129,7 @@ bool DungeonScene::Update(float dt)
 	Scene::Update(dt);
 	SDL_Rect playerRect = app->playerModule->GetPLayerCollider()->rect;
 
-
-
+	m_Gargoyle.Update();
 
 	if (secretRoomBottomWall->Intersects(playerRect) && isSecretRoomOpen == false)
 	{
@@ -213,6 +217,9 @@ bool DungeonScene::PostUpdate()
 		app->transitions->SelectTransition(1, 0, 1280, this, (Module*)app->titleScreen);
 		app->guiManager->back2Title = false;
 	}
+
+	m_Gargoyle.Render();
+
 	return ret;
 }
 

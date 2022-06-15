@@ -4,6 +4,8 @@
 #include "Scene.h"
 #include "Collider.h"
 
+#include "GargoyleBattle_FinalBoss.h"
+
 struct SDL_Texture;
 
 class DungeonScene : public Scene
@@ -67,6 +69,8 @@ private:
 
 	uint Lever_FX = NULL;
 	uint Pickup_FX = NULL;
+
+	GargoyleBattle_FinalBoss m_Gargoyle;
 };
 
 #endif //__DUNGEON_SCENE_H__

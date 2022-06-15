@@ -95,6 +95,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\AAngeleyes.cpp" />
     <ClCompile Include="Source\Ability.cpp" />
     <ClCompile Include="Source\ABlackFlame.cpp" />
     <ClCompile Include="Source\Action.cpp" />
@@ -134,6 +135,7 @@
     <ClCompile Include="Source\GargoyleBattle_Dungeon_2.cpp" />
     <ClCompile Include="Source\GargoyleBattle_Dungeon_3.cpp" />
     <ClCompile Include="Source\GargoyleBattle_Dungeon_4.cpp" />
+    <ClCompile Include="Source\GargoyleBattle_FinalBoss.cpp" />
     <ClCompile Include="Source\GargoyleBattle_Town_1.cpp" />
     <ClCompile Include="Source\GuiButton.cpp" />
     <ClCompile Include="Source\GuiManager.cpp" />
@@ -171,6 +173,7 @@
     <ClCompile Include="Source\SisterMadonna.cpp" />
     <ClCompile Include="Source\StartForestScene.cpp" />
     <ClCompile Include="Source\StevenWonder.cpp" />
+    <ClCompile Include="Source\ThroneAngel.cpp" />
     <ClCompile Include="Source\TitlePanel.cpp" />
     <ClCompile Include="Source\TitleScreen.cpp" />
     <ClCompile Include="Source\LogoScreen.cpp" />
@@ -188,6 +191,7 @@
     <ClCompile Include="Source\VictoryPanel.cpp" />
     <ClCompile Include="Source\Window.cpp" />
     <ClCompile Include="Source\WorldMapScene.cpp" />
+    <ClInclude Include="Source\AAngeleyes.h" />
     <ClInclude Include="Source\Ability.h" />
     <ClInclude Include="Source\ABlackFlame.h" />
     <ClInclude Include="Source\Action.h" />
@@ -233,6 +237,7 @@
     <ClInclude Include="Source\GargoyleBattle_Dungeon_2.h" />
     <ClInclude Include="Source\GargoyleBattle_Dungeon_3.h" />
     <ClInclude Include="Source\GargoyleBattle_Dungeon_4.h" />
+    <ClInclude Include="Source\GargoyleBattle_FinalBoss.h" />
     <ClInclude Include="Source\GargoyleBattle_Town_1.h" />
     <ClInclude Include="Source\GuiButton.h" />
     <ClInclude Include="Source\GuiControl.h" />
@@ -270,6 +275,7 @@
     <ClInclude Include="Source\SisterMadonna.h" />
     <ClInclude Include="Source\StartForestScene.h" />
     <ClInclude Include="Source\StevenWonder.h" />
+    <ClInclude Include="Source\ThroneAngel.h" />
     <ClInclude Include="Source\TitlePanel.h" />
     <ClInclude Include="Source\TitleScreen.h" />
     <ClInclude Include="Source\LogoScreen.h" />

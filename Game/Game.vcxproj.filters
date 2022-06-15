@@ -284,6 +284,15 @@
     <ClCompile Include="Source\GargoyleBattle_Dungeon_4.cpp">
       <Filter>Entities\GargoyleBattles\Dungeon_1</Filter>
     </ClCompile>
+    <ClCompile Include="Source\ThroneAngel.cpp">
+      <Filter>Battle\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\AAngeleyes.cpp">
+      <Filter>Battle\Abilities\Mipharesh</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GargoyleBattle_FinalBoss.cpp">
+      <Filter>Entities\GargoyleBattles\FinalBoss</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\StartForestScene.h">
@@ -619,6 +628,15 @@
     <ClInclude Include="Source\GargoyleBattle_Dungeon_4.h">
       <Filter>Entities\GargoyleBattles\Dungeon_1</Filter>
     </ClInclude>
+    <ClInclude Include="Source\ThroneAngel.h">
+      <Filter>Battle\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\AAngeleyes.h">
+      <Filter>Battle\Abilities\Mipharesh</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GargoyleBattle_FinalBoss.h">
+      <Filter>Entities\GargoyleBattles\FinalBoss</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Scenes">
@@ -698,6 +716,12 @@
     </Filter>
     <Filter Include="Entities\GargoyleBattles\Dungeon_1">
       <UniqueIdentifier>{a0c818c8-1da3-4305-81e7-46ddcdf5f53c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Battle\Abilities\Mipharesh">
+      <UniqueIdentifier>{d790cb97-5b98-4fc9-85a4-e89029555397}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entities\GargoyleBattles\FinalBoss">
+      <UniqueIdentifier>{c7f90fa6-5421-4b16-be58-074d197687d9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
