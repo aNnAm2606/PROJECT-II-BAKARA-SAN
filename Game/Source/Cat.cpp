@@ -21,7 +21,7 @@ Cat::~Cat()
 void Cat::OnInit()
 {
 	m_NPCTex = app->tex->Load("Assets/Art/NPCs/cat.png");
-	m_NPCFX = app->audio->LoadFx("Assets/Audio/Fx/cat.wav");
+	m_NPCFX = app->audio->LoadFx("Assets/Audio/Fx/Meow.ogg");
 	m_NPCRect = {
 		0, 0,
 		128, 128
