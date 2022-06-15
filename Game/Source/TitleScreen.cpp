@@ -145,6 +145,8 @@ bool TitleScreen::CleanUp()
 	Scene::CleanUp();
 	LOG("Freeing scene");
 	app->tex->UnLoad(bg);
+	app->tex->UnLoad(title);
+	app->tex->UnLoad(transparent);
 	app->guiManager->titlePanel->Disable();
 	app->guiManager->settingsPanel->Disable();
 	app->guiManager->quitPanel->Disable();

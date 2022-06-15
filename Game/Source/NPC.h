@@ -15,6 +15,7 @@ protected:
 	SDL_Texture* m_EButton;
 
 	iPoint m_Position;
+	uint m_NPCFX = NULL;
 
 	// Dialogs
 	std::vector<Dialog> m_Dialogs;

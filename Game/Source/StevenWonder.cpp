@@ -4,6 +4,8 @@
 #include "Fonts.h"
 #include "InventoryModule.h"
 #include "QuestModule.h"
+#include "Audio.h"
+
 
 void StevenWonder::FillBaseDialog()
 {
@@ -127,6 +129,7 @@ void StevenWonder::OnInit()
 	FillCompletedDialog();
 
 	m_NPCTex = app->tex->Load("Assets/Art/NPCs/NPCs.png");
+	m_NPCFX = app->audio->LoadFx("Assets/Audio/Fx/NPC4.wav");
 	m_NPCRect = {
 		280,25,
 		75,85

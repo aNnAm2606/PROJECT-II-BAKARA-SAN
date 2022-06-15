@@ -2,6 +2,8 @@
 #include "App.h"
 #include "Textures.h"
 #include "Fonts.h"
+#include "Audio.h"
+
 
 void Triana::FillShopDialog()
 {
@@ -156,6 +158,7 @@ void Triana::OnInit()
 	FillShopDialog();
 
 	m_NPCTex = app->tex->Load("Assets/Art/NPCs/NPCs.png");
+	m_NPCFX = app->audio->LoadFx("Assets/Audio/Fx/NPC5.wav");
 	m_NPCRect = {
 		25, 25,
 		75, 85

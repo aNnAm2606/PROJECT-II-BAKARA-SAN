@@ -146,9 +146,16 @@ bool SettingsPanel::OnGuiMouseClickEvent(GuiControl* control)
     {
     }
     
-    if (control->id ==musicSldr->id)
+    if (control->id == musicSldr->id)
     { 
-        app->audio->SetMusicVolume(musicSldr->GetValue());
+        int vol = musicSldr->GetValue();
+        if(vol>=128) app->audio->SetMusicVolume(128);
+        if(vol <= 128) app->audio->SetMusicVolume(99);
+        if(vol <= 90) app->audio->SetMusicVolume(90);
+        if(vol <= 50)app->audio->SetMusicVolume(50);
+        if(vol<= 10)app->audio->SetMusicVolume(10);
+        if(vol <= 0)app->audio->SetMusicVolume(0);
+        //app->audio->SetMusicVolume(musicSldr->GetValue());
         LOG("VOLUME %i", app->audio->GetMusicVolume());
         LOG("sldr value %i", musicSldr->GetValue());
     }
