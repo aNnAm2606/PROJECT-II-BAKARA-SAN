@@ -100,7 +100,7 @@ turn will begin, the enemies will attack, and then its ur turn again.
 
 ## Trailer
 
-https://youtu.be/YMVeioFv2Lo
+<iframe width="560" height="315" src="https://www.youtube.com/embed/YMVeioFv2Lo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## License
 
