@@ -17,6 +17,9 @@ protected:
 
 	std::string p_Title;
 	std::string p_Description;
+	std::string m_ProgressText;
+
+	Item::EItemType p_Rewards[4];
 public:
 	Quest();
 	virtual ~Quest();
@@ -26,13 +29,20 @@ public:
 	const char* getDesc() { return p_Description.c_str(); }
 
 	// Quest functions
+	virtual void UpdateProgressText(){}
+
 	virtual void UpdateCheck() {};
 
 	virtual bool HasRequirements() { return true; };
-	virtual void Finish() {};
+
+	virtual void OnFinish(){}
+	void Finish();
 
 	virtual void OnGameSave(pugi::xml_node& quest){}
 	virtual void OnGameLoad(pugi::xml_node& quest) {}
+
+	const char* GetProgress() { return m_ProgressText.c_str(); }
+	Item::EItemType* GetRewards() { return p_Rewards; }
 
 	// Callbacks
 	virtual void OnItemAdd(Item::EItemType item, size_t count){}
