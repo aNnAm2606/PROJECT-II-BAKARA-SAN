@@ -272,6 +272,18 @@
     <ClCompile Include="Source\GargoyleBattle_Town_1.cpp">
       <Filter>Entities\GargoyleBattles</Filter>
     </ClCompile>
+    <ClCompile Include="Source\GargoyleBattle_Dungeon_1.cpp">
+      <Filter>Entities\GargoyleBattles\Dungeon_1</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GargoyleBattle_Dungeon_2.cpp">
+      <Filter>Entities\GargoyleBattles\Dungeon_1</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GargoyleBattle_Dungeon_3.cpp">
+      <Filter>Entities\GargoyleBattles\Dungeon_1</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GargoyleBattle_Dungeon_4.cpp">
+      <Filter>Entities\GargoyleBattles\Dungeon_1</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\StartForestScene.h">
@@ -595,6 +607,18 @@
     <ClInclude Include="Source\GargoyleBattle_Town_1.h">
       <Filter>Entities\GargoyleBattles</Filter>
     </ClInclude>
+    <ClInclude Include="Source\GargoyleBattle_Dungeon_2.h">
+      <Filter>Entities\GargoyleBattles\Dungeon_1</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GargoyleBattle_Dungeon_1.h">
+      <Filter>Entities\GargoyleBattles\Dungeon_1</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GargoyleBattle_Dungeon_3.h">
+      <Filter>Entities\GargoyleBattles\Dungeon_1</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GargoyleBattle_Dungeon_4.h">
+      <Filter>Entities\GargoyleBattles\Dungeon_1</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Scenes">
@@ -671,6 +695,9 @@
     </Filter>
     <Filter Include="Entities\GargoyleBattles">
       <UniqueIdentifier>{40cbc446-cebc-4fb7-ac51-35fb473cd80c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entities\GargoyleBattles\Dungeon_1">
+      <UniqueIdentifier>{a0c818c8-1da3-4305-81e7-46ddcdf5f53c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

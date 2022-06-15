@@ -2,6 +2,8 @@
 #include "App.h"
 #include "Textures.h"
 #include "Fonts.h"
+#include "Audio.h"
+
 
 void AlanParsons::FillBaseDialog()
 {
@@ -89,11 +91,12 @@ AlanParsons::~AlanParsons()
 {
 }
 
-void AlanParsons::Init()
+void AlanParsons::OnInit()
 {
 	FillBaseDialog();
 
 	m_NPCTex = app->tex->Load("Assets/Art/NPCs/NPCs.png");
+	m_NPCFX = app->audio->LoadFx("Assets/Audio/Fx/NPC1.wav");
 	m_NPCRect = {
 		280,25,
 		75,85

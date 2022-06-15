@@ -12,7 +12,10 @@ protected:
 	SDL_Texture* m_NPCTex;
 	SDL_Rect m_NPCRect;
 
+	SDL_Texture* m_EButton;
+
 	iPoint m_Position;
+	uint m_NPCFX = NULL;
 
 	// Dialogs
 	std::vector<Dialog> m_Dialogs;
@@ -21,6 +24,7 @@ protected:
 	int m_ActiveDialog;
 
 	bool m_Active;
+	bool m_Deactivate;
 
 	void AddDialog(Dialog& dialog, size_t resetNode);
 public:
@@ -29,7 +33,8 @@ public:
 
 	void SetPosition(int x, int y) { m_Position = { x,y }; }
 
-	virtual void Init(){}
+	void Init();
+	virtual void OnInit(){}
 
 	void Interact();
 

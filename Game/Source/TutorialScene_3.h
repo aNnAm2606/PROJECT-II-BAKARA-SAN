@@ -3,6 +3,8 @@
 
 #include "Scene.h"
 
+#include "GargoyleBattle_Dungeon_4.h"
+
 struct SDL_Texture;
 
 class TutorialScene_3 : public Scene
@@ -36,7 +38,7 @@ public:
 private:
 	uint Fade_FX = NULL;
 
-
+	GargoyleBattle_Dungeon_4 m_Gargoyle;
 };
 
 #endif // __TUTORIAL_SCENE_3_H__

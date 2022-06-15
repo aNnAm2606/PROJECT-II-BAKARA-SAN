@@ -3,6 +3,8 @@
 #include "Textures.h"
 #include "Fonts.h"
 #include "PlayerModule.h"
+#include "Audio.h"
+
 
 void SisterMadonna::FillBaseDialog()
 {
@@ -169,11 +171,12 @@ void SisterMadonna::OnDialogButton(size_t data)
 	}
 }
 
-void SisterMadonna::Init()
+void SisterMadonna::OnInit()
 {
 	FillBaseDialog();
 
 	m_NPCTex = app->tex->Load("Assets/Art/NPCs/NPCs.png");
+	m_NPCFX = app->audio->LoadFx("Assets/Audio/Fx/NPC6.wav");
 	m_NPCRect = {
 		160, 25,
 		60, 80
