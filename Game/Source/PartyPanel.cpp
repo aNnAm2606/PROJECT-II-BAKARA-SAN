@@ -6,6 +6,9 @@
 #include "TitleScreen.h"
 #include "Textures.h"
 #include "Input.h"
+#include "Character.h"
+#include "Fonts.h"
+#include "Window.h"
 
 PartyPanel::PartyPanel(bool active) : GuiPanel(active)
 {
@@ -18,6 +21,14 @@ PartyPanel::~PartyPanel()
 
 bool PartyPanel::Start()
 {
+    app->win->GetWindowSize(swidth, sheight);
+    char format[] = { "! @,_./0123456789$;< ?abcdefghijklmnopqrstuvwxyz" };
+
+    m_LabelFont = app->fonts->Load("Assets/Fonts/rtype_font3.png", format, 2, m_LabelColor);
+    m_BaseFont = app->fonts->Load("Assets/Fonts/rtype_font3.png", format, 2, m_BaseColor);
+    m_HighlightFont = app->fonts->Load("Assets/Fonts/rtype_font3.png", format, 2, m_HighlightColor);
+    m_PressFont = app->fonts->Load("Assets/Fonts/rtype_font3.png", format, 2, m_PressColor);
+
     chamanStats = app->tex->Load("Assets/Art/GUI/chamanStats.png");
     chamanPic = app->tex->Load("Assets/Art/GUI/chamanPicture.png");
     paladinStats = app->tex->Load("Assets/Art/GUI/paladinStats.png");
@@ -115,22 +126,80 @@ bool PartyPanel::Draw()
             app->render->DrawTexture(monkPic, 337, 155, NULL, false);
             app->render->DrawTexture(priestPic, 458, 155, NULL, false);
 
-            switch (selected)
+            if (selected == 0)
             {
-            case 0:
                 app->render->DrawTexture(chamanStats, 579, 142, NULL, false);
-                break;
-            case 1:
-                app->render->DrawTexture(paladinStats, 579, 142, NULL, false);
-                break;
-            case 2:
-                app->render->DrawTexture(monkStats, 579, 142, NULL, false);
-                break;
-            case 3:
-                app->render->DrawTexture(priestStats, 579, 142, NULL, false);
-                break;
+
+                app->fonts->BlitText(723, 396, m_BaseFont, "1", false);
+                app->fonts->BlitText(946, 240, m_BaseFont, "20", false);
+                app->fonts->BlitText(946, 269, m_BaseFont, "30", false);
+                app->fonts->BlitText(946, 296, m_BaseFont, "35", false);
+                app->fonts->BlitText(946, 321, m_BaseFont, "x", false);
+                app->fonts->BlitText(946, 347, m_BaseFont, "x", false);
+                app->fonts->BlitText(946, 374, m_BaseFont, "x", false);
+                app->fonts->BlitText(946, 400, m_BaseFont, "20", false);
+                app->fonts->BlitText(946, 427, m_BaseFont, "10", false);
+                app->fonts->BlitText(946, 456, m_BaseFont, "45", false);
             }
-            break;
+            else if (selected == 1)
+            {
+                app->render->DrawTexture(paladinStats, 579, 142, NULL, false);
+                app->fonts->BlitText(723, 396, m_BaseFont, "1", false);
+                app->fonts->BlitText(946, 240, m_BaseFont, "50", false);
+                app->fonts->BlitText(946, 269, m_BaseFont, "10", false);
+                app->fonts->BlitText(946, 296, m_BaseFont, "20", false);
+                app->fonts->BlitText(946, 321, m_BaseFont, "x", false);
+                app->fonts->BlitText(946, 347, m_BaseFont, "x", false);
+                app->fonts->BlitText(946, 374, m_BaseFont, "x", false);
+                app->fonts->BlitText(946, 400, m_BaseFont, "10", false);
+                app->fonts->BlitText(946, 427, m_BaseFont, "30", false);
+                app->fonts->BlitText(946, 456, m_BaseFont, "30", false);
+            }
+            else if (selected == 2)
+            {
+                app->render->DrawTexture(monkStats, 579, 142, NULL, false);
+                app->fonts->BlitText(723, 396, m_BaseFont, "1", false);
+                app->fonts->BlitText(946, 240, m_BaseFont, "30", false);
+                app->fonts->BlitText(946, 269, m_BaseFont, "15", false);
+                app->fonts->BlitText(946, 296, m_BaseFont, "30", false);
+                app->fonts->BlitText(946, 321, m_BaseFont, "x", false);
+                app->fonts->BlitText(946, 347, m_BaseFont, "x", false);
+                app->fonts->BlitText(946, 374, m_BaseFont, "x", false);
+                app->fonts->BlitText(946, 400, m_BaseFont, "35", false);
+                app->fonts->BlitText(946, 427, m_BaseFont, "20", false);
+                app->fonts->BlitText(946, 456, m_BaseFont, "20", false);
+            }
+            else if (selected == 3)
+            {
+                app->render->DrawTexture(priestStats, 579, 142, NULL, false);
+                app->fonts->BlitText(723, 396, m_BaseFont, "1", false);
+                app->fonts->BlitText(946, 240, m_BaseFont, "30", false);
+                app->fonts->BlitText(946, 269, m_BaseFont, "30", false);
+                app->fonts->BlitText(946, 296, m_BaseFont, "20", false);
+                app->fonts->BlitText(946, 321, m_BaseFont, "x", false);
+                app->fonts->BlitText(946, 347, m_BaseFont, "x", false);
+                app->fonts->BlitText(946, 374, m_BaseFont, "x", false);
+                app->fonts->BlitText(946, 400, m_BaseFont, "20", false);
+                app->fonts->BlitText(946, 427, m_BaseFont, "25", false);
+                app->fonts->BlitText(946, 456, m_BaseFont, "25", false);
+            }
+
+            //switch (selected)
+            //{
+            //case 0:
+            //    break;
+            //case 1:
+            //    
+            //    break;
+            //case 2:
+            //    
+            //    break;
+            //case 3:
+            //    
+            //    break;
+            //}
+            //break;
+
         }
         
     }

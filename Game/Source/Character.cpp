@@ -28,6 +28,11 @@ Character::Character(iPoint g_pos)
 		119,
 		11
 	};
+
+	m_BaseGrid = app->tex->Load("Assets/Art/Items/base_underline.png");
+	m_ActiveGrid = app->tex->Load("Assets/Art/Items/active_underline.png");
+
+	m_BattleState = EBattleState::EBATTLESTATE_BASE;
 }
 
 Character::~Character()
@@ -91,6 +96,18 @@ void Character::Update()
 void Character::Render(iPoint position)
 {
 	if (p_Remove) return;
+
+	// Battle state
+	switch (m_BattleState) {
+		case EBattleState::EBATTLESTATE_BASE:
+			app->render->DrawTexture(m_BaseGrid, position.x, position.y);
+			break;
+		case EBattleState::EBATTLESTATE_ACTIVE:
+			app->render->DrawTexture(m_ActiveGrid, position.x, position.y);
+			break;
+		case EBattleState::EBATTLESTATE_SELECTED:
+			break;
+	}
 
 	// Character sprites
 	if (p_Attacking) {
