@@ -161,7 +161,7 @@ bool PlayerModule::Update(float dt)
 		{
 			if (app->frameCount % 18 == 0) app->audio->PlayFx(Walking_FX);
 			playerPos.y += playerSpeed;
-			m_ActiveAnimation = EWalkAnimation::EWALK_DOWN;
+			m_ActiveAnimation = EWalkAnimation::EWALK_UP;
 			m_Moving = true;
 		}
 			
@@ -169,7 +169,7 @@ bool PlayerModule::Update(float dt)
 		{
 			if (app->frameCount % 18 == 0) app->audio->PlayFx(Walking_FX);
 			playerPos.y -= playerSpeed;
-			m_ActiveAnimation = EWalkAnimation::EWALK_UP;
+			m_ActiveAnimation = EWalkAnimation::EWALK_DOWN;
 			m_Moving = true;
 		}
 		
