@@ -13,6 +13,7 @@
 #include "TutorialScene_4.h"
 #include "TownScene.h"
 #include "Transitions.h"
+#include "ThroneAngel.h"
 
 #include "App.h"
 #include "Audio.h"
@@ -271,9 +272,9 @@ void BattleScene::FakeKill(Character::ECharacterType character)
 	onCharacterKilled(character);
 }
 
-void BattleScene::AddEnemy(Character::ECharacterType enemy, int x, int y)
+bool BattleScene::AddEnemy(Character::ECharacterType enemy, int x, int y)
 {
-	if (m_EnemyGrid[y][x]) return;
+	if (m_EnemyGrid[y][x]) return false;
 
 	iPoint pos = { x, y };
 
@@ -290,11 +291,14 @@ void BattleScene::AddEnemy(Character::ECharacterType enemy, int x, int y)
 		c = new BGhost(pos);
 		break;
 	case Character::ECharacterType::ECHARACTER_MIPHARESH:
+		c = new ThroneAngel(pos);
 		break;
 	}
 
 	m_EnemyGrid[y][x] = c;
 	m_EnemyCount++;
+
+	return true;
 }
 
 void BattleScene::Waiting()
