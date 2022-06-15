@@ -27,27 +27,44 @@ Gameplay-wise, ExorQuest isn't your standard RPG. The turn-based combat takes po
 
 Game resolution: 1280x720px@60fps, support for windowed mode and fullscreen
 ❏ Maximum memory usage must be under 256 MB (RAM)
+
 ❏ Turn-based battle system
+
 ❏ Team logo: custom art, avoid plain text
+
 ❏ AUDIO: Sound FX characteristic for the logo
+
 ❏ AUDIO: Sound FX characteristic for the title appearing
+
 ❏ AUDIO: Music track specific for the screen
+
 ❏ UI: Main game menu (custom font): START - CONTINUE - OPTIONS - EXIT
+
 ❏ UI: AUDIO: Buttons/controls fx feedback sounds
 
 ## SCREEN: GAMEPLAY
 
 ❏ Implemented TOWN map with 3 locations to visit ( House, Shop,
 Sanctuary.)
+
 ❏ Implemented 2 Playable Characters, available as the base Team Party
+
 ❏ Implemented 3 NPC Characters (town person, shopkeeper, nun)
+
 ❏ Implemented 4 Dialogs with branching with NPC characters 
+
 ❏ INPUTS: Keyboard/Gamepad inputs supported
+
 ❏ UI: PAUSE menu available on pause
+
 ❏ AUDIO: Music track specific for the screen
+
 ❏ AUDIO: Music effects fade-in/fade-out, lower volume on PAUSE
+
 ❏ Implemented 3 Types of Enemies with different stats
+
 ❏ Implemented turn-based combat system, players and enemies alternate attacks
+
 ❏ UI: Implement a minimal menu to choose the next player's actions.
 
 ## SPECIAL FEATURES
@@ -83,7 +100,7 @@ turn will begin, the enemies will attack, and then its ur turn again.
 
 ## Trailer
 
-https://youtu.be/YMVeioFv2Lo
+<iframe width="560" height="315" src="https://www.youtube.com/embed/YMVeioFv2Lo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## License
 
