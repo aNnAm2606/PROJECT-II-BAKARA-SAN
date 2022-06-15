@@ -73,7 +73,7 @@ bool DungeonScene::Start()
 	keyTexture = app->tex->Load("Assets/Art/Items/items.png");
 	leverTexture = app->tex->Load("Assets/Art/Items/weapons.png");
 	Lever_FX = app->audio->LoadFx("Assets/Audio/Fx/trigger.wav");
-	Pickup_FX = app->audio->LoadFx("Assets/Audio/Fx/pickup_items.wav");
+	Pickup_FX = app->audio->LoadFx("Assets/Audio/Fx/get_new_item.wav");
 
 	app->audio->ChangeMusic(DUNGEON1_MUSIC, 1.0f, 1.0f);
 
