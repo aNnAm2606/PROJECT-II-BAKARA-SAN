@@ -12,6 +12,8 @@ protected:
 	SDL_Texture* m_NPCTex;
 	SDL_Rect m_NPCRect;
 
+	SDL_Texture* m_EButton;
+
 	iPoint m_Position;
 
 	// Dialogs
@@ -30,7 +32,7 @@ public:
 
 	void SetPosition(int x, int y) { m_Position = { x,y }; }
 
-	void Init() { m_Active = !m_Deactivate; OnInit(); }
+	void Init();
 	virtual void OnInit(){}
 
 	void Interact();

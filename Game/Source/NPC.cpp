@@ -5,6 +5,7 @@
 #include "PlayerModule.h"
 #include "Input.h"
 #include "Defs.h"
+#include "Textures.h"
 
 void NPC::AddDialog(Dialog& dialog, size_t resetNode)
 {
@@ -25,6 +26,15 @@ NPC::~NPC()
 {
 }
 
+void NPC::Init()
+{
+	m_Active = !m_Deactivate;
+
+	m_EButton = app->tex->Load("Assets/Art/GUI/E_button.png");
+
+	OnInit();
+}
+
 void NPC::Interact()
 {
 	if (m_Interacting) return;
@@ -42,6 +52,11 @@ void NPC::Interact()
 void NPC::Update()
 {
 	if (!m_Active) return;
+
+	int x, y;
+	app->playerModule->GetPosition(x, y);
+	float distance = DISTANCE_F(m_Position.x, m_Position.y, x, y);
+
 	GamePad& gamepad = app->input->pads[0];
 
 	if (m_Interacting) {
@@ -53,11 +68,6 @@ void NPC::Update()
 		if (app->input->GamepadConnected() == false)
 		{
 			if (app->input->GetKey(SDL_SCANCODE_E) == KEY_DOWN) {
-				int x, y;
-				app->playerModule->GetPosition(x, y);
-
-				float distance = DISTANCE_F(m_Position.x, m_Position.y, x, y);
-
 				if (distance < m_InteractDistance) {
 					Interact();
 				}
@@ -68,8 +78,6 @@ void NPC::Update()
 			if (gamepad.a == true) {
 				int x, y;
 				app->playerModule->GetPosition(x, y);
-
-				float distance = DISTANCE_F(m_Position.x, m_Position.y, x, y);
 
 				if (distance < m_InteractDistance) {
 					Interact();
@@ -86,4 +94,12 @@ void NPC::Render()
 	if (!m_Active) return;
 
 	app->render->DrawTexture(m_NPCTex, m_Position.x, m_Position.y, &m_NPCRect);
+
+	int x, y;
+	app->playerModule->GetPosition(x, y);
+	float distance = DISTANCE_F(m_Position.x, m_Position.y, x, y);
+
+	if (distance < m_InteractDistance) {
+		app->render->DrawTexture(m_EButton, m_Position.x + m_NPCRect.w / 2 - 15, m_Position.y - 15);
+	}
 }
