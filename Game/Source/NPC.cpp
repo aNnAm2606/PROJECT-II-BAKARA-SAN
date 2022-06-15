@@ -18,6 +18,7 @@ NPC::NPC()
 	m_Interacting = false;
 	m_InteractDistance = 90.0f;
 	m_Active = true;
+	m_Deactivate = false;
 }
 
 NPC::~NPC()

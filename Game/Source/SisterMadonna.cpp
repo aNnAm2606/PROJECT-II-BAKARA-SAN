@@ -169,7 +169,7 @@ void SisterMadonna::OnDialogButton(size_t data)
 	}
 }
 
-void SisterMadonna::Init()
+void SisterMadonna::OnInit()
 {
 	FillBaseDialog();
 

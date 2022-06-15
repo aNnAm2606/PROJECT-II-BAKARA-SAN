@@ -81,7 +81,7 @@ DavidBow::~DavidBow()
 {
 }
 
-void DavidBow::Init()
+void DavidBow::OnInit()
 {
 	FillBaseDialog();
 	FillCompletedDialog();

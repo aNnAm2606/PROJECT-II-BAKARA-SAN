@@ -21,6 +21,7 @@ protected:
 	int m_ActiveDialog;
 
 	bool m_Active;
+	bool m_Deactivate;
 
 	void AddDialog(Dialog& dialog, size_t resetNode);
 public:
@@ -29,7 +30,8 @@ public:
 
 	void SetPosition(int x, int y) { m_Position = { x,y }; }
 
-	virtual void Init(){}
+	void Init() { m_Active = !m_Deactivate; OnInit(); }
+	virtual void OnInit(){}
 
 	void Interact();
 

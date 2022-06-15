@@ -10,7 +10,7 @@ public:
 	AlanParsons();
 	~AlanParsons();
 
-	void Init();
+	void OnInit() override;
 };
 
 #endif  // __LOG_H__
