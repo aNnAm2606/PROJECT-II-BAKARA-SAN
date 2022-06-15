@@ -2,7 +2,7 @@
 #define __TUTORIAL_SCENE_4_H__
 
 #include "Scene.h"
-#include "GargoyleTest.h"
+#include "GargoyleBattle_Town_1.h"
 
 struct SDL_Texture;
 
@@ -37,7 +37,7 @@ public:
 private:
 	uint Fade_FX = NULL;
 
-	GargoyleTest m_GargoyleTest;
+	GargoyleBattle_Town_1 m_GargoyleTest;
 };
 
 #endif // __TUTORIAL_SCENE_4_H__

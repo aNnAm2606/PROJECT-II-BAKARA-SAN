@@ -129,7 +129,8 @@
     <ClCompile Include="Source\Function.cpp" />
     <ClCompile Include="Source\GameplayScreen.cpp" />
     <ClCompile Include="Source\Gargoyle.cpp" />
-    <ClCompile Include="Source\GargoyleTest.cpp" />
+    <ClCompile Include="Source\GargoyleBattle.cpp" />
+    <ClCompile Include="Source\GargoyleBattle_Town_1.cpp" />
     <ClCompile Include="Source\GuiButton.cpp" />
     <ClCompile Include="Source\GuiManager.cpp" />
     <ClCompile Include="Source\GuiPanel.cpp" />
@@ -223,7 +224,8 @@
     <ClInclude Include="Source\Function.h" />
     <ClInclude Include="Source\GameplaySceen.h" />
     <ClInclude Include="Source\Gargoyle.h" />
-    <ClInclude Include="Source\GargoyleTest.h" />
+    <ClInclude Include="Source\GargoyleBattle.h" />
+    <ClInclude Include="Source\GargoyleBattle_Town_1.h" />
     <ClInclude Include="Source\GuiButton.h" />
     <ClInclude Include="Source\GuiControl.h" />
     <ClInclude Include="Source\GuiManager.h" />

@@ -29,6 +29,7 @@ BattleScene::BattleScene(bool startEnabled, bool playerEnabled, SString name, Po
 	m_BattleOffset = { 200, 200 };
 
 	m_SelectedAbility = -1;
+	m_EnemyCount = 0;
 
 	memset(m_EnemyGrid, NULL, GRID_SIZE * 4);
 }
@@ -60,13 +61,6 @@ bool BattleScene::Start()
 
 	m_ActiveCharacter = NULL;
 
-	m_EnemyGrid[1][0] = new Gargoyle({ 0,1 });
-	m_EnemyGrid[0][0] = new FallenAngel({ 0,0 });
-	m_EnemyGrid[1][1] = new BGhost({ 1,1 });
-	m_EnemyGrid[2][1] = new BGhost({ 1,2 });
-	m_EnemyGrid[3][1] = new BGhost({ 1,3 });
-	m_EnemyCount = 5;
-
 	m_Rounds = 0;
 
 	m_BattleState = EBattleState::EBATTLESTATE_WAITING;
@@ -83,7 +77,7 @@ bool BattleScene::PreUpdate()
 	Scene::PreUpdate();
 
 	if (m_EnemyCount <= 0) {
-		app->fade->Fade(this, app->townScene);
+		app->fade->Fade(this, m_NextScene);
 		return true;
 	}
 
@@ -138,29 +132,6 @@ bool BattleScene::Update(float dt)
 	if (!m_ActiveCharacter) return true;
 
 	Character* c;
-
-	/*system("cls");
-	
-	std::cout << "Players" << std::endl;
-	for (int y = 0; y < GRID_HEIGHT; y++) {
-		for (int x = 0; x < GRID_WIDTH; x++) {
-			c = m_PlayerGrid[y][x];
-			
-			if (c) {
-				std::cout << c->GetHealth() << std::endl;
-			}
-		}
-	}
-	std::cout << "Enemies" << std::endl;
-	for (int y = 0; y < GRID_HEIGHT; y++) {
-		for (int x = 0; x < GRID_WIDTH; x++) {
-			c = m_EnemyGrid[y][x];
-			if (c) {
-				std::cout << c->GetHealth() << std::endl;
-			}
-		}
-	}*/
-	
 
 	for (int y = 0; y < GRID_HEIGHT; y++) {
 		for (int x = 0; x < GRID_WIDTH; x++) {
@@ -254,6 +225,8 @@ bool BattleScene::CleanUp()
 		}
 	}
 
+	m_EnemyCount = 0;
+
 	app->guiManager->battlePanel->Disable();
 
 	return true;
@@ -298,6 +271,31 @@ void BattleScene::FakeKill(Character::ECharacterType character)
 	onCharacterKilled(character);
 }
 
+void BattleScene::AddEnemy(Character::ECharacterType enemy, int x, int y)
+{
+	if (m_EnemyGrid[y][x]) return;
+
+	iPoint pos = { x, y };
+
+	Character* c = NULL;
+
+	switch (enemy) {
+	case Character::ECharacterType::ECHARACTER_GARGOYLE:
+		c = new Gargoyle(pos);
+		break;
+	case Character::ECharacterType::ECHARACTER_FALLEN_ANGEL:
+		c = new FallenAngel(pos);
+		break;
+	case Character::ECharacterType::ECHARACTER_SPECTRE:
+		c = new BGhost(pos);
+		break;
+	case Character::ECharacterType::ECHARACTER_MIPHARESH:
+		break;
+	}
+
+	m_EnemyGrid[y][x] = c;
+	m_EnemyCount++;
+}
 
 void BattleScene::Waiting()
 {

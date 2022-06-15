@@ -41,6 +41,8 @@ private:
 	void Attacking();
 
 	int dim2(int x, int y) { return y * GRID_WIDTH + x; }
+
+	Scene* m_NextScene;
 public:
 	BattleScene(bool startEnabled, bool playerEnabled, SString name, Point<int> cameraPos, Point<int>playerPos, Point<bool> followPlayer);
 
@@ -76,6 +78,10 @@ public:
 	void SelectedAbility(int id) { m_SelectedAbility = id; }
 
 	void FakeKill(Character::ECharacterType character);
+
+	void AddEnemy(Character::ECharacterType enemy, int x, int y);
+
+	void SetNextScene(Scene* nscene) { m_NextScene = nscene; }
 
 	QuestCharacterCallbacks onCharacterKilled;
 };

@@ -7,7 +7,7 @@
 #include "StevenWonder.h"
 #include "DavidBow.h"
 #include "Cat.h"
-#include "GargoyleTest.h"
+#include "GargoyleBattle_Town_1.h"
 
 struct SDL_Texture;
 
@@ -47,7 +47,7 @@ private:
 	StevenWonder m_StevenWonder;
 	DavidBow m_DavidBow;
 	Cat m_Cat;
-	GargoyleTest m_GargoyleTest;
+	GargoyleBattle_Town_1 m_GargoyleBattle_1;
 };
 
 #endif // __TOWNSCENE_H__

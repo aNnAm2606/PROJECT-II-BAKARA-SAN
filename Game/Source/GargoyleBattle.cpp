@@ -1,4 +1,4 @@
-#include "GargoyleTest.h"
+#include "GargoyleBattle.h"
 #include "App.h"
 #include "Textures.h"
 #include "Fonts.h"
@@ -6,16 +6,16 @@
 #include "TutorialScene_4.h"
 #include "BattleScene.h"
 
-GargoyleTest::GargoyleTest()
+GargoyleBattle::GargoyleBattle()
 {
 	m_InteractDistance = 350;
 }
 
-GargoyleTest::~GargoyleTest()
+GargoyleBattle::~GargoyleBattle()
 {
 }
 
-void GargoyleTest::Init()
+void GargoyleBattle::Init()
 {
 	m_NPCTex = app->tex->Load("Assets/Art/Enemies/gargoyle_statue.png");
 	m_NPCRect = {
@@ -27,7 +27,9 @@ void GargoyleTest::Init()
 	m_OriginScene = app->tutorialScene_4;
 }
 
-void GargoyleTest::OnInteract()
+void GargoyleBattle::OnInteract()
 {
+	SetBattlefield();
+
 	app->fade->Fade(m_OriginScene, app->battleScene);
 }

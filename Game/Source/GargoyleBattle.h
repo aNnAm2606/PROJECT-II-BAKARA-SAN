@@ -5,18 +5,19 @@
 
 class Scene;
 
-class GargoyleTest : public NPC {
+class GargoyleBattle : public NPC {
 private:
 	Scene* m_OriginScene;
 public:
-	GargoyleTest();
-	~GargoyleTest();
+	GargoyleBattle();
+	~GargoyleBattle();
 
 	void SetOriginScene(Scene* scene) { m_OriginScene = scene; }
 
-	void Init();
+	void Init() override;
+	void OnInteract() override;
 
-	void OnInteract();
+	virtual void SetBattlefield() = 0;
 };
 
 #endif  // __LOG_H__

@@ -93,7 +93,7 @@ bool BattlePanel::Draw()
 
     // Speed
     std::string speed = std::to_string(character->GetSpeed());
-    app->fonts->BlitText(swidth - 230, 150, m_LabelFont, "speed");
+    app->fonts->BlitText(swidth - 230, 150, m_LabelFont, "speed", false);
     app->fonts->BlitText(swidth - 160, 150, m_BaseFont, speed.c_str(), false);
     
     // Abilities

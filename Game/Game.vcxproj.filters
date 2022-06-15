@@ -149,7 +149,7 @@
     <ClCompile Include="Source\Character.cpp">
       <Filter>Battle</Filter>
     </ClCompile>
-    <ClCompile Include="Source\GargoyleTest.cpp">
+    <ClCompile Include="Source\GargoyleBattle.cpp">
       <Filter>Entities</Filter>
     </ClCompile>
     <ClCompile Include="Source\BattleScene.cpp">
@@ -268,6 +268,9 @@
     </ClCompile>
     <ClCompile Include="Source\ASacredFlame.cpp">
       <Filter>Battle\Abilities\Gabriel Peterson</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GargoyleBattle_Town_1.cpp">
+      <Filter>Entities\GargoyleBattles</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -457,7 +460,7 @@
     <ClInclude Include="Source\Character.h">
       <Filter>Battle</Filter>
     </ClInclude>
-    <ClInclude Include="Source\GargoyleTest.h">
+    <ClInclude Include="Source\GargoyleBattle.h">
       <Filter>Entities</Filter>
     </ClInclude>
     <ClInclude Include="Source\BattleScene.h">
@@ -589,6 +592,9 @@
     <ClInclude Include="Source\ASacredFlame.h">
       <Filter>Battle\Abilities\Gabriel Peterson</Filter>
     </ClInclude>
+    <ClInclude Include="Source\GargoyleBattle_Town_1.h">
+      <Filter>Entities\GargoyleBattles</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Scenes">
@@ -662,6 +668,9 @@
     </Filter>
     <Filter Include="Battle\Abilities\Gabriel Peterson">
       <UniqueIdentifier>{772c8f85-6643-4f62-a632-b6e825247aa7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entities\GargoyleBattles">
+      <UniqueIdentifier>{40cbc446-cebc-4fb7-ac51-35fb473cd80c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

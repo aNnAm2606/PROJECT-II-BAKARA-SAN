@@ -50,9 +50,9 @@ bool TownScene::Start()
 	m_StevenWonder.Init();
 	m_DavidBow.Init();
 	m_Cat.Init();
-	m_GargoyleTest.Init();
-	m_GargoyleTest.SetPosition(1560, 650);
-	m_GargoyleTest.SetOriginScene(this);
+	m_GargoyleBattle_1.Init();
+	m_GargoyleBattle_1.SetPosition(1560, 650);
+	m_GargoyleBattle_1.SetOriginScene(this);
 
 	app->currentScene = sceneID::TOWN;
 
@@ -75,14 +75,14 @@ bool TownScene::Update(float dt)
 	m_StevenWonder.Update();
 	m_DavidBow.Update();
 	m_Cat.Update();
-	m_GargoyleTest.Update();
+	m_GargoyleBattle_1.Update();
 
 	m_SisterMadonna.Render();
 	m_Triana.Render();
 	m_StevenWonder.Render();
 	m_DavidBow.Render();
 	m_Cat.Render();
-	m_GargoyleTest.Render();
+	m_GargoyleBattle_1.Render();
 
 
 
