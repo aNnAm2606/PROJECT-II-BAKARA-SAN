@@ -44,7 +44,6 @@ bool TitleScreen::Start()
 	transparent = app->tex->Load("Assets/Art/GUI/transparent.png");
 	app->guiManager->titlePanel->Enable();
 
-	app->audio->SetMusicVolume(128);
 	app->audio->ChangeMusic(TITLE_MUSIC, 0.0f, 0.0f);
 
 	app->render->camera.x = 0;
@@ -84,19 +83,19 @@ bool TitleScreen::Update(float dt)
 	switch (anim)
 	{
 	case 0:
-		app->render->DrawTexture(title, 54, 235, NULL);
+		app->render->DrawTexture(title, 54, 235, NULL, false);
 		break;
 	case 1:
-		app->render->DrawTexture(title, 54, 240, NULL);
+		app->render->DrawTexture(title, 54, 240, NULL, false);
 		break;
 	case 2:
-		app->render->DrawTexture(title, 54, 250, NULL);
+		app->render->DrawTexture(title, 54, 250, NULL, false);
 		break;
 	case 3:
-		app->render->DrawTexture(title, 54, 255, NULL);
+		app->render->DrawTexture(title, 54, 255, NULL, false);
 		break;
 	case 4:
-		app->render->DrawTexture(title, 54, 260, NULL);
+		app->render->DrawTexture(title, 54, 260, NULL, false);
 		ba = !ba;
 		break;
 	}
