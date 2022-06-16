@@ -112,8 +112,10 @@ void DavidBow::OnDialogStart()
 
 void DavidBow::OnDialogFinish()
 {
+	QuestCompleted_fx = app->audio->LoadFx("Assets/Audio/Fx/quest_completed.wav");
 	if (!app->quests->FinishedQuest(QuestModule::EQuest::EQUEST_PM_Q3)) {
 		app->quests->FinishQuest(QuestModule::EQuest::EQUEST_PM_Q3);
+		app->audio->PlayFx(QuestCompleted_fx);
 	}
 }
 

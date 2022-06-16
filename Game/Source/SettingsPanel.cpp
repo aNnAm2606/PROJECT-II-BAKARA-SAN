@@ -78,7 +78,7 @@ bool SettingsPanel::Start()
 bool SettingsPanel::Update(float dt, bool doLogic)
 {
     GuiPanel::Update(dt, doLogic);
-    app->audio->SetMusicVolume(MUSIC_VOLUME * (musicSldr->value/128));
+    app->audio->SetMusicVolume(MUSIC_VOLUME * (musicSldr->value/100));
 
     if (fullscreen == false)
     {

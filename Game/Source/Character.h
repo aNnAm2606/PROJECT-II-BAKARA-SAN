@@ -73,6 +73,8 @@ protected:
 	SDL_Texture* m_BaseGrid;
 	SDL_Texture* m_ActiveGrid;
 
+	uint p_CharacterFX = NULL;
+
 	EBattleState m_BattleState;
 public:
 	Character(iPoint g_pos);

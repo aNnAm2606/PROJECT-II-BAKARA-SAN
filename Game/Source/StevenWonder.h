@@ -29,6 +29,7 @@ public:
 	virtual void OnDialogFinish() override;
 
 	virtual void OnDialogButton(size_t data) override;
+
 };
 
 #endif  // __LOG_H__

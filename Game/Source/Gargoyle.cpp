@@ -3,6 +3,7 @@
 #include "Textures.h"
 #include "Render.h"
 #include "ASlash.h"
+#include "Audio.h"
 
 Gargoyle::Gargoyle(iPoint g_pos) : Enemy(g_pos)
 {
@@ -12,6 +13,7 @@ Gargoyle::Gargoyle(iPoint g_pos) : Enemy(g_pos)
 	p_Stats.maxHealth = 20;
 	p_Stats.damage = 10;
 	p_Stats.speed = 20;
+	p_CharacterFX = app->audio->LoadFx("Assets/Audio/Fx/dead3.wav");
 
 	p_CharacterSpriteSheet = app->tex->Load("Assets/Art/Enemies/gargoyle_battle.png");
 	p_CharacterRect = {

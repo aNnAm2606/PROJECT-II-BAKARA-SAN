@@ -4,6 +4,7 @@
 #include "GuiManager.h"
 #include "FadeToBlack.h"
 #include "TitleScreen.h"
+#include "Audio.h"
 
 VictoryPanel::VictoryPanel(bool active) : GuiPanel(active)
 {
@@ -16,7 +17,6 @@ VictoryPanel::~VictoryPanel()
 
 bool VictoryPanel::Start()
 {
-
     return true;
 }
 

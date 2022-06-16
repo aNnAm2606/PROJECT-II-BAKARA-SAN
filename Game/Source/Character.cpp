@@ -4,6 +4,7 @@
 #include "Ability.h"
 #include "App.h"
 #include "Textures.h"
+#include "Audio.h"
 
 Character::Character(iPoint g_pos)
 {
@@ -48,6 +49,7 @@ bool Character::DealDamage(int dmg)
 
 	if (p_Stats.health <= 0) {
 		p_Dead = true;
+		app->audio->PlayFx(p_CharacterFX);
 	}
 
 	return p_Dead;

@@ -35,6 +35,8 @@ public:
 
 	bool OnGuiMouseClickEvent(GuiControl* control);
 
+	uint lose_fx = NULL;
+	uint Win_fx = NULL;
 public:
 
 

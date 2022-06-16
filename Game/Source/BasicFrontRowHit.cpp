@@ -3,10 +3,12 @@
 #include "Textures.h"
 #include "Render.h"
 #include "BattleScene.h"
+#include "Audio.h"
 
 BasicFrontRowHit::BasicFrontRowHit(Character* character) : Ability(character)
 {
 	p_Animation.loop = false;
+	p_AbilityFX = app->audio->LoadFx("Assets/Audio/Fx/hit2.wav");
 }
 
 BasicFrontRowHit::~BasicFrontRowHit()
@@ -16,7 +18,7 @@ BasicFrontRowHit::~BasicFrontRowHit()
 void BasicFrontRowHit::Execute(iPoint p)
 {
 	iPoint position;
-	
+	app->audio->PlayFx(p_AbilityFX);
 	if (p_Character->IsPlayer()) {
 		position.x = 0;
 		for (int y = 0; y < GRID_HEIGHT; y++) {

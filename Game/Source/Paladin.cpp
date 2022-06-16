@@ -3,6 +3,7 @@
 #include "Textures.h"
 #include "Render.h"
 #include "ASkullcracker.h"
+#include "Audio.h"
 
 Paladin::Paladin(iPoint g_pos) : Character(g_pos)
 {
@@ -12,6 +13,7 @@ Paladin::Paladin(iPoint g_pos) : Character(g_pos)
 	p_Stats.maxHealth = 50;
 	p_Stats.damage = 20;
 	p_Stats.speed = 10;
+	p_CharacterFX = app->audio->LoadFx("Assets/Audio/Fx/dead5.wav");
 
 	p_CharacterSpriteSheet = app->tex->Load("Assets/Art/Characters/paladin_battle.png");
 	p_CharacterRect = {

@@ -15,6 +15,7 @@ protected:
 
 	Animation p_Animation;
 	SDL_Texture* p_Texture;
+	uint p_AbilityFX = NULL;
 
 	int p_StartFrame;
 

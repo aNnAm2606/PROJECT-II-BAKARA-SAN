@@ -3,6 +3,7 @@
 #include "Textures.h"
 #include "Render.h"
 #include "ASacredFlame.h"
+#include "Audio.h"
 
 Priest::Priest(iPoint g_pos) : Character(g_pos)
 {
@@ -12,6 +13,7 @@ Priest::Priest(iPoint g_pos) : Character(g_pos)
 	p_Stats.maxHealth = 30;
 	p_Stats.damage = 20;
 	p_Stats.speed = 20;
+	p_CharacterFX = app->audio->LoadFx("Assets/Audio/Fx/dead6.wav");
 
 	p_CharacterSpriteSheet = app->tex->Load("Assets/Art/Characters/priest_battle.png");
 	p_CharacterRect = {

@@ -51,6 +51,9 @@ void NPC::Interact()
 	
 		app->dialog->StartDialog(&m_Dialogs[m_ActiveDialog]);
 	}
+	else if (m_fx = true) {
+		app->audio->PlayFx(m_NPCFX);
+	}
 	
 	OnInteract();
 }

@@ -3,6 +3,7 @@
 #include "Textures.h"
 #include "Render.h"
 #include "ATearsInHeaven.h"
+#include "Audio.h"
 
 FallenAngel::FallenAngel(iPoint g_pos) : Enemy(g_pos)
 {
@@ -12,6 +13,7 @@ FallenAngel::FallenAngel(iPoint g_pos) : Enemy(g_pos)
 	p_Stats.maxHealth = 5;
 	p_Stats.damage = 10;
 	p_Stats.speed = 20;
+	p_CharacterFX = app->audio->LoadFx("Assets/Audio/Fx/dead1.wav");
 
 	p_CharacterSpriteSheet = app->tex->Load("Assets/Art/Enemies/fallen_angel_battle.png");
 	p_CharacterRect = {

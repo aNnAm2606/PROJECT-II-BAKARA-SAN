@@ -3,6 +3,7 @@
 #include "Render.h"
 #include "BattleScene.h"
 #include "Character.h"
+#include "Audio.h"
 
 ASkullcracker::ASkullcracker(Character* character) : Ability(character)
 {
@@ -11,6 +12,7 @@ ASkullcracker::ASkullcracker(Character* character) : Ability(character)
 	p_Animation.PushBack({ 128 * 4, 0, 128, 128 });
 	p_Animation.speed = 0.1f;
 	p_Animation.loop = false;
+	p_AbilityFX = app->audio->LoadFx("Assets/Audio/Fx/hit1.wav");
 
 	p_StartFrame = 2;
 }
@@ -25,7 +27,7 @@ void ASkullcracker::Execute(iPoint position)
 		0,
 		position.y
 	};
-
+	app->audio->PlayFx(p_AbilityFX);
 	app->battleScene->DamageEnemyAt(epos, p_Character->GetDamage());
 }
 

@@ -13,6 +13,8 @@ public:
 	void Execute(iPoint position) override;
 
 	void Render(iPoint position) override;
+
+	uint ASkullcracker_FX = NULL;
 };
 
 #endif  // __ABILITY_H__

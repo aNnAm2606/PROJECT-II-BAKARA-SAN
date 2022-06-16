@@ -159,12 +159,15 @@ void StevenWonder::OnDialogStart()
 
 void StevenWonder::OnDialogFinish()
 {
+	QuestCompleted_fx = app->audio->LoadFx("Assets/Audio/Fx/quest_completed.wav");
 	if (m_GiveCat) {
 		app->quests->FinishQuest(QuestModule::EQuest::EQUEST_PM_Q1);
 
 		m_GiveCat = false;
 
 		m_ActiveDialog = EStevenDialog::ESTEVENDIALOG_COMPLETED;
+
+		app->audio->PlayFx(QuestCompleted_fx);
 	}
 }
 

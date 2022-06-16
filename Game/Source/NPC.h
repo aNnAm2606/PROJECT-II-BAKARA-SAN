@@ -16,7 +16,8 @@ protected:
 
 	iPoint m_Position;
 	uint m_NPCFX = NULL;
-
+    uint QuestCompleted_fx = NULL;
+	bool m_fx = false;
 	// Dialogs
 	std::vector<Dialog> m_Dialogs;
 	std::vector<size_t> m_StartingNodes;

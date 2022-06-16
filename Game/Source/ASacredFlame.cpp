@@ -3,6 +3,7 @@
 #include "Render.h"
 #include "BattleScene.h"
 #include "Character.h"
+#include "Audio.h"
 
 ASacredFlame::ASacredFlame(Character* character) : Ability(character)
 {
@@ -13,7 +14,7 @@ ASacredFlame::ASacredFlame(Character* character) : Ability(character)
 	p_Animation.PushBack({ 128 * 6, 0, 128, 128 });
 	p_Animation.speed = 0.1f;
 	p_Animation.loop = false;
-
+	p_AbilityFX = app->audio->LoadFx("Assets/Audio/Fx/hit1.wav");
 	p_StartFrame = 2;
 }
 
@@ -27,7 +28,7 @@ void ASacredFlame::Execute(iPoint position)
 		1,
 		position.y
 	};
-
+	app->audio->PlayFx(p_AbilityFX);
 	app->battleScene->DamageEnemyAt(epos, p_Character->GetDamage());
 }
 

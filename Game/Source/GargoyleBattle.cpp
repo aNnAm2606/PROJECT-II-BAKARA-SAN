@@ -5,6 +5,7 @@
 #include "FadeToBlack.h"
 #include "TutorialScene_4.h"
 #include "BattleScene.h"
+#include "Audio.h"
 
 GargoyleBattle::GargoyleBattle()
 {
@@ -18,6 +19,8 @@ GargoyleBattle::~GargoyleBattle()
 void GargoyleBattle::OnInit()
 {
 	m_NPCTex = app->tex->Load("Assets/Art/Enemies/gargoyle_statue.png");
+	m_NPCFX = app->audio->LoadFx("Assets/Audio/Fx/trigger.wav");
+	m_fx = true;
 	m_NPCRect = {
 		0, 0,
 		256, 256

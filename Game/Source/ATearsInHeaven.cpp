@@ -3,6 +3,7 @@
 #include "Render.h"
 #include "BattleScene.h"
 #include "Character.h"
+#include "Audio.h"
 
 ATearsInHeaven::ATearsInHeaven(Character* character) : Ability(character)
 {
@@ -12,7 +13,7 @@ ATearsInHeaven::ATearsInHeaven(Character* character) : Ability(character)
 	p_Animation.PushBack({ 128 * 4, 0, 128, 128 }); 
 	p_Animation.speed = 0.1f;
 	p_Animation.loop = false;
-
+	p_AbilityFX = app->audio->LoadFx("Assets/Audio/Fx/hit3.wav");
 	p_StartFrame = 0;
 }
 
@@ -26,7 +27,7 @@ void ATearsInHeaven::Execute(iPoint position)
 		0,
 		position.y
 	};
-
+	app->audio->PlayFx(p_AbilityFX);
 	app->battleScene->DamagePlayerAt(epos, p_Character->GetDamage());
 
 	epos.x = 1;

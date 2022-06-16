@@ -7,6 +7,7 @@
 #include "Textures.h"
 #include "Transitions.h"
 #include "Input.h"
+#include "Audio.h"
 
 LosePanel::LosePanel(bool active) : GuiPanel(active)
 {
@@ -19,7 +20,6 @@ LosePanel::~LosePanel()
 
 bool LosePanel::Start()
 {
-
     return true;
 }
 

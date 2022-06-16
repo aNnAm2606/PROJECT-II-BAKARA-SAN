@@ -7,7 +7,7 @@
 #define DEFAULT_MUSIC_FADE_TIME 2.0f
 #define MAX_FX_CHANNELS 56
 #define FX_VOLUME 128 // 0-128
-#define MUSIC_VOLUME 100 // 0-128
+#define MUSIC_VOLUME 128 // 0-128
 
 enum SFX
 {

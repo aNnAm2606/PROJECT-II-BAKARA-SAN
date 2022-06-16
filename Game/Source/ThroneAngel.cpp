@@ -4,6 +4,7 @@
 #include "Render.h"
 #include "ATearsInHeaven.h"
 #include "AAngeleyes.h"
+#include "Audio.h"
 
 ThroneAngel::ThroneAngel(iPoint g_pos) : Enemy(g_pos)
 {
@@ -13,6 +14,7 @@ ThroneAngel::ThroneAngel(iPoint g_pos) : Enemy(g_pos)
 	p_Stats.maxHealth = 5;
 	p_Stats.damage = 10;
 	p_Stats.speed = 20;
+	p_CharacterFX = app->audio->LoadFx("Assets/Audio/Fx/dead2.wav");
 
 	p_CharacterSpriteSheet = app->tex->Load("Assets/Art/Enemies/final_boss_battle.png");
 	p_CharacterRect = {

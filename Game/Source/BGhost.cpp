@@ -3,6 +3,7 @@
 #include "Textures.h"
 #include "Render.h"
 #include "ABlackFlame.h"
+#include "Audio.h"
 
 BGhost::BGhost(iPoint g_pos) : Enemy(g_pos)
 {
@@ -12,6 +13,7 @@ BGhost::BGhost(iPoint g_pos) : Enemy(g_pos)
 	p_Stats.maxHealth = 15;
 	p_Stats.damage = 15;
 	p_Stats.speed = 10;
+	p_CharacterFX = app->audio->LoadFx("Assets/Audio/Fx/dead4.wav");
 
 	p_CharacterSpriteSheet = app->tex->Load("Assets/Art/Enemies/ghost_battle.png");
 	p_CharacterRect = {

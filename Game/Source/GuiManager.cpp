@@ -47,7 +47,8 @@ bool GuiManager::Start()
 	questScreen = app->tex->Load("Assets/Art/GUI/questUI.png");
 	inventoryScreen = app->tex->Load("Assets/Art/GUI/inventoryUI.png");
 	partyScreen = app->tex->Load("Assets/Art/GUI/partyUI.png");
-
+	lose_fx = app->audio->LoadFx("Assets/Audio/Fx/GAME_OVER.wav");
+	Win_fx = app->audio->LoadFx("Assets/Audio/Fx/level_up.wav");
 
 	// Audio for buttons
 	//app->audio->LoadFx("Assets/audio/fx/buttonFocus.wav");
@@ -117,13 +118,17 @@ bool GuiManager::Update(float dt)
 	if (app->input->GetKey(SDL_SCANCODE_V) == KEY_DOWN)
 		battlePanel->Disable();
 
-	if (app->input->GetKey(SDL_SCANCODE_K) == KEY_DOWN)
+	if (app->input->GetKey(SDL_SCANCODE_K) == KEY_DOWN) {
+		app->audio->PlayFx(lose_fx);
 		losePanel->Enable();
+	}
 	if (app->input->GetKey(SDL_SCANCODE_L) == KEY_DOWN)
 		losePanel->Disable();
 
-	if (app->input->GetKey(SDL_SCANCODE_I) == KEY_DOWN)
+	if (app->input->GetKey(SDL_SCANCODE_I) == KEY_DOWN){
+		app->audio->PlayFx(Win_fx);
 		victoryPanel->Enable();
+	}
 	if (app->input->GetKey(SDL_SCANCODE_O) == KEY_DOWN)
 		victoryPanel->Disable();
 
