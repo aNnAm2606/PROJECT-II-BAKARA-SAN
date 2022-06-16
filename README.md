@@ -17,11 +17,31 @@ Gameplay-wise, ExorQuest isn't your standard RPG. The turn-based combat takes po
  
 ## Controls
 
+General:
 - "W A S D" for movement.
 - "E" for interaction with the NPCs.
-- "Q" for the quest.
-- "I" for opening the inventory.
+- "ESC" for the pause panel.
 
+inventory, character and quest:
+- "Q" for opening the inventory, character and quest panel.
+- "left click the mouse": select.
+
+Win&Lose:
+- "I": go to the victory panel.
+- "O": close the victory panel.
+- "k": go to the lose panel.
+- "L": close the lose panel.
+
+Worldmap:
+- "1": go to the forest scene.
+- "2": go to the town scene.
+- "3": go to the dungeon scene.
+
+Battle scene:
+- "left click the mouse": select.
+
+Debug:
+-  "F1": check collisions.
 
 ## General
 
