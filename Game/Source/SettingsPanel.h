@@ -30,5 +30,6 @@ public:
 	SDL_Rect box;
 
 	bool fullscreen = false;
+	bool vsync = false;
 };
 

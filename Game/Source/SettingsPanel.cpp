@@ -23,17 +23,17 @@ bool SettingsPanel::Start()
     box = { 0,0,1129,580 };
     fullscreen = app->win->fullscreen;
 
-    volumeSldr = (GuiSlider*)CreateGuiSlider(0, app->guiManager, this, { 350 + 76,133 + 73, 620 ,30 }, { 355, 130, 36 * 2 ,36 });
+    volumeSldr = (GuiSlider*)CreateGuiSlider(0, app->guiManager, this, { 350 + 76,133 + 73, 620 ,30 }, { 355, 130, 36 ,36 });
     volumeSldr->texture = app->guiManager->settingsBox;
     volumeSldr->thumbRect = { 205,582,36,36 };
     volumeSldr->SetValue(128);
 
-    musicSldr = (GuiSlider*)CreateGuiSlider(1, app->guiManager, this, { 350 + 76,173 + 73, 620 ,30 }, { 355, 130, 36 * 2 ,36 });
+    musicSldr = (GuiSlider*)CreateGuiSlider(1, app->guiManager, this, { 430,246, 620 ,30 }, { 355, 130, 36,36 });
     musicSldr->texture = app->guiManager->settingsBox;
     musicSldr->thumbRect = { 205,582,36,36 };
     musicSldr->SetValue(128);
 
-    fxSldr = (GuiSlider*)CreateGuiSlider(2, app->guiManager, this, { 350 + 76,210 + 73, 620 ,30 }, { 355, 130, 36 * 2 ,36 });
+    fxSldr = (GuiSlider*)CreateGuiSlider(2, app->guiManager, this, { 350 + 76,210 + 73, 620 ,30 }, { 355, 130, 36 ,36 });
     fxSldr->texture = app->guiManager->settingsBox;
     fxSldr->thumbRect = { 205,582,36,36 };
     fxSldr->SetValue(128);
@@ -78,7 +78,7 @@ bool SettingsPanel::Start()
 bool SettingsPanel::Update(float dt, bool doLogic)
 {
     GuiPanel::Update(dt, doLogic);
-    app->audio->SetMusicVolume(MUSIC_VOLUME * (musicSldr->value/100));
+    //app->audio->SetMusicVolume(MUSIC_VOLUME * (musicSldr->value/100));
 
     if (fullscreen == false)
     {
@@ -89,6 +89,17 @@ bool SettingsPanel::Update(float dt, bool doLogic)
     {
         fullSrnOff->state = GuiControlState::NORMAL;
         fullSrnON->state = GuiControlState::SELECTED;
+    }
+
+    if (vsync == true)
+    {
+        vsyncOff->state = GuiControlState::SELECTED;
+        vsyncOn->state = GuiControlState::NORMAL;
+    }
+    else
+    {
+        vsyncOff->state = GuiControlState::NORMAL;
+        vsyncOn->state = GuiControlState::SELECTED;
     }
 
     return true;
@@ -139,23 +150,26 @@ bool SettingsPanel::OnGuiMouseClickEvent(GuiControl* control)
 
     if (control->id == vsyncOn->id)
     {
-        app->render->vsync = true;
-        app->render->SetVsync(app->render->vsync);
+        vsync = !vsyncOn->State;
+        app->render->SetVsync(vsync);
     }
     else if (control->id == vsyncOff->id)
     {
+        vsync = !vsyncOff->State;
+        //app->render->SetVsync(vsync);
     }
     
     if (control->id == musicSldr->id)
     { 
-        int vol = musicSldr->GetValue();
-        if(vol>=128) app->audio->SetMusicVolume(128);
-        if(vol <= 128) app->audio->SetMusicVolume(99);
-        if(vol <= 90) app->audio->SetMusicVolume(90);
-        if(vol <= 50)app->audio->SetMusicVolume(50);
-        if(vol<= 10)app->audio->SetMusicVolume(10);
-        if(vol <= 0)app->audio->SetMusicVolume(0);
-        //app->audio->SetMusicVolume(musicSldr->GetValue());
+        //int vol = musicSldr->position.x;
+ 
+        //if(vol>=1052) app->audio->SetMusicVolume(128);
+        //if(vol <= 937) app->audio->SetMusicVolume(99);
+        //if(vol <= 834) app->audio->SetMusicVolume(90);
+        //if(vol <= 659)app->audio->SetMusicVolume(50);
+        //if(vol<= 508)app->audio->SetMusicVolume(10);
+        //if(vol <= 449)app->audio->SetMusicVolume(0);
+        app->audio->SetMusicVolume(musicSldr->GetValue());
         LOG("VOLUME %i", app->audio->GetMusicVolume());
         LOG("sldr value %i", musicSldr->GetValue());
     }
