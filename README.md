@@ -45,7 +45,6 @@ Dungeon:
 - "E" for interaction with the trigger
 
 ## General
-
 Game resolution: 1280x720px@60fps, support for windowed mode and fullscreen
 ❏ Maximum memory usage must be under 256 MB (RAM)
 
