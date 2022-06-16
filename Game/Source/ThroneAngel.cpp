@@ -10,8 +10,8 @@ ThroneAngel::ThroneAngel(iPoint g_pos) : Enemy(g_pos)
 {
 	p_CharacterName = "throne angel";
 	p_CharacterId = ECharacterType::ECHARACTER_MIPHARESH;
-	p_Stats.health = 30;
-	p_Stats.maxHealth = 30;
+	p_Stats.health = 120;
+	p_Stats.maxHealth = 120;
 	p_Stats.damage = 15;
 	p_Stats.speed = 10;
 	p_CharacterFX = app->audio->LoadFx("Assets/Audio/Fx/dead2.wav");
