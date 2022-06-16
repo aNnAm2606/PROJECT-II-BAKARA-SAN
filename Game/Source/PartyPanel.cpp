@@ -199,7 +199,6 @@ bool PartyPanel::Draw()
             //    break;
             //}
             //break;
-
         }
         
     }
