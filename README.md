@@ -29,8 +29,8 @@ Inventory, character and quest:
 - "left click the mouse": select.
 
 Win&Lose:
-- "Win": all of your characters die.
-- "Lose": you kill the final boss.
+- "Win": you kill the final boss.
+- "Lose": all of your characters die.
 
 Worldmap:
 - "1": go to the forest scene.
