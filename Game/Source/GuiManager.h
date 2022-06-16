@@ -48,7 +48,7 @@ public:
 
 	// Gui textures
 	SDL_Texture* titleButtons = nullptr;
-	SDL_Texture* settingsBox = nullptr;
+	SDL_Texture* boxSettings = nullptr;
 	SDL_Texture* quitBox = nullptr;
 	SDL_Texture* credits = nullptr;
 	SDL_Texture* pauseBox = nullptr;

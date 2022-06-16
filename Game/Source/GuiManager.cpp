@@ -41,7 +41,7 @@ bool GuiManager::Start()
 {
 	// Panel Images
 	titleButtons = app->tex->Load("Assets/Art/GUI/titleButtons.png");
-	settingsBox = app->tex->Load("Assets/Art/GUI/settingsBox.png");
+	boxSettings = app->tex->Load("Assets/Art/GUI/boxSettings.png");
 	quitBox = app->tex->Load("Assets/Art/GUI/exitBox.png");
 	credits = app->tex->Load("Assets/Art/GUI/credits.png");
 	pauseBox = app->tex->Load("Assets/Art/GUI/pauseBox.png");
@@ -325,7 +325,7 @@ bool GuiManager::CleanUp()
 	panels.clear();
 
 	titleButtons = nullptr;
-	settingsBox = nullptr;
+	boxSettings = nullptr;
 	quitBox = nullptr;
 	credits = nullptr;
 	pauseBox = nullptr;
