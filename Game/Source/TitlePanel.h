@@ -12,6 +12,8 @@ public:
 	bool Draw() override;
 	bool CleanUp();
 
+	void OnEnable() override;
+
 	bool OnGuiMouseClickEvent(GuiControl* control) override;
 
 	// Buttons

@@ -293,6 +293,9 @@
     <ClCompile Include="Source\GargoyleBattle_FinalBoss.cpp">
       <Filter>Entities\GargoyleBattles\FinalBoss</Filter>
     </ClCompile>
+    <ClCompile Include="Source\EndScreen.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\StartForestScene.h">
@@ -636,6 +639,9 @@
     </ClInclude>
     <ClInclude Include="Source\GargoyleBattle_FinalBoss.h">
       <Filter>Entities\GargoyleBattles\FinalBoss</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\EndScreen.h">
+      <Filter>Scenes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

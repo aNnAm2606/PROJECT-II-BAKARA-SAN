@@ -17,6 +17,10 @@
 #include "InventoryPanel.h"
 #include "PartyPanel.h"
 #include "QuestPanel.h"
+#include "BattleScene.h"
+#include "LogoScreen.h"
+#include "TitleScreen.h"
+#include "EndScreen.h"
 
 GuiManager::GuiManager(bool startEnabled) : Module(startEnabled)
 {
@@ -113,116 +117,141 @@ bool GuiManager::Update(float dt)
 	if (app->input->GetKey(SDL_SCANCODE_F1) == KEY_DOWN)
 		debug = !debug;
 
-	if (app->input->GetKey(SDL_SCANCODE_B) == KEY_DOWN)
-		battlePanel->Enable();
-	if (app->input->GetKey(SDL_SCANCODE_V) == KEY_DOWN)
-		battlePanel->Disable();
-
-	if (app->input->GetKey(SDL_SCANCODE_K) == KEY_DOWN) {
-		app->audio->PlayFx(lose_fx);
-		losePanel->Enable();
-	}
-	if (app->input->GetKey(SDL_SCANCODE_L) == KEY_DOWN)
-		losePanel->Disable();
-
-	if (app->input->GetKey(SDL_SCANCODE_I) == KEY_DOWN){
-		app->audio->PlayFx(Win_fx);
-		victoryPanel->Enable();
-	}
-	if (app->input->GetKey(SDL_SCANCODE_O) == KEY_DOWN)
-		victoryPanel->Disable();
-
-	if (app->input->GetKey(SDL_SCANCODE_Q) == KEY_DOWN)
-	{
-		cursorMode = !cursorMode;
-	}
-
-	if (cursorMode == true)
-	{
-		if (anim != 9)
-		{
-			timer++;
-			if (timer >= 1)
+	// Pause / panels
+	if (CanOpenSettings()) {
+		if (!inventoryPanel->GetActive() && !partyPanel->GetActive() && !questPanel->GetActive()) {
+			if (app->input->GamepadConnected() == false)
 			{
-				anim++;
-				timer = 0;
+				if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN) {
+					if (app->guiManager->pausePanel->gamePaused == false) app->audio->PlayFx(Open_FX);
+					else if (app->guiManager->pausePanel->gamePaused == true) app->audio->PlayFx(Close_FX);
+					app->guiManager->pausePanel->gamePaused = !app->guiManager->pausePanel->gamePaused;
+				}
+				if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN && app->guiManager->settingsPanel->GetActive() == true) {
+					app->audio->PlayFx(Close_FX);
+					app->guiManager->settingsPanel->Disable();
+				}
+			}
+			else
+			{
+				if (gamepad.start == true)
+				{
+					if (app->guiManager->pausePanel->gamePaused == false) app->audio->PlayFx(Open_FX);
+					else if (app->guiManager->pausePanel->gamePaused == true) app->audio->PlayFx(Close_FX);
+					app->guiManager->pausePanel->gamePaused = !app->guiManager->pausePanel->gamePaused;
+				}
+				if (gamepad.start == true && app->guiManager->settingsPanel->GetActive() == true) {
+					app->audio->PlayFx(Close_FX);
+					app->guiManager->settingsPanel->Disable();
+				}
 			}
 		}
-		if (anim >= 9) anim = 9;
-
-		if (app->input->GetKey(SDL_SCANCODE_L) == KeyState::KEY_DOWN) cursor = cursor + 1;
-		if (app->input->GetKey(SDL_SCANCODE_J) == KeyState::KEY_DOWN) cursor = cursor - 1;
-
-		switch (cursor)
-		{
-		case 0:
-			inventoryPanel->Disable();
-			partyPanel->Disable();
-			questPanel->Enable();	
-			break;
-		case 1:
-			inventoryPanel->Disable();
-			questPanel->Disable();
-			partyPanel->Enable();
-			break;
-		case 2:
-			questPanel->Disable();
-			partyPanel->Disable();
-			inventoryPanel->Enable();
-			break;
+		else {
+			if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN) {
+				cursorMode = false;
+			}
 		}
-		
-		if (cursor > 2) cursor = 0;
-		if (cursor < 0) cursor = 2;
 	}
-	else
-	{
-		if (anim != 0)
-		{
-			timer++;
-			if (timer >= 1)
-			{
-				anim--;
-				timer = 0;
+
+	if (CanOpenPanels()) {
+
+		// BasePanels
+		if (app->input->GetKey(SDL_SCANCODE_I) == KEY_DOWN) {
+			if (cursorMode) {
+				if (cursor == 2) {
+					cursorMode = false;
+				}
+			}
+			else {
+				cursorMode = true;
+				cursor = 2;
 			}
 		}
 
-		if (anim <= 0)
-		{
-			anim = 0;
-			inventoryPanel->Disable();
-			partyPanel->Disable();
-			questPanel->Disable();
+		if (app->input->GetKey(SDL_SCANCODE_Q) == KEY_DOWN) {
+			if (cursorMode) {
+				if (cursor == 0) {
+					cursorMode = false;
+				}
+			}
+			else {
+				cursorMode = true;
+				cursor = 0;
+			}
 		}
-	}
 
-	if (app->input->GamepadConnected() == false)
-	{
-		if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN) {
-			if (app->guiManager->pausePanel->gamePaused == false) app->audio->PlayFx(Open_FX);
-			else if (app->guiManager->pausePanel->gamePaused == true) app->audio->PlayFx(Close_FX);
-			app->guiManager->pausePanel->gamePaused = !app->guiManager->pausePanel->gamePaused;
+		if (app->input->GetKey(SDL_SCANCODE_P) == KEY_DOWN) {
+			if (cursorMode) {
+				if (cursor == 1) {
+					cursorMode = false;
+				}
+			}
+			else {
+				cursorMode = true;
+				cursor = 1;
+			}
 		}
-		if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN && app->guiManager->settingsPanel->GetActive() == true) {
-			app->audio->PlayFx(Close_FX);
-			app->guiManager->settingsPanel->Disable();
-		}
-	}
-	else
-	{
-		if (gamepad.start == true)
+
+		if (cursorMode == true)
 		{
-			if (app->guiManager->pausePanel->gamePaused == false) app->audio->PlayFx(Open_FX);
-			else if (app->guiManager->pausePanel->gamePaused == true) app->audio->PlayFx(Close_FX);
-			app->guiManager->pausePanel->gamePaused = !app->guiManager->pausePanel->gamePaused;
+			if (anim != 9)
+			{
+				timer++;
+				if (timer >= 1)
+				{
+					anim++;
+					timer = 0;
+				}
+			}
+			if (anim >= 9) anim = 9;
+
+			if (app->input->GetKey(SDL_SCANCODE_L) == KeyState::KEY_DOWN) cursor = cursor + 1;
+			if (app->input->GetKey(SDL_SCANCODE_J) == KeyState::KEY_DOWN) cursor = cursor - 1;
+
+			switch (cursor)
+			{
+			case 0:
+				inventoryPanel->Disable();
+				partyPanel->Disable();
+				questPanel->Enable();
+				break;
+			case 1:
+				inventoryPanel->Disable();
+				questPanel->Disable();
+				partyPanel->Enable();
+				break;
+			case 2:
+				questPanel->Disable();
+				partyPanel->Disable();
+				inventoryPanel->Enable();
+				break;
+			}
+
+			if (cursor > 2) cursor = 0;
+			if (cursor < 0) cursor = 2;
 		}
-		if (gamepad.start == true && app->guiManager->settingsPanel->GetActive() == true) {
-			app->audio->PlayFx(Close_FX);
-			app->guiManager->settingsPanel->Disable();
+		else
+		{
+			if (anim != 0)
+			{
+				timer++;
+				if (timer >= 1)
+				{
+					anim--;
+					timer = 0;
+				}
+			}
+
+			if (anim <= 0)
+			{
+				anim = 0;
+				inventoryPanel->Disable();
+				partyPanel->Disable();
+				questPanel->Disable();
+			}
 		}
 	}
 	
-
 	if (app->guiManager->pausePanel->gamePaused == true
 		&& app->guiManager->settingsPanel->GetActive() == false
 		&& app->guiManager->quitPanel->GetActive() == false)
@@ -336,8 +365,25 @@ bool GuiManager::OnGuiMouseClickEvent(GuiControl* control)
 	return true;
 }
 
+bool GuiManager::CanOpenPanels()
+{
+	bool canOpen = true;
 
+	canOpen = canOpen && !app->battleScene->IsEnabled();
+	canOpen = canOpen && !app->logoScreen->IsEnabled();
+	canOpen = canOpen && !app->titleScreen->IsEnabled();
+	canOpen = canOpen && !app->endScreen->IsEnabled();
 
+	return canOpen;
+}
 
+bool GuiManager::CanOpenSettings()
+{
+	bool canOpen = true;
 
+	canOpen = canOpen && !app->logoScreen->IsEnabled();
+	canOpen = canOpen && !app->titleScreen->IsEnabled();
+	canOpen = canOpen && !app->endScreen->IsEnabled();
 
+	return canOpen;
+}

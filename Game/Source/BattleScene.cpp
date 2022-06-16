@@ -33,6 +33,8 @@ BattleScene::BattleScene(bool startEnabled, bool playerEnabled, SString name, Po
 	m_EnemyCount = 0;
 
 	memset(m_EnemyGrid, NULL, GRID_SIZE * 4);
+
+	m_Lost = false;
 }
 
 BattleScene::~BattleScene()
@@ -72,6 +74,8 @@ bool BattleScene::Start()
 
 	app->render->camera.x = 0;
 	app->render->camera.y = 0;
+
+	m_Lost = false;
 
 	return true;
 }
@@ -230,6 +234,8 @@ bool BattleScene::CleanUp()
 	}
 
 	m_EnemyCount = 0;
+	m_BattleQueue.Clear();
+	m_BattleState = EBattleState::EBATTLESTATE_WAITING;
 
 	app->guiManager->battlePanel->Disable();
 

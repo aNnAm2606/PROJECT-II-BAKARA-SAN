@@ -123,6 +123,7 @@
     <ClCompile Include="Source\Dialog.cpp" />
     <ClCompile Include="Source\DialogModule.cpp" />
     <ClCompile Include="Source\DungeonScene.cpp" />
+    <ClCompile Include="Source\EndScreen.cpp" />
     <ClCompile Include="Source\Enemy.cpp" />
     <ClCompile Include="Source\FadeToBlack.cpp" />
     <ClCompile Include="Source\FallenAngel.cpp" />
@@ -225,6 +226,7 @@
     <ClInclude Include="Source\DialogNode.h" />
     <ClInclude Include="Source\DungeonScene.h" />
     <ClInclude Include="Source\easings.h" />
+    <ClInclude Include="Source\EndScreen.h" />
     <ClInclude Include="Source\Enemy.h" />
     <ClInclude Include="Source\FadeToBlack.h" />
     <ClInclude Include="Source\FallenAngel.h" />

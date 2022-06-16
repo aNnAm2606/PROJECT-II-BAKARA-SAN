@@ -101,6 +101,8 @@ private:
 	uint Close_FX = NULL;
 	uint Open_FX = NULL;
 
+	bool CanOpenPanels();
+	bool CanOpenSettings();
 };
 
 #endif // __GUIMANAGER_H__

@@ -31,6 +31,7 @@ class ParticleModule;
 //Scenes
 class LogoScreen;
 class TitleScreen;
+class EndScreen;
 class StartForestScene;
 class TownScene;
 class GameplayScreen;
@@ -55,7 +56,8 @@ enum  sceneID
 	TUTORIAL_3,
 	TUTORIAL_4,
 	WORLD_MAP,
-	DUNGEON
+	DUNGEON,
+	END
 };
 class App
 {
@@ -162,6 +164,7 @@ public:
 	WorldMapScene* worldMapScene;
 	DungeonScene* dungeonScene;
 	BattleScene* battleScene;
+	EndScreen* endScreen;
 
 	sceneID currentScene;
 	sceneID savedScene;
