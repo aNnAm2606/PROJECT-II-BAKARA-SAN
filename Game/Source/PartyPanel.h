@@ -43,15 +43,6 @@ public:
 private:
 	uint swidth, sheight;
 
-	Character* character;
-	std::vector<Ability*>* abilities;
-
-	// Box texture
-	SDL_Rect big_box;
-	SDL_Rect medium_box;
-	SDL_Rect small_box;
-	SDL_Rect arrow;
-
 	// Colors
 	Color m_LabelColor;
 	Color m_BaseColor;
