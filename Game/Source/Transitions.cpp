@@ -20,7 +20,7 @@ Transitions::~Transitions() {}
 
 bool Transitions::Start()
 {
-	textureSettings = app->tex->Load("Assets/Art/GUI/settingsBox.png");
+	textureSettings = app->tex->Load("Assets/Art/GUI/boxSettings.png");
 	transition = app->tex->Load("Assets/Art/GUI/transition.png");
 	app->win->GetWindowSize(win_width, win_height);
 
