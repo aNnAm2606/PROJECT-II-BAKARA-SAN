@@ -5,6 +5,7 @@
 #include "Audio.h"
 #include "FadeToBlack.h"
 #include "TitleScreen.h"
+#include <fstream>
 
 TitlePanel::TitlePanel(bool active) : GuiPanel(active)
 {
@@ -29,6 +30,13 @@ bool TitlePanel::Start()
     continueBtn->normalRec = { 130,15,126,32 };
     continueBtn->focusedRec = { 130,50,126,32 };
     continueBtn->pressedRec = { 130,15,126,32 };
+    continueBtn->disabledRec = { 130,50,126,32 };
+    
+    std::ifstream f("save_game.xml");
+    if (!f.good()) {
+        continueBtn->state = GuiControlState::DISABLED;
+    }
+    f.close();
 
     settingsBtn = (GuiButton*)CreateGuiButton(2, app->guiManager, this, { 950, 500, 120, 34 }, "Settings");
     settingsBtn->texture = app->guiManager->titleButtons;
@@ -67,6 +75,19 @@ bool TitlePanel::CleanUp()
 {
     app->guiManager->titlePanel->Disable();
     return true;
+}
+
+void TitlePanel::OnEnable()
+{
+    std::ifstream f("save_game.xml");
+    if (!f.good()) {
+        continueBtn->state = GuiControlState::DISABLED;
+    }
+    else {
+        continueBtn->state = GuiControlState::NORMAL;
+    }
+
+    f.close();
 }
 
 bool TitlePanel::OnGuiMouseClickEvent(GuiControl* control)

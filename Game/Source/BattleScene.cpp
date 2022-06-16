@@ -234,6 +234,8 @@ bool BattleScene::CleanUp()
 	}
 
 	m_EnemyCount = 0;
+	m_BattleQueue.Clear();
+	m_BattleState = EBattleState::EBATTLESTATE_WAITING;
 
 	app->guiManager->battlePanel->Disable();
 

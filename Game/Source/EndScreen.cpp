@@ -103,6 +103,8 @@ bool EndScreen::CleanUp()
 		app->guiManager->victoryPanel->Disable();
 	}
 
+	remove("save_game.xml");
+
 	LOG("Freeing scene");
 
 	return true;
