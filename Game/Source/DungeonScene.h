@@ -46,13 +46,24 @@ private:
 	SDL_Texture* keyTexture;
 	SDL_Texture* leverTexture;
 
-	List <Collider*> colliderList;
+	
 
 	Collider* secretRoomButton;
 	Collider* secretRoomBottomWall;
 	Collider* secretRoomTopWall;
 	Collider* secretRoomLeftWall;
 	Collider* secretRoomRightWall;
+
+	Collider* mapCol01;
+	Collider* mapCol02;
+	Collider* mapCol03;
+	Collider* mapCol04;
+	Collider* mapCol05;
+	Collider* mapCol06;
+	Collider* mapCol07;
+	Collider* mapCol08;
+	Collider* mapCol09;
+	Collider* mapCol10;
 	
 	Collider* dungeonKey;
 	Collider* keyWall;

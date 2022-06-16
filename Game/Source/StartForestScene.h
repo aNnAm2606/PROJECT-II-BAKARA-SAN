@@ -35,6 +35,11 @@ public:
 
 private:
 	uint Fade_FX = NULL;
+
+	Collider* topCollider;
+	Collider* bottomCollider;
+	Collider* rightCollider;
+	Collider* leftCollider;
 };
 
 #endif // __STARTFORESTSCENE_H__

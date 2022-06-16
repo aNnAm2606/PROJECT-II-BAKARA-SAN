@@ -43,6 +43,12 @@ private:
 
 	GargoyleBattle_Dungeon_1 m_Gargoyle_1;
 	GargoyleBattle_Dungeon_2 m_Gargoyle_2;
+
+	Collider* mapCol01;
+	Collider* mapCol02;
+	Collider* mapCol03;
+	Collider* mapCol04;
+	Collider* mapCol05;
 };
 
 #endif // __TUTORIAL_SCENE_1_H__

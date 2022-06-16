@@ -17,7 +17,11 @@
 TutorialForestScene::TutorialForestScene(bool startEnabled, bool playerEnabled, SString name, Point<int> cameraPos, Point<int>playerPos, Point<bool> followPlayer) :
 	Scene(startEnabled, playerEnabled, name, cameraPos, playerPos, followPlayer)
 {
-	
+	mapCol01 = new Collider({ 400, 0, 1900, 550 }, Collider::WALL);
+	mapCol02 = new Collider({ 0, 700, 1900, 50 }, Collider::WALL);
+
+	colliderList.Add(mapCol01);
+	colliderList.Add(mapCol02);
 }
 
 // Destructor
@@ -73,7 +77,16 @@ bool TutorialForestScene::Update(float dt)
 	if (playerPos.x < 650 || playerPos.x > 1250) cameraFollowsPlayer.x = false;
 	else cameraFollowsPlayer.x = true;
 
-	
+	SDL_Rect playerRect = app->playerModule->GetPLayerCollider()->rect;
+
+	if (mapCol01->Intersects(playerRect))
+	{
+		app->playerModule->SetPosition(playerPos.x, playerPos.y + 20);
+	}
+	if (mapCol02->Intersects(playerRect))
+	{
+		app->playerModule->SetPosition(playerPos.x, playerPos.y - 20);
+	}
 	
 	return true;
 }

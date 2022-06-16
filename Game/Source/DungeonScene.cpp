@@ -24,6 +24,17 @@ DungeonScene::DungeonScene(bool startEnabled, bool playerEnabled, SString name, 
 	secretRoomLeftWall = new Collider({ 1550, -400, 10, 400 }, Collider::WALL);
 	secretRoomRightWall = new Collider({ 1850, -400, 10, 400 }, Collider::WALL);
 
+	mapCol01 = new Collider({ 0,0,300,1100 }, Collider::WALL);
+	mapCol02 = new Collider({ 1730,0,100,1100 }, Collider::WALL);
+	mapCol03 = new Collider({ 0,0 - 1080,140,1075 }, Collider::WALL);
+	mapCol04 = new Collider({ 1660,370 - 1080,300,500 }, Collider::WALL);
+	mapCol05 = new Collider({ 1880,0 - 2*1080,100,1300 }, Collider::WALL);
+	mapCol06 = new Collider({ 0,300 - 2*1080,200,800 }, Collider::WALL);
+	mapCol07 = new Collider({ 0,0 -3*1080,50,2000 }, Collider::WALL);
+	mapCol08 = new Collider({ 1800,0 - 3 * 1080,100,1100 }, Collider::WALL);
+	mapCol09 = new Collider({ 0,0 - 3 * 1080,2000,100 }, Collider::WALL);
+	mapCol10 = new Collider({ 275,870 - 3 * 1080,1500,200 }, Collider::WALL);
+
 	dungeonKey = new Collider({ 1000,-2120, 40,40 }, Collider::TRIGGER);
 	keyWall = new Collider({ 0,-2280, 2000,60 }, Collider::WALL);
 
@@ -39,6 +50,18 @@ DungeonScene::DungeonScene(bool startEnabled, bool playerEnabled, SString name, 
 	colliderList.Add(keyWall);
 	colliderList.Add(lever);
 	colliderList.Add(leverWall);
+
+	colliderList.Add(mapCol01);
+	colliderList.Add(mapCol02);
+	colliderList.Add(mapCol03);
+	colliderList.Add(mapCol04);
+	colliderList.Add(mapCol05);
+	colliderList.Add(mapCol06);
+	colliderList.Add(mapCol07);
+	colliderList.Add(mapCol08);
+	colliderList.Add(mapCol09);
+	colliderList.Add(mapCol10);
+
 }
 
 // Destructor
@@ -46,6 +69,7 @@ DungeonScene::~DungeonScene()
 {
 	Scene::~Scene();
 	colliderList.Clear();
+	
 
 }
 
@@ -155,8 +179,46 @@ bool DungeonScene::Update(float dt)
 	{
 		app->playerModule->SetPosition(playerPos.x, playerPos.y + 20);
 	}
-
-
+	if (mapCol01->Intersects(playerRect))
+	{
+		app->playerModule->SetPosition(playerPos.x + 20 , playerPos.y);
+	}
+	if (mapCol02->Intersects(playerRect))
+	{
+		app->playerModule->SetPosition(playerPos.x -20, playerPos.y );
+	}
+	if (mapCol03->Intersects(playerRect))
+	{
+		app->playerModule->SetPosition(playerPos.x +20, playerPos.y);
+	}
+	if (mapCol04->Intersects(playerRect))
+	{
+		app->playerModule->SetPosition(playerPos.x -20, playerPos.y );
+	}
+	if (mapCol05->Intersects(playerRect))
+	{
+		app->playerModule->SetPosition(playerPos.x -20, playerPos.y );
+	}
+	if (mapCol06->Intersects(playerRect))
+	{
+		app->playerModule->SetPosition(playerPos.x +20, playerPos.y );
+	}
+	if (mapCol07->Intersects(playerRect))
+	{
+		app->playerModule->SetPosition(playerPos.x +20, playerPos.y );
+	}
+	if (mapCol08->Intersects(playerRect))
+	{
+		app->playerModule->SetPosition(playerPos.x -20, playerPos.y );
+	}
+	if (mapCol09->Intersects(playerRect))
+	{
+		app->playerModule->SetPosition(playerPos.x, playerPos.y +20 );
+	}
+	if (mapCol10->Intersects(playerRect))
+	{
+		app->playerModule->SetPosition(playerPos.x, playerPos.y -20);
+	}
 
 	if (playerPos.x < 700 || playerPos.x > 1250) cameraFollowsPlayer.x = false;
 	else cameraFollowsPlayer.x = true;

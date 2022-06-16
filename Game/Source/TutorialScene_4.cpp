@@ -17,7 +17,11 @@
 TutorialScene_4::TutorialScene_4(bool startEnabled, bool playerEnabled, SString name, Point<int> cameraPos, Point<int>playerPos, Point<bool> followPlayer) :
 	Scene(startEnabled, playerEnabled, name, cameraPos, playerPos, followPlayer)
 {
-	
+	mapCol01 = new Collider({ 0,0,1900,150 }, Collider::WALL);
+	mapCol02 = new Collider({ 0,880, 1900, 30 }, Collider::WALL);
+
+	colliderList.Add(mapCol01);
+	colliderList.Add(mapCol02);
 }
 
 // Destructor
@@ -68,6 +72,17 @@ bool TutorialScene_4::Update(float dt)
 	m_Gargoyle.Update();
 
 	m_Gargoyle.Render();
+
+	SDL_Rect playerRect = app->playerModule->GetPLayerCollider()->rect;
+
+	if (mapCol01->Intersects(playerRect))
+	{
+		app->playerModule->SetPosition(playerPos.x, playerPos.y + 20);
+	}
+	if (mapCol02->Intersects(playerRect))
+	{
+		app->playerModule->SetPosition(playerPos.x, playerPos.y - 20);
+	}
 
 	return true;
 }
