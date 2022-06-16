@@ -66,10 +66,10 @@ public:
 	bool SaveState(pugi::xml_node&) override;
 
 	Character** GetPlayerGrid() { return &m_PlayerGrid[0][0]; }
-	Character** GetMonk () { return &m_PlayerGrid[0][1]; }
-	Character** GetChaman() { return &m_PlayerGrid[2][0]; }
-	Character** GetPaladin() { return &m_PlayerGrid[1][1]; }
-	Character** GetPriest() { return &m_PlayerGrid[3][0]; }
+	Character* GetMonk () { return m_PlayerGrid[0][1]; }
+	Character* GetChaman() { return m_PlayerGrid[2][0]; }
+	Character* GetPaladin() { return m_PlayerGrid[1][1]; }
+	Character* GetPriest() { return m_PlayerGrid[3][0]; }
 
 	void HealTeam();
 };

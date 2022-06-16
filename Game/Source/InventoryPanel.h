@@ -1,5 +1,7 @@
 #pragma once
 #include "GuiPanel.h"
+#include <vector>
+#include "Item.h"
 
 #define ITEMS_PER_ROW 8
 #define SPRITESHEET_ITEMS_PER_ROW 6
@@ -9,6 +11,9 @@ class InventoryPanel : public GuiPanel
 private:
 	SDL_Texture* m_ItemsTex;
 	SDL_Texture* inventoryPanel;
+
+	std::vector<Item::EItemType>* m_Inventory;
+	size_t m_InvSize;
 public:
 	InventoryPanel(bool active);
 	~InventoryPanel();
@@ -18,6 +23,8 @@ public:
 	bool Draw() override;
 	bool CleanUp();
 
+	void OnEnable() override;
+
 	bool OnGuiMouseClickEvent(GuiControl* control) override;
 
 	// Buttons
@@ -26,4 +33,3 @@ public:
 	GuiButton* questBtn;
 
 };
-

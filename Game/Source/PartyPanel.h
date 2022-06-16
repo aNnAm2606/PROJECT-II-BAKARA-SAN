@@ -42,7 +42,7 @@ public:
 
 private:
 	uint swidth, sheight;
-	Character** character;
+	Character* character;
 
 	// Colors
 	Color m_LabelColor;

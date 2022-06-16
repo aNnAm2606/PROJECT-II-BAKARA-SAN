@@ -134,15 +134,17 @@ bool PartyPanel::Draw()
 
                 // Health
                 std::string health = "";
-                health += std::to_string((*character)->GetHealth());
+                health += std::to_string(character->GetHealth());
+                health += " / ";
+                health += std::to_string(character->GetMaxHealth());
                 app->fonts->BlitText(946, 240, m_BaseFont, health.c_str(), false);
 
                 // Damage
-                std::string damage = std::to_string((*character)->GetDamage());
+                std::string damage = std::to_string(character->GetDamage());
                 app->fonts->BlitText(946, 296, m_BaseFont, damage.c_str(), false);
   
                 // Speed
-                std::string speed = std::to_string((*character)->GetSpeed());
+                std::string speed = std::to_string(character->GetSpeed());
                 app->fonts->BlitText(946, 400, m_BaseFont, speed.c_str(), false);
 
                 app->fonts->BlitText(723, 396, m_BaseFont, "1", false);
@@ -156,84 +158,92 @@ bool PartyPanel::Draw()
             else if (selected == 1)
             {
                 character = app->playerModule->GetPaladin();
+                app->render->DrawTexture(paladinStats, 579, 142, NULL, false);
                 // Health
                 std::string health = "";
-                health += std::to_string((*character)->GetHealth());
+                health += std::to_string(character->GetHealth());
+                health += " / ";
+                health += std::to_string(character->GetMaxHealth());
                 app->fonts->BlitText(946, 240, m_BaseFont, health.c_str(), false);
 
                 // Damage
-                std::string damage = std::to_string((*character)->GetDamage());
+                std::string damage = std::to_string(character->GetDamage());
                 app->fonts->BlitText(946, 296, m_BaseFont, damage.c_str(), false);
 
                 // Speed
-                std::string speed = std::to_string((*character)->GetSpeed());
+                std::string speed = std::to_string(character->GetSpeed());
                 app->fonts->BlitText(946, 400, m_BaseFont, speed.c_str(), false);
-
-                app->render->DrawTexture(paladinStats, 579, 142, NULL, false);
+                
                 app->fonts->BlitText(723, 396, m_BaseFont, "1", false);
-                app->fonts->BlitText(946, 240, m_BaseFont, "50", false);
+                //app->fonts->BlitText(946, 240, m_BaseFont, "50", false);
                 app->fonts->BlitText(946, 269, m_BaseFont, "10", false);
-                app->fonts->BlitText(946, 296, m_BaseFont, "20", false);
+                //app->fonts->BlitText(946, 296, m_BaseFont, "20", false);
                 app->fonts->BlitText(946, 321, m_BaseFont, "x", false);
                 app->fonts->BlitText(946, 347, m_BaseFont, "x", false);
                 app->fonts->BlitText(946, 374, m_BaseFont, "x", false);
-                app->fonts->BlitText(946, 400, m_BaseFont, "10", false);
+                //app->fonts->BlitText(946, 400, m_BaseFont, "10", false);
                 app->fonts->BlitText(946, 427, m_BaseFont, "30", false);
                 app->fonts->BlitText(946, 456, m_BaseFont, "30", false);
             }
             else if (selected == 2)
             {
                 character = app->playerModule->GetMonk();
+                app->render->DrawTexture(monkStats, 579, 142, NULL, false);
                 // Health
                 std::string health = "";
-                health += std::to_string((*character)->GetHealth());
+                health += std::to_string(character->GetHealth());
+                health += " / ";
+                health += std::to_string(character->GetMaxHealth());
                 app->fonts->BlitText(946, 240, m_BaseFont, health.c_str(), false);
 
                 // Damage
-                std::string damage = std::to_string((*character)->GetDamage());
+                std::string damage = std::to_string(character->GetDamage());
                 app->fonts->BlitText(946, 296, m_BaseFont, damage.c_str(), false);
 
                 // Speed
-                std::string speed = std::to_string((*character)->GetSpeed());
+                std::string speed = std::to_string(character->GetSpeed());
                 app->fonts->BlitText(946, 400, m_BaseFont, speed.c_str(), false);
 
-                app->render->DrawTexture(monkStats, 579, 142, NULL, false);
+                
                 app->fonts->BlitText(723, 396, m_BaseFont, "1", false);
-                app->fonts->BlitText(946, 240, m_BaseFont, "30", false);
+                //app->fonts->BlitText(946, 240, m_BaseFont, "30", false);
                 app->fonts->BlitText(946, 269, m_BaseFont, "15", false);
-                app->fonts->BlitText(946, 296, m_BaseFont, "30", false);
+                //app->fonts->BlitText(946, 296, m_BaseFont, "30", false);
                 app->fonts->BlitText(946, 321, m_BaseFont, "x", false);
                 app->fonts->BlitText(946, 347, m_BaseFont, "x", false);
                 app->fonts->BlitText(946, 374, m_BaseFont, "x", false);
-                app->fonts->BlitText(946, 400, m_BaseFont, "35", false);
+                //app->fonts->BlitText(946, 400, m_BaseFont, "35", false);
                 app->fonts->BlitText(946, 427, m_BaseFont, "20", false);
                 app->fonts->BlitText(946, 456, m_BaseFont, "20", false);
             }
             else if (selected == 3)
             {
                 character = app->playerModule->GetPriest();
+                app->render->DrawTexture(priestStats, 579, 142, NULL, false);
                 // Health
                 std::string health = "";
-                health += std::to_string((*character)->GetHealth());
+                health += std::to_string(character->GetHealth());
+                health += " / ";
+                health += std::to_string(character->GetMaxHealth());
                 app->fonts->BlitText(946, 240, m_BaseFont, health.c_str(), false);
 
                 // Damage
-                std::string damage = std::to_string((*character)->GetDamage());
+                std::string damage = std::to_string(character->GetDamage());
                 app->fonts->BlitText(946, 296, m_BaseFont, damage.c_str(), false);
 
                 // Speed
-                std::string speed = std::to_string((*character)->GetSpeed());
+                std::string speed = std::to_string(character->GetSpeed());
                 app->fonts->BlitText(946, 400, m_BaseFont, speed.c_str(), false);
 
-                app->render->DrawTexture(priestStats, 579, 142, NULL, false);
+                
                 app->fonts->BlitText(723, 396, m_BaseFont, "1", false);
-                app->fonts->BlitText(946, 240, m_BaseFont, "30", false);
+                //app->fonts->BlitText(946, 240, m_BaseFont, "30", false);
                 app->fonts->BlitText(946, 269, m_BaseFont, "30", false);
-                app->fonts->BlitText(946, 296, m_BaseFont, "20", false);
+                //app->fonts->BlitText(946, 296, m_BaseFont, "20", false);
                 app->fonts->BlitText(946, 321, m_BaseFont, "x", false);
                 app->fonts->BlitText(946, 347, m_BaseFont, "x", false);
                 app->fonts->BlitText(946, 374, m_BaseFont, "x", false);
-                app->fonts->BlitText(946, 400, m_BaseFont, "20", false);
+                //app->fonts->BlitText(946, 400, m_BaseFont, "20", false);
                 app->fonts->BlitText(946, 427, m_BaseFont, "25", false);
                 app->fonts->BlitText(946, 456, m_BaseFont, "25", false);
             }

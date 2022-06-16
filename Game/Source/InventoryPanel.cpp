@@ -118,9 +118,6 @@ bool InventoryPanel::Draw()
         }
     }
 
-    std::vector<Item::EItemType>* inventory = app->inventory->GetInventory();
-    size_t size = inventory->size();
-
     SDL_Rect itemrect = {
         0, 0,
         35, 35
@@ -133,15 +130,15 @@ bool InventoryPanel::Draw()
     int dWidth = 88;
     int dHeight = 88;
 
-    for (size_t i = 0; i < size; i++) {
+    for (size_t i = 0; i < m_InvSize; i++) {
         size_t xind = i % ITEMS_PER_ROW;
         size_t yind = i / ITEMS_PER_ROW;
 
         int drawX = ipos.x + xind * dWidth + xind * spacing;
         int drawY = ipos.y + yind * dHeight + yind * spacing;
 
-        itemrect.x = (inventory->at(i) % SPRITESHEET_ITEMS_PER_ROW) * itemrect.w;
-        itemrect.y = (inventory->at(i) / SPRITESHEET_ITEMS_PER_ROW) * itemrect.h;
+        itemrect.x = (m_Inventory->at(i) % SPRITESHEET_ITEMS_PER_ROW) * itemrect.w;
+        itemrect.y = (m_Inventory->at(i) / SPRITESHEET_ITEMS_PER_ROW) * itemrect.h;
 
         app->render->DrawTextureScaled(m_ItemsTex, drawX, drawY, dWidth, dHeight, &itemrect, false);
     }
@@ -168,4 +165,10 @@ bool InventoryPanel::OnGuiMouseClickEvent(GuiControl* control)
     }
 
     return true;
+}
+
+void InventoryPanel::OnEnable()
+{
+    m_Inventory = app->inventory->GetInventory();
+    m_InvSize = m_Inventory->size();
 }
