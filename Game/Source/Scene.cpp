@@ -104,6 +104,7 @@ bool Scene::PostUpdate()
 bool Scene::CleanUp()
 {
 	LOG("Freeing scene");
+	colliderList.Clear();
 	app->tex->UnLoad(sceneTexture);
 	app->guiManager->pausePanel->Disable();
 

@@ -36,6 +36,9 @@ public:
 private:
 	uint Fade_FX = NULL;
 	AlanParsons m_AlanParsons;
+
+	Collider* mapCol01;
+	Collider* mapCol02;
 };
 
 #endif // __TUTORIALFORESTSCENE_H__

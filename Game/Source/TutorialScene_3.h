@@ -39,6 +39,9 @@ private:
 	uint Fade_FX = NULL;
 
 	GargoyleBattle_Dungeon_4 m_Gargoyle;
+
+	Collider* mapCol01;
+	Collider* mapCol02;
 };
 
 #endif // __TUTORIAL_SCENE_3_H__

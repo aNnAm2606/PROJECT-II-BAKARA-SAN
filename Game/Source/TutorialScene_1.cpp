@@ -19,7 +19,17 @@
 TutorialScene_1::TutorialScene_1(bool startEnabled, bool playerEnabled, SString name, Point<int> cameraPos, Point<int>playerPos, Point<bool> followPlayer) :
 	Scene(startEnabled, playerEnabled, name, cameraPos, playerPos, followPlayer)
 {
+	mapCol01 = new Collider({ 1360,0,100,400 }, Collider::WALL);
+	mapCol02 = new Collider({ 0,300,1900,20 }, Collider::WALL);
+	mapCol03 = new Collider({ 0,900,1900,20 }, Collider::WALL);
+	mapCol04 = new Collider({ 0,480,1900,20 }, Collider::WALL);
+	mapCol05 = new Collider({ 0,0,1900,20 }, Collider::WALL);
+	
 
+	colliderList.Add(mapCol01);
+	colliderList.Add(mapCol02);
+	colliderList.Add(mapCol03);
+	colliderList.Add(mapCol04);
 }
 
 // Destructor
@@ -78,7 +88,29 @@ bool TutorialScene_1::Update(float dt)
 
 	m_Gargoyle_1.Update();
 	m_Gargoyle_2.Update();
-	
+
+	SDL_Rect playerRect = app->playerModule->GetPLayerCollider()->rect;
+
+	if (mapCol01->Intersects(playerRect))
+	{
+		app->playerModule->SetPosition(playerPos.x -20, playerPos.y);
+	}
+	if (mapCol02->Intersects(playerRect))
+	{
+		app->playerModule->SetPosition(playerPos.x, playerPos.y -20);
+	}
+	if (mapCol03->Intersects(playerRect))
+	{
+		app->playerModule->SetPosition(playerPos.x, playerPos.y -20);
+	}
+	if (mapCol04->Intersects(playerRect))
+	{
+		app->playerModule->SetPosition(playerPos.x, playerPos.y +20);
+	}
+	if (mapCol05->Intersects(playerRect))
+	{
+		app->playerModule->SetPosition(playerPos.x, playerPos.y + 20);
+	}
 	return true;
 }
 

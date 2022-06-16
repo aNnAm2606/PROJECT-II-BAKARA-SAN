@@ -3,6 +3,8 @@
 
 #include "Module.h"
 #include "Point.h"
+#include "Collider.h"
+#include "List.h"
 struct SDL_Texture;
 
 class Scene : public Module
@@ -46,6 +48,7 @@ public:
 	Point<bool> cameraFollowsPlayer;
 
 	SDL_Texture* sceneTexture = nullptr;
+	List <Collider*> colliderList;
 private:
 	
 	

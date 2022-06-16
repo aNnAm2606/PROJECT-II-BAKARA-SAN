@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <game_state>
-	<Scene id="5" />
+	<Scene id="12" />
 	<window />
 	<input />
 	<textures />
@@ -22,20 +22,20 @@
 	<:anonymous />
 	<:anonymous />
 	<PlayerModule>
-		<position x="910" y="590" />
+		<position x="1212" y="700" />
 	</PlayerModule>
 	<DialogModule />
 	<inventory />
 	<quests>
 		<quest id="0" state="0" />
 		<quest id="1" state="1" />
-		<quest id="2" state="1" data="3" />
+		<quest id="2" state="0" />
 	</quests>
 	<guiManager />
 	<ParticleModule />
 	<Fade />
 	<BattleTransitions />
 	<renderer>
-		<camera x="-270" y="-230" follow_X="true" follow_Y="true" />
+		<camera x="-572" y="-340" follow_X="true" follow_Y="true" />
 	</renderer>
 </game_state>

@@ -48,6 +48,11 @@ private:
 	DavidBow m_DavidBow;
 	Cat m_Cat;
 	GargoyleBattle_Town_1 m_GargoyleBattle_1;
+
+	Collider* mapCol01;
+	Collider* mapCol02;
+	Collider* mapCol03;
+	Collider* mapCol04;
 };
 
 #endif // __TOWNSCENE_H__

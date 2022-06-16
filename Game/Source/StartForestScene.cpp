@@ -17,7 +17,15 @@
 StartForestScene::StartForestScene(bool startEnabled, bool playerEnabled, SString name, Point<int> cameraPos, Point<int>playerPos, Point<bool> followPlayer) : 
 	Scene( startEnabled,  playerEnabled,  name,  cameraPos, playerPos, followPlayer)
 {
-	
+	topCollider = new Collider({ 0,0,1500,550 }, Collider::WALL);
+	bottomCollider = new Collider({ 0,650, 1600,50 }, Collider::WALL);
+	rightCollider = new Collider({ 1800, 0, 100, 750 }, Collider::WALL);
+	leftCollider = new Collider({ 1550, 0, 40,550 }, Collider::WALL);
+
+	colliderList.Add(topCollider);
+	colliderList.Add(bottomCollider);
+	colliderList.Add(rightCollider);
+	colliderList.Add(leftCollider);
 }
 
 // Destructor
@@ -61,7 +69,7 @@ bool StartForestScene::PreUpdate()
 bool StartForestScene::Update(float dt)
 {
 	Scene::Update( dt);
-	
+	SDL_Rect playerRect = app->playerModule->GetPLayerCollider()->rect;
 	app->playerModule->GetPosition(playerPos.x, playerPos.y);
 
 	if (playerPos.x < 700 || playerPos.x > 1250) cameraFollowsPlayer.x = false;
@@ -70,6 +78,11 @@ bool StartForestScene::Update(float dt)
 	if (playerPos.y < 375 || playerPos.y > 700) cameraFollowsPlayer.y = false;
 	else cameraFollowsPlayer.y = true;
 
+
+	if(topCollider->Intersects(playerRect)) app->playerModule->SetPosition(playerPos.x, playerPos.y + 20);
+	if (bottomCollider->Intersects(playerRect)) app->playerModule->SetPosition(playerPos.x, playerPos.y - 20);
+	if (rightCollider->Intersects(playerRect)) app->playerModule->SetPosition(playerPos.x -20, playerPos.y);
+	if (leftCollider->Intersects(playerRect)) app->playerModule->SetPosition(playerPos.x +20, playerPos.y);
 	return true;
 }
 

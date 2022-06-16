@@ -16,7 +16,13 @@
 TownScene::TownScene(bool startEnabled, bool playerEnabled, SString name, Point<int> cameraPos, Point<int>playerPos, Point<bool> followPlayer) :
 	Scene(startEnabled, playerEnabled, name, cameraPos, playerPos, followPlayer)
 {
-	
+	mapCol01 = new Collider({ 0,0,50,1080 }, Collider::WALL);
+	mapCol02 = new Collider({ 1800,0,80,1080 }, Collider::WALL);
+	mapCol03 = new Collider({ 0,0,1900,50 }, Collider::WALL);
+
+	colliderList.Add(mapCol01);
+	colliderList.Add(mapCol02);
+	colliderList.Add(mapCol03);
 }
 
 // Destructor
@@ -93,7 +99,22 @@ bool TownScene::Update(float dt)
 	if (playerPos.y < 375 || playerPos.y > 710) cameraFollowsPlayer.y = false;
 	else cameraFollowsPlayer.y = true;
 
+	SDL_Rect playerRect = app->playerModule->GetPLayerCollider()->rect;
 
+	
+
+	if (mapCol01->Intersects(playerRect))
+	{
+		app->playerModule->SetPosition(playerPos.x + 20, playerPos.y);
+	}
+	if (mapCol02->Intersects(playerRect))
+	{
+		app->playerModule->SetPosition(playerPos.x - 20, playerPos.y);
+	}
+	if (mapCol03->Intersects(playerRect))
+	{
+		app->playerModule->SetPosition(playerPos.x, playerPos.y +20);
+	}
 
 	return true;
 }
