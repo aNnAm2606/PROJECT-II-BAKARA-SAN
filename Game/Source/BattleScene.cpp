@@ -98,11 +98,6 @@ bool BattleScene::PreUpdate()
 					if (!c->IsDead()) {
 						m_BattleQueue.Push(c, c->GetSpeed());
 					}
-
-					if (c->Remove()) {
-						delete c;
-						m_PlayerGrid[dim2(x, y)] = NULL;
-					}
 				}
 
 				c = m_EnemyGrid[y][x];
