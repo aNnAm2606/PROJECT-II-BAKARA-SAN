@@ -72,6 +72,8 @@ void Window::SetFullScreen(bool value)
 		SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN_DESKTOP);
 	else if (!value)
 		SDL_SetWindowFullscreen(window, SDL_FALSE);
+
+	fullscreen_window = value;
 }
 
 // Called before quitting

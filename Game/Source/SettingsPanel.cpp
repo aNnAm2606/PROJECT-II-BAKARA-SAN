@@ -122,6 +122,20 @@ bool SettingsPanel::CleanUp()
     return true;
 }
 
+void SettingsPanel::OnEnable()
+{
+    fullSrnON->State = app->win->fullscreen_window;
+    fullSrnOff->State = !app->win->fullscreen_window;
+
+    vsyncOn->State = app->render->vsync;
+    vsyncOff->State = !app->render->vsync;
+
+    vsync = app->render->vsync;
+
+    musicSldr->SetValue(app->audio->GetMusicVolume());
+    fxSldr->SetValue(app->audio->GetFxVolume());
+}
+
 bool SettingsPanel::OnGuiMouseClickEvent(GuiControl* control)
 {
     if (app->guiManager->pausePanel->gamePaused == true && (control->id == quitBtn->id || control->id == returnbtn->id))

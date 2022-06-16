@@ -86,6 +86,8 @@ public:
 	int SetSFXVolume(int vol);
 	int GetFxVolume();
 
+	bool SaveState(pugi::xml_node& save);
+	bool LoadState(pugi::xml_node& load);
 private:
 
 	_Mix_Music* music;

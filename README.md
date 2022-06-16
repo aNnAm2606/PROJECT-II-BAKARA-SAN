@@ -23,14 +23,14 @@ General:
 - "ESC" for the pause panel.
 
 Inventory, character and quest:
-- "Q" for opening the inventory, character and quest panel.
+- "Q" for opening the quest panel.
+- "I" for opening the inventory panel.
+- "P"  for opening the party panel.
 - "left click the mouse": select.
 
 Win&Lose:
-- "I": go to the victory panel.
-- "O": close the victory panel.
-- "k": go to the lose panel.
-- "L": close the lose panel.
+- "Win": you kill the final boss.
+- "Lose": all of your characters die.
 
 Worldmap:
 - "1": go to the forest scene.
@@ -38,7 +38,10 @@ Worldmap:
 - "3": go to the dungeon scene.
 
 Battle scene:
-- "left click the mouse": select.
+- "left click the mouse": select ability.
+
+Dungeon:
+- "E" for interaction with the trigger
 
 Debug:
 -  "F1": check collisions.
