@@ -144,6 +144,8 @@ bool SettingsPanel::OnGuiMouseClickEvent(GuiControl* control)
     }
     else if (control->id == vsyncOff->id)
     {
+        app->render->vsync = false;
+        app->render->SetVsync(false);
     }
     
     if (control->id == musicSldr->id)

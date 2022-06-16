@@ -104,7 +104,7 @@ bool TutorialScene_3::PostUpdate()
 	}
 	if (playerPos.x < 500)
 	{
-		startPlayerPos = { 650, 450 };
+		startPlayerPos = { 600, 450 };
 		startCameraPos = { app->render->camera.x, app->render->camera.y };
 		startCameraFollowsPlayer = cameraFollowsPlayer;
 		app->transitions->SelectTransition(1, 0, 1280, this, (Module*)app->tutorialScene_4);

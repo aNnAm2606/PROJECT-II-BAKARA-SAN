@@ -112,6 +112,8 @@ bool WorldMapScene::PostUpdate()
 		app->transitions->SelectTransition(1, 0, 1280, this, (Module*)app->tutorialScene_1);
 	}
 
+	app->render->DrawTexture(sceneTexture, 0, 0, NULL, false);
+
 	return ret;
 }
 

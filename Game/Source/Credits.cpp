@@ -27,12 +27,18 @@ bool Credits::Start()
 bool Credits::Update(float dt, bool doLogic)
 {
     GuiPanel::Update(dt, doLogic);
+
+    if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN) {
+        app->guiManager->creditsPanel->Disable();
+        app->audio->ChangeMusic(TITLE_MUSIC, 0.0f, 0.0f);
+    }
+
     return true;
 }
 
 bool Credits::Draw()
 {
-    app->render->DrawTexture(app->guiManager->credits, 0, 0, NULL);
+    app->render->DrawTextureScaled(app->guiManager->credits, 0, 0, 1280, 720, NULL);
     GuiPanel::Draw();
     return true;
 }
@@ -45,11 +51,11 @@ bool Credits::CleanUp()
 
 bool Credits::OnGuiMouseClickEvent(GuiControl* control)
 {
-    if(control->id == closeBtn->id)
+    /*if(control->id == closeBtn->id)
     {
         app->guiManager->creditsPanel->Disable();
         app->audio->ChangeMusic(TITLE_MUSIC, 0.0f, 0.0f);
-    }
+    }*/
 
     return true;
 }

@@ -105,7 +105,7 @@ bool DungeonScene::Start()
 
 	m_Gargoyle.Init();
 	m_Gargoyle.SetOriginScene(this);
-	m_Gargoyle.SetPosition(1653, -3143);
+	m_Gargoyle.SetPosition(1550, -3180);
 
 	return true;
 }

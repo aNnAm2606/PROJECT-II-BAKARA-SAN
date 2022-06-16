@@ -53,6 +53,7 @@ bool TutorialScene_4::Start()
 
 	
 	m_Gargoyle.Init();
+	m_Gargoyle.SetOriginScene(this);
 
 	app->currentScene = sceneID::TUTORIAL_4;
 	return true;

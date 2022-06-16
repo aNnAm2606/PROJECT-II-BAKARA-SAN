@@ -17,4 +17,3 @@ public:
 	// Buttons
 	GuiButton* closeBtn;
 };
-

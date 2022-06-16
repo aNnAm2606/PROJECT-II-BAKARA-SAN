@@ -20,6 +20,6 @@
   
 	<assetsManager>
 		<pakfile>Assets.pak</pakfile>
-		<usepak value="false"/>
+		<usepak value="true"/>
 	</assetsManager>
 </config>

@@ -27,6 +27,7 @@ enum KeyState
 	KEY_REPEAT,
 	KEY_UP
 };
+
 struct GamePad
 {
 	// Input data

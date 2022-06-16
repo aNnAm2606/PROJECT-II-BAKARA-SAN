@@ -124,7 +124,7 @@ bool TownScene::PostUpdate()
 {
 	Scene::PostUpdate();
 	bool ret = true;
-	
+
 	if (playerPos.y > 1000)app->fade->Fade(this, (Module*) app->worldMapScene);
 
 	if (app->guiManager->back2Title == true)
