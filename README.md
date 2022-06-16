@@ -27,6 +27,7 @@ Inventory, character and quest:
 - "I" for opening the inventory panel.
 - "P"  for opening the party panel.
 - "left click the mouse": select.
+- "double left click the mouse": use inventory.
 
 Win&Lose:
 - "Win": you kill the final boss.
@@ -42,9 +43,6 @@ Battle scene:
 
 Dungeon:
 - "E" for interaction with the trigger
-
-Debug:
--  "F1": check collisions.
 
 ## General
 
