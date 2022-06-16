@@ -188,5 +188,11 @@ int GuiSlider::UpdateValue(float pos)
 
 void GuiSlider::SetValue(int _value)
 {
-	thumbBounds.x = bounds.x + ((bounds.x +bounds.w) - bounds.x) * ((_value - 0) / (128 - 0));
+	float perc = _value / 128.0f;
+	
+	int applier = (maxValueFrom - minValueFrom) * perc;
+
+	thumbBounds.x = bounds.x + applier;
+
+	value = _value;
 }

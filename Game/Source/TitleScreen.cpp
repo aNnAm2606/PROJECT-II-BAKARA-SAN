@@ -96,11 +96,18 @@ bool TitleScreen::Update(float dt)
 		break;
 	case 4:
 		app->render->DrawTexture(title, 54, 260, NULL, false);
-		ba = !ba;
 		break;
 	}
 
-	if (anim == 0) ba = !ba;
+	if (anim <= 0) {
+		anim = 0;
+		ba = !ba;
+	}
+	else if (anim >= 4) {
+		anim = 4;
+		ba = !ba;
+	}
+
 	return true;
 }
 

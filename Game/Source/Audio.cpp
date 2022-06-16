@@ -359,3 +359,22 @@ int Audio::GetFxVolume()
 {
 	return fxVol;
 }
+
+bool Audio::SaveState(pugi::xml_node& save)
+{
+	save.append_child("music_volume").text() = musicVol;
+	save.append_child("fx_volume").text() = fxVol;
+
+	return true;
+}
+
+bool Audio::LoadState(pugi::xml_node& load)
+{
+	musicVol = load.child("music_volume").text().as_int();
+	fxVol = load.child("fx_volume").text().as_int();
+
+	SetMusicVolume(musicVol);
+	SetSFXVolume(fxVol);
+
+	return true;
+}
