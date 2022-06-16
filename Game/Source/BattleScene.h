@@ -80,6 +80,7 @@ public:
 	void FakeKill(Character::ECharacterType character);
 
 	bool AddEnemy(Character::ECharacterType enemy, int x, int y);
+	bool HasEnemy(int x, int y);
 
 	void SetNextScene(Scene* nscene) { m_NextScene = nscene; }
 
