@@ -9,12 +9,17 @@ Button::Button()
 {
 }
 
-Button::Button(SDL_Rect bounds, SDL_Texture* texture, const char* text, int font)
+Button::Button(SDL_Rect bounds, SDL_Texture* texture, const char* text, int font, SDL_Rect* tex_rect)
 {
 	this->texture = texture;
 	this->bounds = bounds;
 	this->text = text;
 	this->font = font;
+	texRect = NULL;
+	
+	if (tex_rect) {
+		texRect = new SDL_Rect(*tex_rect);
+	}
 
 	canClick = true;
 	drawBasic = false;
@@ -25,7 +30,6 @@ Button::Button(SDL_Rect bounds, SDL_Texture* texture, const char* text, int font
 
 Button::~Button()
 {
-
 }
 
 void Button::SetPosition(int x, int y)
@@ -70,14 +74,16 @@ bool Button::Update()
 		else state = State::NORMAL;
 	}
 
-	return false;
+	return true;
 }
 
 bool Button::Draw()
 {
 	if (texture) {
-		app->render->DrawTextureScaled(texture, bounds.x, bounds.y, bounds.w, bounds.h, NULL, false);
+		app->render->DrawTextureScaled(texture, bounds.x, bounds.y, bounds.w, bounds.h, texRect, false);
 	}
+
+	if (font < 0) return true;
 
 	int ifont = font;
 
@@ -97,5 +103,5 @@ bool Button::Draw()
 
 	app->fonts->BlitText(bounds.x + textXOffset, bounds.y + textYOffset, ifont, text.c_str(), false);
 
-	return false;
+	return true;
 }

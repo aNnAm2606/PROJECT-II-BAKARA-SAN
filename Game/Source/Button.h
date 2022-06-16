@@ -15,6 +15,7 @@ private:
 	};
 
 	SDL_Texture* texture;
+	SDL_Rect* texRect;
 	std::string text;
 
 	State state;
@@ -27,7 +28,7 @@ private:
 	bool use_font_states;
 public:
 	Button();
-	Button(SDL_Rect bounds, SDL_Texture* texture, const char* text, int font);
+	Button(SDL_Rect bounds, SDL_Texture* texture, const char* text, int font, SDL_Rect* tex_rect=NULL);
 	virtual ~Button();
 
 	void SetPosition(int x, int y);

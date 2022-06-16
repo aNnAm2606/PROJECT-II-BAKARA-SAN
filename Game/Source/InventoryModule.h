@@ -50,6 +50,8 @@ public:
 	std::vector<Item::EItemType>* GetInventory() { return &m_Inventory; }
 	size_t GetItemCount(Item::EItemType item);
 
+	void UseItem(size_t index);
+
 	// Variables
 	QuestItemCallbacks questOnAddCallbacks;
 	QuestItemCallbacks questOnRemoveCallbacks;

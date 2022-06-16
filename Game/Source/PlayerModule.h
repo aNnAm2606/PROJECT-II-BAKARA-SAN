@@ -72,6 +72,7 @@ public:
 	Character* GetPriest() { return m_PlayerGrid[3][0]; }
 
 	void HealTeam();
+	void HealTeam(int value);
 };
 
 #endif // __PLAYER_MODULE_H__

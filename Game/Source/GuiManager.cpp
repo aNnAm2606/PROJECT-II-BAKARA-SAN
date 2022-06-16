@@ -164,8 +164,9 @@ bool GuiManager::Update(float dt)
 			}
 			else {
 				cursorMode = true;
-				cursor = 2;
 			}
+
+			cursor = 2;
 		}
 
 		if (app->input->GetKey(SDL_SCANCODE_Q) == KEY_DOWN) {
@@ -176,8 +177,9 @@ bool GuiManager::Update(float dt)
 			}
 			else {
 				cursorMode = true;
-				cursor = 0;
 			}
+
+			cursor = 0;
 		}
 
 		if (app->input->GetKey(SDL_SCANCODE_P) == KEY_DOWN) {
@@ -188,8 +190,9 @@ bool GuiManager::Update(float dt)
 			}
 			else {
 				cursorMode = true;
-				cursor = 1;
 			}
+
+			cursor = 1;
 		}
 
 		if (cursorMode == true)

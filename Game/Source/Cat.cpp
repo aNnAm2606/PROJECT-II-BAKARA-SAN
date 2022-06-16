@@ -33,7 +33,7 @@ void Cat::OnInit()
 
 void Cat::OnUpdate()
 {
-	if (app->quests->FinishedQuest(QuestModule::EQuest::EQUEST_PM_Q1)) {
+	if (app->quests->FinishedQuest(QuestModule::EQuest::EQUEST_PM_Q1) || app->inventory->HasItem(Item::EItemType::EITEMTYPE_CAT)) {
 		m_Active = false;
 	}
 }

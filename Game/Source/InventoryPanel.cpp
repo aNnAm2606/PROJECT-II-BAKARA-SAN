@@ -37,9 +37,53 @@ bool InventoryPanel::Start()
     return true;
 }
 
+void InventoryPanel::UpdatePanelData()
+{
+    m_Inventory = app->inventory->GetInventory();
+    m_InvSize = m_Inventory->size();
+
+    m_InventoryButtons.clear();
+
+    SDL_Rect itemrect = {
+        0, 0,
+        35, 35
+    };
+
+    iPoint ipos = { 105, 160 };
+
+    size_t spacing = 29;
+
+    int dWidth = 88;
+    int dHeight = 88;
+
+    for (size_t i = 0; i < m_InvSize; i++) {
+        size_t xind = i % ITEMS_PER_ROW;
+        size_t yind = i / ITEMS_PER_ROW;
+
+        int drawX = ipos.x + xind * dWidth + xind * spacing;
+        int drawY = ipos.y + yind * dHeight + yind * spacing;
+
+        itemrect.x = (m_Inventory->at(i) % SPRITESHEET_ITEMS_PER_ROW) * itemrect.w;
+        itemrect.y = (m_Inventory->at(i) / SPRITESHEET_ITEMS_PER_ROW) * itemrect.h;
+
+        m_InventoryButtons.push_back(Button({ drawX, drawY, dWidth, dHeight }, m_ItemsTex, "", -1, &itemrect));
+    }
+}
+
 bool InventoryPanel::Update(float dt, bool doLogic)
 {
     GuiPanel::Update(dt, doLogic);
+
+    for (size_t i = 0; i < m_InvSize; i++) {
+        m_InventoryButtons[i].Update();
+
+        if (m_InventoryButtons[i].clicked) {
+            app->inventory->UseItem(i);
+            UpdatePanelData();
+            break;
+        }
+    }
+
     return true;
 }
 
@@ -117,30 +161,9 @@ bool InventoryPanel::Draw()
             break;
         }
     }
-
-    SDL_Rect itemrect = {
-        0, 0,
-        35, 35
-    };
-
-    iPoint ipos = { 105, 160 };
-
-    size_t spacing = 29;
-
-    int dWidth = 88;
-    int dHeight = 88;
-
+    
     for (size_t i = 0; i < m_InvSize; i++) {
-        size_t xind = i % ITEMS_PER_ROW;
-        size_t yind = i / ITEMS_PER_ROW;
-
-        int drawX = ipos.x + xind * dWidth + xind * spacing;
-        int drawY = ipos.y + yind * dHeight + yind * spacing;
-
-        itemrect.x = (m_Inventory->at(i) % SPRITESHEET_ITEMS_PER_ROW) * itemrect.w;
-        itemrect.y = (m_Inventory->at(i) / SPRITESHEET_ITEMS_PER_ROW) * itemrect.h;
-
-        app->render->DrawTextureScaled(m_ItemsTex, drawX, drawY, dWidth, dHeight, &itemrect, false);
+        m_InventoryButtons[i].Draw();
     }
 
     GuiPanel::Draw();
@@ -169,6 +192,5 @@ bool InventoryPanel::OnGuiMouseClickEvent(GuiControl* control)
 
 void InventoryPanel::OnEnable()
 {
-    m_Inventory = app->inventory->GetInventory();
-    m_InvSize = m_Inventory->size();
+    UpdatePanelData();
 }

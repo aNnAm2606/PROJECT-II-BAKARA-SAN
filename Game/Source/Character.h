@@ -83,6 +83,7 @@ public:
 	int GetDamage() { return p_Stats.damage; }
 	bool DealDamage(int dmg);
 
+	void Heal(int val) { p_Stats.health += val; if (p_Stats.health >= p_Stats.maxHealth) p_Stats.health = p_Stats.maxHealth; }
 	void FullHeal() { p_Stats.health = p_Stats.maxHealth; }
 
 	int GetSpeed() { return p_Stats.speed; }
@@ -114,6 +115,8 @@ public:
 	std::vector<Ability*>* GetAbilities() { return &p_Abilities; }
 
 	const char* GetCharacterName() { return p_CharacterName.c_str(); }
+
+	void SetStats(Stats stats) { p_Stats = stats; }
 };
 
 #endif  // __LOG_H__

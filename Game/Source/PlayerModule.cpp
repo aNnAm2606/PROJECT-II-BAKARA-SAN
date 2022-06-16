@@ -222,9 +222,45 @@ bool PlayerModule::CleanUp()
 
 bool PlayerModule::LoadState(pugi::xml_node& node)
 {
-
 	playerPos.x = node.child("position").attribute("x").as_int();
 	playerPos.y = node.child("position").attribute("y").as_int();
+
+	pugi::xml_node& team = node.child("team");
+
+	// Init playergrid
+	memset(m_PlayerGrid, NULL, GRID_SIZE * 4);
+
+	Stats stats;
+
+	m_PlayerGrid[0][1] = new Monk({ 1, 0 });
+	stats.health = team.child("monk").attribute("health").as_int();
+	stats.maxHealth = team.child("monk").attribute("maxHealth").as_int();
+	stats.damage = team.child("monk").attribute("damage").as_int();
+	stats.speed = team.child("monk").attribute("speed").as_int();
+	m_PlayerGrid[0][1]->SetStats(stats);
+
+	m_PlayerGrid[2][0] = new Chaman({ 0,2 });
+	stats.health = team.child("chaman").attribute("health").as_int();
+	stats.maxHealth = team.child("chaman").attribute("maxHealth").as_int();
+	stats.damage = team.child("chaman").attribute("damage").as_int();
+	stats.speed = team.child("chaman").attribute("speed").as_int();
+	m_PlayerGrid[2][0]->SetStats(stats);
+
+	m_PlayerGrid[1][1] = new Paladin({ 1,1 });
+	stats.health = team.child("paladin").attribute("health").as_int();
+	stats.maxHealth = team.child("paladin").attribute("maxHealth").as_int();
+	stats.damage = team.child("paladin").attribute("damage").as_int();
+	stats.speed = team.child("paladin").attribute("speed").as_int();
+	m_PlayerGrid[1][1]->SetStats(stats);
+
+	m_PlayerGrid[3][0] = new Priest({ 0, 3 });
+	stats.health = team.child("priest").attribute("health").as_int();
+	stats.maxHealth = team.child("priest").attribute("maxHealth").as_int();
+	stats.damage = team.child("priest").attribute("damage").as_int();
+	stats.speed = team.child("priest").attribute("speed").as_int();
+	m_PlayerGrid[3][0]->SetStats(stats);
+
+	m_InitPlayers = false;
 
 	return true;
 }
@@ -234,6 +270,36 @@ bool PlayerModule::SaveState(pugi::xml_node& node)
 
 	pos.append_attribute("x").set_value(playerPos.x);
 	pos.append_attribute("y").set_value(playerPos.y);
+
+	pugi::xml_node team = node.append_child("team");
+
+	// Monk
+	pugi::xml_node monk = team.append_child("monk");
+	monk.append_attribute("health") = m_PlayerGrid[0][1]->GetHealth();
+	monk.append_attribute("maxHealth") = m_PlayerGrid[0][1]->GetMaxHealth();
+	monk.append_attribute("damage") = m_PlayerGrid[0][1]->GetDamage();
+	monk.append_attribute("speed") = m_PlayerGrid[0][1]->GetSpeed();
+
+	// Chaman
+	pugi::xml_node chaman = team.append_child("chaman");
+	chaman.append_attribute("health") = m_PlayerGrid[2][0]->GetHealth();
+	chaman.append_attribute("maxHealth") = m_PlayerGrid[2][0]->GetMaxHealth();
+	chaman.append_attribute("damage") = m_PlayerGrid[2][0]->GetDamage();
+	chaman.append_attribute("speed") = m_PlayerGrid[2][0]->GetSpeed();
+
+	// Paladin
+	pugi::xml_node paladin = team.append_child("paladin");
+	paladin.append_attribute("health") = m_PlayerGrid[1][1]->GetHealth();
+	paladin.append_attribute("maxHealth") = m_PlayerGrid[1][1]->GetMaxHealth();
+	paladin.append_attribute("damage") = m_PlayerGrid[1][1]->GetDamage();
+	paladin.append_attribute("speed") = m_PlayerGrid[1][1]->GetSpeed();
+
+	// Priest
+	pugi::xml_node priest = team.append_child("priest");
+	priest.append_attribute("health") = m_PlayerGrid[3][0]->GetHealth();
+	priest.append_attribute("maxHealth") = m_PlayerGrid[3][0]->GetMaxHealth();
+	priest.append_attribute("damage") = m_PlayerGrid[3][0]->GetDamage();
+	priest.append_attribute("speed") = m_PlayerGrid[3][0]->GetSpeed();
 
 	return true;
 }
@@ -246,6 +312,19 @@ void PlayerModule::HealTeam()
 
 			if (c) {
 				c->FullHeal();
+			}
+		}
+	}
+}
+
+void PlayerModule::HealTeam(int value)
+{
+	for (int y = 0; y < GRID_HEIGHT; y++) {
+		for (int x = 0; x < GRID_WIDTH; x++) {
+			Character* c = m_PlayerGrid[y][x];
+
+			if (c) {
+				c->Heal(value);
 			}
 		}
 	}

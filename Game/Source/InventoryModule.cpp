@@ -3,6 +3,9 @@
 
 #include "Log.h"
 
+#include "App.h"
+#include "PlayerModule.h"
+
 InventoryModule::InventoryModule(bool startEnabled) : Module(startEnabled)
 {
 	name.Create("inventory");
@@ -179,4 +182,17 @@ size_t InventoryModule::GetItemCount(Item::EItemType item)
 	}
 
 	return count;
+}
+
+void InventoryModule::UseItem(size_t index)
+{
+	Item::EItemType type = m_Inventory[index];
+
+	switch (type) {
+	case Item::EItemType::EITEMTYPE_CYAN_POTION_SMALL:
+		app->playerModule->HealTeam(5);
+		break;
+	}
+
+	RemoveItem(index);
 }

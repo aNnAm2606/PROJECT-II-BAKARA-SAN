@@ -2,6 +2,7 @@
 #include "GuiPanel.h"
 #include <vector>
 #include "Item.h"
+#include "Button.h"
 
 #define ITEMS_PER_ROW 8
 #define SPRITESHEET_ITEMS_PER_ROW 6
@@ -14,6 +15,10 @@ private:
 
 	std::vector<Item::EItemType>* m_Inventory;
 	size_t m_InvSize;
+
+	std::vector<Button> m_InventoryButtons;
+
+	void UpdatePanelData();
 public:
 	InventoryPanel(bool active);
 	~InventoryPanel();

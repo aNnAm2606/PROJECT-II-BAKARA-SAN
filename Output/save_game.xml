@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<game_state>
+	<Scene id="5" />
+	<window />
+	<input />
+	<textures />
+	<fonts />
+	<audio>
+		<music_volume>40</music_volume>
+		<fx_volume>128</fx_volume>
+	</audio>
+	<collisions />
+	<assetsManager />
+	<tutorialScene_1>
+		<gargoyle_1>false</gargoyle_1>
+		<gargoyle_2>true</gargoyle_2>
+	</tutorialScene_1>
+	<tutorialScene_2>
+		<gargoyle>true</gargoyle>
+	</tutorialScene_2>
+	<tutorialScene_3>
+		<gargoyle>true</gargoyle>
+	</tutorialScene_3>
+	<tutorialScene_4>
+		<gargoyle>false</gargoyle>
+	</tutorialScene_4>
+	<worldMapScene />
+	<dungeonScene />
+	<tutorialForestScene />
+	<townScene>
+		<gargoyle>true</gargoyle>
+	</townScene>
+	<startForestScene />
+	<titleScene />
+	<logoScene />
+	<gameplayScene />
+	<BattleScene />
+	<endScreen />
+	<PlayerModule>
+		<position x="942" y="695" />
+		<team>
+			<monk health="30" maxHealth="30" damage="30" speed="35" />
+			<chaman health="20" maxHealth="20" damage="35" speed="20" />
+			<paladin health="45" maxHealth="50" damage="20" speed="10" />
+			<priest health="30" maxHealth="30" damage="20" speed="20" />
+		</team>
+	</PlayerModule>
+	<DialogModule />
+	<inventory />
+	<quests>
+		<quest id="0" state="2" />
+		<quest id="1" state="1" />
+		<quest id="2" state="0" />
+	</quests>
+	<guiManager />
+	<ParticleModule />
+	<Fade />
+	<BattleTransitions />
+	<renderer>
+		<camera x="-302" y="-335" follow_X="true" follow_Y="true" />
+	</renderer>
+</game_state>
