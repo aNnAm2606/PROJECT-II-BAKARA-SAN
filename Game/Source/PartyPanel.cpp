@@ -9,6 +9,7 @@
 #include "Character.h"
 #include "Fonts.h"
 #include "Window.h"
+#include "PlayerModule.h"
 
 PartyPanel::PartyPanel(bool active) : GuiPanel(active)
 {
@@ -128,21 +129,46 @@ bool PartyPanel::Draw()
 
             if (selected == 0)
             {
+                character = app->playerModule->GetChaman();
                 app->render->DrawTexture(chamanStats, 579, 142, NULL, false);
 
+                // Health
+                std::string health = "";
+                health += std::to_string((*character)->GetHealth());
+                app->fonts->BlitText(946, 240, m_BaseFont, health.c_str(), false);
+
+                // Damage
+                std::string damage = std::to_string((*character)->GetDamage());
+                app->fonts->BlitText(946, 296, m_BaseFont, damage.c_str(), false);
+  
+                // Speed
+                std::string speed = std::to_string((*character)->GetSpeed());
+                app->fonts->BlitText(946, 400, m_BaseFont, speed.c_str(), false);
+
                 app->fonts->BlitText(723, 396, m_BaseFont, "1", false);
-                app->fonts->BlitText(946, 240, m_BaseFont, "20", false);
                 app->fonts->BlitText(946, 269, m_BaseFont, "30", false);
-                app->fonts->BlitText(946, 296, m_BaseFont, "35", false);
                 app->fonts->BlitText(946, 321, m_BaseFont, "x", false);
                 app->fonts->BlitText(946, 347, m_BaseFont, "x", false);
-                app->fonts->BlitText(946, 374, m_BaseFont, "x", false);
-                app->fonts->BlitText(946, 400, m_BaseFont, "20", false);
+                app->fonts->BlitText(946, 374, m_BaseFont, "x", false); 
                 app->fonts->BlitText(946, 427, m_BaseFont, "10", false);
                 app->fonts->BlitText(946, 456, m_BaseFont, "45", false);
             }
             else if (selected == 1)
             {
+                character = app->playerModule->GetPaladin();
+                // Health
+                std::string health = "";
+                health += std::to_string((*character)->GetHealth());
+                app->fonts->BlitText(946, 240, m_BaseFont, health.c_str(), false);
+
+                // Damage
+                std::string damage = std::to_string((*character)->GetDamage());
+                app->fonts->BlitText(946, 296, m_BaseFont, damage.c_str(), false);
+
+                // Speed
+                std::string speed = std::to_string((*character)->GetSpeed());
+                app->fonts->BlitText(946, 400, m_BaseFont, speed.c_str(), false);
+
                 app->render->DrawTexture(paladinStats, 579, 142, NULL, false);
                 app->fonts->BlitText(723, 396, m_BaseFont, "1", false);
                 app->fonts->BlitText(946, 240, m_BaseFont, "50", false);
@@ -157,6 +183,20 @@ bool PartyPanel::Draw()
             }
             else if (selected == 2)
             {
+                character = app->playerModule->GetMonk();
+                // Health
+                std::string health = "";
+                health += std::to_string((*character)->GetHealth());
+                app->fonts->BlitText(946, 240, m_BaseFont, health.c_str(), false);
+
+                // Damage
+                std::string damage = std::to_string((*character)->GetDamage());
+                app->fonts->BlitText(946, 296, m_BaseFont, damage.c_str(), false);
+
+                // Speed
+                std::string speed = std::to_string((*character)->GetSpeed());
+                app->fonts->BlitText(946, 400, m_BaseFont, speed.c_str(), false);
+
                 app->render->DrawTexture(monkStats, 579, 142, NULL, false);
                 app->fonts->BlitText(723, 396, m_BaseFont, "1", false);
                 app->fonts->BlitText(946, 240, m_BaseFont, "30", false);
@@ -171,6 +211,20 @@ bool PartyPanel::Draw()
             }
             else if (selected == 3)
             {
+                character = app->playerModule->GetPriest();
+                // Health
+                std::string health = "";
+                health += std::to_string((*character)->GetHealth());
+                app->fonts->BlitText(946, 240, m_BaseFont, health.c_str(), false);
+
+                // Damage
+                std::string damage = std::to_string((*character)->GetDamage());
+                app->fonts->BlitText(946, 296, m_BaseFont, damage.c_str(), false);
+
+                // Speed
+                std::string speed = std::to_string((*character)->GetSpeed());
+                app->fonts->BlitText(946, 400, m_BaseFont, speed.c_str(), false);
+
                 app->render->DrawTexture(priestStats, 579, 142, NULL, false);
                 app->fonts->BlitText(723, 396, m_BaseFont, "1", false);
                 app->fonts->BlitText(946, 240, m_BaseFont, "30", false);
@@ -183,22 +237,6 @@ bool PartyPanel::Draw()
                 app->fonts->BlitText(946, 427, m_BaseFont, "25", false);
                 app->fonts->BlitText(946, 456, m_BaseFont, "25", false);
             }
-
-            //switch (selected)
-            //{
-            //case 0:
-            //    break;
-            //case 1:
-            //    
-            //    break;
-            //case 2:
-            //    
-            //    break;
-            //case 3:
-            //    
-            //    break;
-            //}
-            //break;
         }
         
     }

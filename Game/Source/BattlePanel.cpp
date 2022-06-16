@@ -112,7 +112,7 @@ bool BattlePanel::Draw()
 
 bool BattlePanel::CleanUp()
 {
-    app->guiManager->quitPanel->Disable();
+    app->guiManager->battlePanel->Disable();
     return true;
 }
 

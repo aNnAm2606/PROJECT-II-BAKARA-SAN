@@ -95,7 +95,7 @@ bool TutorialScene_4::PostUpdate()
 	bool ret = true;
 	app->playerModule->GetPosition(playerPos.x, playerPos.y);
 
-	if (playerPos.x > 1500)
+	if (playerPos.x > 1600)
 	{
 		startPlayerPos = { 1400, 450 };
 		startCameraPos = { app->render->camera.x, app->render->camera.y };
