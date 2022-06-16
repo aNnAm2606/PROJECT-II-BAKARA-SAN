@@ -22,7 +22,7 @@ General:
 - "E" for interaction with the NPCs.
 - "ESC" for the pause panel.
 
-inventory, character and quest:
+Inventory, character and quest:
 - "Q" for opening the inventory, character and quest panel.
 - "left click the mouse": select.
 
