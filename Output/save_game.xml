@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<game_state>
+	<Scene id="7" />
+	<window />
+	<input />
+	<textures />
+	<fonts />
+	<audio />
+	<collisions />
+	<assetsManager />
+	<tutorialScene_1>
+		<gargoyle_1>false</gargoyle_1>
+		<gargoyle_2>true</gargoyle_2>
+	</tutorialScene_1>
+	<tutorialScene_2>
+		<gargoyle>true</gargoyle>
+	</tutorialScene_2>
+	<tutorialScene_3>
+		<gargoyle>true</gargoyle>
+	</tutorialScene_3>
+	<tutorialScene_4>
+		<gargoyle>true</gargoyle>
+	</tutorialScene_4>
+	<worldMapScene />
+	<dungeonScene />
+	<tutorialForestScene />
+	<townScene>
+		<gargoyle>true</gargoyle>
+	</townScene>
+	<startForestScene />
+	<titleScene />
+	<logoScene />
+	<gameplayScene />
+	<BattleScene />
+	<endScreen />
+	<PlayerModule>
+		<position x="1142" y="769" />
+	</PlayerModule>
+	<DialogModule />
+	<inventory />
+	<quests>
+		<quest id="0" state="0" />
+		<quest id="1" state="1" />
+		<quest id="2" state="0" />
+	</quests>
+	<guiManager />
+	<ParticleModule />
+	<Fade />
+	<BattleTransitions />
+	<renderer>
+		<camera x="-350" y="-350" follow_X="false" follow_Y="false" />
+	</renderer>
+</game_state>

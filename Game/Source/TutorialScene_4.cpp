@@ -48,7 +48,7 @@ bool TutorialScene_4::Start()
 	app->audio->ChangeMusic(DUNGEON2_MUSIC, 1.0f, 1.0f);
 
 	
-	m_GargoyleTest.Init();
+	m_Gargoyle.Init();
 
 	app->currentScene = sceneID::TUTORIAL_4;
 	return true;
@@ -65,9 +65,9 @@ bool TutorialScene_4::PreUpdate()
 bool TutorialScene_4::Update(float dt)
 {
 	Scene::Update(dt);
-	m_GargoyleTest.Update();
+	m_Gargoyle.Update();
 
-	m_GargoyleTest.Render();
+	m_Gargoyle.Render();
 
 	return true;
 }
@@ -107,6 +107,20 @@ bool TutorialScene_4::CleanUp()
 	Scene::CleanUp();
 	LOG("Freeing scene");
 	app->guiManager->pausePanel->Disable();
+
+	return true;
+}
+
+bool TutorialScene_4::SaveState(pugi::xml_node& save)
+{
+	save.append_child("gargoyle").text() = m_Gargoyle.IsActive();
+
+	return true;
+}
+
+bool TutorialScene_4::LoadState(pugi::xml_node& load)
+{
+	m_Gargoyle.SetActive(load.child("gargoyle").text().as_bool());
 
 	return true;
 }

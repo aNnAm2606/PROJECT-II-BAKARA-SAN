@@ -52,6 +52,9 @@ public:
 	void Render();
 
 	bool Interacting() { return m_Interacting; }
+
+	bool IsActive() { return m_Active; }
+	void SetActive(bool active) { m_Active = active; }
 };
 
 #endif  // __LOG_H__

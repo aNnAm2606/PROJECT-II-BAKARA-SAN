@@ -10,10 +10,10 @@ ThroneAngel::ThroneAngel(iPoint g_pos) : Enemy(g_pos)
 {
 	p_CharacterName = "throne angel";
 	p_CharacterId = ECharacterType::ECHARACTER_MIPHARESH;
-	p_Stats.health = 5;
-	p_Stats.maxHealth = 5;
-	p_Stats.damage = 10;
-	p_Stats.speed = 20;
+	p_Stats.health = 30;
+	p_Stats.maxHealth = 30;
+	p_Stats.damage = 15;
+	p_Stats.speed = 10;
 	p_CharacterFX = app->audio->LoadFx("Assets/Audio/Fx/dead2.wav");
 
 	p_CharacterSpriteSheet = app->tex->Load("Assets/Art/Enemies/final_boss_battle.png");

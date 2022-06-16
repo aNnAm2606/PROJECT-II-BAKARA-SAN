@@ -14,10 +14,11 @@
 #include "Defs.h"
 #include "Log.h"
 
-Scene::Scene(bool startEnabled, bool playerEnabled,SString name, Point<int> cameraPos, Point<int>playerPos, Point<bool> followPlayer) : Module(startEnabled)
+Scene::Scene(bool startEnabled, bool playerEnabled,SString _name, Point<int> cameraPos, Point<int>playerPos, Point<bool> followPlayer) : Module(startEnabled)
 {
 	isPlayerEnabled = playerEnabled;
-	name.Create(sceneName.GetString());
+	name = _name;
+	sceneName = _name;
 	startCameraPos = cameraPos;
 	startPlayerPos = playerPos;
 	startCameraFollowsPlayer = followPlayer;

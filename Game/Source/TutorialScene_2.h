@@ -35,6 +35,8 @@ public:
 	// Called before quitting
 	bool CleanUp();
 
+	bool SaveState(pugi::xml_node& save) override;
+	bool LoadState(pugi::xml_node& load) override;
 private:
 	uint Fade_FX = NULL;
 

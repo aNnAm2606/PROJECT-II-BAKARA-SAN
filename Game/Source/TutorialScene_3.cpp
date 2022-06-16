@@ -116,3 +116,17 @@ bool TutorialScene_3::CleanUp()
 
 	return true;
 }
+
+bool TutorialScene_3::SaveState(pugi::xml_node& save)
+{
+	save.append_child("gargoyle").text() = m_Gargoyle.IsActive();
+
+	return true;
+}
+
+bool TutorialScene_3::LoadState(pugi::xml_node& load)
+{
+	m_Gargoyle.SetActive(load.child("gargoyle").text().as_bool());
+
+	return true;
+}

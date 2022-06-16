@@ -50,9 +50,9 @@ bool TownScene::Start()
 	m_StevenWonder.Init();
 	m_DavidBow.Init();
 	m_Cat.Init();
-	m_GargoyleBattle_1.Init();
-	m_GargoyleBattle_1.SetPosition(1560, 650);
-	m_GargoyleBattle_1.SetOriginScene(this);
+	m_Gargoyle.Init();
+	m_Gargoyle.SetPosition(1560, 650);
+	m_Gargoyle.SetOriginScene(this);
 
 	app->currentScene = sceneID::TOWN;
 
@@ -75,14 +75,14 @@ bool TownScene::Update(float dt)
 	m_StevenWonder.Update();
 	m_DavidBow.Update();
 	m_Cat.Update();
-	m_GargoyleBattle_1.Update();
+	m_Gargoyle.Update();
 
 	m_SisterMadonna.Render();
 	m_Triana.Render();
 	m_StevenWonder.Render();
 	m_DavidBow.Render();
 	m_Cat.Render();
-	m_GargoyleBattle_1.Render();
+	m_Gargoyle.Render();
 
 
 
@@ -121,5 +121,19 @@ bool TownScene::CleanUp()
 	Scene::CleanUp();
 	LOG("Freeing scene");
 	
+	return true;
+}
+
+bool TownScene::SaveState(pugi::xml_node& save)
+{
+	save.append_child("gargoyle").text() = m_Gargoyle.IsActive();
+
+	return true;
+}
+
+bool TownScene::LoadState(pugi::xml_node& load)
+{
+	m_Gargoyle.SetActive(load.child("gargoyle").text().as_bool());
+
 	return true;
 }

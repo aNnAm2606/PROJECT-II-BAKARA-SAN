@@ -38,6 +38,8 @@ public:
 	// Called before quitting
 	bool CleanUp();
 
+	bool SaveState(pugi::xml_node& save) override;
+	bool LoadState(pugi::xml_node& load) override;
 private:
 	uint Fade_FX = NULL;
 	
@@ -47,7 +49,7 @@ private:
 	StevenWonder m_StevenWonder;
 	DavidBow m_DavidBow;
 	Cat m_Cat;
-	GargoyleBattle_Town_1 m_GargoyleBattle_1;
+	GargoyleBattle_Town_1 m_Gargoyle;
 };
 
 #endif // __TOWNSCENE_H__

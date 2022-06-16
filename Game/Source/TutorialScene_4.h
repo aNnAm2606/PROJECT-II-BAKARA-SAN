@@ -34,10 +34,12 @@ public:
 	// Called before quitting
 	bool CleanUp();
 
+	bool SaveState(pugi::xml_node& save) override;
+	bool LoadState(pugi::xml_node& load) override;
 private:
 	uint Fade_FX = NULL;
 
-	GargoyleBattle_Town_1 m_GargoyleTest;
+	GargoyleBattle_Town_1 m_Gargoyle;
 };
 
 #endif // __TUTORIAL_SCENE_4_H__

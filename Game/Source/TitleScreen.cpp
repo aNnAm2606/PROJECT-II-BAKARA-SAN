@@ -116,11 +116,16 @@ bool TitleScreen::PostUpdate()
 		if (continueGame == true)
 		{
 			app->LoadGameRequest();
+
+			continueGame = false;
 		}
 		else
 		{
+			remove("save_game.xml");
 			app->transitions->SelectTransition(1, 0,1280, this, (Module*)app->tutorialScene_1);
 		}
+
+		startGame = false;
 	}
 
 	if(app->guiManager->settingsPanel->GetActive() == false
