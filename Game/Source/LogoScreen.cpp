@@ -76,7 +76,7 @@ bool LogoScreen::PostUpdate()
 	GamePad& gamepad = app->input->pads[0];
 	if (app->input->GamepadConnected() == false)
 	{
-		if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN) app->fade->Fade(this, (Module*)app->titleScreen);
+		//if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN) app->fade->Fade(this, (Module*)app->titleScreen);
 	}
 	else if(gamepad.a == true) app->fade->Fade(this, (Module*)app->titleScreen);
 		

@@ -19,7 +19,7 @@ GargoyleBattle::~GargoyleBattle()
 void GargoyleBattle::OnInit()
 {
 	m_NPCTex = app->tex->Load("Assets/Art/Enemies/gargoyle_statue.png");
-	m_NPCFX = app->audio->LoadFx("Assets/Audio/Fx/trigger.wav");
+	m_NPCFX = app->audio->LoadFx("Assets/Audio/Fx/monster.wav");
 	m_fx = true;
 	m_NPCRect = {
 		0, 0,
