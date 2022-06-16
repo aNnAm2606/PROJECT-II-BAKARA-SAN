@@ -20,9 +20,9 @@ SettingsPanel::~SettingsPanel()
 
 bool SettingsPanel::Start()
 {
-    app->audio->SetMusicVolume(65);
     box = { 0,0,1129,580 };
     fullscreen = app->win->fullscreen;
+    app->audio->SetMusicVolume(40);
 
     //volumeSldr = (GuiSlider*)CreateGuiSlider(0, app->guiManager, this, { 350 + 76,133 + 73, 620 ,30 }, { 355, 130, 36 ,36 });
     //volumeSldr->texture = app->guiManager->settingsBox;
@@ -31,7 +31,7 @@ bool SettingsPanel::Start()
     musicSldr = (GuiSlider*)CreateGuiSlider(1, app->guiManager, this, { 430,246, 620 ,30 }, { 355, 130, 36,36 });
     musicSldr->texture = app->guiManager->boxSettings;
     musicSldr->thumbRect = { 205,582,36,36 };
-    musicSldr->SetValue(65);
+    musicSldr->SetValue(128);
 
     fxSldr = (GuiSlider*)CreateGuiSlider(2, app->guiManager, this, { 350 + 76,210 + 73, 620 ,30 }, { 355, 130, 36 ,36 });
     fxSldr->texture = app->guiManager->boxSettings;
@@ -164,7 +164,7 @@ bool SettingsPanel::OnGuiMouseClickEvent(GuiControl* control)
     if (control->id == vsyncOn->id)
     {
         vsync = !vsyncOn->State;
-        app->render->SetVsync(vsync);
+        //app->render->SetVsync(vsync);
     }
     else if (control->id == vsyncOff->id)
     {
