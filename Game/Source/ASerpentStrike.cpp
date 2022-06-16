@@ -45,7 +45,7 @@ void ASerpentStrike::Render(iPoint position)
 	SDL_Texture* tex = p_Character->GetCharacterSpriteSheet();
 	SDL_Rect r = p_Animation.GetCurrentFrame();
 
-	app->render->DrawTexture(tex, epos.x, epos.y, &r);
+	app->render->DrawTexture(tex, epos.x, epos.y, &r, false);
 
 	epos.x += GRID_PIXEL_SIZE;
 	epos.y += GRID_PIXEL_SIZE;
@@ -53,6 +53,6 @@ void ASerpentStrike::Render(iPoint position)
 	iPoint g_pos = p_Character->GetGridPosition();
 
 	if (g_pos.y < 3) {
-		app->render->DrawTexture(tex, epos.x, epos.y, &r);
+		app->render->DrawTexture(tex, epos.x, epos.y, &r, false);
 	}
 }

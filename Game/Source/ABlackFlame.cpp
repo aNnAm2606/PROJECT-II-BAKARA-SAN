@@ -39,5 +39,5 @@ void ABlackFlame::Render(iPoint position)
 	SDL_Texture* tex = p_Character->GetCharacterSpriteSheet();
 	SDL_Rect r = p_Animation.GetCurrentFrame();
 
-	app->render->DrawTexture(tex, epos.x, epos.y, &r);
+	app->render->DrawTexture(tex, epos.x, epos.y, &r, false);
 }

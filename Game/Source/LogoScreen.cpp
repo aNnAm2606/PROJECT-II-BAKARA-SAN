@@ -62,7 +62,7 @@ bool LogoScreen::Update(float dt)
 	
 	app->render->DrawTexture(logoScreen, 0, 0, NULL);
 
-	if (count > 399) app->fade->Fade(this, (Module*)app->titleScreen);
+	if (count > 90) app->fade->Fade(this, (Module*)app->titleScreen);
 	else count++;
 
 	return true;

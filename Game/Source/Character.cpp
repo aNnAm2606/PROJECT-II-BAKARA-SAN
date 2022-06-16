@@ -111,10 +111,10 @@ void Character::Render(iPoint position)
 	// Battle state
 	switch (m_BattleState) {
 		case EBattleState::EBATTLESTATE_BASE:
-			app->render->DrawTexture(m_BaseGrid, position.x, position.y);
+			app->render->DrawTexture(m_BaseGrid, position.x, position.y, NULL, false);
 			break;
 		case EBattleState::EBATTLESTATE_ACTIVE:
-			app->render->DrawTexture(m_ActiveGrid, position.x, position.y);
+			app->render->DrawTexture(m_ActiveGrid, position.x, position.y, NULL, false);
 			break;
 		case EBattleState::EBATTLESTATE_SELECTED:
 			break;

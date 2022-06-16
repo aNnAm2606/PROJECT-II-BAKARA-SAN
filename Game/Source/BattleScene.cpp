@@ -70,6 +70,9 @@ bool BattleScene::Start()
 
 	m_PlayerGrid = app->playerModule->GetPlayerGrid();
 
+	app->render->camera.x = 0;
+	app->render->camera.y = 0;
+
 	return true;
 }
 

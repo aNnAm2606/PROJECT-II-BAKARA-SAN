@@ -45,5 +45,5 @@ void ATearsInHeaven::Render(iPoint position)
 	SDL_Rect r = p_Animation.GetCurrentFrame();
 
 	app->render->DrawTexture(tex, epos.x, epos.y, &r);
-	app->render->DrawTexture(tex, epos.x + GRID_PIXEL_SIZE, epos.y, &r);
+	app->render->DrawTexture(tex, epos.x + GRID_PIXEL_SIZE, epos.y, &r, false);
 }
