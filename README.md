@@ -120,7 +120,10 @@ turn will begin, the enemies will attack, and then its ur turn again.
 
 ## Trailer
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/YMVeioFv2Lo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/U2Zf80LdjeU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## GitHub Page
+https://annam2606.github.io/PROJECT-II-BAKARA-SAN/
 
 ## License
 
