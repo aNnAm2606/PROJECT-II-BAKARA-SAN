@@ -43,6 +43,7 @@
 #include "TutorialScene_4.h"
 #include "WorldMapScene.h"
 #include "DungeonScene.h"
+#include "EndScreen.h"
 
 
 
@@ -86,6 +87,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	tutorialScene_4 = new TutorialScene_4(false, true, "tutorialScene_4", { -400, -150 }, { 1600, 450 }, { false, false });
 	worldMapScene = new WorldMapScene(false, false, "worldMapScene", { -300, -200 }, { 0,0 }, { false, false });
 	dungeonScene = new DungeonScene(false, true, "dungeonScene", { 0,-200 }, { 1100,700 }, { true, true });
+	endScreen = new EndScreen(false, false, "endScreen", { 0,0 }, { 0,0 }, { false, false });
 
 	// Ordered for awake / Start / Update
 	// Reverse order of CleanUp
@@ -113,6 +115,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(logoScreen);
 	AddModule(gameplayScreen);
 	AddModule(battleScene);
+	AddModule(endScreen);
 	
 	// Game modules
 	//AddModule(battleModule);
